@@ -37,6 +37,14 @@
         .tab-btn::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: transparent; transition: background-color 0.3s ease; }
         .tab-btn.active { color: #000; }
         .tab-btn.active::after { background-color: #000; }
+
+        /* Glassmorphism navbar */
+        .nav-glass { background: rgba(0, 0, 0, 0.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: transparent; }
+        #navbar.scrolled.nav-transparent { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: #e5e7eb; }
+
+        /* When navbar is scrolled, always show dark logo */
+        #navbar.scrolled .logo-default { display: none !important; }
+        #navbar.scrolled .logo-hover { display: block !important; }
     </style>
 </head>
 

@@ -1,10 +1,14 @@
 <!-- Desktop Navbar -->
-<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/') ? 'bg-transparent border-b border-transparent text-white hover:bg-white hover:text-black nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
-    <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-20">
+<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
         <!-- Logo -->
-        <a href="{{ route('home') }}" class="flex-shrink-0 logo-container">
-            <img src="{{ Request::is('/') ? asset('assets/logo-w.svg') : asset('assets/logo.svg') }}" alt="ROX" class="h-6 logo-default">
-            <img src="{{ asset('assets/logo.svg') }}" alt="ROX" class="h-6 logo-hover hidden">
+        <a href="{{ route('home') }}" class="flex-shrink-0">
+            @if(Request::is('/', 'rox-01', 'rox-adamas'))
+                <img src="{{ asset('assets/logo-w.svg') }}" alt="ROX" class="h-6 logo-default">
+                <img src="{{ asset('assets/logo.svg') }}" alt="ROX" class="h-6 logo-hover hidden">
+            @else
+                <img src="{{ asset('assets/logo.svg') }}" alt="ROX" class="h-6">
+            @endif
         </a>
 
         <!-- Menu items -->

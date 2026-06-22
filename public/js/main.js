@@ -1,41 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
-    const navLogo = document.getElementById('nav-logo');
     const mobileMenuBtn = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
 
     // Sticky Navbar & Logo switch
+    const isTransparentNav = navbar.classList.contains('nav-transparent');
+
     window.addEventListener('scroll', () => {
+        if (!isTransparentNav) return;
+
+        const logoDefault = navbar.querySelector('.logo-default');
+        const logoHover = navbar.querySelector('.logo-hover');
+
         if (window.scrollY > 50) {
-            navbar.classList.add('bg-white', 'shadow-md');
-            navbar.classList.remove('bg-transparent');
-            // Change to black logo when background is white
-            navLogo.src = 'assets/logo.svg';
-            // Change nav links text to black
-            document.querySelectorAll('#nav-links a').forEach(link => {
-                link.classList.remove('text-white');
-                link.classList.add('text-black');
-            });
-            // Change burger menu bars to black
-            document.querySelectorAll('#mobile-menu .bar').forEach(bar => {
-                bar.classList.remove('bg-white');
-                bar.classList.add('bg-black');
-            });
+            navbar.classList.remove('text-white');
+            navbar.classList.add('shadow-md', 'text-black', 'scrolled');
+            if (logoDefault && logoHover) {
+                logoDefault.classList.add('hidden');
+                logoHover.classList.remove('hidden');
+            }
         } else {
-            navbar.classList.add('bg-transparent');
-            navbar.classList.remove('bg-white', 'shadow-md');
-            // Revert to white logo
-            navLogo.src = 'assets/logo-w.svg';
-            // Revert nav links text to white
-            document.querySelectorAll('#nav-links a').forEach(link => {
-                link.classList.add('text-white');
-                link.classList.remove('text-black');
-            });
-            // Revert burger menu bars to white
-            document.querySelectorAll('#mobile-menu .bar').forEach(bar => {
-                bar.classList.add('bg-white');
-                bar.classList.remove('bg-black');
-            });
+            navbar.classList.remove('shadow-md', 'text-black', 'scrolled');
+            navbar.classList.add('text-white');
+            if (logoDefault && logoHover) {
+                logoDefault.classList.remove('hidden');
+                logoHover.classList.add('hidden');
+            }
         }
     });
 
