@@ -59,29 +59,125 @@
     </section>
 
     <!-- Interior Gallery / Comfort Section -->
-    <section class="py-16 md:py-24 bg-[#f4f6f9]">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-8">
-            <div class="text-center mb-12 md:mb-16">
+    <section class="py-16 md:py-24 bg-[#f4f6f9]" id="comfort-section">
+        <!-- Custom Cursor -->
+        <div id="comfort-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
+            <span class="text-white text-xs font-medium tracking-wide">mais</span>
+        </div>
+        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="text-center mb-12 md:mb-16 animate-up">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Conforto em Primeira Classe</h2>
                 <p class="text-gray-500 font-light max-w-2xl mx-auto text-sm md:text-base">Habitáculo desenhado ao detalhe para uma experiência de condução imersiva e relaxante, com tecnologia inteligente a bordo.</p>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div class="bg-gray-200 h-[250px] md:h-[500px] rounded flex items-center justify-center overflow-hidden">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior 1" class="w-full h-full object-cover">
+                <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
+                        <h3 class="text-2xl md:text-3xl font-medium mb-2">Interior Premium</h3>
+                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">Materiais nobres e acabamentos de excelência.</p>
+                    </div>
+                    <a href="#" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
+                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
+                    </a>
                 </div>
-                <div class="bg-gray-200 h-[250px] md:h-[500px] rounded flex items-center justify-center overflow-hidden">
-                    <img src="{{ asset('assets/banner3.jpg') }}" alt="Interior 2" class="w-full h-full object-cover">
+                <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
+                    <img src="{{ asset('assets/keji.jpg') }}" alt="Interior 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
+                        <h3 class="text-2xl md:text-3xl font-medium mb-2">Tecnologia Inteligente</h3>
+                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">Painel digital imersivo e conectividade total.</p>
+                    </div>
+                    <a href="#" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
+                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Full-width Showcase Section -->
+    <section class="relative bg-black" id="showcase-section">
+        <!-- Video -->
+        <div class="relative h-[100svh] w-full overflow-hidden">
+            <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline poster="{{ asset('assets/banner.jpg') }}">
+                <source src="{{ asset('Dealer Feed Video ADAMAS - Subtitle free version.mp4') }}" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+                <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+                    <p id="showcase-label" class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6 opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out, transform 0.7s ease-out;">ROX 01</p>
+                    <h2 id="showcase-title" class="text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out 0.15s, transform 0.7s ease-out 0.15s;">Feito para conquistar qualquer terreno com elegância</h2>
+                    <button id="showcase-link" class="inline-flex items-center gap-2 text-white text-sm font-medium opacity-0 translate-y-6 hover:opacity-80 cursor-pointer" style="transition: opacity 0.7s ease-out 0.3s, transform 0.7s ease-out 0.3s;">
+                        Ver Vídeo Completo <span class="text-xs">&#9654;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards below video -->
+        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
+            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+                <!-- Top: Full-width card -->
+                <div class="relative h-[300px] md:h-[500px] overflow-hidden group mb-4 md:mb-6 animate-up">
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Tecnologia Inteligente</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Inteligência total que coloca a tecnologia ao serviço de cada viagem.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                    </div>
+                </div>
+
+                <!-- Bottom: Two cards side by side -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="relative h-[250px] md:h-[400px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/keji.jpg') }}" alt="Comunidade ROX" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Comunidade ROX</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">A ROX leva-o em viagens por montanhas e mares.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                    <div class="relative h-[250px] md:h-[400px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/rox01.jpg') }}" alt="Marcos ROX" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Marcos ROX</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">No caminho da exploração, cada passo deixa a sua marca.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Video Player Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[200] bg-black hidden items-center justify-center">
+        <button id="video-modal-close" class="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors z-10 cursor-pointer">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <video id="video-player" class="w-full h-full object-contain" controls>
+            <source src="{{ asset('Dealer Feed Video ADAMAS - Subtitle free version.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
     <!-- 360 Viewer Section (Canvas Based) -->
     <section class="py-16 md:py-32 bg-[#F8F9FA] relative">
         <div class="max-w-[1600px] mx-auto text-center px-6 md:px-8">
-            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-8 md:mb-10">Explorar ROX 01</h2>
+            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-8 md:mb-10 animate-up">Explorar ROX 01</h2>
             
-            <div class="flex justify-center gap-4 md:gap-6 mb-8 md:mb-12">
+            <div class="flex justify-center gap-4 md:gap-6 mb-8 md:mb-12 animate-up">
                 <button class="color-swatch w-8 h-8 md:w-10 md:h-10 rounded-full border border-gray-300 shadow-sm transition-transform hover:scale-110 active-color ring-2 ring-offset-2 ring-black bg-[#E8E9EB]" data-color="white" aria-label="Branco"></button>
                 <button class="color-swatch w-8 h-8 md:w-10 md:h-10 rounded-full border border-gray-300 shadow-sm transition-transform hover:scale-110 bg-[#7B7C7F]" data-color="gray" aria-label="Cinzento"></button>
                 <button class="color-swatch w-8 h-8 md:w-10 md:h-10 rounded-full border border-gray-300 shadow-sm transition-transform hover:scale-110 bg-[#1D1E20]" data-color="black" aria-label="Preto"></button>
@@ -121,7 +217,7 @@
     <!-- Lifestyle Image Grid -->
     <section class="bg-white">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-1 h-auto md:h-[800px]">
-            <div class="relative overflow-hidden group h-[400px] md:h-full">
+            <div class="relative overflow-hidden group h-[400px] md:h-full animate-up">
                 <img src="{{ asset('assets/banner4.jpg') }}" alt="Outdoor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div class="absolute bottom-8 md:bottom-12 left-0 right-0 container-align-left text-white">
@@ -129,7 +225,7 @@
                     <p class="font-light text-xs md:text-sm text-gray-300">Capacidade excecional em piso não alcatroado.</p>
                 </div>
             </div>
-            <div class="relative overflow-hidden group h-[400px] md:h-full">
+            <div class="relative overflow-hidden group h-[400px] md:h-full animate-up">
                 <img src="{{ asset('assets/banner1.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div class="absolute bottom-8 md:bottom-12 left-0 right-0 px-6 text-white">
@@ -377,6 +473,110 @@
                 if (Math.abs(touchDiff) > 50) slideTo(currentSlide + (touchDiff > 0 ? -1 : 1));
                 touchDiff = 0;
             });
+        });
+    </script>
+
+    <!-- Showcase Scroll Reveal Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var showcaseSection = document.getElementById('showcase-section');
+            var els = [
+                document.getElementById('showcase-label'),
+                document.getElementById('showcase-title'),
+                document.getElementById('showcase-link')
+            ];
+            var revealed = false;
+
+            function onScroll() {
+                var rect = showcaseSection.getBoundingClientRect();
+                var vh = window.innerHeight;
+
+                if (rect.top < vh * 0.6 && !revealed) {
+                    revealed = true;
+                    els.forEach(function(el) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
+                }
+
+                if (rect.bottom < 0 || rect.top > vh) {
+                    revealed = false;
+                    els.forEach(function(el) {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(24px)';
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        });
+    </script>
+
+    <!-- Video Modal Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var openBtn = document.getElementById('showcase-link');
+            var modal = document.getElementById('video-modal');
+            var closeBtn = document.getElementById('video-modal-close');
+            var player = document.getElementById('video-player');
+
+            openBtn.addEventListener('click', function() {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                player.currentTime = 0;
+                player.play();
+            });
+
+            closeBtn.addEventListener('click', function() {
+                player.pause();
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeBtn.click();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeBtn.click();
+            });
+        });
+    </script>
+
+    <!-- Comfort Section Cursor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var comfortCursor = document.getElementById('comfort-cursor');
+            var comfortSection = document.getElementById('comfort-section');
+            var comfortCards = document.querySelectorAll('.comfort-card');
+            var comfortBtns = comfortSection.querySelectorAll('.slide-btn, a');
+            var isTouchDev = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+            if (!isTouchDev) {
+                comfortSection.addEventListener('mousemove', function(e) {
+                    comfortCursor.style.left = e.clientX + 'px';
+                    comfortCursor.style.top = e.clientY + 'px';
+                });
+
+                comfortCards.forEach(function(card) {
+                    card.addEventListener('mouseenter', function() { comfortCursor.style.opacity = '1'; });
+                    card.addEventListener('mouseleave', function() { comfortCursor.style.opacity = '0'; });
+                });
+
+                comfortCards.forEach(function(card) {
+                    var btns = card.querySelectorAll('a');
+                    btns.forEach(function(btn) {
+                        btn.addEventListener('mouseenter', function() {
+                            comfortCursor.style.opacity = '0';
+                            btn.style.cursor = 'pointer';
+                        });
+                        btn.addEventListener('mouseleave', function() {
+                            comfortCursor.style.opacity = '1';
+                        });
+                    });
+                });
+            }
         });
     </script>
 </x-front-layout>
