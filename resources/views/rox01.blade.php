@@ -2,21 +2,65 @@
     <x-slot name="title">ROX 01 - SUV Híbrido</x-slot>
 
     <!-- Hero Section -->
-    <section class="min-h-[80vh] md:h-[90vh] bg-cover bg-center flex items-center px-6 md:px-[10%] relative" style="background-image: url('{{ asset('assets/banner1.jpg') }}')">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="max-w-[1400px] w-full text-white relative z-10 hero-animate pt-20 md:pt-0">
-            <h1 class="mb-4 text-5xl md:text-7xl font-light tracking-widest">
-                ROX 01
-            </h1>
-            <p class="text-lg md:text-3xl font-light max-w-2xl text-gray-200 tracking-wide">
-                Um novo padrão para o luxo e capacidade Todo-o-Terreno.
+    <section class="h-[100svh] w-full bg-cover bg-center relative flex items-end" style="background-image: url('{{ asset('assets/banner1.jpg') }}')">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 pb-12 sm:pb-16 md:pb-20 w-full hero-animate">
+            <img src="{{ asset('assets/rox01-global.svg') }}" alt="ROX 01" class="h-8 sm:h-10 md:h-14 mb-2 sm:mb-3">
+            <p class="text-sm sm:text-base md:text-xl font-light text-gray-200 tracking-wide">
+                SUV Todo-o-Terreno de Luxo — Cenário Completo
             </p>
+        </div>
+    </section>
+
+    <!-- Lifestyle Slider -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="relative" id="lifestyle-slider">
+            <!-- Custom Cursor -->
+            <div id="slider-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
+                <span class="text-white text-xs font-medium tracking-wide">mais</span>
+            </div>
+
+            <!-- Slides Track -->
+            <div class="flex transition-transform duration-500 ease-out" id="slider-track">
+                @php
+                    $slides = [
+                        ['img' => 'life.jpg', 'title' => 'Espaço Amplo', 'desc' => 'Liberdade sem limites e conforto absoluto no interior.'],
+                        ['img' => 'banner1.jpg', 'title' => 'Versatilidade', 'desc' => 'Conduza com liberdade, onde a viagem vai além do veículo.'],
+                        ['img' => 'services.jpg', 'title' => 'Aventura', 'desc' => 'Preparado para qualquer terreno, feito para explorar.'],
+                        ['img' => 'banner2.jpg', 'title' => 'Tecnologia', 'desc' => 'Inovação inteligente ao serviço da sua condução.'],
+                    ];
+                @endphp
+
+                @foreach($slides as $slide)
+                <div class="slider-card relative flex-shrink-0 overflow-hidden group" style="cursor: none;">
+                    <img src="{{ asset('assets/' . $slide['img']) }}" alt="{{ $slide['title'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
+                        <h3 class="text-2xl md:text-3xl font-medium mb-2">{{ $slide['title'] }}</h3>
+                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">{{ $slide['desc'] }}</p>
+                    </div>
+                    <a href="#" class="slide-btn absolute bottom-6 md:bottom-8 right-6 md:right-8 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
+                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="flex justify-center gap-1 mt-10">
+                <button id="slider-prev" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-400 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+                <button id="slider-next" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-800 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
+            </div>
         </div>
     </section>
 
     <!-- Interior Gallery / Comfort Section -->
     <section class="py-16 md:py-24 bg-[#f4f6f9]">
-        <div class="max-w-[1400px] mx-auto px-6">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8">
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Conforto em Primeira Classe</h2>
                 <p class="text-gray-500 font-light max-w-2xl mx-auto text-sm md:text-base">Habitáculo desenhado ao detalhe para uma experiência de condução imersiva e relaxante, com tecnologia inteligente a bordo.</p>
@@ -34,7 +78,7 @@
 
     <!-- 360 Viewer Section (Canvas Based) -->
     <section class="py-16 md:py-32 bg-[#F8F9FA] relative">
-        <div class="max-w-[1400px] mx-auto text-center px-4 md:px-6">
+        <div class="max-w-[1600px] mx-auto text-center px-6 md:px-8">
             <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-8 md:mb-10">Explorar ROX 01</h2>
             
             <div class="flex justify-center gap-4 md:gap-6 mb-8 md:mb-12">
@@ -64,8 +108,8 @@
     </section>
 
     <!-- Dark Features (Performance & Tech) -->
-    <section class="bg-black text-white py-20 md:py-40 px-6">
-        <div class="max-w-[1000px] mx-auto text-center animate-up">
+    <section class="bg-black text-white py-20 md:py-40">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8 text-center animate-up">
             <h3 class="text-xs md:text-sm font-medium tracking-[3px] uppercase text-gray-400 mb-4 md:mb-6">Performance</h3>
             <h2 class="text-3xl md:text-6xl font-medium mb-6 md:mb-10 leading-tight">Desempenho Off-Road<br>Imbatível</h2>
             <p class="text-gray-300 font-light text-base md:text-xl leading-relaxed max-w-3xl mx-auto">
@@ -75,12 +119,12 @@
     </section>
     
     <!-- Lifestyle Image Grid -->
-    <section class="py-1 bg-white">
+    <section class="bg-white">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-1 h-auto md:h-[800px]">
             <div class="relative overflow-hidden group h-[400px] md:h-full">
                 <img src="{{ asset('assets/banner4.jpg') }}" alt="Outdoor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div class="absolute bottom-8 md:bottom-12 left-8 md:left-12 text-white pr-6">
+                <div class="absolute bottom-8 md:bottom-12 left-0 right-0 container-align-left text-white">
                     <h3 class="text-xl md:text-2xl font-medium mb-2">Aventuras Sem Limites</h3>
                     <p class="font-light text-xs md:text-sm text-gray-300">Capacidade excecional em piso não alcatroado.</p>
                 </div>
@@ -88,7 +132,7 @@
             <div class="relative overflow-hidden group h-[400px] md:h-full">
                 <img src="{{ asset('assets/banner1.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div class="absolute bottom-8 md:bottom-12 left-8 md:left-12 text-white pr-6">
+                <div class="absolute bottom-8 md:bottom-12 left-0 right-0 px-6 text-white">
                     <h3 class="text-xl md:text-2xl font-medium mb-2">Design Adaptável</h3>
                     <p class="font-light text-xs md:text-sm text-gray-300">Espaço de bagageira configurável para as suas viagens.</p>
                 </div>
@@ -249,6 +293,90 @@
             });
             window.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX, e.touches[0].pageY, false), { passive: true });
             window.addEventListener('touchend', stopDrag);
+        });
+    </script>
+
+    <!-- Lifestyle Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('slider-track');
+            const prevBtn = document.getElementById('slider-prev');
+            const nextBtn = document.getElementById('slider-next');
+            const cursor = document.getElementById('slider-cursor');
+            const sliderSection = document.getElementById('lifestyle-slider');
+            const cards = document.querySelectorAll('.slider-card');
+            const slideButtons = document.querySelectorAll('.slide-btn');
+            let currentSlide = 0;
+            const isTouchDev = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const GAP = 16;
+
+            function layout() {
+                const vw = window.innerWidth;
+                const isMobile = vw < 768;
+                // 2 full cards + 2 half peeks + 3 gaps = viewport
+                // cardW = (vw - GAP * 3) / 3  => half peek on each side = cardW/2
+                const cardW = isMobile ? vw * 0.85 : (vw - GAP * 3) / 3;
+                const cardH = isMobile ? 400 : 550;
+
+                cards.forEach(function(card) {
+                    card.style.width = cardW + 'px';
+                    card.style.height = cardH + 'px';
+                    card.style.marginRight = GAP + 'px';
+                });
+
+                slideTo(currentSlide);
+            }
+
+            function slideTo(index) {
+                const vw = window.innerWidth;
+                const isMobile = vw < 768;
+                const cardW = cards[0].offsetWidth;
+                const step = cardW + GAP;
+                const maxIndex = Math.max(0, cards.length - 3);
+                currentSlide = Math.max(-1, Math.min(index, maxIndex));
+
+                // Start offset: negative half card so it peeks on the left
+                var initialOffset = -(cardW / 2);
+                var offset = initialOffset - currentSlide * step;
+
+                track.style.transform = 'translateX(' + offset + 'px)';
+            }
+
+            prevBtn.addEventListener('click', function() { slideTo(currentSlide - 1); });
+            nextBtn.addEventListener('click', function() { slideTo(currentSlide + 1); });
+
+            layout();
+            window.addEventListener('resize', layout);
+
+            // Custom cursor
+            if (!isTouchDev) {
+                sliderSection.addEventListener('mousemove', function(e) {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                cards.forEach(function(card) {
+                    card.addEventListener('mouseenter', function() { cursor.style.opacity = '1'; });
+                    card.addEventListener('mouseleave', function() { cursor.style.opacity = '0'; });
+                });
+
+                slideButtons.forEach(function(btn) {
+                    btn.addEventListener('mouseenter', function() {
+                        cursor.style.opacity = '0';
+                        btn.style.cursor = 'pointer';
+                    });
+                    btn.addEventListener('mouseleave', function() { cursor.style.opacity = '1'; });
+                });
+            }
+
+            // Touch swipe
+            var touchStartX = 0, touchDiff = 0;
+            track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchmove', function(e) { touchDiff = e.touches[0].clientX - touchStartX; }, { passive: true });
+            track.addEventListener('touchend', function() {
+                if (Math.abs(touchDiff) > 50) slideTo(currentSlide + (touchDiff > 0 ? -1 : 1));
+                touchDiff = 0;
+            });
         });
     </script>
 </x-front-layout>

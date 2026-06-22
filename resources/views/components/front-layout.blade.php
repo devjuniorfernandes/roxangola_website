@@ -42,6 +42,10 @@
         .nav-glass { background: rgba(0, 0, 0, 0.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: transparent; }
         #navbar.scrolled.nav-transparent { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: #e5e7eb; }
 
+        /* Align text inside full-width sections with the global container */
+        .container-align-left { padding-left: max(1.5rem, calc((100vw - 1600px) / 2 + 2rem)); }
+        .container-align-right { padding-right: max(1.5rem, calc((100vw - 1600px) / 2 + 2rem)); }
+
         /* When navbar is scrolled, always show dark logo */
         #navbar.scrolled .logo-default { display: none !important; }
         #navbar.scrolled .logo-hover { display: block !important; }

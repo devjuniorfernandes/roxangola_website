@@ -1,5 +1,5 @@
-    <footer class="bg-black text-white pt-16 pb-10 px-6 md:px-[10%]">
-        <div class="max-w-[1400px] mx-auto">
+    <footer class="bg-black text-white pt-16 pb-10 px-6 md:px-8">
+        <div class="max-w-[1600px] mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8 md:gap-0">
                 <img src="{{ asset('assets/logo-footer.svg') }}" alt="ROX Logo" class="h-5">
                 <div class="flex gap-8">
