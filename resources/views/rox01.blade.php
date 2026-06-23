@@ -12,6 +12,74 @@
         </div>
     </section>
 
+    <!-- Specs Slider Section -->
+    <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
+        <!-- Title -->
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8 mb-14 md:mb-20 animate-up">
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Luxo Todo-o-Terreno</h3>
+            <p class="text-2xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX 01 redefine o conceito de SUV de luxo todo-o-terreno, oferecendo sensações de condução excepcionais.</p>
+        </div>
+
+        <!-- Slider -->
+        <div class="relative" id="specs-slider">
+            @php
+                $specSlides = [
+                    [
+                        'img' => 'rox01.jpg',
+                        'title' => 'Protecção de Nível Superior',
+                        'bottom' => '<p class="text-xs md:text-sm text-gray-400 mb-1">Resistência Recorde do Tecto</p><p class="text-lg md:text-xl font-medium">59.730 N</p>',
+                    ],
+                    [
+                        'img' => 'lichengbei.jpg',
+                        'title' => 'SUV Médio-Grande de Luxo',
+                        'bottom' => '<div class="flex gap-6 md:gap-10 text-center justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Comprimento</p><p class="text-sm md:text-base font-mono font-medium">5.298 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Largura</p><p class="text-sm md:text-base font-mono font-medium">1.985 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Altura</p><p class="text-sm md:text-base font-mono font-medium">1.856 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Entre eixos</p><p class="text-sm md:text-base font-mono font-medium">3.010 mm</p></div></div>',
+                    ],
+                    [
+                        'img' => 'banner1.jpg',
+                        'title' => 'Testado em Todo o Mundo',
+                        'bottom' => '<p class="text-xs md:text-sm text-gray-400 mb-1">Distância mínima ao solo 272mm</p><p class="text-lg md:text-xl font-medium">Ângulo de ataque 27.5°</p>',
+                    ],
+                    [
+                        'img' => 'keji.jpg',
+                        'title' => 'Cockpit Digital Imersivo',
+                        'bottom' => '<p class="text-xs md:text-sm text-gray-400 mb-1">Ecrã panorâmico integrado</p><p class="text-lg md:text-xl font-medium">Conectividade total</p>',
+                    ],
+                ];
+            @endphp
+
+            <div class="flex gap-4" id="specs-track">
+                @php $allSlides = array_merge([end($specSlides)], $specSlides, [$specSlides[0]]); @endphp
+                @foreach($allSlides as $idx => $spec)
+                <div class="specs-card relative flex-shrink-0 h-[400px] md:h-[520px] overflow-hidden">
+                    <img src="{{ asset('assets/' . $spec['img']) }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute top-6 md:top-8 left-0 right-0 text-center px-6">
+                        <h4 class="text-base md:text-lg font-medium text-white">{{ $spec['title'] }}</h4>
+                    </div>
+                    <div class="absolute bottom-6 md:bottom-8 left-6 md:left-8 right-6 md:right-8 text-white">
+                        {!! $spec['bottom'] !!}
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <!-- Glassmorphism arrow controls inside center card -->
+            <button id="specs-prev" class="absolute top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-200" style="left: calc(50% - 20vw); background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+            </button>
+            <button id="specs-next" class="absolute top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-200" style="right: calc(50% - 20vw); background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+            </button>
+
+            <!-- Pagination bars -->
+            <div class="flex justify-center gap-2 mt-10" id="specs-dots">
+                @foreach($specSlides as $idx => $spec)
+                <button class="specs-dot w-10 h-[3px] transition-all duration-300 {{ $idx === 0 ? 'bg-white' : 'bg-gray-700' }}" data-index="{{ $idx }}"></button>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <!-- Lifestyle Slider -->
     <section class="py-16 md:py-24 bg-white overflow-hidden">
         <div class="relative" id="lifestyle-slider">
@@ -33,7 +101,7 @@
 
                 @foreach($slides as $slide)
                 <div class="slider-card relative flex-shrink-0 overflow-hidden group" style="cursor: none;">
-                    <img src="{{ asset('assets/' . $slide['img']) }}" alt="{{ $slide['title'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <img src="{{ asset('assets/' . $slide['img']) }}" alt="{{ $slide['title'] }}" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
                     <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
                         <h3 class="text-2xl md:text-3xl font-medium mb-2">{{ $slide['title'] }}</h3>
@@ -72,7 +140,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior 1" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
                     <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
                         <h3 class="text-2xl md:text-3xl font-medium mb-2">Interior Premium</h3>
@@ -83,7 +151,7 @@
                     </a>
                 </div>
                 <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
-                    <img src="{{ asset('assets/keji.jpg') }}" alt="Interior 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <img src="{{ asset('assets/keji.jpg') }}" alt="Interior 2" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
                     <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
                         <h3 class="text-2xl md:text-3xl font-medium mb-2">Tecnologia Inteligente</h3>
@@ -122,7 +190,7 @@
             <div class="max-w-[1200px] mx-auto px-6 md:px-8">
                 <!-- Top: Full-width card -->
                 <div class="relative h-[300px] md:h-[500px] overflow-hidden group mb-4 md:mb-6 animate-up">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                         <div class="text-white">
@@ -136,7 +204,7 @@
                 <!-- Bottom: Two cards side by side -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[250px] md:h-[400px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/keji.jpg') }}" alt="Comunidade ROX" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="{{ asset('assets/keji.jpg') }}" alt="Comunidade ROX" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -147,7 +215,7 @@
                         </div>
                     </div>
                     <div class="relative h-[250px] md:h-[400px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/rox01.jpg') }}" alt="Marcos ROX" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="{{ asset('assets/rox01.jpg') }}" alt="Marcos ROX" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -218,7 +286,7 @@
     <section class="bg-white">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-1 h-auto md:h-[800px]">
             <div class="relative overflow-hidden group h-[400px] md:h-full animate-up">
-                <img src="{{ asset('assets/banner4.jpg') }}" alt="Outdoor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <img src="{{ asset('assets/banner4.jpg') }}" alt="Outdoor" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div class="absolute bottom-8 md:bottom-12 left-0 right-0 container-align-left text-white">
                     <h3 class="text-xl md:text-2xl font-medium mb-2">Aventuras Sem Limites</h3>
@@ -226,7 +294,7 @@
                 </div>
             </div>
             <div class="relative overflow-hidden group h-[400px] md:h-full animate-up">
-                <img src="{{ asset('assets/banner1.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <img src="{{ asset('assets/banner1.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div class="absolute bottom-8 md:bottom-12 left-0 right-0 px-6 text-white">
                     <h3 class="text-xl md:text-2xl font-medium mb-2">Design Adaptável</h3>
@@ -236,347 +304,42 @@
         </div>
     </section>
 
-    <!-- Script for Canvas 360 Viewer -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('viewer-container');
-            const canvas = document.getElementById('viewer-canvas');
-            const ctx = canvas.getContext('2d');
-            const swatches = document.querySelectorAll('.color-swatch');
-            const loading = document.getElementById('viewer-loading');
-            const icon360 = document.getElementById('icon-360');
-            
-            let currentColor = 'white';
-            let currentFrame = 1;
-            const totalFrames = 36;
-            let images = {}; // Cache images by color
-            let isDragging = false;
-            let startX = 0;
-            let isLoaded = false;
-            let isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-            
-            // Set internal resolution of canvas high for crispness
-            canvas.width = 1920;
-            canvas.height = 1080;
-            
-            function loadImagesForColor(color) {
-                loading.style.opacity = '1';
-                loading.style.pointerEvents = 'auto';
-                isLoaded = false;
-                
-                // If already cached, just render
-                if (images[color] && images[color].length === totalFrames) {
-                    drawFrame(currentFrame, color);
-                    loading.style.opacity = '0';
-                    loading.style.pointerEvents = 'none';
-                    isLoaded = true;
-                    return;
-                }
-                
-                images[color] = [];
-                let loadedCount = 0;
-                
-                for(let i = 1; i <= totalFrames; i++) {
-                    const img = new Image();
-                    img.onload = () => {
-                        loadedCount++;
-                        if(loadedCount === totalFrames) {
-                            drawFrame(currentFrame, color);
-                            loading.style.opacity = '0';
-                            loading.style.pointerEvents = 'none';
-                            isLoaded = true;
-                        }
-                    };
-                    img.src = `/assets/rox_1/${color}_${i}.png`;
-                    images[color][i-1] = img;
-                }
-            }
-            
-            function drawFrame(frameIndex, color) {
-                if(!images[color] || !images[color][frameIndex-1]) return;
-                const img = images[color][frameIndex-1];
-                
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                // Draw image centered and scaled to fit the canvas proportionally
-                const hRatio = canvas.width / img.width;
-                const vRatio = canvas.height / img.height;
-                const ratio  = Math.min(hRatio, vRatio);
-                const centerShift_x = (canvas.width - img.width*ratio) / 2;
-                const centerShift_y = (canvas.height - img.height*ratio) / 2;  
-                
-                ctx.drawImage(img, 0,0, img.width, img.height,
-                                   centerShift_x, centerShift_y, img.width*ratio, img.height*ratio);
-            }
-            
-            // Initial load
-            loadImagesForColor(currentColor);
-            
-            // Color Switching Logic
-            swatches.forEach(swatch => {
-                swatch.addEventListener('click', (e) => {
-                    swatches.forEach(s => s.classList.remove('ring-2', 'ring-offset-2', 'ring-black'));
-                    e.target.classList.add('ring-2', 'ring-offset-2', 'ring-black');
-                    currentColor = e.target.getAttribute('data-color');
-                    loadImagesForColor(currentColor);
-                });
-            });
-            
-            // Custom Cursor Logic
-            container.addEventListener('mouseenter', () => {
-                if(!isDragging && !isTouchDevice && isLoaded) {
-                    icon360.style.opacity = '1';
-                }
-            });
+    <!-- Full-screen Feature Sections -->
+    @php
+        $features = [
+            [
+                'img' => 'lichengbei.jpg',
+                'title' => 'Design robusto e imponente',
+                'desc' => 'Linhas musculadas e proporções equilibradas que transmitem força e elegância em qualquer cenário.',
+            ],
+            [
+                'img' => 'keji.jpg',
+                'title' => 'Interior pensado ao detalhe',
+                'desc' => 'Cada superfície, cada textura e cada comando foi desenhado para oferecer uma experiência de condução premium.',
+            ],
+            [
+                'img' => 'shequ.jpg',
+                'title' => 'Feito para a aventura em grupo',
+                'desc' => 'Conquiste os terrenos mais exigentes ao lado de quem partilha a mesma paixão pela exploração.',
+            ],
+        ];
+    @endphp
 
-            container.addEventListener('mouseleave', () => {
-                icon360.style.opacity = '0';
-                isDragging = false;
-            });
-            
-            // Interaction Logic
-            function startDrag(x) {
-                if(!isLoaded) return;
-                isDragging = true;
-                startX = x;
-                icon360.style.opacity = '0'; // Hide 360 icon when user starts interacting
-            }
-            
-            function onDrag(x, y, isMouse = false) {
-                if (!isLoaded) return;
-                
-                // Update custom cursor position if mouse
-                if(isMouse && !isDragging && !isTouchDevice) {
-                    icon360.style.opacity = '1';
-                    const rect = container.getBoundingClientRect();
-                    icon360.style.left = (x - rect.left) + 'px';
-                    icon360.style.top = (y - rect.top) + 'px';
-                }
+    @foreach($features as $i => $feature)
+    <div class="feature-wrapper relative" style="height: 200svh;">
+        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+            <img src="{{ asset('assets/' . $feature['img']) }}" alt="{{ $feature['title'] }}" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 flex items-end pb-[20%] md:pb-[15%]">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-3 leading-snug max-w-2xl">{{ $feature['title'] }}</h2>
+                    <p class="feature-desc text-sm md:text-base font-light text-gray-300 max-w-xl">{{ $feature['desc'] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
 
-                if (!isDragging) return;
-                
-                const diff = x - startX;
-                // Sensitivity
-                if (Math.abs(diff) > 12) {
-                    if (diff > 0) {
-                        currentFrame--;
-                        if (currentFrame < 1) currentFrame = totalFrames;
-                    } else {
-                        currentFrame++;
-                        if (currentFrame > totalFrames) currentFrame = 1;
-                    }
-                    drawFrame(currentFrame, currentColor);
-                    startX = x;
-                }
-            }
-            
-            function stopDrag() {
-                isDragging = false;
-                if(!isTouchDevice) {
-                    icon360.style.opacity = '1';
-                }
-            }
-            
-            // Mouse Events
-            container.addEventListener('mousedown', (e) => startDrag(e.pageX));
-            window.addEventListener('mousemove', (e) => onDrag(e.pageX, e.clientY, true));
-            window.addEventListener('mouseup', stopDrag);
-            
-            // Touch Events (Mobile)
-            container.addEventListener('touchstart', (e) => {
-                icon360.style.opacity = '0'; // Never show custom cursor on touch
-                startDrag(e.touches[0].pageX);
-            });
-            window.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX, e.touches[0].pageY, false), { passive: true });
-            window.addEventListener('touchend', stopDrag);
-        });
-    </script>
-
-    <!-- Lifestyle Slider Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.getElementById('slider-track');
-            const prevBtn = document.getElementById('slider-prev');
-            const nextBtn = document.getElementById('slider-next');
-            const cursor = document.getElementById('slider-cursor');
-            const sliderSection = document.getElementById('lifestyle-slider');
-            const cards = document.querySelectorAll('.slider-card');
-            const slideButtons = document.querySelectorAll('.slide-btn');
-            let currentSlide = 0;
-            const isTouchDev = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-            const GAP = 16;
-
-            function layout() {
-                const vw = window.innerWidth;
-                const isMobile = vw < 768;
-                // 2 full cards + 2 half peeks + 3 gaps = viewport
-                // cardW = (vw - GAP * 3) / 3  => half peek on each side = cardW/2
-                const cardW = isMobile ? vw * 0.85 : (vw - GAP * 3) / 3;
-                const cardH = isMobile ? 400 : 550;
-
-                cards.forEach(function(card) {
-                    card.style.width = cardW + 'px';
-                    card.style.height = cardH + 'px';
-                    card.style.marginRight = GAP + 'px';
-                });
-
-                slideTo(currentSlide);
-            }
-
-            function slideTo(index) {
-                const vw = window.innerWidth;
-                const isMobile = vw < 768;
-                const cardW = cards[0].offsetWidth;
-                const step = cardW + GAP;
-                const maxIndex = Math.max(0, cards.length - 3);
-                currentSlide = Math.max(-1, Math.min(index, maxIndex));
-
-                // Start offset: negative half card so it peeks on the left
-                var initialOffset = -(cardW / 2);
-                var offset = initialOffset - currentSlide * step;
-
-                track.style.transform = 'translateX(' + offset + 'px)';
-            }
-
-            prevBtn.addEventListener('click', function() { slideTo(currentSlide - 1); });
-            nextBtn.addEventListener('click', function() { slideTo(currentSlide + 1); });
-
-            layout();
-            window.addEventListener('resize', layout);
-
-            // Custom cursor
-            if (!isTouchDev) {
-                sliderSection.addEventListener('mousemove', function(e) {
-                    cursor.style.left = e.clientX + 'px';
-                    cursor.style.top = e.clientY + 'px';
-                });
-
-                cards.forEach(function(card) {
-                    card.addEventListener('mouseenter', function() { cursor.style.opacity = '1'; });
-                    card.addEventListener('mouseleave', function() { cursor.style.opacity = '0'; });
-                });
-
-                slideButtons.forEach(function(btn) {
-                    btn.addEventListener('mouseenter', function() {
-                        cursor.style.opacity = '0';
-                        btn.style.cursor = 'pointer';
-                    });
-                    btn.addEventListener('mouseleave', function() { cursor.style.opacity = '1'; });
-                });
-            }
-
-            // Touch swipe
-            var touchStartX = 0, touchDiff = 0;
-            track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
-            track.addEventListener('touchmove', function(e) { touchDiff = e.touches[0].clientX - touchStartX; }, { passive: true });
-            track.addEventListener('touchend', function() {
-                if (Math.abs(touchDiff) > 50) slideTo(currentSlide + (touchDiff > 0 ? -1 : 1));
-                touchDiff = 0;
-            });
-        });
-    </script>
-
-    <!-- Showcase Scroll Reveal Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var showcaseSection = document.getElementById('showcase-section');
-            var els = [
-                document.getElementById('showcase-label'),
-                document.getElementById('showcase-title'),
-                document.getElementById('showcase-link')
-            ];
-            var revealed = false;
-
-            function onScroll() {
-                var rect = showcaseSection.getBoundingClientRect();
-                var vh = window.innerHeight;
-
-                if (rect.top < vh * 0.6 && !revealed) {
-                    revealed = true;
-                    els.forEach(function(el) {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    });
-                }
-
-                if (rect.bottom < 0 || rect.top > vh) {
-                    revealed = false;
-                    els.forEach(function(el) {
-                        el.style.opacity = '0';
-                        el.style.transform = 'translateY(24px)';
-                    });
-                }
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
-        });
-    </script>
-
-    <!-- Video Modal Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var openBtn = document.getElementById('showcase-link');
-            var modal = document.getElementById('video-modal');
-            var closeBtn = document.getElementById('video-modal-close');
-            var player = document.getElementById('video-player');
-
-            openBtn.addEventListener('click', function() {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                player.currentTime = 0;
-                player.play();
-            });
-
-            closeBtn.addEventListener('click', function() {
-                player.pause();
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            });
-
-            modal.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeBtn.click();
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeBtn.click();
-            });
-        });
-    </script>
-
-    <!-- Comfort Section Cursor Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var comfortCursor = document.getElementById('comfort-cursor');
-            var comfortSection = document.getElementById('comfort-section');
-            var comfortCards = document.querySelectorAll('.comfort-card');
-            var comfortBtns = comfortSection.querySelectorAll('.slide-btn, a');
-            var isTouchDev = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-
-            if (!isTouchDev) {
-                comfortSection.addEventListener('mousemove', function(e) {
-                    comfortCursor.style.left = e.clientX + 'px';
-                    comfortCursor.style.top = e.clientY + 'px';
-                });
-
-                comfortCards.forEach(function(card) {
-                    card.addEventListener('mouseenter', function() { comfortCursor.style.opacity = '1'; });
-                    card.addEventListener('mouseleave', function() { comfortCursor.style.opacity = '0'; });
-                });
-
-                comfortCards.forEach(function(card) {
-                    var btns = card.querySelectorAll('a');
-                    btns.forEach(function(btn) {
-                        btn.addEventListener('mouseenter', function() {
-                            comfortCursor.style.opacity = '0';
-                            btn.style.cursor = 'pointer';
-                        });
-                        btn.addEventListener('mouseleave', function() {
-                            comfortCursor.style.opacity = '1';
-                        });
-                    });
-                });
-            }
-        });
-    </script>
+    <!-- ROX 01 Page Scripts -->
+    <script src="{{ asset('js/rox01.js') }}"></script>
 </x-front-layout>
