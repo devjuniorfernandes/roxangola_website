@@ -2,17 +2,15 @@
     <x-slot name="title">ROX Adamas - Todo-o-Terreno Premium</x-slot>
 
     <!-- Hero Section -->
-    <section class="min-h-[80vh] md:h-[90vh] flex items-center px-6 md:px-[10%] relative overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+    <section class="h-[100svh] w-full relative flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
             <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div>
-        <div class="max-w-[1400px] w-full text-white relative z-10 hero-animate pt-20 md:pt-0">
-            <h1 class="mb-4 text-5xl md:text-7xl font-light tracking-widest uppercase">
-                ROX ADAMAS
-            </h1>
-            <p class="text-lg md:text-3xl font-light max-w-2xl text-gray-200 tracking-wide">
-                A combinação perfeita entre luxo e robustez extrema.
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10 text-center text-white hero-animate">
+            <img src="{{ asset('assets/adamas.svg') }}" alt="ROX ADAMAS" class="h-6 sm:h-7 md:h-9 mx-auto mb-4 md:mb-6">
+            <p class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide">
+                SUV Todo-o-Terreno de Luxo — Nova Geração
             </p>
         </div>
     </section>
