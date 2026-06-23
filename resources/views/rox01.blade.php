@@ -17,7 +17,7 @@
         <!-- Title -->
         <div class="max-w-[1600px] mx-auto px-6 md:px-8 mb-14 md:mb-20 animate-up">
             <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Luxo Todo-o-Terreno</h3>
-            <p class="text-2xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX 01 redefine o conceito de SUV de luxo todo-o-terreno, oferecendo sensações de condução excepcionais.</p>
+            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX 01 redefine o conceito de SUV de luxo todo-o-terreno, oferecendo sensações de condução excepcionais.</p>
         </div>
 
         <!-- Slider -->
@@ -80,52 +80,6 @@
         </div>
     </section>
 
-    <!-- Lifestyle Slider -->
-    <section class="py-16 md:py-24 bg-white overflow-hidden">
-        <div class="relative" id="lifestyle-slider">
-            <!-- Custom Cursor -->
-            <div id="slider-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
-                <span class="text-white text-xs font-medium tracking-wide">mais</span>
-            </div>
-
-            <!-- Slides Track -->
-            <div class="flex transition-transform duration-500 ease-out" id="slider-track">
-                @php
-                    $slides = [
-                        ['img' => 'life.jpg', 'title' => 'Espaço Amplo', 'desc' => 'Liberdade sem limites e conforto absoluto no interior.'],
-                        ['img' => 'banner1.jpg', 'title' => 'Versatilidade', 'desc' => 'Conduza com liberdade, onde a viagem vai além do veículo.'],
-                        ['img' => 'services.jpg', 'title' => 'Aventura', 'desc' => 'Preparado para qualquer terreno, feito para explorar.'],
-                        ['img' => 'banner2.jpg', 'title' => 'Tecnologia', 'desc' => 'Inovação inteligente ao serviço da sua condução.'],
-                    ];
-                @endphp
-
-                @foreach($slides as $slide)
-                <div class="slider-card relative flex-shrink-0 overflow-hidden group" style="cursor: none;">
-                    <img src="{{ asset('assets/' . $slide['img']) }}" alt="{{ $slide['title'] }}" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
-                        <h3 class="text-2xl md:text-3xl font-medium mb-2">{{ $slide['title'] }}</h3>
-                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">{{ $slide['desc'] }}</p>
-                    </div>
-                    <a href="#" class="slide-btn absolute bottom-6 md:bottom-8 right-6 md:right-8 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
-                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-
-            <!-- Navigation Arrows -->
-            <div class="flex justify-center gap-1 mt-10">
-                <button id="slider-prev" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-400 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
-                </button>
-                <button id="slider-next" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-800 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Interior Gallery / Comfort Section -->
     <section class="py-16 md:py-24 bg-[#f4f6f9]" id="comfort-section">
         <!-- Custom Cursor -->
@@ -140,26 +94,26 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior 1" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
-                        <h3 class="text-2xl md:text-3xl font-medium mb-2">Interior Premium</h3>
-                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">Materiais nobres e acabamentos de excelência.</p>
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior Premium" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Interior Premium</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Materiais nobres e acabamentos de excelência.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
                     </div>
-                    <a href="#" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
-                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
-                    </a>
                 </div>
                 <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
-                    <img src="{{ asset('assets/keji.jpg') }}" alt="Interior 2" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
-                        <h3 class="text-2xl md:text-3xl font-medium mb-2">Tecnologia Inteligente</h3>
-                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">Painel digital imersivo e conectividade total.</p>
+                    <img src="{{ asset('assets/keji.jpg') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Tecnologia Inteligente</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Painel digital imersivo e conectividade total.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
                     </div>
-                    <a href="#" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
-                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -177,9 +131,6 @@
                 <div class="max-w-[1600px] mx-auto px-6 md:px-8">
                     <p id="showcase-label" class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6 opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out, transform 0.7s ease-out;">ROX 01</p>
                     <h2 id="showcase-title" class="text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out 0.15s, transform 0.7s ease-out 0.15s;">Feito para conquistar qualquer terreno com elegância</h2>
-                    <button id="showcase-link" class="inline-flex items-center gap-2 text-white text-sm font-medium opacity-0 translate-y-6 hover:opacity-80 cursor-pointer" style="transition: opacity 0.7s ease-out 0.3s, transform 0.7s ease-out 0.3s;">
-                        Ver Vídeo Completo <span class="text-xs">&#9654;</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -271,35 +222,72 @@
         </div>
     </section>
 
-    <!-- Dark Features (Performance & Tech) -->
-    <section class="bg-black text-white py-20 md:py-40">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-8 text-center animate-up">
-            <h3 class="text-xs md:text-sm font-medium tracking-[3px] uppercase text-gray-400 mb-4 md:mb-6">Performance</h3>
-            <h2 class="text-3xl md:text-6xl font-medium mb-6 md:mb-10 leading-tight">Desempenho Off-Road<br>Imbatível</h2>
-            <p class="text-gray-300 font-light text-base md:text-xl leading-relaxed max-w-3xl mx-auto">
-                Com tração integral inteligente de série e motores duplos de alta eficiência, o ROX 01 adapta-se a qualquer terreno. Uma verdadeira obra-prima da engenharia que combina luxo absoluto e robustez para desbravar as exigentes paisagens de Angola.
-            </p>
-        </div>
-    </section>
-    
     <!-- Lifestyle Image Grid -->
-    <section class="bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-1 h-auto md:h-[800px]">
-            <div class="relative overflow-hidden group h-[400px] md:h-full animate-up">
-                <img src="{{ asset('assets/banner4.jpg') }}" alt="Outdoor" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div class="absolute bottom-8 md:bottom-12 left-0 right-0 container-align-left text-white">
-                    <h3 class="text-xl md:text-2xl font-medium mb-2">Aventuras Sem Limites</h3>
-                    <p class="font-light text-xs md:text-sm text-gray-300">Capacidade excecional em piso não alcatroado.</p>
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                    <img src="{{ asset('assets/shequ.jpg') }}" alt="Aventuras Sem Limites" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Aventuras Sem Limites</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Capacidade excecional em piso não alcatroado.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                    </div>
+                </div>
+                <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                    <img src="{{ asset('assets/banner1.jpg') }}" alt="Design Adaptável" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Design Adaptável</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Espaço de bagageira configurável para as suas viagens.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                    </div>
                 </div>
             </div>
-            <div class="relative overflow-hidden group h-[400px] md:h-full animate-up">
-                <img src="{{ asset('assets/banner1.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div class="absolute bottom-8 md:bottom-12 left-0 right-0 px-6 text-white">
-                    <h3 class="text-xl md:text-2xl font-medium mb-2">Design Adaptável</h3>
-                    <p class="font-light text-xs md:text-sm text-gray-300">Espaço de bagageira configurável para as suas viagens.</p>
+        </div>
+    </section>
+
+    <!-- Lifestyle Slider -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="relative" id="lifestyle-slider">
+            <div id="slider-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
+                <span class="text-white text-xs font-medium tracking-wide">mais</span>
+            </div>
+            <div class="flex transition-transform duration-500 ease-out" id="slider-track">
+                @php
+                    $slides = [
+                        ['img' => 'life.jpg', 'title' => 'Espaço Amplo', 'desc' => 'Liberdade sem limites e conforto absoluto no interior.'],
+                        ['img' => 'banner1.jpg', 'title' => 'Versatilidade', 'desc' => 'Conduza com liberdade, onde a viagem vai além do veículo.'],
+                        ['img' => 'services.jpg', 'title' => 'Aventura', 'desc' => 'Preparado para qualquer terreno, feito para explorar.'],
+                        ['img' => 'banner2.jpg', 'title' => 'Tecnologia', 'desc' => 'Inovação inteligente ao serviço da sua condução.'],
+                    ];
+                @endphp
+                @foreach($slides as $slide)
+                <div class="slider-card relative flex-shrink-0 overflow-hidden group" style="cursor: none;">
+                    <img src="{{ asset('assets/' . $slide['img']) }}" alt="{{ $slide['title'] }}" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center text-white px-6">
+                        <h3 class="text-2xl md:text-3xl font-medium mb-2">{{ $slide['title'] }}</h3>
+                        <p class="font-light text-sm md:text-base text-gray-200 max-w-md mx-auto">{{ $slide['desc'] }}</p>
+                    </div>
+                    <a href="#" class="slide-btn absolute bottom-6 md:bottom-8 right-6 md:right-8 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/40">
+                        mais <span class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">+</span>
+                    </a>
                 </div>
+                @endforeach
+            </div>
+            <div class="flex justify-center gap-1 mt-10">
+                <button id="slider-prev" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-400 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+                <button id="slider-next" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-800 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
             </div>
         </div>
     </section>
@@ -326,19 +314,65 @@
     @endphp
 
     @foreach($features as $i => $feature)
-    <div class="feature-wrapper relative" style="height: 200svh;">
+    <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
             <img src="{{ asset('assets/' . $feature['img']) }}" alt="{{ $feature['title'] }}" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute inset-0 flex items-end pb-[20%] md:pb-[15%]">
                 <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
-                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-3 leading-snug max-w-2xl">{{ $feature['title'] }}</h2>
-                    <p class="feature-desc text-sm md:text-base font-light text-gray-300 max-w-xl">{{ $feature['desc'] }}</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-3 leading-snug max-w-2xl" style="opacity: 0; transform: translateY(40px);">{{ $feature['title'] }}</h2>
+                    <p class="feature-desc text-sm md:text-base font-light text-gray-300 max-w-xl" style="opacity: 0; transform: translateY(40px);">{{ $feature['desc'] }}</p>
                 </div>
             </div>
         </div>
     </div>
     @endforeach
+
+    <!-- Dark Features (Performance & Tech) -->
+    <div class="feature-wrapper relative" style="height: 200vh;">
+        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section" id="performance-section">
+            <img src="{{ asset('assets/banner1.jpg') }}" alt="Performance ROX 01" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Performance</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</h2>
+                    <p class="feature-desc text-sm md:text-base font-light text-gray-300 max-w-xl" style="opacity: 0; transform: translateY(40px);">Com tração integral inteligente e motores duplos de alta eficiência, o ROX 01 adapta-se a qualquer terreno.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="relative bg-black">
+        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
+            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/services.jpg') }}" alt="Potência Híbrida" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Potência Híbrida</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Motores duplos de alta eficiência para máximo desempenho.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/a7ccada87a9d45759a34a5897348c89f.jpg') }}" alt="Tração Integral" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Tração Integral</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Domínio absoluto em qualquer superfície e condição.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ROX 01 Page Scripts -->
     <script src="{{ asset('js/rox01.js') }}"></script>

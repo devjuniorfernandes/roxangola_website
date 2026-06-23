@@ -49,10 +49,21 @@
         /* When navbar is scrolled, always show dark logo */
         #navbar.scrolled .logo-default { display: none !important; }
         #navbar.scrolled .logo-hover { display: block !important; }
+
+        /* Page transition loader */
+        #page-loader { position: fixed; inset: 0; z-index: 9999; background: #fff; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease-out; }
+        #page-loader.hide { opacity: 0; pointer-events: none; }
+        .loader { width: 48px; height: 48px; border: 5px dotted #000; border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 2s linear infinite; }
+        @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 
 <body class="bg-white text-gray-800 antialiased">
+
+    <!-- Page Transition Loader -->
+    <div id="page-loader">
+        <span class="loader"></span>
+    </div>
 
     <x-navbar />
 
@@ -64,5 +75,16 @@
 
     <!-- Frontend logic -->
     <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        (function() {
+            var loader = document.getElementById('page-loader');
+            setTimeout(function() { loader.classList.add('hide'); }, 3000);
+            document.querySelectorAll('a[href]').forEach(function(link) {
+                if (link.hostname === window.location.hostname && !link.getAttribute('href').startsWith('#')) {
+                    link.addEventListener('click', function() { loader.classList.remove('hide'); });
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('showcase-label'),
             document.getElementById('showcase-title'),
             document.getElementById('showcase-link')
-        ];
+        ].filter(Boolean);
         var revealed = false;
 
         function onScroll() {
@@ -382,25 +382,33 @@ document.addEventListener('DOMContentLoaded', function () {
             var vh = window.innerHeight;
             wrappers.forEach(function (wrapper) {
                 var rect = wrapper.getBoundingClientRect();
-                var scrolled = -rect.top;
-                var extra = wrapper.offsetHeight - vh;
+                var wrapperH = wrapper.offsetHeight;
+                if (wrapperH <= vh) wrapperH = vh + 1;
+                var scrolled = Math.max(0, -rect.top);
+                var extra = wrapperH - vh;
                 var progress = clamp(scrolled / extra, 0, 1);
 
                 var section = wrapper.querySelector('.feature-section');
-                var title = section.querySelector('.feature-title');
-                var desc = section.querySelector('.feature-desc');
+                if (!section) return;
+                var titles = section.querySelectorAll('.feature-title');
+                var descs = section.querySelectorAll('.feature-desc');
 
-                var titleT = clamp((progress - 0.45) / 0.2, 0, 1);
-                title.style.opacity = titleT;
-                title.style.transform = 'translateY(' + (40 * (1 - titleT)) + 'px)';
+                var titleT = clamp(progress / 0.5, 0, 1);
+                titles.forEach(function (el) {
+                    el.style.opacity = String(titleT);
+                    el.style.transform = 'translateY(' + Math.round(40 * (1 - titleT)) + 'px)';
+                });
 
-                var descT = clamp((progress - 0.50) / 0.2, 0, 1);
-                desc.style.opacity = descT;
-                desc.style.transform = 'translateY(' + (40 * (1 - descT)) + 'px)';
+                var descT = clamp((progress - 0.1) / 0.5, 0, 1);
+                descs.forEach(function (el) {
+                    el.style.opacity = String(descT);
+                    el.style.transform = 'translateY(' + Math.round(40 * (1 - descT)) + 'px)';
+                });
             });
         }
 
         window.addEventListener('scroll', onFeatureScroll, { passive: true });
+        window.addEventListener('resize', onFeatureScroll, { passive: true });
         onFeatureScroll();
     })();
 
