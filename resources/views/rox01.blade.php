@@ -2,7 +2,7 @@
     <x-slot name="title">ROX 01 - SUV Híbrido</x-slot>
 
     <!-- Hero Section -->
-    <section class="h-[100svh] w-full bg-cover bg-center relative flex items-end" style="background-image: url('{{ asset('assets/banner1.jpg') }}')">
+    <section class="h-[100svh] w-full bg-cover bg-center relative flex items-end" style="background-image: url('{{ asset('assets/banner2.jpg') }}')">
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 pb-12 sm:pb-16 md:pb-20 w-full hero-animate">
             <img src="{{ asset('assets/rox01-global.svg') }}" alt="ROX 01" class="h-8 sm:h-10 md:h-14 mb-2 sm:mb-3">

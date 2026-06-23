@@ -14,22 +14,119 @@
             </p>
         </div>
     </section>
+    <!-- Dark Features (Performance & Tech) -->
+    <div class="feature-wrapper relative" style="height: 200vh;">
+        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section" id="performance-section">
+            <img src="{{ asset('assets/life.jpg') }}" alt="Performance ROX ADAMAS" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Performance</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</h2>
+                    <p class="feature-desc text-sm md:text-base font-light text-white max-w-xl" style="opacity: 0; transform: translateY(40px);">Com tração integral inteligente e motores duplos de alta eficiência, o ROX ADAMAS adapta-se a qualquer terreno.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="relative bg-black">
+        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
+            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/1.jpg') }}" alt="Potência Híbrida" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Potência Híbrida</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Motores duplos de alta eficiência para máximo desempenho.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/2.avif') }}" alt="Tração Integral" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Tração Integral</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Domínio absoluto em qualquer superfície e condição.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Interior Gallery / Comfort Section -->
-    <section class="py-16 md:py-24 bg-[#f4f6f9]">
-        <div class="max-w-[1400px] mx-auto px-6">
-            <div class="text-center mb-12 md:mb-16">
+    <section class="py-16 md:py-24 bg-[#f4f6f9]" id="comfort-section">
+        <div id="comfort-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
+            <span class="text-white text-xs font-medium tracking-wide">mais</span>
+        </div>
+        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="text-center mb-12 md:mb-16 animate-up">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Interior Exclusivo</h2>
                 <p class="text-gray-500 font-light max-w-2xl mx-auto text-sm md:text-base">Materiais de topo, acabamentos premium e tecnologia avançada para criar um ambiente de primeira classe onde quer que vá.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div class="bg-gray-200 h-[250px] md:h-[500px] rounded flex items-center justify-center overflow-hidden">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="Interior 1" class="w-full h-full object-cover">
+                <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
+                    <img src="{{ asset('assets/banner-ver.avif') }}" alt="Interior Premium" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Interior Premium</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Materiais nobres e acabamentos de excelência.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                    </div>
                 </div>
-                <div class="bg-gray-200 h-[250px] md:h-[500px] rounded flex items-center justify-center overflow-hidden">
-                    <img src="{{ asset('assets/banner3.jpg') }}" alt="Interior 2" class="w-full h-full object-cover">
+                <div class="comfort-card relative h-[300px] md:h-[500px] overflow-hidden group animate-up" style="cursor: none;">
+                    <img src="{{ asset('assets/b.avif') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Tecnologia Inteligente</h3>
+                            <p class="font-light text-xs md:text-sm text-gray-300">Painel digital imersivo e conectividade total.</p>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Cabin Comfort Slider -->
+    <section id="cabin-comfort-slider" class="relative h-[112svh] min-h-[760px] md:min-h-[900px] w-full overflow-hidden bg-black text-white">
+        <div class="absolute inset-0">
+            <div class="cabin-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Conforto na cabina" data-heading="Uma experiência de luxo suave e confortável entre movimento e tranquilidade" data-caption="ROX ADAMAS - 6 Lugares - 2-2-2">
+                <img src="{{ asset('assets/6.avif') }}" alt="ROX ADAMAS interior de sete lugares" class="h-full w-full object-cover">
+            </div>
+            <div class="cabin-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Espaço premium" data-heading="Uma cabina refinada, concebida para oferecer conforto a cada passageiro" data-caption="ROX ADAMAS - 7 Lugares - 2-3-2">
+                <img src="{{ asset('assets/7.avif') }}" alt="ROX ADAMAS conforto da cabine" class="h-full w-full object-cover">
+            </div>
+        </div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[46%] bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-x-0 top-0 z-30 h-[28%] bg-gradient-to-b from-black/25 to-transparent"></div>
+        <div class="absolute inset-x-0 top-[9.2rem] md:top-[8.7rem] z-40">
+            <div class="mx-auto max-w-[1600px] px-6 md:px-8">
+                <p id="cabin-kicker" class="mb-6 text-sm md:text-base font-semibold tracking-[0.08em] transition-opacity duration-500">Conforto na cabina</p>
+                <h2 id="cabin-heading" class="max-w-[1050px] text-3xl md:text-[34px] font-light leading-tight tracking-[0.055em] transition-opacity duration-500">
+                    Uma experiência de luxo suave e confortável entre movimento e tranquilidade
+                </h2>
+            </div>
+        </div>
+        <div class="absolute inset-x-0 bottom-[13.2rem] md:bottom-[11.2rem] z-40 px-6 text-center">
+            <p id="cabin-caption" class="text-xl md:text-[22px] font-semibold tracking-[0.04em] transition-opacity duration-500">ROX ADAMAS - 6 Lugares - 2-2-2</p>
+        </div>
+        <div class="absolute inset-x-0 bottom-[8.5rem] md:bottom-[7.4rem] z-40 flex justify-center gap-3 px-6">
+            <button type="button" class="cabin-progress h-px w-9 bg-white/45" data-cabin-progress aria-label="Mostrar slide 1">
+                <span class="block h-full w-full origin-left scale-x-0 bg-white"></span>
+            </button>
+            <button type="button" class="cabin-progress h-px w-9 bg-white/45" data-cabin-progress aria-label="Mostrar slide 2">
+                <span class="block h-full w-full origin-left scale-x-0 bg-white"></span>
+            </button>
         </div>
     </section>
 
@@ -66,19 +163,32 @@
         </div>
     </section>
 
-    <!-- Dark Features (Performance & Tech) -->
-    <section class="relative bg-black text-white py-32 md:py-48 px-6 overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 pointer-events-none">
-            <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
-        </video>
-        <div class="max-w-[1000px] mx-auto text-center animate-up relative z-10">
-            <h3 class="text-xs md:text-sm font-medium tracking-[3px] uppercase text-gray-300 mb-4 md:mb-6">Performance Extrema</h3>
-            <h2 class="text-3xl md:text-6xl font-medium mb-6 md:mb-10 leading-tight">Domínio Absoluto<br>Em Qualquer Piso</h2>
-            <p class="text-gray-200 font-light text-base md:text-xl leading-relaxed max-w-3xl mx-auto">
-                O ROX Adamas redefine o que é possível num Todo-o-Terreno de luxo. Concebido para superar limites, dispõe de suspensão adaptativa e uma robustez inigualável para desbravar as mais exigentes paisagens de Angola, com total conforto.
-            </p>
+    <!-- Dark Features (Performance Extrema) -->
+    <div class="feature-wrapper relative" style="height: 200vh;">
+        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/30"></div>
+            <!-- Top text -->
+            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Design exterior</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A ROX ADAMAS redefine a estética do luxo ao ar livre</h2>
+                    <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MORE</a>-->
+                </div>
+            </div>
+            <!-- Bottom text with left border -->
+            <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <div class="border-l-2 border-white/60 pl-4 md:pl-6">
+                        <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
+                        <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
     
     <!-- Lifestyle Image Grid -->
     <section class="py-1 bg-white">
@@ -103,6 +213,98 @@
             </div>
         </div>
     </section>
+
+    <!-- Page Scripts -->
+    <script src="{{ asset('js/rox01.js') }}"></script>
+
+    <!-- Script for Cabin Comfort Slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('cabin-comfort-slider');
+            if (!slider) return;
+
+            const slides = Array.from(slider.querySelectorAll('[data-cabin-slide]'));
+            const progressButtons = Array.from(slider.querySelectorAll('[data-cabin-progress]'));
+            const kicker = document.getElementById('cabin-kicker');
+            const heading = document.getElementById('cabin-heading');
+            const caption = document.getElementById('cabin-caption');
+            const duration = 6500;
+            const fadeDuration = 1400;
+            let activeIndex = 0;
+            let timerId;
+            let transitionId;
+
+            function resetProgress() {
+                progressButtons.forEach((button) => {
+                    const bar = button.querySelector('span');
+                    bar.style.transition = 'none';
+                    bar.style.transform = 'scaleX(0)';
+                });
+            }
+
+            function startProgress(index) {
+                const bar = progressButtons[index].querySelector('span');
+                requestAnimationFrame(() => {
+                    bar.style.transition = `transform ${duration}ms linear`;
+                    bar.style.transform = 'scaleX(1)';
+                });
+            }
+
+            function setCopy(index) {
+                const slide = slides[index];
+                const copyEls = [kicker, heading, caption];
+
+                copyEls.forEach((el) => el.style.opacity = '0');
+
+                window.setTimeout(() => {
+                    kicker.textContent = slide.dataset.kicker;
+                    heading.textContent = slide.dataset.heading;
+                    caption.textContent = slide.dataset.caption;
+                    copyEls.forEach((el) => el.style.opacity = '1');
+                }, 180);
+            }
+
+            function showSlide(index) {
+                const nextIndex = (index + slides.length) % slides.length;
+                const previousIndex = activeIndex;
+
+                slides.forEach((slide, i) => {
+                    if (i !== previousIndex && i !== nextIndex) {
+                        slide.classList.remove('z-20', 'z-10', 'opacity-100');
+                        slide.classList.add('z-0', 'opacity-0');
+                    }
+                });
+
+                slides[previousIndex].classList.remove('z-20', 'z-0', 'opacity-0');
+                slides[previousIndex].classList.add('z-10', 'opacity-100');
+                slides[nextIndex].classList.remove('z-10', 'z-0', 'opacity-0');
+                slides[nextIndex].classList.add('z-20', 'opacity-100');
+
+                window.clearTimeout(transitionId);
+                transitionId = window.setTimeout(() => {
+                    slides.forEach((slide, i) => {
+                        if (i !== nextIndex) {
+                            slide.classList.remove('z-20', 'z-10', 'opacity-100');
+                            slide.classList.add('z-0', 'opacity-0');
+                        }
+                    });
+                }, fadeDuration);
+
+                activeIndex = nextIndex;
+                setCopy(activeIndex);
+                resetProgress();
+                startProgress(activeIndex);
+                window.clearTimeout(timerId);
+                timerId = window.setTimeout(() => showSlide(activeIndex + 1), duration);
+            }
+
+            progressButtons.forEach((button, index) => {
+                button.addEventListener('click', () => showSlide(index));
+            });
+
+            showSlide(0);
+        });
+    </script>
 
     <!-- Script for Canvas 360 Viewer -->
     <script>

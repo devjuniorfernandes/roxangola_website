@@ -13,10 +13,9 @@
 
         <!-- Menu items -->
         <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
-            <a href="{{ route('rox01') }}" class="hover:opacity-70 transition-opacity uppercase">ROX 01</a>
-            <a href="{{ route('rox-adamas') }}" class="hover:opacity-70 transition-opacity uppercase">ROX Adamas</a>
-            <a href="{{ route('explorar') }}" class="hover:opacity-70 transition-opacity uppercase">Explorar</a>
-            <a href="{{ route('contactos') }}" class="hover:opacity-70 transition-opacity uppercase">Contactos</a>
+            <a href="{{ route('rox01') }}" class="relative hover:opacity-70 transition-opacity uppercase pb-1">ROX 01 @if(Request::is('rox-01'))<span class="absolute bottom-0 left-0 w-full h-px bg-current"></span>@endif</a>
+            <a href="{{ route('rox-adamas') }}" class="relative hover:opacity-70 transition-opacity uppercase pb-1">ROX Adamas @if(Request::is('rox-adamas'))<span class="absolute bottom-0 left-0 w-full h-px bg-current"></span>@endif</a>
+            <a href="{{ route('contactos') }}" class="relative hover:opacity-70 transition-opacity uppercase pb-1">Contactos @if(Request::is('contactos'))<span class="absolute bottom-0 left-0 w-full h-px bg-current"></span>@endif</a>
         </div>
         <button id="mobile-menu" aria-label="Abrir menu" class="md:hidden flex flex-col justify-center items-center gap-[5px] w-[25px] cursor-pointer">
             <span class="w-full h-[3px] bg-current transition-colors duration-300 bar"></span>
@@ -40,10 +39,10 @@
             <div class="w-6"></div> <!-- spacer -->
         </div>
         <nav class="flex flex-col p-8 gap-8 bg-[#f4f6f9]">
-            <a href="{{ route('rox01') }}" class="text-black text-[13px] tracking-widest uppercase font-medium">ROX 01</a>
-            <a href="{{ route('rox-adamas') }}" class="text-black text-[13px] tracking-widest uppercase font-medium">ROX Adamas</a>
-            <a href="{{ route('explorar') }}" class="text-black text-[13px] tracking-widest uppercase font-medium">Explorar</a>
-            <a href="{{ route('contactos') }}" class="text-black text-[13px] tracking-widest uppercase font-medium">Contactos</a>
+            <a href="{{ route('rox01') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('rox-01') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">ROX 01</a>
+            <a href="{{ route('rox-adamas') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('rox-adamas') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">ROX Adamas</a>
+            <a href="{{ route('explorar') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('explorar') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">Explorar</a>
+            <a href="{{ route('contactos') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('contactos') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">Contactos</a>
         </nav>
     </div>
     <div class="p-8 bg-white border-t border-gray-200 flex flex-col gap-5">
