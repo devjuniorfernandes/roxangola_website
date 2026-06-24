@@ -31,7 +31,7 @@
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
                         <img src="{{ asset('assets/1.jpg') }}" alt="Potência Híbrida" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/2.avif') }}" alt="Tração Integral" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/seat-direita.avif') }}" alt="Tração Integral" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -65,7 +65,7 @@
         <div id="comfort-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
             <span class="text-white text-xs font-medium tracking-wide">mais</span>
         </div>
-        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8">
             <div class="text-center mb-12 md:mb-16 animate-up">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Interior Exclusivo</h2>
                 <p class="text-gray-500 font-light max-w-2xl mx-auto text-sm md:text-base">Materiais de topo, acabamentos premium e tecnologia avançada para criar um ambiente de primeira classe onde quer que vá.</p>
@@ -97,14 +97,42 @@
         </div>
     </section>
 
+     <!-- Dark Features (Performance Extrema) -->
+     <div class="feature-wrapper relative" style="height: 200vh;">
+        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/30"></div>
+            <!-- Top text -->
+            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Design exterior</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A ROX ADAMAS redefine a estética do luxo ao ar livre</h2>
+                    <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MORE</a>-->
+                </div>
+            </div>
+            <!-- Bottom text with left border -->
+            <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
+                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                    <div class="border-l-2 border-white/60 pl-4 md:pl-6">
+                        <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
+                        <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Cabin Comfort Slider -->
-    <section id="cabin-comfort-slider" class="relative h-[112svh] min-h-[760px] md:min-h-[900px] w-full overflow-hidden bg-black text-white">
-        <div class="absolute inset-0">
+    <section class="relative bg-black text-white">
+        <div id="cabin-comfort-slider" class="relative h-[112svh] min-h-[760px] md:min-h-[900px] w-full overflow-hidden">
+            <div class="absolute inset-0">
             <div class="cabin-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Conforto na cabina" data-heading="Uma experiência de luxo suave e confortável entre movimento e tranquilidade" data-caption="ROX ADAMAS - 6 Lugares - 2-2-2">
-                <img src="{{ asset('assets/6.avif') }}" alt="ROX ADAMAS interior de sete lugares" class="h-full w-full object-cover">
+                <img src="{{ asset('assets/7.avif') }}" alt="ROX ADAMAS interior de seis lugares" class="h-full w-full object-cover">
             </div>
             <div class="cabin-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Espaço premium" data-heading="Uma cabina refinada, concebida para oferecer conforto a cada passageiro" data-caption="ROX ADAMAS - 7 Lugares - 2-3-2">
-                <img src="{{ asset('assets/7.avif') }}" alt="ROX ADAMAS conforto da cabine" class="h-full w-full object-cover">
+                <img src="{{ asset('assets/6.avif') }}" alt="ROX ADAMAS interior de sete lugares" class="h-full w-full object-cover">
             </div>
         </div>
         <div class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[46%] bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
@@ -127,6 +155,47 @@
             <button type="button" class="cabin-progress h-px w-9 bg-white/45" data-cabin-progress aria-label="Mostrar slide 2">
                 <span class="block h-full w-full origin-left scale-x-0 bg-white"></span>
             </button>
+        </div>
+        </div>
+
+        
+        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
+            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+                <div class="relative h-[420px] md:h-[680px] overflow-hidden group mb-4 md:mb-6 animate-up">
+                    <img src="{{ asset('assets/seat-superior.avif') }}" alt="ROX ADAMAS configuração de seis lugares" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                        <div class="text-white">
+                            <h3 class="text-lg md:text-xl font-medium mb-1">Uma cabina luxuosa, concebida a pensar em si</h3>
+                        </div>
+                        <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="relative h-[340px] md:h-[560px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/6.avif') }}" alt="ROX ADAMAS configuração de sete lugares" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Espaço amplo, conforto supremo</h3>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                    <div class="relative h-[340px] md:h-[560px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/b.avif') }}" alt="ROX ADAMAS acabamento interior premium" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Cabina versátil, envolvente e inteligente</h3>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -163,52 +232,226 @@
         </div>
     </section>
 
-    <!-- Dark Features (Performance Extrema) -->
-    <div class="feature-wrapper relative" style="height: 200vh;">
-        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-black/30"></div>
-            <!-- Top text -->
-            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
-                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Design exterior</p>
-                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A ROX ADAMAS redefine a estética do luxo ao ar livre</h2>
-                    <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MORE</a>-->
-                </div>
-            </div>
-            <!-- Bottom text with left border -->
-            <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
-                    <div class="border-l-2 border-white/60 pl-4 md:pl-6">
-                        <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
-                        <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
+    <!-- Specs Slider Section -->
+    <section class="bg-[#f4f6f9] text-black py-20 md:py-32 overflow-hidden">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8 mb-14 md:mb-20 animate-up">
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Luxo Todo-o-Terreno</h3>
+            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX ADAMAS redefine o conceito de SUV de luxo todo-o-terreno, oferecendo sensações de condução excepcionais.</p>
+        </div>
+
+        <div class="relative" id="adamas-specs-slider">
+            @php
+                $specSlides = [
+                    [
+                        'img' => 'adamas.jpg',
+                        'title' => 'Design Exclusivo',
+                        'bottom' => '<p class="text-xs md:text-sm text-gray-400 mb-1">Acabamentos Premium</p><p class="text-lg md:text-xl font-medium">Luxo Incomparável</p>',
+                    ],
+                    [
+                        'img' => 'lichengbei.jpg',
+                        'title' => 'SUV Grande de Luxo',
+                        'bottom' => '<div class="flex gap-6 md:gap-10 text-center justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Comprimento</p><p class="text-sm md:text-base font-mono font-medium">5.298 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Largura</p><p class="text-sm md:text-base font-mono font-medium">1.985 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Altura</p><p class="text-sm md:text-base font-mono font-medium">1.856 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">Entre eixos</p><p class="text-sm md:text-base font-mono font-medium">3.010 mm</p></div></div>',
+                    ],
+                    [
+                        'img' => 'banner1.jpg',
+                        'title' => 'Testado em Todo o Mundo',
+                        'bottom' => '<p class="text-xs md:text-sm text-gray-400 mb-1">Distância mínima ao solo 272mm</p><p class="text-lg md:text-xl font-medium">Ângulo de ataque 27.5°</p>',
+                    ],
+                    [
+                        'img' => 'keji.jpg',
+                        'title' => 'Cockpit Digital Imersivo',
+                        'bottom' => '<p class="text-xs md:text-sm text-gray-400 mb-1">Ecrã panorâmico integrado</p><p class="text-lg md:text-xl font-medium">Conectividade total</p>',
+                    ],
+                ];
+            @endphp
+
+            <div class="flex gap-4" id="adamas-specs-track">
+                @php $allSlides = array_merge([end($specSlides)], $specSlides, [$specSlides[0]]); @endphp
+                @foreach($allSlides as $idx => $spec)
+                <div class="adamas-specs-card relative flex-shrink-0 h-[400px] md:h-[520px] overflow-hidden rounded-none">
+                    <img src="{{ asset('assets/' . $spec['img']) }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute top-6 md:top-8 left-0 right-0 text-center px-6">
+                        <h4 class="text-base md:text-lg font-medium text-white">{{ $spec['title'] }}</h4>
                     </div>
+                    <div class="absolute bottom-6 md:bottom-8 left-6 md:left-8 right-6 md:right-8 text-white">
+                        {!! $spec['bottom'] !!}
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <div class="flex justify-center gap-1 mt-10">
+                <button id="adamas-specs-prev" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-400 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+                <button id="adamas-specs-next" class="w-12 h-12 rounded-full border border-gray-300 bg-gray-100 text-gray-800 flex items-center justify-center transition-all duration-300 hover:bg-black hover:border-black hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+ <!-- Dark Features (Performance Extrema) -->
+ <div class="feature-wrapper relative" style="height: 200vh;">
+    <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
+            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/30"></div>
+        <!-- Top text -->
+        <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</p>
+                <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho e autonomia revolucionários para uma experiência de condução completa</h2>
+                <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MORE</a>-->
+            </div>
+        </div>
+        <!-- Bottom text with left border -->
+        <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <div class="border-l-2 border-white/60 pl-4 md:pl-6">
+                    <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
+                    <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Lifestyle Image Grid -->
-    <section class="py-1 bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-1 h-auto md:h-[800px]">
-            <div class="relative overflow-hidden group h-[400px] md:h-full">
-                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 pointer-events-none">
-                    <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
-                <div class="absolute bottom-8 md:bottom-12 left-8 md:left-12 text-white pr-6 z-20 pointer-events-none">
-                    <h3 class="text-xl md:text-2xl font-medium mb-2">Aventuras Sem Limites</h3>
-                    <p class="font-light text-xs md:text-sm text-gray-300">Capacidade de superação de obstáculos incomparável.</p>
+</div>
+
+ <!-- Dark Features (Performance Extrema 2) -->
+ <div class="feature-wrapper relative" style="height: 200vh;">
+    <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
+            <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/30"></div>
+        <!-- Top text -->
+        <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Segurança ROX</p>
+                <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Proteção de segurança ao nível de uma fortaleza.</h2>
+            </div>
+        </div>
+        <!-- Bottom text with left border -->
+        <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <div class="border-l-2 border-white/60 pl-4 md:pl-6">
+                    <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
+                    <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
                 </div>
             </div>
-            <div class="relative overflow-hidden group h-[400px] md:h-full">
-                <img src="{{ asset('assets/banner1.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div class="absolute bottom-8 md:bottom-12 left-8 md:left-12 text-white pr-6">
-                    <h3 class="text-xl md:text-2xl font-medium mb-2">Espaço Generoso</h3>
-                    <p class="font-light text-xs md:text-sm text-gray-300">Alojamento espaçoso para toda a bagagem e equipamento.</p>
+        </div>
+    </div>
+</div>
+
+ <!-- Dark Features (Performance Extrema 3 - vídeo) -->
+ <div class="feature-wrapper relative" style="height: 200vh;">
+    <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
+            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/30"></div>
+        <!-- Top text -->
+        <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Aventura sem limites</p>
+                <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Capacidade de superação de obstáculos incomparável.</h2>
+            </div>
+        </div>
+        <!-- Bottom text with left border -->
+        <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <div class="border-l-2 border-white/60 pl-4 md:pl-6">
+                    <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
+                    <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section class="relative bg-black">
+        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
+            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/1.jpg') }}" alt="Aventura" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Terrenos Extremos</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Supere qualquer obstáculo com total confiança.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/banner-v.avif') }}" alt="Capacidade Off-Road" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Capacidade Off-Road</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Tecnologia preparada para a aventura mais exigente.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Dark Features (Performance Extrema 4 - imagem) -->
+ <div class="feature-wrapper relative" style="height: 200vh;">
+    <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
+        <img src="{{ asset('assets/outdoor.avif') }}" alt="Espaço Generoso ROX ADAMAS" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <!-- Top text -->
+        <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Estilo de vida ao ar livre</p>
+                <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Um estilo de vida ao ar livre cheio de energia, criado pela ROX ADAMAS</h2>
+            </div>
+        </div>
+        <!-- Bottom text with left border -->
+        <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
+            <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <div class="border-l-2 border-white/60 pl-4 md:pl-6">
+                    <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
+                    <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section class="relative bg-black">
+        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
+            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/banner-ver.avif') }}" alt="Bagageira" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Bagageira Versátil</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Espaço configurável para todas as suas viagens.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
+                        <img src="{{ asset('assets/b.avif') }}" alt="Conforto" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
+                            <div class="text-white">
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Conforto Total</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">Ambiente premium para todos os ocupantes.</p>
+                            </div>
+                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -216,6 +459,28 @@
 
     <!-- Page Scripts -->
     <script src="{{ asset('js/rox01.js') }}"></script>
+
+    <!-- Play videos when they enter the viewport -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var videos = document.querySelectorAll('video[autoplay]');
+            if (!('IntersectionObserver' in window)) return;
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    var video = entry.target;
+                    if (entry.isIntersecting) {
+                        var p = video.play();
+                        if (p !== undefined) { p.catch(function() {}); }
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            videos.forEach(function(v) { observer.observe(v); });
+        });
+    </script>
 
     <!-- Script for Cabin Comfort Slider -->
     <script>
@@ -228,7 +493,7 @@
             const kicker = document.getElementById('cabin-kicker');
             const heading = document.getElementById('cabin-heading');
             const caption = document.getElementById('cabin-caption');
-            const duration = 6500;
+            const duration = 5200;
             const fadeDuration = 1400;
             let activeIndex = 0;
             let timerId;
@@ -303,6 +568,76 @@
             });
 
             showSlide(0);
+        });
+    </script>
+
+    <!-- Script for Adamas Specs Slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var track = document.getElementById('adamas-specs-track');
+            var cards = document.querySelectorAll('.adamas-specs-card');
+            var prevBtn = document.getElementById('adamas-specs-prev');
+            var nextBtn = document.getElementById('adamas-specs-next');
+            if (!track || !cards.length) return;
+
+            var realCount = cards.length - 2;
+            var domIndex = 1;
+            var isAnimating = false;
+
+            function layout() {
+                var vw = window.innerWidth;
+                var isMobile = vw < 768;
+                var centerW = isMobile ? vw * 0.85 : vw * 0.50;
+                cards.forEach(function(c) { c.style.width = centerW + 'px'; });
+                track.style.transition = 'none';
+                goTo(domIndex);
+                void track.offsetWidth;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            }
+
+            function goTo(idx) {
+                domIndex = idx;
+                var vw = window.innerWidth;
+                var card = cards[domIndex];
+                var offset = (vw / 2) - (card.offsetLeft + card.offsetWidth / 2);
+                track.style.transform = 'translateX(' + offset + 'px)';
+            }
+
+            function snap() {
+                if (domIndex === 0) {
+                    track.style.transition = 'none';
+                    goTo(realCount);
+                    void track.offsetWidth;
+                    track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                }
+                if (domIndex === realCount + 1) {
+                    track.style.transition = 'none';
+                    goTo(1);
+                    void track.offsetWidth;
+                    track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                }
+                isAnimating = false;
+            }
+
+            track.addEventListener('transitionend', snap);
+
+            function next() { if (isAnimating) return; isAnimating = true; goTo(domIndex + 1); }
+            function prev() { if (isAnimating) return; isAnimating = true; goTo(domIndex - 1); }
+
+            prevBtn.addEventListener('click', prev);
+            nextBtn.addEventListener('click', next);
+
+            layout();
+            window.addEventListener('resize', layout);
+
+            var touchStart = 0, touchDiff = 0;
+            track.addEventListener('touchstart', function(e) { touchStart = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchmove', function(e) { touchDiff = e.touches[0].clientX - touchStart; }, { passive: true });
+            track.addEventListener('touchend', function() {
+                if (touchDiff > 50) prev();
+                else if (touchDiff < -50) next();
+                touchDiff = 0;
+            });
         });
     </script>
 
