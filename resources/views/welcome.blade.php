@@ -47,20 +47,39 @@
     </section>
 
     <!-- Explore Models Section -->
-    <section class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl font-normal mb-10 tracking-wide animate-up">{{ $explore['title']->value ?? 'Explorar Modelos ROX' }}</h2>
-            <div class="flex justify-center gap-10 mb-12 animate-up" id="vehicle-tabs">
-                @foreach($vehicles as $index => $vehicle)
-                    <button class="tab-btn {{ $index === 0 ? 'active border-b-2 border-black text-black' : 'text-gray-400' }} pb-2 text-base transition-colors font-medium" data-image="{{ asset($vehicle->image) }}" data-link="/{{ $vehicle->slug }}">
-                        {{ $vehicle->name }}
-                    </button>
-                @endforeach
+    <section class="py-20 md:py-28 bg-white overflow-hidden" id="explore-models">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-10 md:mb-14 text-center animate-up">Explorar Modelos ROX</h2>
+
+            <!-- Model Tabs -->
+            <div class="flex justify-center gap-8 md:gap-12 mb-12 md:mb-16 animate-up">
+                <button class="explore-tab active text-sm md:text-base font-medium tracking-widest uppercase pb-2 border-b border-black text-black transition-all duration-300" data-model="adamas">ROX Adamas</button>
+                <button class="explore-tab text-sm md:text-base font-medium tracking-widest uppercase pb-2 border-b border-transparent text-gray-400 transition-all duration-300 hover:text-gray-600" data-model="rox01">ROX 01</button>
             </div>
-            <div class="mb-12 animate-up min-h-[300px] flex items-center justify-center">
-                <img src="{{ $vehicles->first() ? asset($vehicles->first()->image) : $exploreImg }}" alt="ROX Model" id="car-image" loading="lazy" class="max-w-full h-auto mx-auto hover:scale-[1.02] transition-transform duration-500">
+
+            <!-- Slider viewport -->
+            <div class="relative overflow-hidden">
+                <div class="flex transition-transform duration-400 ease-out" id="explore-track" style="width: 200%;">
+                    <!-- Panel: ROX ADAMAS -->
+                    <div class="w-1/2 flex-shrink-0">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative w-full max-w-[1200px] mx-auto mb-8 md:mb-10">
+                                <img src="{{ asset('assets/adamas.png') }}" alt="ROX ADAMAS" class="w-full h-auto object-contain">
+                            </div>
+                            <a href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-black text-black hover:bg-black hover:text-white transition-all duration-300">Explorar ROX Adamas</a>
+                        </div>
+                    </div>
+                    <!-- Panel: ROX 01 -->
+                    <div class="w-1/2 flex-shrink-0">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative w-full max-w-[1200px] mx-auto mb-8 md:mb-10">
+                                <img src="{{ asset('assets/rox01.png') }}" alt="ROX 01" class="w-full h-auto object-contain">
+                            </div>
+                            <a href="{{ route('rox01') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-black text-black hover:bg-black hover:text-white transition-all duration-300">Explorar ROX 01</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="{{ $vehicles->first() ? '/'.$vehicles->first()->slug : route('rox01') }}" id="explore-btn" class="inline-block px-8 py-3 text-sm font-medium tracking-wide uppercase border border-black text-black hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 rounded-sm animate-up">{{ $explore['button_text']->value ?? 'Explorar' }}</a>
         </div>
     </section>
 
@@ -154,33 +173,29 @@
         });
     </script>
 
+    <!-- Explore Models Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('#vehicle-tabs .tab-btn');
-            const carImage = document.getElementById('car-image');
-            const exploreBtn = document.getElementById('explore-btn');
+            var tabs = document.querySelectorAll('.explore-tab');
+            var track = document.getElementById('explore-track');
+            if (!tabs.length || !track) return;
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active from all
-                    tabs.forEach(t => {
-                        t.classList.remove('active', 'border-b-2', 'border-black', 'text-black');
-                        t.classList.add('text-gray-400');
+            var models = ['adamas', 'rox01'];
+
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    var model = tab.dataset.model;
+                    var idx = models.indexOf(model);
+                    if (idx < 0) return;
+
+                    tabs.forEach(function(t) {
+                        t.classList.remove('active', 'border-black', 'text-black');
+                        t.classList.add('border-transparent', 'text-gray-400');
                     });
-                    
-                    // Add active to clicked
-                    tab.classList.add('active', 'border-b-2', 'border-black', 'text-black');
-                    tab.classList.remove('text-gray-400');
+                    tab.classList.add('active', 'border-black', 'text-black');
+                    tab.classList.remove('border-transparent', 'text-gray-400');
 
-                    // Update Image with fade effect
-                    carImage.style.opacity = '0';
-                    setTimeout(() => {
-                        carImage.src = tab.getAttribute('data-image');
-                        carImage.style.opacity = '1';
-                    }, 300);
-
-                    // Update Link
-                    exploreBtn.href = tab.getAttribute('data-link');
+                    track.style.transform = 'translateX(-' + (idx * 50) + '%)';
                 });
             });
         });
