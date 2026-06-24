@@ -4,7 +4,7 @@
     <!-- Hero Section -->
     <section class="h-[100svh] w-full bg-cover bg-center relative flex items-end" style="background-image: url('{{ asset('assets/banner2.jpg') }}')">
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <div class="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 pb-12 sm:pb-16 md:pb-20 w-full hero-animate">
+        <div class="relative z-10 max-w-[1920px] mx-auto px-6 md:px-40 pb-12 sm:pb-16 md:pb-20 w-full hero-animate">
             <img src="{{ asset('assets/rox01-global.svg') }}" alt="ROX 01" class="h-8 sm:h-10 md:h-14 mb-2 sm:mb-3">
             <p class="text-sm sm:text-base md:text-xl font-light text-gray-200 tracking-wide">
                 SUV Todo-o-Terreno de Luxo — Cenário Completo
@@ -15,7 +15,7 @@
     <!-- Specs Slider Section -->
     <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
         <!-- Title -->
-        <div class="max-w-[1600px] mx-auto px-6 md:px-8 mb-14 md:mb-20 animate-up">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-8 mb-14 md:mb-20 animate-up">
             <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Luxo Todo-o-Terreno</h3>
             <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX 01 redefine o conceito de SUV de luxo todo-o-terreno, oferecendo sensações de condução excepcionais.</p>
         </div>
@@ -86,7 +86,7 @@
         <div id="comfort-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
             <span class="text-white text-xs font-medium tracking-wide">mais</span>
         </div>
-        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-8">
             <div class="text-center mb-12 md:mb-16 animate-up">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Conforto em Primeira Classe</h2>
                 <p class="text-gray-500 font-light max-w-2xl mx-auto text-sm md:text-base">Habitáculo desenhado ao detalhe para uma experiência de condução imersiva e relaxante, com tecnologia inteligente a bordo.</p>
@@ -128,7 +128,7 @@
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+                <div class="max-w-[1280px] mx-auto px-6 md:px-8">
                     <p id="showcase-label" class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6 opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out, transform 0.7s ease-out;">ROX 01</p>
                     <h2 id="showcase-title" class="text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out 0.15s, transform 0.7s ease-out 0.15s;">Feito para conquistar qualquer terreno com elegância</h2>
                 </div>
@@ -138,7 +138,7 @@
         <!-- Cards below video -->
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
                 <!-- Top: Full-width card -->
                 <div class="relative h-[300px] md:h-[500px] overflow-hidden group mb-4 md:mb-6 animate-up">
                     <img src="{{ asset('assets/banner2.jpg') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
@@ -193,7 +193,7 @@
 
     <!-- 360 Viewer Section (Canvas Based) -->
     <section class="py-16 md:py-32 bg-[#F8F9FA] relative">
-        <div class="max-w-[1600px] mx-auto text-center px-6 md:px-8">
+        <div class="max-w-[1280px] mx-auto text-center px-6 md:px-8">
             <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-8 md:mb-10 animate-up">Explorar ROX 01</h2>
             
             <div class="flex justify-center gap-4 md:gap-6 mb-8 md:mb-12 animate-up">
@@ -224,7 +224,7 @@
 
     <!-- Lifestyle Image Grid -->
     <section class="py-16 md:py-24 bg-white">
-        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
                     <img src="{{ asset('assets/shequ.jpg') }}" alt="Aventuras Sem Limites" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
@@ -319,7 +319,7 @@
             <img src="{{ asset('assets/' . $feature['img']) }}" alt="{{ $feature['title'] }}" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute inset-0 flex items-end pb-[20%] md:pb-[15%]">
-                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
                     <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-3 leading-snug max-w-2xl" style="opacity: 0; transform: translateY(40px);">{{ $feature['title'] }}</h2>
                     <p class="feature-desc text-sm md:text-base font-light text-gray-300 max-w-xl" style="opacity: 0; transform: translateY(40px);">{{ $feature['desc'] }}</p>
                 </div>
@@ -334,7 +334,7 @@
             <img src="{{ asset('assets/banner1.jpg') }}" alt="Performance ROX 01" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1600px] w-full mx-auto px-6 md:px-8">
+                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
                     <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Performance</p>
                     <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</h2>
                     <p class="feature-desc text-sm md:text-base font-light text-gray-300 max-w-xl" style="opacity: 0; transform: translateY(40px);">Com tração integral inteligente e motores duplos de alta eficiência, o ROX 01 adapta-se a qualquer terreno.</p>
@@ -345,7 +345,7 @@
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
                         <img src="{{ asset('assets/services.jpg') }}" alt="Potência Híbrida" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">

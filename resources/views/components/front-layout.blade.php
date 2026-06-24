@@ -11,10 +11,14 @@
     
     <!-- Scripts & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
+
     <style>
+        @font-face { font-family: 'TTNormsPro'; src: url('{{ asset('assets/fonts/TTNormsProRegular.otf') }}') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+        @font-face { font-family: 'TTNormsPro'; src: url('{{ asset('assets/fonts/TTNormsProMedium.otf') }}') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+
         /* Custom animations & utilities */
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        :root { --rox-dune-yellow: #C5A059; }
+        body { font-family: 'TTNormsPro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x: hidden; }
 
         .hero-bg { background-image: url('{{ asset('assets/banner.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; }
         .cap-bg { background-image: url('{{ asset('assets/banner1.jpg') }}'); background-size: cover; background-position: center; }
@@ -31,6 +35,7 @@
         .animate-up.visible { opacity: 1; transform: translateY(0); }
 
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes heroSlideUp { to { opacity: 1; transform: translateY(0); } }
         .hero-animate { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s forwards 0.5s; }
 
         .tab-btn { position: relative; }
@@ -43,8 +48,8 @@
         #navbar.scrolled.nav-transparent { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: #e5e7eb; }
 
         /* Align text inside full-width sections with the global container */
-        .container-align-left { padding-left: max(1.5rem, calc((100vw - 1600px) / 2 + 2rem)); }
-        .container-align-right { padding-right: max(1.5rem, calc((100vw - 1600px) / 2 + 2rem)); }
+        .container-align-left { padding-left: max(1.5rem, calc((100vw - 1920px) / 2 + 2rem)); }
+        .container-align-right { padding-right: max(1.5rem, calc((100vw - 1920px) / 2 + 2rem)); }
 
         /* When navbar is scrolled, always show dark logo */
         #navbar.scrolled .logo-default { display: none !important; }
@@ -53,7 +58,7 @@
         /* Page transition loader */
         #page-loader { position: fixed; inset: 0; z-index: 9999; background: #fff; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease-out; }
         #page-loader.hide { opacity: 0; pointer-events: none; }
-        .loader { width: 48px; height: 48px; border: 5px dotted #000; border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 2s linear infinite; }
+        .loader { width: 48px; height: 48px; border: 5px dotted var(--rox-dune-yellow); border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 2s linear infinite; }
         @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>

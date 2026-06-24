@@ -1,5 +1,5 @@
     <footer class="bg-black text-white pt-12 pb-8">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+        <div class="max-w-[1920px] mx-auto px-6 md:px-40">
             <!-- Top: Logo + disclaimer -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start mb-8 gap-6">
                 <img src="{{ asset('assets/logo-footer.svg') }}" alt="ROX Logo" class="h-5">
@@ -34,12 +34,12 @@
 
             <!-- Divider + bottom links -->
             <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex flex-wrap items-center gap-6 text-xs text-gray-600 font-medium tracking-wide">
+                <div class="flex flex-wrap items-center gap-4 md:gap-6 text-xs text-gray-600 font-medium tracking-wide">
                     <a href="https://www.roxmotor.com/" class="hover:text-white transition-colors">ROX Motor</a>
                     <a href="{{ route('contactos') }}" class="hover:text-white transition-colors">Contacte-nos</a>
                     <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
                 </div>
-                <p class="text-xs text-gray-600">Copyright &copy;{{ date('Y') }} ROX Angola <span class="mx-2">|</span> Desenvolvido por <a href="https://xamarizmarketing.ao" class="hover:text-white transition-colors" target="_blank">Xamariz Marketing</a></p>
+                <p class="text-xs text-gray-600 leading-relaxed">Copyright &copy;{{ date('Y') }} ROX Angola <span class="mx-1 md:mx-2">|</span> Desenvolvido por <a href="https://xamarizmarketing.ao" class="hover:text-white transition-colors" target="_blank">Xamariz Marketing</a></p>
             </div>
         </div>
     </footer>
