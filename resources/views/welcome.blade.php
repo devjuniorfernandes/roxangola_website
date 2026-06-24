@@ -6,22 +6,43 @@
         $features = \App\Models\SiteSection::where('section_name', 'features')->get()->keyBy('key');
         $explore = \App\Models\SiteSection::where('section_name', 'explore_models')->get()->keyBy('key');
         
-        $heroBg = isset($hero['banner_image']) && $hero['banner_image']->value ? asset($hero['banner_image']->value) : asset('assets/banner.jpg');
+        $heroBg = isset($hero['banner_image']) && $hero['banner_image']->value ? asset($hero['banner_image']->value) : asset('assets/banner1.jpg');
         $exploreImg = isset($explore['car_image']) && $explore['car_image']->value ? asset($explore['car_image']->value) : asset('assets/rox01.png');
         
         $vehicles = \App\Models\Vehicle::where('is_active', true)->orderBy('created_at', 'asc')->get();
     @endphp
 
-    <!-- Hero Section -->
-    <section class="h-screen bg-cover bg-center flex items-center px-6 md:px-12 relative" style="background-image: url('{{ $heroBg }}')">
-        <div class="max-w-[1400px] mx-auto w-full text-white hero-animate">
-            <h1 class="mb-5 text-4xl md:text-6xl font-medium tracking-wide">
-                {{ $hero['title']->value ?? 'ROX Angola' }}
-            </h1>
-            <p class="text-lg md:text-2xl mb-8 font-light max-w-2xl">
-                {{ $hero['subtitle']->value ?? 'O Futuro da Mobilidade Premium.' }}
-            </p>
-            <a href="#" class="inline-block px-8 py-3 text-sm font-medium tracking-wide uppercase border border-white text-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 rounded-sm">Saber mais</a>
+    <!-- Hero Slider Section -->
+    <section class="relative h-[100svh] w-full overflow-hidden" id="hero-slider">
+        <!-- Slide 1: ROX ADAMAS -->
+        <div class="hero-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/adamas.svg') }}" data-subtitle="All New Luxury All-terrain SUV" data-link="{{ route('rox-adamas') }}">
+            <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="h-full w-full object-cover">
+        </div>
+        <!-- Slide 2: ROX 01 -->
+        <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="SUV Todo-o-Terreno de Luxo — Cenário Completo" data-link="{{ route('rox01') }}">
+            <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="h-full w-full object-cover">
+        </div>
+
+        <!-- Gradient overlays -->
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[50%] bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+        <!-- Content -->
+        <div class="absolute inset-x-0 bottom-0 z-40 pb-32 md:pb-36">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-8">
+                <img id="hero-logo" src="{{ asset('assets/adamas.svg') }}" alt="ROX Model" class="h-8 sm:h-10 md:h-12 mb-4 md:mb-5 transition-opacity duration-500 hero-animate">
+                <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-6 md:mb-8 transition-opacity duration-500 hero-animate">All New Luxury All-terrain SUV</p>
+                <a id="hero-link" href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 hero-animate">MAIS</a>
+            </div>
+        </div>
+
+        <!-- Progress bars -->
+        <div class="absolute inset-x-0 bottom-16 md:bottom-20 z-40 flex justify-start gap-3 px-6 md:px-8 max-w-[1600px] mx-auto left-0 right-0">
+            <button type="button" class="hero-progress h-[2px] w-10 bg-white/30" data-hero-progress aria-label="Slide 1">
+                <span class="block h-full w-full origin-left scale-x-0 bg-white"></span>
+            </button>
+            <button type="button" class="hero-progress h-[2px] w-10 bg-white/30" data-hero-progress aria-label="Slide 2">
+                <span class="block h-full w-full origin-left scale-x-0 bg-white"></span>
+            </button>
         </div>
     </section>
 
@@ -42,6 +63,96 @@
             <a href="{{ $vehicles->first() ? '/'.$vehicles->first()->slug : route('rox01') }}" id="explore-btn" class="inline-block px-8 py-3 text-sm font-medium tracking-wide uppercase border border-black text-black hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 rounded-sm animate-up">{{ $explore['button_text']->value ?? 'Explorar' }}</a>
         </div>
     </section>
+
+    <!-- Hero Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.getElementById('hero-slider');
+            if (!slider) return;
+
+            var slides = Array.from(slider.querySelectorAll('[data-hero-slide]'));
+            var progressBtns = Array.from(slider.querySelectorAll('[data-hero-progress]'));
+            var logoEl = document.getElementById('hero-logo');
+            var subtitleEl = document.getElementById('hero-subtitle');
+            var linkEl = document.getElementById('hero-link');
+            var duration = 6000;
+            var fadeDuration = 1400;
+            var activeIndex = 0;
+            var timerId;
+            var transitionId;
+
+            function resetProgress() {
+                progressBtns.forEach(function(btn) {
+                    var bar = btn.querySelector('span');
+                    bar.style.transition = 'none';
+                    bar.style.transform = 'scaleX(0)';
+                });
+            }
+
+            function startProgress(index) {
+                var bar = progressBtns[index].querySelector('span');
+                requestAnimationFrame(function() {
+                    bar.style.transition = 'transform ' + duration + 'ms linear';
+                    bar.style.transform = 'scaleX(1)';
+                });
+            }
+
+            function setCopy(index) {
+                var slide = slides[index];
+                var els = [logoEl, subtitleEl, linkEl];
+
+                els.forEach(function(el) { el.style.opacity = '0'; });
+
+                setTimeout(function() {
+                    logoEl.src = slide.dataset.logo;
+                    logoEl.alt = slide.querySelector('img').alt;
+                    subtitleEl.textContent = slide.dataset.subtitle;
+                    linkEl.href = slide.dataset.link;
+                    els.forEach(function(el) { el.style.opacity = '1'; });
+                }, 200);
+            }
+
+            function showSlide(index) {
+                var nextIndex = (index + slides.length) % slides.length;
+                var previousIndex = activeIndex;
+
+                slides.forEach(function(s, i) {
+                    if (i !== previousIndex && i !== nextIndex) {
+                        s.classList.remove('z-20', 'z-10', 'opacity-100');
+                        s.classList.add('z-0', 'opacity-0');
+                    }
+                });
+
+                slides[previousIndex].classList.remove('z-20', 'z-0', 'opacity-0');
+                slides[previousIndex].classList.add('z-10', 'opacity-100');
+                slides[nextIndex].classList.remove('z-10', 'z-0', 'opacity-0');
+                slides[nextIndex].classList.add('z-20', 'opacity-100');
+
+                clearTimeout(transitionId);
+                transitionId = setTimeout(function() {
+                    slides.forEach(function(s, i) {
+                        if (i !== nextIndex) {
+                            s.classList.remove('z-20', 'z-10', 'opacity-100');
+                            s.classList.add('z-0', 'opacity-0');
+                        }
+                    });
+                }, fadeDuration);
+
+                activeIndex = nextIndex;
+                setCopy(activeIndex);
+                resetProgress();
+                startProgress(activeIndex);
+                clearTimeout(timerId);
+                timerId = setTimeout(function() { showSlide(activeIndex + 1); }, duration);
+            }
+
+            progressBtns.forEach(function(btn, index) {
+                btn.addEventListener('click', function() { showSlide(index); });
+            });
+
+            showSlide(0);
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
