@@ -425,60 +425,6 @@
         </div>
     </div>
 </div>
-    <!-- Technical Specifications -->
-    <section class="py-20 md:py-32 bg-[#f4f6f9]">
-        <div class="content-container">
-            <div class="text-center mb-14 md:mb-20 animate-up">
-                <p class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-gray-400 mb-4">Especificações</p>
-                <h2 class="text-3xl md:text-4xl font-light text-black">ROX ADAMAS em Números</h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                <div class="text-center animate-up">
-                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">1115</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">km</p>
-                    <p class="text-sm md:text-base font-medium text-black">Autonomia REEV</p>
-                </div>
-                <div class="text-center animate-up">
-                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">520</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">cv</p>
-                    <p class="text-sm md:text-base font-medium text-black">Potência Máxima</p>
-                </div>
-                <div class="text-center animate-up">
-                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">770</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
-                    <p class="text-sm md:text-base font-medium text-black">Capacidade de Vadeamento</p>
-                </div>
-                <div class="text-center animate-up">
-                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">272</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
-                    <p class="text-sm md:text-base font-medium text-black">Ground Clearance</p>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-10 md:mt-14 pt-10 md:pt-14 border-t border-gray-200">
-                <div class="text-center animate-up">
-                    <p class="text-2xl md:text-3xl font-light text-black mb-2">5.298</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
-                    <p class="text-sm font-medium text-black">Comprimento</p>
-                </div>
-                <div class="text-center animate-up">
-                    <p class="text-2xl md:text-3xl font-light text-black mb-2">1.985</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
-                    <p class="text-sm font-medium text-black">Largura</p>
-                </div>
-                <div class="text-center animate-up">
-                    <p class="text-2xl md:text-3xl font-light text-black mb-2">1.856</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
-                    <p class="text-sm font-medium text-black">Altura</p>
-                </div>
-                <div class="text-center animate-up">
-                    <p class="text-2xl md:text-3xl font-light text-black mb-2">3.010</p>
-                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
-                    <p class="text-sm font-medium text-black">Entre-eixos</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
@@ -506,6 +452,43 @@
                             <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare Section -->
+    <section class="py-20 md:py-28 bg-[#f4f6f9] border-t border-gray-200">
+        <div class="content-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center animate-up">
+                <!-- Left: Info -->
+                <div>
+                    <h2 class="text-2xl md:text-[2rem] font-medium text-black mb-6">Especificações do ROX ADAMAS</h2>
+                    <a href="{{ route('especificacoes', 'rox-adamas') }}" class="inline-block px-6 py-2.5 text-xs font-medium tracking-widest uppercase border border-black text-black hover:bg-black hover:text-white transition-all duration-300 mb-12">Ver mais</a>
+
+                    <div class="grid grid-cols-2 gap-x-10 gap-y-8">
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Autonomia (REEV)</p>
+                            <p class="text-lg font-semibold text-black">1.115 km</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Potência Total</p>
+                            <p class="text-lg font-semibold text-black">380 kW / 780 N·m</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Capacidade de Vadeamento</p>
+                            <p class="text-lg font-semibold text-black">770 mm</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Ground Clearance</p>
+                            <p class="text-lg font-semibold text-black">272 mm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Car image (dimensions in image) -->
+                <div>
+                    <img src="{{ asset('assets/adamas.png') }}" alt="ROX ADAMAS" class="w-full h-auto">
                 </div>
             </div>
         </div>

@@ -42,6 +42,12 @@ Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');
 })->name('politica-privacidade');
 
+Route::get('/especificacoes/{modelo?}', function ($modelo = 'rox-01') {
+    return view('especificacoes', ['modeloActivo' => $modelo]);
+})->name('especificacoes');
+
+Route::get('/especificacoes/{modelo}/pdf', [\App\Http\Controllers\SpecsController::class, 'downloadPdf'])->name('especificacoes.pdf');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
