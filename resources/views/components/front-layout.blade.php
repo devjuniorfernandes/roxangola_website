@@ -165,20 +165,22 @@
                 }, 500);
             }
 
-            var hasBeenShown = false;
+            var timerFired = false;
 
-            function triggerPopup() {
-                if (hasBeenShown) return;
-                hasBeenShown = true;
-                showPopup();
-            }
+            // Trigger 1: after 30 seconds (once)
+            setTimeout(function() {
+                if (!timerFired) {
+                    timerFired = true;
+                    showPopup();
+                }
+            }, 30000);
 
-            // Trigger 1: after 30 seconds
-            setTimeout(triggerPopup, 30000);
-
-            // Trigger 2: exit intent (mouse leaves viewport at the top)
+            // Trigger 2: exit intent (every time)
             document.addEventListener('mouseout', function(e) {
-                if (e.clientY <= 0) triggerPopup();
+                if (e.clientY <= 0) {
+                    timerFired = true;
+                    showPopup();
+                }
             });
 
             closeBtn.addEventListener('click', hidePopup);

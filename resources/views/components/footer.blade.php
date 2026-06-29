@@ -2,7 +2,10 @@
         <div class="site-container">
             <!-- Top: Logo + disclaimer -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start mb-8 gap-6">
-                <img src="{{ asset('assets/logo-footer.svg') }}" alt="ROX Logo" class="h-5">
+                <div class="flex items-center gap-3">
+                    <img src="{{ asset('assets/logo-footer.svg') }}" alt="ROX Logo" class="h-5">
+                    <span class="text-[11px] font-medium tracking-[3px] uppercase text-gray-500">Angola</span>
+                </div>
                 <p class="text-xs text-gray-500 font-light italic">* As imagens são apenas para referência, sujeitas ao veículo entregue.</p>
             </div>
 

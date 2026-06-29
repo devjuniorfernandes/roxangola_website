@@ -43,14 +43,17 @@
             <button id="close-sidebar" aria-label="Fechar menu" class="text-gray-400 hover:text-black">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX Logo" class="h-4">
+            <div class="flex items-center gap-2">
+                <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX Logo" class="h-4">
+                <span class="text-[10px] font-medium tracking-[3px] uppercase text-gray-400">Angola</span>
+            </div>
             <div class="w-6"></div> <!-- spacer -->
         </div>
         <nav class="flex flex-col p-8 gap-8 bg-[#f4f6f9]">
-            <a href="{{ route('rox01') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('rox-01') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">ROX 01</a>
-            <a href="{{ route('rox-adamas') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('rox-adamas') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">ROX Adamas</a>
-            <a href="{{ route('explorar') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('explorar') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">Explorar</a>
-            <a href="{{ route('contactos') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('contactos') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">Contactos</a>
+            <a href="{{ route('rox01') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">ROX 01 <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('rox-adamas') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">ROX Adamas <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-adamas') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('explorar') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">Explorar <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('explorar') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('contactos') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">Contactos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('contactos') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             @if(Request::is('rox-01'))
                 <a href="{{ route('contactos', ['modelo' => 'ROX 01', 'intencao' => 'Test Drive']) }}" class="mt-2 px-5 py-3 text-[13px] tracking-widest uppercase font-medium text-white text-center transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Test Drive</a>
             @elseif(Request::is('rox-adamas'))
