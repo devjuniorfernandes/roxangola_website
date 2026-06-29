@@ -17,7 +17,7 @@
                 <div class="space-y-6 text-gray-600 font-light">
                     <div>
                         <p class="font-medium text-black mb-1">Telefone</p>
-                        <a href="tel:+24494511022" class="hover:text-black transition-colors">(+244) 945 110 22</a>
+                        <a href="tel:+24494511022" class="hover:text-black transition-colors">(+244) 945 110 222</a>
                     </div>
                     <div>
                         <p class="font-medium text-black mb-1">Email</p>
