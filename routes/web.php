@@ -38,6 +38,10 @@ Route::get('/sobre-nos', function () {
     return view('sobre-nos');
 })->name('sobre-nos');
 
+Route::get('/showroom', function () {
+    return view('showroom');
+})->name('showroom');
+
 Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');
 })->name('politica-privacidade');
