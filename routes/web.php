@@ -29,6 +29,10 @@ Route::get('/sobre-nos', function () {
     return view('sobre-nos');
 })->name('sobre-nos');
 
+Route::get('/politica-privacidade', function () {
+    return view('politica-privacidade');
+})->name('politica-privacidade');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

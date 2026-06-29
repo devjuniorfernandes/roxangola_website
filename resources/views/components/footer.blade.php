@@ -37,7 +37,7 @@
                 <div class="flex flex-wrap items-center gap-4 md:gap-6 text-xs text-gray-600 font-medium tracking-wide">
                     <a href="https://www.roxmotor.com/" class="hover:text-white transition-colors">ROX Motor</a>
                     <a href="{{ route('contactos') }}" class="hover:text-white transition-colors">Contacte-nos</a>
-                    <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                    <a href="{{ route('politica-privacidade') }}" class="hover:text-white transition-colors">Política de Privacidade</a>
                 </div>
                 <p class="text-xs text-gray-600 leading-relaxed">Copyright &copy;{{ date('Y') }} ROX Angola <span class="mx-1 md:mx-2">|</span> Desenvolvido por <a href="https://xamarizmarketing.ao" class="hover:text-white transition-colors" target="_blank">Xamariz Marketing</a></p>
             </div>
