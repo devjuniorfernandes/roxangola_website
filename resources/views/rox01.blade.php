@@ -342,6 +342,60 @@
             </div>
         </div>
     </div>
+    <!-- Technical Specifications -->
+    <section class="py-20 md:py-32 bg-[#f4f6f9]">
+        <div class="content-container">
+            <div class="text-center mb-14 md:mb-20 animate-up">
+                <p class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-gray-400 mb-4">Especificações</p>
+                <h2 class="text-3xl md:text-4xl font-light text-black">ROX 01 em Números</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div class="text-center animate-up">
+                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">1115</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">km</p>
+                    <p class="text-sm md:text-base font-medium text-black">Autonomia REEV</p>
+                </div>
+                <div class="text-center animate-up">
+                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">460</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">cv</p>
+                    <p class="text-sm md:text-base font-medium text-black">Potência Máxima</p>
+                </div>
+                <div class="text-center animate-up">
+                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">770</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
+                    <p class="text-sm md:text-base font-medium text-black">Capacidade de Vadeamento</p>
+                </div>
+                <div class="text-center animate-up">
+                    <p class="text-3xl md:text-5xl font-light text-black mb-2" style="color: var(--rox-dune-yellow);">272</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
+                    <p class="text-sm md:text-base font-medium text-black">Ground Clearance</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-10 md:mt-14 pt-10 md:pt-14 border-t border-gray-200">
+                <div class="text-center animate-up">
+                    <p class="text-2xl md:text-3xl font-light text-black mb-2">5.298</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
+                    <p class="text-sm font-medium text-black">Comprimento</p>
+                </div>
+                <div class="text-center animate-up">
+                    <p class="text-2xl md:text-3xl font-light text-black mb-2">1.985</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
+                    <p class="text-sm font-medium text-black">Largura</p>
+                </div>
+                <div class="text-center animate-up">
+                    <p class="text-2xl md:text-3xl font-light text-black mb-2">1.856</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
+                    <p class="text-sm font-medium text-black">Altura</p>
+                </div>
+                <div class="text-center animate-up">
+                    <p class="text-2xl md:text-3xl font-light text-black mb-2">3.010</p>
+                    <p class="text-xs font-semibold tracking-wider uppercase text-gray-400 mb-1">mm</p>
+                    <p class="text-sm font-medium text-black">Entre-eixos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
