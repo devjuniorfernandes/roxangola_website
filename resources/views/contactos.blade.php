@@ -45,20 +45,46 @@
                         </div>
                     @endif
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
-                        <input type="text" id="name" name="name" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome <span class="text-red-500">*</span></label>
+                        <input type="text" id="name" name="name" value="{{ old('name') }}" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                        @error('name') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" id="email" name="email" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                        @error('email') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                        <input type="tel" id="phone" name="phone" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                        @error('phone') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
-                        <textarea id="message" name="message" rows="4" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required></textarea>
+                        <label for="model_interest" class="block text-sm font-medium text-gray-700 mb-1">Modelo de Interesse <span class="text-red-500">*</span></label>
+                        <select id="model_interest" name="model_interest" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                            @php $selectedModel = old('model_interest', request('modelo')); @endphp
+                            <option value="" disabled {{ $selectedModel ? '' : 'selected' }}>Selecione um modelo</option>
+                            <option value="ROX 01" {{ $selectedModel == 'ROX 01' ? 'selected' : '' }}>ROX 01</option>
+                            <option value="ROX ADAMAS" {{ $selectedModel == 'ROX ADAMAS' ? 'selected' : '' }}>ROX ADAMAS</option>
+                            <option value="Ambos" {{ $selectedModel == 'Ambos' ? 'selected' : '' }}>Ambos</option>
+                        </select>
+                        @error('model_interest') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+                    <div>
+                        <label for="intention" class="block text-sm font-medium text-gray-700 mb-1">Intenção <span class="text-red-500">*</span></label>
+                        <select id="intention" name="intention" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
+                            @php $selectedIntention = old('intention', request('intencao')); @endphp
+                            <option value="" disabled {{ $selectedIntention ? '' : 'selected' }}>Selecione a intenção</option>
+                            <option value="Test Drive" {{ $selectedIntention == 'Test Drive' ? 'selected' : '' }}>Test Drive</option>
+                            <option value="Proposta Comercial" {{ $selectedIntention == 'Proposta Comercial' ? 'selected' : '' }}>Proposta Comercial</option>
+                            <option value="Informação Geral" {{ $selectedIntention == 'Informação Geral' ? 'selected' : '' }}>Informação Geral</option>
+                        </select>
+                        @error('intention') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem <span class="text-red-500">*</span></label>
+                        <textarea id="message" name="message" rows="4" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>{{ old('message') }}</textarea>
+                        @error('message') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
                     <button type="submit" class="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-900 transition-colors uppercase tracking-widest text-sm font-medium mt-4">Enviar Mensagem</button>
                 </form>
