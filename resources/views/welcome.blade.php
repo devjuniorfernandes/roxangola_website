@@ -28,7 +28,7 @@
 
         <!-- Content -->
         <div class="absolute inset-x-0 bottom-0 z-40 pb-32 md:pb-36">
-            <div class="max-w-[1920px] mx-auto px-6 md:px-40">
+            <div class="site-container">
                 <img id="hero-logo" src="{{ asset('assets/adamas.svg') }}" alt="ROX Model" class="h-8 sm:h-10 md:h-12 mb-4 md:mb-5 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">
                 <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-6 md:mb-8 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">All New Luxury All-terrain SUV</p>
                 <a id="hero-link" href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.7s forwards;">MAIS</a>
@@ -36,7 +36,7 @@
         </div>
 
         <!-- Progress bars -->
-        <div class="absolute inset-x-0 bottom-16 md:bottom-20 z-40 flex justify-start gap-3 px-6 md:px-40 max-w-[1920px] mx-auto left-0 right-0 opacity-0 translate-y-4" style="animation: heroSlideUp 0.8s ease-out 0.9s forwards;">
+        <div class="absolute inset-x-0 bottom-16 md:bottom-20 z-40 flex justify-start gap-3 max-w-[1920px] site-container mx-auto left-0 right-0 opacity-0 translate-y-4" style="animation: heroSlideUp 0.8s ease-out 0.9s forwards;">
             <button type="button" class="hero-progress h-[2px] w-10 bg-white/30" data-hero-progress aria-label="Slide 1">
                 <span class="block h-full w-full origin-left scale-x-0" style="background: var(--rox-dune-yellow);"></span>
             </button>
@@ -48,7 +48,7 @@
 
     <!-- Explore Models Section -->
     <section class="py-20 md:py-28 bg-white overflow-hidden" id="explore-models">
-        <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+        <div class="content-container">
             <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-10 md:mb-14 text-center animate-up">Explorar Modelos ROX</h2>
 
             <!-- Model Tabs -->
@@ -91,7 +91,7 @@
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+                <div class="content-container">
                     <p id="showcase-label" class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6 opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out, transform 0.7s ease-out;">HISTÓRIA DA MARCA</p>
                     <h2 id="showcase-title" class="text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug opacity-0 translate-y-6" style="transition: opacity 0.7s ease-out 0.15s, transform 0.7s ease-out 0.15s;">Criamos a experiência de viagem definitiva para os sonhadores apaixonados por viagens</h2>
                 </div>
@@ -100,7 +100,7 @@
 
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+            <div class="content-container">
                 <div class="relative h-[300px] md:h-[500px] overflow-hidden group mb-4 md:mb-6 animate-up">
                     <img src="{{ asset('assets/banner2.jpg') }}" alt="Tecnologia Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -334,7 +334,7 @@
             <img src="{{ asset('assets/services.jpg') }}" alt="Centro de Assistência ROX" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+                <div class="content-container w-full">
                     <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Centro de assistência</p>
                     <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Um parceiro fiável para guiar as suas aventuras ao ar livre</h2>
                 </div>
@@ -348,7 +348,7 @@
             <img src="{{ asset('assets/life.jpg') }}" alt="ROX Life" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+                <div class="content-container w-full">
                     <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">ROX Life</p>
                     <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Para onde quer que vá, essa é a direção certa</h2>
                 </div>
@@ -358,7 +358,7 @@
 
     <!-- ROX App Section -->
     <section class="py-20 md:py-28 bg-white overflow-x-clip">
-        <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+        <div class="content-container">
             <div class="mb-10 md:mb-14 animate-up">
                 <p class="text-sm md:text-base font-semibold tracking-wide text-black mb-4">ROX App ROX Exploration, Forward Ever</p>
                 <h2 class="text-xl sm:text-2xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.35] max-w-4xl text-black">Experimente o Controlo do Veículo, Chave Bluetooth, Introdução ao Modelo ROX e ROX LIFE das infinitas possibilidades que o ROX lhe traz.</h2>

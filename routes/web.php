@@ -25,6 +25,15 @@ Route::get('/contactos', function () {
 
 Route::post('/contactos', [\App\Http\Controllers\ContactController::class, 'store'])->name('contactos.store');
 
+Route::post('/leads', function (\Illuminate\Http\Request $request) {
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:20',
+    ]);
+    \App\Models\Lead::create($validated);
+    return response()->json(['success' => true]);
+})->name('leads.store');
+
 Route::get('/sobre-nos', function () {
     return view('sobre-nos');
 })->name('sobre-nos');

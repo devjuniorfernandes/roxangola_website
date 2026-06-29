@@ -3,7 +3,7 @@
 
     <!-- Header Section -->
     <section class="pt-32 pb-20 px-6 bg-black text-white relative">
-        <div class="max-w-[1400px] mx-auto text-center animate-up">
+        <div class="max-w-[1280px] mx-auto text-center animate-up">
             <h1 class="text-4xl md:text-5xl font-medium mb-4">Política de Privacidade</h1>
             <p class="text-lg font-light text-gray-400 max-w-2xl mx-auto">Como recolhemos, utilizamos e protegemos os seus dados pessoais.</p>
         </div>

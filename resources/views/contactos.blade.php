@@ -3,7 +3,7 @@
 
     <!-- Header Section -->
     <section class="pt-32 pb-20 px-6 bg-[#f4f6f9] text-black relative">
-        <div class="max-w-[1400px] mx-auto text-center animate-up">
+        <div class="max-w-[1280px] mx-auto text-center animate-up">
             <h1 class="text-4xl md:text-5xl font-medium mb-4">Fale Connosco</h1>
             <p class="text-lg font-light text-gray-500 max-w-2xl mx-auto">Estamos aqui para responder a todas as suas questões e agendar o seu test drive exclusivo.</p>
         </div>
