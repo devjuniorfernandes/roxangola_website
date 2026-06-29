@@ -13,9 +13,14 @@
 
         <!-- Menu items -->
         <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
-            <a href="{{ route('rox01') }}" class="relative hover:opacity-70 transition-opacity uppercase pb-1">ROX 01 @if(Request::is('rox-01'))<span class="absolute bottom-0 left-0 w-full h-px" style="background: var(--rox-dune-yellow);"></span>@endif</a>
-            <a href="{{ route('rox-adamas') }}" class="relative hover:opacity-70 transition-opacity uppercase pb-1">ROX Adamas @if(Request::is('rox-adamas'))<span class="absolute bottom-0 left-0 w-full h-px" style="background: var(--rox-dune-yellow);"></span>@endif</a>
-            <a href="{{ route('contactos') }}" class="relative hover:opacity-70 transition-opacity uppercase pb-1">Contactos @if(Request::is('contactos'))<span class="absolute bottom-0 left-0 w-full h-px" style="background: var(--rox-dune-yellow);"></span>@endif</a>
+            <a href="{{ route('rox01') }}" class="group relative transition-opacity uppercase pb-1">ROX 01 <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('rox-adamas') }}" class="group relative transition-opacity uppercase pb-1">ROX Adamas <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-adamas') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('contactos') }}" class="group relative transition-opacity uppercase pb-1">Contactos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('contactos') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            @if(Request::is('rox-01'))
+                <a href="{{ route('contactos', ['modelo' => 'ROX 01', 'intencao' => 'Test Drive']) }}" class="px-5 py-2 text-xs tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Test Drive</a>
+            @elseif(Request::is('rox-adamas'))
+                <a href="{{ route('contactos', ['modelo' => 'ROX ADAMAS', 'intencao' => 'Test Drive']) }}" class="px-5 py-2 text-xs tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Test Drive</a>
+            @endif
         </div>
         <button id="mobile-menu" aria-label="Abrir menu" class="md:hidden flex flex-col justify-center items-center gap-[5px] w-[25px] cursor-pointer">
             <span class="w-full h-[3px] bg-current transition-colors duration-300 bar"></span>
@@ -43,6 +48,11 @@
             <a href="{{ route('rox-adamas') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('rox-adamas') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">ROX Adamas</a>
             <a href="{{ route('explorar') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('explorar') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">Explorar</a>
             <a href="{{ route('contactos') }}" class="text-[13px] tracking-widest uppercase font-medium {{ Request::is('contactos') ? 'text-black border-b border-black pb-1 inline-block' : 'text-black' }}">Contactos</a>
+            @if(Request::is('rox-01'))
+                <a href="{{ route('contactos', ['modelo' => 'ROX 01', 'intencao' => 'Test Drive']) }}" class="mt-2 px-5 py-3 text-[13px] tracking-widest uppercase font-medium text-white text-center transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Test Drive</a>
+            @elseif(Request::is('rox-adamas'))
+                <a href="{{ route('contactos', ['modelo' => 'ROX ADAMAS', 'intencao' => 'Test Drive']) }}" class="mt-2 px-5 py-3 text-[13px] tracking-widest uppercase font-medium text-white text-center transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Test Drive</a>
+            @endif
         </nav>
     </div>
     <div class="p-8 bg-white border-t border-gray-200 flex flex-col gap-5">
