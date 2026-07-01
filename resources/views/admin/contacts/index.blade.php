@@ -21,6 +21,8 @@
                                 <th class="pb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Data</th>
                                 <th class="pb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Nome</th>
                                 <th class="pb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Contacto</th>
+                                <th class="pb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Modelo</th>
+                                <th class="pb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Intenção</th>
                                 <th class="pb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Mensagem</th>
                             </tr>
                         </thead>
@@ -36,6 +38,12 @@
                                     <td class="py-4 pr-6 whitespace-nowrap">
                                         <div class="text-sm text-black">{{ $contact->email }}</div>
                                         <div class="text-xs text-gray-500 mt-1">{{ $contact->phone }}</div>
+                                    </td>
+                                    <td class="py-4 pr-6 whitespace-nowrap text-sm text-gray-600">
+                                        {{ $contact->model_interest ?? '—' }}
+                                    </td>
+                                    <td class="py-4 pr-6 whitespace-nowrap text-sm text-gray-600">
+                                        {{ $contact->intention ?? '—' }}
                                     </td>
                                     <td class="py-4 text-sm text-gray-600 font-light max-w-md">
                                         {{ $contact->message }}

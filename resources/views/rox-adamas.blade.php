@@ -20,7 +20,7 @@
             <img src="{{ asset('assets/life.jpg') }}" alt="Performance ROX ADAMAS" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+                <div class="content-container w-full">
                     <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Performance</p>
                     <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</h2>
                     <p class="feature-desc text-sm md:text-base font-light text-white max-w-xl" style="opacity: 0; transform: translateY(40px);">Com tração integral inteligente e motores duplos de alta eficiência, o ROX ADAMAS adapta-se a qualquer terreno.</p>
@@ -31,7 +31,7 @@
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+            <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
                         <img src="{{ asset('assets/1.jpg') }}" alt="Potência Híbrida" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
@@ -65,7 +65,7 @@
         <div id="comfort-cursor" class="fixed w-14 h-14 rounded-full pointer-events-none z-[60] opacity-0 transition-opacity duration-300 flex items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translate(-50%, -50%);">
             <span class="text-white text-xs font-medium tracking-wide">mais</span>
         </div>
-        <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+        <div class="content-container">
             <div class="text-center mb-12 md:mb-16 animate-up">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Interior Exclusivo</h2>
                 <p class="text-gray-500 font-light max-w-2xl mx-auto text-sm md:text-base">Materiais de topo, acabamentos premium e tecnologia avançada para criar um ambiente de primeira classe onde quer que vá.</p>
@@ -106,7 +106,7 @@
             <div class="absolute inset-0 bg-black/30"></div>
             <!-- Top text -->
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+                <div class="content-container w-full">
                     <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Design exterior</p>
                     <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A ROX ADAMAS redefine a estética do luxo ao ar livre</h2>
                     <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MORE</a>-->
@@ -114,7 +114,7 @@
             </div>
             <!-- Bottom text with left border -->
             <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-                <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+                <div class="content-container w-full">
                     <div class="border-l-2 border-white/60 pl-4 md:pl-6">
                         <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
                         <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
@@ -161,7 +161,7 @@
         
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+            <div class="content-container">
                 <div class="relative h-[420px] md:h-[680px] overflow-hidden group mb-4 md:mb-6 animate-up">
                     <img src="{{ asset('assets/seat-superior.avif') }}" alt="ROX ADAMAS configuração de seis lugares" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -201,7 +201,7 @@
 
     <!-- 360 Viewer Section (Canvas Based) -->
     <section class="py-16 md:py-32 bg-[#F8F9FA] relative">
-        <div class="max-w-[1400px] mx-auto text-center px-4 md:px-6">
+        <div class="max-w-[1280px] mx-auto text-center px-4 md:px-6">
             <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-8 md:mb-10">Explorar ROX Adamas</h2>
             
             <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-8 md:mb-12">
@@ -234,7 +234,7 @@
 
     <!-- Specs Slider Section -->
     <section class="bg-[#f4f6f9] text-black py-20 md:py-32 overflow-hidden">
-        <div class="max-w-[1280px] mx-auto px-6 md:px-8 mb-14 md:mb-20 animate-up">
+        <div class="content-container mb-14 md:mb-20 animate-up">
             <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Luxo Todo-o-Terreno</h3>
             <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX ADAMAS redefine o conceito de SUV de luxo todo-o-terreno, oferecendo sensações de condução excepcionais.</p>
         </div>
@@ -301,7 +301,7 @@
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
         <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</p>
                 <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho e autonomia revolucionários para uma experiência de condução completa</h2>
                 <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MORE</a>-->
@@ -309,7 +309,7 @@
         </div>
         <!-- Bottom text with left border -->
         <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <div class="border-l-2 border-white/60 pl-4 md:pl-6">
                     <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
                     <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
@@ -328,14 +328,14 @@
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
         <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Segurança ROX</p>
                 <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Proteção de segurança ao nível de uma fortaleza.</h2>
             </div>
         </div>
         <!-- Bottom text with left border -->
         <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <div class="border-l-2 border-white/60 pl-4 md:pl-6">
                     <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
                     <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
@@ -354,14 +354,14 @@
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
         <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Aventura sem limites</p>
                 <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Capacidade de superação de obstáculos incomparável.</h2>
             </div>
         </div>
         <!-- Bottom text with left border -->
         <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <div class="border-l-2 border-white/60 pl-4 md:pl-6">
                     <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
                     <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
@@ -373,7 +373,7 @@
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+            <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
                         <img src="{{ asset('assets/1.jpg') }}" alt="Aventura" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
@@ -409,14 +409,14 @@
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
         <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Estilo de vida ao ar livre</p>
                 <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Um estilo de vida ao ar livre cheio de energia, criado pela ROX ADAMAS</h2>
             </div>
         </div>
         <!-- Bottom text with left border -->
         <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-            <div class="max-w-[1280px] w-full mx-auto px-6 md:px-8">
+            <div class="content-container w-full">
                 <div class="border-l-2 border-white/60 pl-4 md:pl-6">
                     <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
                     <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
@@ -428,7 +428,7 @@
     <section class="relative bg-black">
         <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="max-w-[1280px] mx-auto px-6 md:px-8">
+            <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
                         <img src="{{ asset('assets/banner-ver.avif') }}" alt="Bagageira" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
@@ -452,6 +452,43 @@
                             <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare Section -->
+    <section class="py-20 md:py-28 bg-[#f4f6f9] border-t border-gray-200">
+        <div class="content-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center animate-up">
+                <!-- Left: Info -->
+                <div>
+                    <h2 class="text-2xl md:text-[2rem] font-medium text-black mb-6">Especificações do ROX ADAMAS</h2>
+                    <a href="{{ route('especificacoes', 'rox-adamas') }}" class="inline-block px-6 py-2.5 text-xs font-medium tracking-widest uppercase border border-black text-black hover:bg-black hover:text-white transition-all duration-300 mb-12">Ver mais</a>
+
+                    <div class="grid grid-cols-2 gap-x-10 gap-y-8">
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Autonomia (REEV)</p>
+                            <p class="text-lg font-semibold text-black">1.115 km</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Potência Total</p>
+                            <p class="text-lg font-semibold text-black">380 kW / 780 N·m</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Capacidade de Vadeamento</p>
+                            <p class="text-lg font-semibold text-black">770 mm</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-light mb-1">Ground Clearance</p>
+                            <p class="text-lg font-semibold text-black">272 mm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Car image (dimensions in image) -->
+                <div>
+                    <img src="{{ asset('assets/adamas.png') }}" alt="ROX ADAMAS" class="w-full h-auto">
                 </div>
             </div>
         </div>

@@ -25,9 +25,32 @@ Route::get('/contactos', function () {
 
 Route::post('/contactos', [\App\Http\Controllers\ContactController::class, 'store'])->name('contactos.store');
 
+Route::post('/leads', function (\Illuminate\Http\Request $request) {
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:20',
+    ]);
+    \App\Models\Lead::create($validated);
+    return response()->json(['success' => true]);
+})->name('leads.store');
+
 Route::get('/sobre-nos', function () {
     return view('sobre-nos');
 })->name('sobre-nos');
+
+Route::get('/showroom', function () {
+    return view('showroom');
+})->name('showroom');
+
+Route::get('/politica-privacidade', function () {
+    return view('politica-privacidade');
+})->name('politica-privacidade');
+
+Route::get('/especificacoes/{modelo?}', function ($modelo = 'rox-01') {
+    return view('especificacoes', ['modeloActivo' => $modelo]);
+})->name('especificacoes');
+
+Route::get('/especificacoes/{modelo}/pdf', [\App\Http\Controllers\SpecsController::class, 'downloadPdf'])->name('especificacoes.pdf');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
