@@ -36,24 +36,24 @@
 </nav>
 
 <!-- Mega Menu Modelos -->
-<div id="mega-menu" class="fixed top-[60px] left-0 w-full z-40 bg-gray-100 border-b border-gray-200 overflow-hidden pointer-events-none" style="max-height: 0; opacity: 0; transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease;">
-    <div class="site-container py-8">
-        <div class="grid grid-cols-2 gap-6" style="max-width: 560px;">
+<div id="mega-menu" class="fixed top-[60px] left-0 w-full z-[49] bg-gray-100 border-b border-gray-200 overflow-hidden pointer-events-none" style="max-height: 0; opacity: 0; transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease;">
+    <div class="site-container py-6 md:py-8">
+        <div class="grid grid-cols-2 gap-4 md:gap-6" style="max-width: 480px;">
             <!-- ROX ADAMAS -->
             <a href="{{ route('rox-adamas') }}" class="group block">
-                <div class="overflow-hidden rounded-sm mb-3">
-                    <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="overflow-hidden rounded-sm mb-2 md:mb-3">
+                    <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-[100px] md:h-[130px] lg:h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
-                <h3 class="text-[13px] font-normal text-black mb-0.5">ROX ADAMAS</h3>
-                <p class="text-[11px] text-gray-400 font-light leading-snug">Novo SUV de luxo todo-o-terreno</p>
+                <h3 class="text-xs md:text-[13px] font-normal text-black mb-0.5">ROX ADAMAS</h3>
+                <p class="text-[10px] md:text-[11px] text-gray-400 font-light leading-snug">Novo SUV de luxo todo-o-terreno</p>
             </a>
             <!-- ROX 01 -->
             <a href="{{ route('rox01') }}" class="group block">
-                <div class="overflow-hidden rounded-sm mb-3">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="overflow-hidden rounded-sm mb-2 md:mb-3">
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-[100px] md:h-[130px] lg:h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
-                <h3 class="text-[13px] font-normal text-black mb-0.5">ROX 01</h3>
-                <p class="text-[11px] text-gray-400 font-light leading-snug">SUV de luxo todo-o-terreno para cenário completo</p>
+                <h3 class="text-xs md:text-[13px] font-normal text-black mb-0.5">ROX 01</h3>
+                <p class="text-[10px] md:text-[11px] text-gray-400 font-light leading-snug">SUV de luxo todo-o-terreno para cenário completo</p>
             </a>
         </div>
     </div>

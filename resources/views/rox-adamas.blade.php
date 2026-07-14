@@ -2,18 +2,101 @@
     <x-slot name="title">ROX Adamas - Todo-o-Terreno Premium</x-slot>
 
     <!-- Hero Section -->
-    <section class="h-[100svh] w-full relative flex items-center justify-center overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+    <section class="h-[100svh] w-full relative flex items-start justify-center overflow-hidden">
+        <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="absolute inset-0 w-full h-full object-cover">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" poster="{{ asset('assets/banner-adamas.avif') }}">
             <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 text-center text-white hero-animate">
-            <img src="{{ asset('assets/adamas.svg') }}" alt="ROX ADAMAS" class="h-6 sm:h-7 md:h-9 mx-auto mb-4 md:mb-6">
-            <p class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide">
-                SUV Todo-o-Terreno de Luxo — Nova Geração
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10 text-center text-white pt-[14vh] sm:pt-[16vh] md:pt-[18vh]">
+            <img src="{{ asset('assets/adamas.svg') }}" alt="ROX ADAMAS" class="h-6 sm:h-7 md:h-9 mx-auto mb-3 md:mb-4 opacity-0 translate-y-6" style="animation: heroSlideUp 0.8s ease-out 0.2s forwards;">
+            <p class="text-sm sm:text-base md:text-lg font-light text-white/90 tracking-wide mb-3 md:mb-4 opacity-0 translate-y-6" style="animation: heroSlideUp 0.8s ease-out 0.4s forwards;">
+                Novo SUV de Luxo Todo-o-Terreno
             </p>
+            <a href="#" id="adamas-video-link" class="inline-flex items-center gap-2 text-xs sm:text-sm font-light text-white/80 hover:text-white tracking-wider transition-colors opacity-0 translate-y-6" style="animation: heroSlideUp 0.8s ease-out 0.6s forwards;">
+                Assistir Vídeo Completo <span class="text-base">&#9654;</span>
+            </a>
         </div>
     </section>
+
+    <!-- Specs Slider Section -->
+    <section class="bg-black text-white py-20 md:py-32 overflow-hidden" id="adamas-showcase-section">
+        <!-- Title -->
+        <div class="content-container mb-14 md:mb-20 animate-up">
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Luxo em voo planado</h3>
+            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O ROX ADAMAS redefine os SUV todo-o-terreno de luxo, proporcionando sensações de deslizamento, uma condução suave, inteligência avançada e experiências ao ar livre únicas.</p>
+        </div>
+
+        <!-- Slider -->
+        <div class="relative" id="adamas-specs-slider">
+            @php
+                $adamasSpecSlides = [
+                    [
+                        'img'    => 'lichengbei.jpg',
+                        'title'  => 'SUV Médio-Grande de Luxo de Referência',
+                        'bottom' => '<div class="flex gap-8 md:gap-14 text-center justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Comprimento</p><p class="text-sm md:text-lg font-mono font-medium">5.298 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Largura</p><p class="text-sm md:text-lg font-mono font-medium">1.985 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Altura</p><p class="text-sm md:text-lg font-mono font-medium">1.856 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Entre eixos</p><p class="text-sm md:text-lg font-mono font-medium">3.010 mm</p></div></div>',
+                    ],
+                    [
+                        'img'    => 'banner-adamas.avif',
+                        'title'  => 'Fortaleza Móvel, Protecção Extrema',
+                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Estampado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência Recorde do Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tecto: 159.730 N] Mais alta nos testes C-IASI até setembro de 2025</p>',
+                    ],
+                    [
+                        'img'    => 'life.jpg',
+                        'title'  => 'Testado em Todo o Mundo, Mestre de Todos os Terrenos',
+                        'bottom' => '<div class="text-center space-y-1"><p class="text-xs md:text-sm text-white/90 font-light">Suspensão pneumática de curso longo + algoritmos DCC</p><p class="text-xs md:text-sm text-white/90 font-light">Distância mínima ao solo <span class="font-medium">272 mm</span></p><p class="text-xs md:text-sm text-white/90 font-light">Ângulo de ataque <span class="font-medium">27.5°</span>, ângulo de saída <span class="font-medium">27.9°</span>, ângulo ventral <span class="font-medium">24.6°</span></p><p class="text-xs md:text-sm text-white/90 font-light">Profundidade máxima de travessia <span class="font-medium">770 mm</span></p></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">Distância mínima ao solo 272mm, ângulo de ataque 27.5°, ângulo de saída 27.9°, ângulo ventral 24.6°, profundidade máxima de travessia 770mm; todos os valores representam desempenho em Modo de Recuperação.</p>',
+                    ],
+                    [
+                        'img'    => 'keji.jpg',
+                        'title'  => 'Assentos Versáteis, Cabine Espaçosa e Luxuosa',
+                        'bottom' => '<div class="flex gap-6 md:gap-12 text-left justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Primeira classe</p><p class="text-sm md:text-base font-medium">Dois assentos zero-gravity</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Modos de assento</p><p class="text-sm md:text-base font-medium">Modo cama completa</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">8 airbags</p><p class="text-sm md:text-base font-medium">Massagem tipo Shiatsu</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Assentos</p><p class="text-sm md:text-base font-medium">Ventilação e aquecimento</p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Modo cama completa]: Sofá 7 lugares [8 airbags; massagem tipo Shiatsu]: Primeira classe 6 lugares</p>',
+                    ],
+                    [
+                        'img'    => '1.jpg',
+                        'title'  => 'REEV Líder em Desempenho Potente e Autonomia Prolongada',
+                        'bottom' => '<div class="flex gap-10 md:gap-16 justify-center"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Autonomia total WLTC</p><p class="text-xl md:text-2xl font-light tracking-wide">1.226 <span class="text-sm md:text-base font-light">km</span></p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">0-100 km/h</p><p class="text-xl md:text-2xl font-light tracking-wide">5,5 <span class="text-sm md:text-base font-light">segundos</span></p></div></div>',
+                    ],
+                    [
+                        'img'    => 'seat-direita.avif',
+                        'title'  => 'Expansão Flexível, Prazer Máximo ao Ar Livre',
+                        'bottom' => '<div class="flex gap-6 md:gap-10 justify-center flex-wrap"><div><p class="text-sm md:text-base font-medium">Bar de cozinha na mala</p></div><div><p class="text-sm md:text-base font-medium">Toldo 270°</p></div><div><p class="text-sm md:text-base font-medium">Descarga V2L 5,7 kW</p></div><div><p class="text-sm md:text-base font-medium">Qualificação legal de reboque</p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Descarga V2L 5,7 kW] V2L 3,5kW exterior + 2,2kW interior com tomada 220V</p>',
+                    ],
+                ];
+                $allAdamasSpecSlides = array_merge([end($adamasSpecSlides)], $adamasSpecSlides, [$adamasSpecSlides[0]]);
+            @endphp
+
+            <div class="flex gap-4" id="adamas-specs-track">
+                @foreach($allAdamasSpecSlides as $spec)
+                <div class="adamas-specs-card relative flex-shrink-0 h-[480px] md:h-[650px] overflow-hidden">
+                    <img src="{{ asset('assets/' . $spec['img']) }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
+                    <div class="absolute top-8 md:top-12 left-0 right-0 text-center px-6">
+                        <h4 class="text-lg md:text-xl font-medium text-white">{{ $spec['title'] }}</h4>
+                    </div>
+                    <div class="absolute bottom-8 md:bottom-12 left-0 right-0 px-8 md:px-12 text-white">
+                        {!! $spec['bottom'] !!}
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <!-- Arrow controls -->
+            <button id="adamas-specs-prev" class="adamas-spec-arrow absolute top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full flex items-center justify-center text-white transition-all duration-300" style="left: calc(50% - 28vw); background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7-7m-7 7l7 7"/></svg>
+            </button>
+            <button id="adamas-specs-next" class="adamas-spec-arrow absolute top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full flex items-center justify-center text-white transition-all duration-300" style="right: calc(50% - 28vw); background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-7-7m7 7l-7 7"/></svg>
+            </button>
+
+            <!-- Pagination dots -->
+            <div class="flex justify-center gap-2 mt-10" id="adamas-specs-dots">
+                @foreach($adamasSpecSlides as $idx => $spec)
+                <button class="adamas-specs-dot w-10 h-[3px] transition-all duration-300 {{ $idx === 0 ? 'bg-white' : 'bg-gray-700' }}" data-index="{{ $idx }}"></button>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <!-- Dark Features (Performance & Tech) -->
     <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section" id="performance-section">
@@ -21,10 +104,9 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
                 <div class="content-container w-full">
-                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Performance</p>
-                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Desempenho Off-Road Imbatível</h2>
-                    <p class="feature-desc text-sm md:text-base font-light text-white max-w-xl" style="opacity: 0; transform: translateY(40px);">Com tração integral inteligente e motores duplos de alta eficiência, o ROX ADAMAS adapta-se a qualquer terreno.</p>
-                </div>
+                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Capacidade todo-o-terreno</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Testado em todo o mundo, dominando todos os tipos de terreno com confiança</h2>
+                    </div>
             </div>
         </div>
     </div>
@@ -33,15 +115,14 @@
             <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
             <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/1.jpg') }}" alt="Potência Híbrida" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="chassis-card">
+                        <img src="{{ asset('assets/1.jpg') }}" alt="Arquitectura de Chassis" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Potência Híbrida</h3>
-                                <p class="font-light text-xs md:text-sm text-gray-300">Motores duplos de alta eficiência para máximo desempenho.</p>
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Arquitectura de Chassis de Vanguarda</h3>
                             </div>
-                            <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
+                            <span class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">+</span>
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
@@ -50,8 +131,7 @@
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
                                 <h3 class="text-lg md:text-xl font-medium mb-1">Tração Integral</h3>
-                                <p class="font-light text-xs md:text-sm text-gray-300">Domínio absoluto em qualquer superfície e condição.</p>
-                            </div>
+                                </div>
                             <a href="#" class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm hover:bg-white hover:text-black transition-all duration-300">+</a>
                         </div>
                     </div>
@@ -59,6 +139,82 @@
             </div>
         </div>
     </section>
+
+    <!-- Chassis Architecture Modal -->
+    <div id="chassis-modal" class="fixed inset-0 z-[200] hidden" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);">
+        <div id="chassis-modal-panel" class="absolute inset-0 bg-white overflow-y-auto translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+            <!-- Header -->
+            <div class="sticky top-0 z-10 bg-white border-b border-gray-200">
+                <div class="content-container flex items-center justify-between py-5">
+                    <h2 class="text-base md:text-lg font-medium text-black tracking-wide">Arquitectura de Chassis de Vanguarda</h2>
+                    <button id="chassis-modal-close" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-black transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content-container py-10 md:py-16 space-y-6 md:space-y-8">
+                <!-- Item 1: Capacidade Off-Road -->
+                <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+                    <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
+                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Capacidade Off-Road Impecável</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">No modo de recuperação, a altura do veículo aumenta 80 mm, atingindo uma distância mínima ao solo de 324 mm. Com um ângulo de ataque de 27,5°, um ângulo de saída de 27,9°, capacidade de subida de 100% (45°) e uma profundidade máxima de travessia de 770 mm, foi concebido para enfrentar as condições off-road mais exigentes com total confiança.</p>
+                    </div>
+                    <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/life.jpg') }}" class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
+                            <p class="text-white text-xs font-medium tracking-wide mb-0.5">Armadura Inferior de Alta Resistência e Chassis em Alumínio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2: Desempenho em Estrada -->
+                <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+                    <div class="relative h-[280px] md:h-[420px] order-1">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
+                            <p class="text-white text-xs font-medium tracking-wide mb-0.5">Controlo Dinâmico de Amortecimento</p>
+                            <p class="text-white/70 text-[11px] font-light">Bloqueia oscilações em milissegundos para uma condução serena</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2">
+                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Desempenho Suave em Estrada</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">Uma arquitectura de chassis de referência e uma afinação precisa proporcionam uma condução excepcionalmente suave e refinada. Com um raio de viragem reduzido de 5,98 m, navegar em ruas urbanas e fazer inversões de marcha torna-se intuitivo e sem esforço.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Modos Todo-o-Terreno -->
+                <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+                    <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
+                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Modos Todo-o-Terreno</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-6">7 modos de condução: Polivalente, Auto, Neve, Lama, Rocha, Areia e Travessia — dominando todos os terrenos e ambientes sem esforço.</p>
+                        <div class="flex gap-4 text-gray-500">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 12h16M4 8h16M4 16h16"/></svg>
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 17l4-4 4 4 4-4 4 4M5 7h14"/></svg>
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 17c2-3 4-5 6-5s4 4 6 4 4-3 6-6M3 7h18"/></svg>
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 20L8 8l4 8 4-12 4 16"/></svg>
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 3c-3 4-6 6-6 10a6 6 0 1012 0c0-4-3-6-6-10z"/></svg>
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/></svg>
+                        </div>
+                    </div>
+                    <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/banner-adamas.avif') }}" class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
+                            <p class="text-white text-xs font-medium tracking-wide">POLIVALENTE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Interior Gallery / Comfort Section -->
     <section class="py-16 md:py-24 bg-[#f4f6f9]" id="comfort-section">
@@ -847,6 +1003,132 @@
             });
             window.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX, e.touches[0].pageY, false), { passive: true });
             window.addEventListener('touchend', stopDrag);
+        });
+    </script>
+
+    <!-- Adamas Specs Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
+                var specsTrack = document.getElementById('adamas-specs-track');
+                var specsCards = document.querySelectorAll('.adamas-specs-card');
+                var specsDots = document.querySelectorAll('.adamas-specs-dot');
+                var specsPrev = document.getElementById('adamas-specs-prev');
+                var specsNext = document.getElementById('adamas-specs-next');
+                if (!specsTrack || !specsCards.length) return;
+
+                var realCount = specsDots.length;
+                var domIndex = 1;
+                var isAnimating = false;
+
+                function layoutSpecs() {
+                    var vw = window.innerWidth;
+                    var centerW = vw < 768 ? vw * 0.90 : vw * 0.65;
+                    specsCards.forEach(function (card) { card.style.width = centerW + 'px'; });
+                    specsTrack.style.transition = 'none';
+                    goTo(domIndex);
+                    void specsTrack.offsetWidth;
+                    specsTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                }
+
+                function goTo(idx) {
+                    domIndex = idx;
+                    var card = specsCards[domIndex];
+                    var vw = window.innerWidth;
+                    var offset = (vw / 2) - (card.offsetLeft + card.offsetWidth / 2);
+                    specsTrack.style.transform = 'translateX(' + offset + 'px)';
+                    updateDots();
+                }
+
+                function updateDots() {
+                    var realIdx = domIndex - 1;
+                    if (realIdx < 0) realIdx = realCount - 1;
+                    if (realIdx >= realCount) realIdx = 0;
+                    specsDots.forEach(function (d, i) {
+                        d.classList.toggle('bg-white', i === realIdx);
+                        d.classList.toggle('bg-gray-700', i !== realIdx);
+                    });
+                }
+
+                function snapAfterLoop() {
+                    if (domIndex === 0) {
+                        specsTrack.style.transition = 'none';
+                        goTo(realCount);
+                        void specsTrack.offsetWidth;
+                        specsTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                    }
+                    if (domIndex === realCount + 1) {
+                        specsTrack.style.transition = 'none';
+                        goTo(1);
+                        void specsTrack.offsetWidth;
+                        specsTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                    }
+                    isAnimating = false;
+                }
+
+                specsTrack.addEventListener('transitionend', snapAfterLoop);
+
+                function next() { if (isAnimating) return; isAnimating = true; goTo(domIndex + 1); }
+                function prev() { if (isAnimating) return; isAnimating = true; goTo(domIndex - 1); }
+
+                specsPrev.addEventListener('click', prev);
+                specsNext.addEventListener('click', next);
+                specsDots.forEach(function (dot) {
+                    dot.addEventListener('click', function () {
+                        if (isAnimating) return;
+                        isAnimating = true;
+                        goTo(parseInt(dot.dataset.index) + 1);
+                    });
+                });
+
+                layoutSpecs();
+                window.addEventListener('resize', layoutSpecs);
+
+                var sTouchStart = 0, sTouchDiff = 0;
+                specsTrack.addEventListener('touchstart', function (e) { sTouchStart = e.touches[0].clientX; }, { passive: true });
+                specsTrack.addEventListener('touchmove', function (e) { sTouchDiff = e.touches[0].clientX - sTouchStart; }, { passive: true });
+                specsTrack.addEventListener('touchend', function () {
+                    if (sTouchDiff > 50) prev();
+                    else if (sTouchDiff < -50) next();
+                    sTouchDiff = 0;
+                });
+            })();
+
+            // Chassis Architecture Modal
+            (function() {
+                var card = document.getElementById('chassis-card');
+                var modal = document.getElementById('chassis-modal');
+                var panel = document.getElementById('chassis-modal-panel');
+                var closeBtn = document.getElementById('chassis-modal-close');
+                if (!card || !modal) return;
+
+                function openModal() {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    requestAnimationFrame(function() {
+                        panel.classList.remove('translate-y-full');
+                        panel.classList.add('translate-y-0');
+                    });
+                }
+
+                function closeModal() {
+                    panel.classList.remove('translate-y-0');
+                    panel.classList.add('translate-y-full');
+                    setTimeout(function() {
+                        modal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 700);
+                }
+
+                card.addEventListener('click', openModal);
+                closeBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) closeModal();
+                });
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+                });
+            })();
         });
     </script>
 </x-front-layout>

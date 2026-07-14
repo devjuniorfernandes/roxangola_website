@@ -63,6 +63,9 @@
         #navbar.mega-hover .logo-default { display: none !important; }
         #navbar.mega-hover .logo-hover { display: block !important; }
 
+        /* Spec slider arrows hover */
+        .adamas-spec-arrow:hover { background: rgba(255,255,255,0.35) !important; }
+
         /* Page transition loader */
         #page-loader { position: fixed; inset: 0; z-index: 9999; background: #fff; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease-out; }
         #page-loader.hide { opacity: 0; pointer-events: none; }
