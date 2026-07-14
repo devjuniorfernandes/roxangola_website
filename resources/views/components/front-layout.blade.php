@@ -56,9 +56,12 @@
         .container-align-left { padding-left: max(1.5rem, calc((100vw - 1920px) / 2 + 2rem)); }
         .container-align-right { padding-right: max(1.5rem, calc((100vw - 1920px) / 2 + 2rem)); }
 
-        /* When navbar is scrolled, always show dark logo */
+        /* When navbar is scrolled or mega menu is open, show dark logo + white bg */
         #navbar.scrolled .logo-default { display: none !important; }
         #navbar.scrolled .logo-hover { display: block !important; }
+        #navbar.mega-hover.nav-transparent { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: #e5e7eb; color: #000; }
+        #navbar.mega-hover .logo-default { display: none !important; }
+        #navbar.mega-hover .logo-hover { display: block !important; }
 
         /* Page transition loader */
         #page-loader { position: fixed; inset: 0; z-index: 9999; background: #fff; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease-out; }

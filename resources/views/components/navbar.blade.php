@@ -15,11 +15,12 @@
         </a>
 
         <!-- Menu items -->
-        <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
-            <a href="{{ route('rox01') }}" class="group relative transition-opacity uppercase pb-1">ROX 01 <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
-            <a href="{{ route('rox-adamas') }}" class="group relative transition-opacity uppercase pb-1">ROX Adamas <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-adamas') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
-            <a href="{{ route('showroom') }}" class="group relative transition-opacity uppercase pb-1">Showroom <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
-            <a href="{{ route('contactos') }}" class="group relative transition-opacity uppercase pb-1">Contactos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('contactos') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+        <div class="hidden md:flex items-center space-x-10 text-[13px] font-medium">
+            <div class="relative nav-item" data-has-mega="true">
+                <span class="group relative pb-1 cursor-pointer transition-colors">Modelos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01', 'rox-adamas') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
+            </div>
+            <a href="{{ route('showroom') }}" class="group relative pb-1 transition-colors nav-item">Showroom <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('contactos') }}" class="group relative pb-1 transition-colors nav-item">Contactos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('contactos') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             @if(Request::is('rox-01'))
                 <a href="{{ route('contactos', ['modelo' => 'ROX 01', 'intencao' => 'Test Drive']) }}" class="px-5 py-2 text-xs tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Test Drive</a>
             @elseif(Request::is('rox-adamas'))
@@ -33,6 +34,30 @@
         </button>
     </div>
 </nav>
+
+<!-- Mega Menu Modelos -->
+<div id="mega-menu" class="fixed top-[60px] left-0 w-full z-40 bg-gray-100 border-b border-gray-200 overflow-hidden pointer-events-none" style="max-height: 0; opacity: 0; transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease;">
+    <div class="site-container py-8">
+        <div class="grid grid-cols-2 gap-6" style="max-width: 560px;">
+            <!-- ROX ADAMAS -->
+            <a href="{{ route('rox-adamas') }}" class="group block">
+                <div class="overflow-hidden rounded-sm mb-3">
+                    <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <h3 class="text-[13px] font-normal text-black mb-0.5">ROX ADAMAS</h3>
+                <p class="text-[11px] text-gray-400 font-light leading-snug">Novo SUV de luxo todo-o-terreno</p>
+            </a>
+            <!-- ROX 01 -->
+            <a href="{{ route('rox01') }}" class="group block">
+                <div class="overflow-hidden rounded-sm mb-3">
+                    <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <h3 class="text-[13px] font-normal text-black mb-0.5">ROX 01</h3>
+                <p class="text-[11px] text-gray-400 font-light leading-snug">SUV de luxo todo-o-terreno para cenário completo</p>
+            </a>
+        </div>
+    </div>
+</div>
 
 <!-- Sidebar Overlay -->
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-[90] hidden opacity-0 transition-opacity duration-300"></div>
@@ -48,7 +73,7 @@
                 <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX Logo" class="h-4">
                 <span class="text-[10px] font-medium tracking-[3px] uppercase text-gray-400">Angola</span>
             </div>
-            <div class="w-6"></div> <!-- spacer -->
+            <div class="w-6"></div>
         </div>
         <nav class="flex flex-col p-8 gap-8 bg-[#f4f6f9]">
             <a href="{{ route('rox01') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">ROX 01 <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
@@ -70,3 +95,72 @@
         </div>
     </div>
 </div>
+
+<script>
+(function() {
+    var navItems = document.querySelectorAll('.nav-item');
+    var megaMenu = document.getElementById('mega-menu');
+    var navbar = document.getElementById('navbar');
+    var megaOpen = false;
+    var hoverTimer = null;
+    var closeTimer = null;
+
+    function setWhite() {
+        if (navbar.classList.contains('nav-transparent')) {
+            navbar.classList.add('mega-hover');
+        }
+    }
+
+    function unsetWhite() {
+        navbar.classList.remove('mega-hover');
+    }
+
+    function openMega() {
+        clearTimeout(closeTimer);
+        if (megaOpen) return;
+        megaOpen = true;
+        megaMenu.style.pointerEvents = 'auto';
+        megaMenu.style.maxHeight = '350px';
+        megaMenu.style.opacity = '1';
+    }
+
+    function closeMega() {
+        closeTimer = setTimeout(function() {
+            megaOpen = false;
+            megaMenu.style.pointerEvents = 'none';
+            megaMenu.style.maxHeight = '0';
+            megaMenu.style.opacity = '0';
+        }, 150);
+    }
+
+    navItems.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+            clearTimeout(hoverTimer);
+            setWhite();
+            if (item.getAttribute('data-has-mega') === 'true') {
+                openMega();
+            } else {
+                closeMega();
+            }
+        });
+        item.addEventListener('mouseleave', function() {
+            if (item.getAttribute('data-has-mega') === 'true') {
+                closeMega();
+            }
+            hoverTimer = setTimeout(function() {
+                if (!megaOpen) unsetWhite();
+            }, 150);
+        });
+    });
+
+    megaMenu.addEventListener('mouseenter', function() {
+        clearTimeout(closeTimer);
+        clearTimeout(hoverTimer);
+        setWhite();
+    });
+    megaMenu.addEventListener('mouseleave', function() {
+        closeMega();
+        hoverTimer = setTimeout(unsetWhite, 150);
+    });
+})();
+</script>
