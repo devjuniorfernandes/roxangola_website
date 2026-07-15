@@ -173,21 +173,12 @@
 
             var timerFired = false;
 
-            // Trigger 1: after 30 seconds (once)
             setTimeout(function() {
                 if (!timerFired) {
                     timerFired = true;
                     showPopup();
                 }
-            }, 30000);
-
-            // Trigger 2: exit intent (every time)
-            document.addEventListener('mouseout', function(e) {
-                if (e.clientY <= 0) {
-                    timerFired = true;
-                    showPopup();
-                }
-            });
+            }, 10000);
 
             closeBtn.addEventListener('click', hidePopup);
             popup.addEventListener('click', function(e) {
