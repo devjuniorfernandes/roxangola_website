@@ -42,6 +42,14 @@ Route::get('/showroom', function () {
     return view('showroom');
 })->name('showroom');
 
+Route::get('/catalogo', function () {
+    return view('catalogo');
+})->name('catalogo');
+
+Route::get('/concessionaria', function () {
+    return view('concessionaria');
+})->name('concessionaria');
+
 Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');
 })->name('politica-privacidade');

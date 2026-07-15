@@ -1,9 +1,9 @@
 <!-- Desktop Navbar -->
-<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
+<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
     <div class="site-container flex items-center justify-between h-[60px]">
         <!-- Logo + Angola -->
         <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center gap-3">
-            @if(Request::is('/', 'rox-01', 'rox-adamas'))
+            @if(Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria'))
                 <img src="{{ asset('assets/logo-full-w.svg') }}" alt="ROX" class="h-5 logo-default">
                 <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX" class="h-5 logo-hover hidden">
                 <span class="text-[11px] font-medium tracking-[3px] uppercase opacity-70 logo-default">Angola</span>
@@ -19,6 +19,8 @@
             <div class="relative nav-item" data-has-mega="true">
                 <span class="group relative pb-1 cursor-pointer transition-colors">Modelos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01', 'rox-adamas') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
             </div>
+            <a href="{{ route('catalogo') }}" class="group relative pb-1 transition-colors nav-item">Catálogo <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('catalogo') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('concessionaria') }}" class="group relative pb-1 transition-colors nav-item">Concessionária <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('concessionaria') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <a href="{{ route('showroom') }}" class="group relative pb-1 transition-colors nav-item">Showroom <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <a href="{{ route('contactos') }}" class="group relative pb-1 transition-colors nav-item">Contactos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('contactos') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             @if(Request::is('rox-01'))
@@ -78,6 +80,8 @@
         <nav class="flex flex-col p-8 gap-8 bg-[#f4f6f9]">
             <a href="{{ route('rox01') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">ROX 01 <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <a href="{{ route('rox-adamas') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">ROX Adamas <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-adamas') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('catalogo') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">Catálogo <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('catalogo') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
+            <a href="{{ route('concessionaria') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">Concessionária <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('concessionaria') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <a href="{{ route('showroom') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">Showroom <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <a href="{{ route('contactos') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">Contactos <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('contactos') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             @if(Request::is('rox-01'))
