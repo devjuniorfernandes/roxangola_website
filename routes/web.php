@@ -42,6 +42,8 @@ Route::get('/showroom', function () {
     return view('showroom');
 })->name('showroom');
 
+Route::post('/showroom', [\App\Http\Controllers\ShowroomVisitController::class, 'store'])->name('showroom.store');
+
 Route::get('/catalogo', function () {
     return view('catalogo');
 })->name('catalogo');

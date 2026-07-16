@@ -1,9 +1,9 @@
 <!-- Desktop Navbar -->
-<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
+<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria', 'showroom') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
     <div class="site-container flex items-center justify-between h-[60px]">
         <!-- Logo + Angola -->
         <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center gap-3">
-            @if(Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria'))
+            @if(Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria', 'showroom'))
                 <img src="{{ asset('assets/logo-full-w.svg') }}" alt="ROX" class="h-5 logo-default">
                 <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX" class="h-5 logo-hover hidden">
                 <span class="text-[11px] font-medium tracking-[3px] uppercase opacity-70 logo-default">Angola</span>
