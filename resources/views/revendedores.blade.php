@@ -3,7 +3,7 @@
 
     <!-- Banner Hero -->
     <section class="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-center justify-center">
-        <img src="{{ asset('assets/services.jpg') }}" alt="Revendedores Globais" class="absolute inset-0 w-full h-full object-cover">
+        <img src="{{ asset('assets/services.jpg') }}" alt="Revendedores Globais" class="absolute inset-0 w-full h-full object-cover object-bottom">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative z-10 text-center text-white px-6">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium mb-4 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">Revendedores Globais</h1>
