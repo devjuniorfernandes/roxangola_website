@@ -52,6 +52,10 @@ Route::get('/concessionaria', function () {
     return view('concessionaria');
 })->name('concessionaria');
 
+Route::get('/revendedores', function () {
+    return view('revendedores');
+})->name('revendedores');
+
 Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');
 })->name('politica-privacidade');
