@@ -38,9 +38,61 @@ Route::get('/sobre-nos', function () {
     return view('sobre-nos');
 })->name('sobre-nos');
 
+Route::get('/sobre/marca', function () {
+    return view('sobre.marca');
+})->name('sobre.marca');
+
+Route::get('/sobre/historia', function () {
+    return view('sobre.historia');
+})->name('sobre.historia');
+
+Route::get('/sobre/comunidade', function () {
+    return view('sobre.comunidade');
+})->name('sobre.comunidade');
+
 Route::get('/showroom', function () {
     return view('showroom');
 })->name('showroom');
+
+Route::post('/showroom', [\App\Http\Controllers\ShowroomVisitController::class, 'store'])->name('showroom.store');
+
+Route::get('/catalogo', function () {
+    return view('catalogo');
+})->name('catalogo');
+
+Route::get('/concessionaria', function () {
+    return view('concessionaria');
+})->name('concessionaria');
+
+Route::get('/revendedores', function () {
+    return view('revendedores');
+})->name('revendedores');
+
+Route::get('/servicos', function () {
+    return view('servicos');
+})->name('servicos');
+
+Route::get('/servicos/agendamento', function () {
+    return view('servicos.agendamento');
+})->name('servicos.agendamento');
+
+Route::post('/servicos/agendamento', [\App\Http\Controllers\ServiceBookingController::class, 'store'])->name('servicos.agendamento.store');
+
+Route::get('/servicos/apoio-tecnico', function () {
+    return view('servicos.apoio-tecnico');
+})->name('servicos.apoio-tecnico');
+
+Route::get('/servicos/pecas-acessorios', function () {
+    return view('servicos.pecas-acessorios');
+})->name('servicos.pecas-acessorios');
+
+Route::get('/servicos/manual-instrucoes', function () {
+    return view('servicos.manual-instrucoes');
+})->name('servicos.manual-instrucoes');
+
+Route::get('/servicos/manual-desmontagem', function () {
+    return view('servicos.manual-desmontagem');
+})->name('servicos.manual-desmontagem');
 
 Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');

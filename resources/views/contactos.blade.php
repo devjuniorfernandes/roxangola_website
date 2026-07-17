@@ -1,11 +1,13 @@
 <x-front-layout>
     <x-slot name="title">Contactos</x-slot>
 
-    <!-- Header Section -->
-    <section class="pt-32 pb-20 px-6 bg-[#f4f6f9] text-black relative">
-        <div class="max-w-[1280px] mx-auto text-center animate-up">
-            <h1 class="text-4xl md:text-5xl font-medium mb-4">Fale Connosco</h1>
-            <p class="text-lg font-light text-gray-500 max-w-2xl mx-auto">Estamos aqui para responder a todas as suas questões e agendar o seu test drive exclusivo.</p>
+    <!-- Hero Section -->
+    <section class="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-end">
+        <img src="{{ asset('assets/showroom.jpg') }}" alt="Contactos ROX Angola" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="relative z-10 content-container pb-12 md:pb-16 text-white">
+            <h1 class="text-3xl md:text-5xl font-light mb-3 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">Entre em Contacto Connosco</h1>
+            <p class="text-base md:text-lg font-light text-white/80 max-w-2xl opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">Estamos disponíveis para esclarecer as suas questões, apresentar os nossos modelos e ajudá-lo a encontrar a solução de mobilidade ideal</p>
         </div>
     </section>
 
@@ -25,7 +27,7 @@
                     </div>
                     <div>
                         <p class="font-medium text-black mb-1">Localização</p>
-                        <p>Luanda, Angola</p>
+                        <p>Localização: Av. Pedro Castro Van Dúnem Nº3, Talatona, Luanda, Angola</p>
                     </div>
                 </div>
                 

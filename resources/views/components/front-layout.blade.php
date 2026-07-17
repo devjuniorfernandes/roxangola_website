@@ -56,9 +56,15 @@
         .container-align-left { padding-left: max(1.5rem, calc((100vw - 1920px) / 2 + 2rem)); }
         .container-align-right { padding-right: max(1.5rem, calc((100vw - 1920px) / 2 + 2rem)); }
 
-        /* When navbar is scrolled, always show dark logo */
+        /* When navbar is scrolled or mega menu is open, show dark logo + white bg */
         #navbar.scrolled .logo-default { display: none !important; }
         #navbar.scrolled .logo-hover { display: block !important; }
+        #navbar.mega-hover.nav-transparent { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: #e5e7eb; color: #000; }
+        #navbar.mega-hover .logo-default { display: none !important; }
+        #navbar.mega-hover .logo-hover { display: block !important; }
+
+        /* Spec slider arrows hover */
+        .adamas-spec-arrow:hover { background: rgba(255,255,255,0.35) !important; }
 
         /* Page transition loader */
         #page-loader { position: fixed; inset: 0; z-index: 9999; background: #fff; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease-out; }
@@ -167,21 +173,12 @@
 
             var timerFired = false;
 
-            // Trigger 1: after 30 seconds (once)
             setTimeout(function() {
                 if (!timerFired) {
                     timerFired = true;
                     showPopup();
                 }
-            }, 30000);
-
-            // Trigger 2: exit intent (every time)
-            document.addEventListener('mouseout', function(e) {
-                if (e.clientY <= 0) {
-                    timerFired = true;
-                    showPopup();
-                }
-            });
+            }, 10000);
 
             closeBtn.addEventListener('click', hidePopup);
             popup.addEventListener('click', function(e) {
