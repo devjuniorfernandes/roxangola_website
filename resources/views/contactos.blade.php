@@ -77,9 +77,9 @@
                         <select id="intention" name="intention" class="w-full border-gray-300 rounded shadow-sm focus:ring-black focus:border-black bg-white px-4 py-2" required>
                             @php $selectedIntention = old('intention', request('intencao')); @endphp
                             <option value="" disabled {{ $selectedIntention ? '' : 'selected' }}>Selecione a intenção</option>
-                            <option value="Test Drive" {{ $selectedIntention == 'Test Drive' ? 'selected' : '' }}>Test Drive</option>
-                            <option value="Proposta Comercial" {{ $selectedIntention == 'Proposta Comercial' ? 'selected' : '' }}>Proposta Comercial</option>
-                            <option value="Informação Geral" {{ $selectedIntention == 'Informação Geral' ? 'selected' : '' }}>Informação Geral</option>
+                            <option value="Quero ser contactado" {{ $selectedIntention == 'Quero ser contactado' ? 'selected' : '' }}>Quero ser contactado</option>
+                            <option value="Proposta comercial" {{ $selectedIntention == 'Proposta comercial' ? 'selected' : '' }}>Proposta comercial</option>
+                            <option value="Informação geral" {{ $selectedIntention == 'Informação geral' ? 'selected' : '' }}>Informação geral</option>
                         </select>
                         @error('intention') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>

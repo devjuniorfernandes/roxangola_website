@@ -1,5 +1,5 @@
 <x-front-layout>
-    <x-slot name="title">Página Inicial</x-slot>
+    <x-slot name="title">{{ __('home.title') }}</x-slot>
 
     @php
         $hero = \App\Models\SiteSection::where('section_name', 'hero')->get()->keyBy('key');
@@ -15,14 +15,14 @@
     <!-- Hero Slider Section -->
     <section class="relative h-[100svh] w-full overflow-hidden" id="hero-slider" data-duration="6000">
         <!-- Slide 1: ROX ADAMAS -->
-        <div class="hero-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/adamas.svg') }}" data-subtitle="Novo SUV de luxo Todo-o-Terreno em Angola" data-link="{{ route('rox-adamas') }}">
+        <div class="hero-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/adamas.svg') }}" data-subtitle="{{ __('home.hero.adamas_subtitle') }}" data-link="{{ route('rox-adamas') }}">
             <video class="h-full w-full object-cover" muted loop playsinline poster="{{ asset('assets/banner-adamas.avif') }}">
                 <source src="{{ asset('Dealer Feed Video ADAMAS - Subtitle free version.mp4') }}" type="video/mp4">
                 <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="h-full w-full object-cover">
             </video>
         </div>
         <!-- Slide 2: ROX 01 -->
-        <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="SUV de luxo para todo tipo de ambiente" data-link="{{ route('rox01') }}">
+        <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="{{ __('home.hero.rox01_subtitle') }}" data-link="{{ route('rox01') }}">
             <video class="h-full w-full object-cover" muted loop playsinline poster="{{ asset('assets/banner2.jpg') }}">
                 <source src="{{ asset('Dealer Feed Video ADAMAS - Subtitle free version.mp4') }}" type="video/mp4">
                 <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="h-full w-full object-cover">
@@ -36,8 +36,8 @@
         <div class="absolute inset-x-0 bottom-0 z-40 pb-32 md:pb-36">
             <div class="site-container">
                 <img id="hero-logo" src="{{ asset('assets/adamas.svg') }}" alt="ROX Model" class="h-8 sm:h-10 md:h-12 mb-4 md:mb-5 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">
-                <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-6 md:mb-8 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">All New Luxury All-terrain SUV</p>
-                <a id="hero-link" href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.7s forwards;">MAIS</a>
+                <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-6 md:mb-8 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">{{ __('home.hero.adamas_subtitle') }}</p>
+                <a id="hero-link" href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.7s forwards;">{{ __('home.more') }}</a>
             </div>
         </div>
 
@@ -57,8 +57,8 @@
         <!-- Title -->
         <div class="content-container mb-14 md:mb-20 animate-up">
             <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Mobil</h3>
-            <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">Distribuidor Oficial Exclusivo da ROX Motor em Angola</h4>
-            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">Mais do que comercializar viaturas, a Octa Mobil investe em infra-estruturas, formação técnica e serviço especializado para garantir confiança, qualidade e tranquilidade aos clientes ROX.</p>
+            <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('home.octa.subtitle') }}</h4>
+            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">{{ __('home.octa.text') }}</p>
         </div>
 
     </section>
@@ -66,7 +66,7 @@
     <!-- Explore Models Cards Section -->
     <section class="py-20 md:py-28 bg-white overflow-hidden">
         <div class="content-container">
-            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-12 md:mb-16 animate-up">Explore os Modelos ROX</h2>
+            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-12 md:mb-16 animate-up">{{ __('home.explore.title') }}</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <!-- ROX ADAMAS -->
@@ -76,9 +76,9 @@
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div class="text-white">
                             <h3 class="text-lg md:text-xl font-medium mb-1">ROX ADAMAS</h3>
-                            <p class="font-light text-xs md:text-sm text-gray-300">Luxo absoluto para quem procura desempenho, sofisticação e liberdade.</p>
+                            <p class="font-light text-xs md:text-sm text-gray-300">{{ __('home.explore.adamas_desc') }}</p>
                         </div>
-                        <a href="{{ route('rox-adamas') }}" class="flex-shrink-0 border border-white/50 text-white text-xs font-medium tracking-widest uppercase px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 text-center">Explorar ROX ADAMAS</a>
+                        <a href="{{ route('rox-adamas') }}" class="flex-shrink-0 border border-white/50 text-white text-xs font-medium tracking-widest uppercase px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 text-center">{{ __('home.explore.adamas_cta') }}</a>
                     </div>
                 </div>
 
@@ -89,9 +89,9 @@
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div class="text-white">
                             <h3 class="text-lg md:text-xl font-medium mb-1">ROX 01</h3>
-                            <p class="font-light text-xs md:text-sm text-gray-300">O SUV que redefiniu o conceito de aventura premium, com tecnologia REEV, conforto e autonomia.</p>
+                            <p class="font-light text-xs md:text-sm text-gray-300">{{ __('home.explore.rox01_desc') }}</p>
                         </div>
-                        <a href="{{ route('rox01') }}" class="flex-shrink-0 border border-white/50 text-white text-xs font-medium tracking-widest uppercase px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 text-center">Explorar ROX 01</a>
+                        <a href="{{ route('rox01') }}" class="flex-shrink-0 border border-white/50 text-white text-xs font-medium tracking-widest uppercase px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 text-center">{{ __('home.explore.rox01_cta') }}</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                 <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
                     <div class="content-container">
-                        <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A Definir a Nova Era da Mobilidade em Angola</h2>
+                        <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">{{ __('home.showcase.title') }}</h2>
                     </div>
                 </div>
             </div>
@@ -120,33 +120,33 @@
                 $showcaseSpecSlides = [
                     [
                         'img'    => 'rox01.jpg',
-                        'title'  => 'Tecnologia REEV (Range Extended Electric Vehicle)',
-                        'bottom' => '<p class="text-lg md:text-xl font-light">Incorporamos uma tecnologia que combina a experiência de condução de um veículo eléctrico com a autonomia de um motor de extensão de alcance, permitindo viagens mais longas com maior eficiência e tranquilidade.</p>',
+                        'title'  => __('home.specs.reev_title'),
+                        'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.reev_text') . '</p>',
                     ],
                     [
                         'img'    => 'lichengbei.jpg',
-                        'title'  => 'Autonomia Inteligente',
-                        'bottom' => '<p class="text-lg md:text-xl font-light">Os modelos ROX oferecem uma autonomia combinada superior a 1.100 km, proporcio-nando liberdade para percorrer longas distâncias sem preocupações frequentes com o reabastecimento ou carregamento.</p>',
+                        'title'  => __('home.specs.range_title'),
+                        'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.range_text') . '</p>',
                     ],
                     [
                         'img'    => 'banner1.jpg',
-                        'title'  => 'Desempenho Todo-o-Terreno',
-                        'bottom' => '<p class="text-lg md:text-xl font-light">Equipados com tração integral inteligente, suspensão avançada e vários modos de condu-ção, os veículos ROX adaptam-se facilmente a diferentes tipos de terreno, desde estradas urbanas até percursos mais exigentes.</p>',
+                        'title'  => __('home.specs.terrain_title'),
+                        'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.terrain_text') . '</p>',
                     ],
                     [
                         'img'    => 'keji.jpg',
-                        'title'  => 'Luxo e Conforto Premium',
-                        'bottom' => '<p class="text-lg md:text-xl font-light">O interior foi concebido para proporcionar uma experiência de viagem de elevada quali-dade, com bancos em couro Nappa, assentos Zero Gravity, iluminação ambiente, climati-zação inteligente e acabamentos sofisticados.</p>',
+                        'title'  => __('home.specs.luxury_title'),
+                        'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.luxury_text') . '</p>',
                     ],
                     [
                         'img'    => 'banner-adamas.avif',
-                        'title'  => 'Segurança Inteligente',
-                        'bottom' => '<p class="text-lg md:text-xl font-light">Os modelos ROX incorporam uma estrutura de alta resistência, múltiplos airbags e siste-mas avançados de assistência à condução, oferecendo elevados padrões de protecção para todos os ocupantes.</p>',
+                        'title'  => __('home.specs.safety_title'),
+                        'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.safety_text') . '</p>',
                     ],
                     [
                         'img'    => 'banner2.jpg',
-                        'title'  => 'Conectividade e Tecnologia',
-                        'bottom' => '<p class="text-lg md:text-xl font-light">Os modelos ROX incorporam uma estrutura de alta resistência, múltiplos airbags e siste-mas avançados de assistência à condução, oferecendo elevados padrões de protecção para todos os ocupantes.</p>',
+                        'title'  => __('home.specs.connect_title'),
+                        'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.connect_text') . '</p>',
                     ],
                 ];
                 $allShowcaseSpecSlides = array_merge([end($showcaseSpecSlides)], $showcaseSpecSlides, [$showcaseSpecSlides[0]]);
@@ -192,7 +192,7 @@
     <!-- Catálogo ROX Motor Angola -->
     <section class="bg-white text-black py-20 md:py-28">
         <div class="content-container">
-            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-12 md:mb-16 animate-up">Catálogo ROX Motor Angola</h2>
+            <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-12 md:mb-16 animate-up">{{ __('home.catalog.title') }}</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Descarregar Catálogo PDF -->
@@ -202,8 +202,8 @@
                     </div>
                     <div class="bg-[#1a1a1a] text-white px-5 sm:px-6 md:px-8 h-[120px] sm:h-[130px] md:h-[140px] flex items-start pt-4 sm:pt-5 md:pt-6 justify-between gap-4">
                         <div>
-                            <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3">Descarregar Catálogo PDF</h3>
-                            <p class="text-xs md:text-sm text-gray-400 font-light leading-relaxed">Conheça em detalhe a nova geração de SUV premium da ROX Motor.</p>
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3">{{ __('home.catalog.download_title') }}</h3>
+                            <p class="text-xs md:text-sm text-gray-400 font-light leading-relaxed">{{ __('home.catalog.download_desc') }}</p>
                         </div>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white transition-colors duration-200 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
                     </div>
@@ -216,8 +216,8 @@
                     </div>
                     <div class="bg-[#1a1a1a] text-white px-5 sm:px-6 md:px-8 h-[120px] sm:h-[130px] md:h-[140px] flex items-start pt-4 sm:pt-5 md:pt-6 justify-between gap-4">
                         <div>
-                            <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3">Visualizar Catálogo</h3>
-                            <p class="text-xs md:text-sm text-gray-400 font-light leading-relaxed">Explore o catálogo oficial da ROX Motor Angola e conheça os modelos que unem luxo, inovação e desempenho para uma nova forma de conduzir.</p>
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3">{{ __('home.catalog.view_title') }}</h3>
+                            <p class="text-xs md:text-sm text-gray-400 font-light leading-relaxed">{{ __('home.catalog.view_desc') }}</p>
                         </div>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white transition-colors duration-200 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
                     </div>
@@ -229,36 +229,18 @@
     <!-- Destaques ROX Section -->
     <section class="bg-white py-20 md:py-28 overflow-hidden" id="destaques-section">
         <div class="content-container mb-10 md:mb-14">
-            <p class="text-sm md:text-base font-semibold tracking-wide mb-3 animate-up">Destaques ROX</p>
-            <h2 class="text-2xl md:text-4xl font-light leading-snug animate-up">Descubra as últimas manchetes em torno da ROX Motor Angola</h2>
+            <p class="text-sm md:text-base font-semibold tracking-wide mb-3 animate-up">{{ __('home.news.eyebrow') }}</p>
+            <h2 class="text-2xl md:text-4xl font-light leading-snug animate-up">{{ __('home.news.title') }}</h2>
         </div>
 
         @php
             $destaques = [
-                [
-                    'img'   => 'banner-adamas.avif',
-                    'title' => 'ROX Motor e OCTA Mobil celebram parceria exclusiva para o mercado angolano',
-                ],
-                [
-                    'img'   => 'lichengbei.jpg',
-                    'title' => 'ROX ADAMAS: o SUV de luxo todo-o-terreno que chega a Angola',
-                ],
-                [
-                    'img'   => 'keji.jpg',
-                    'title' => 'Tecnologia REEV: a autonomia inteligente que define o futuro da mobilidade',
-                ],
-                [
-                    'img'   => 'banner1.jpg',
-                    'title' => 'ROX 01 testado nos terrenos mais exigentes do mundo',
-                ],
-                [
-                    'img'   => 'rox01.jpg',
-                    'title' => 'Showroom ROX Angola: uma experiência premium de atendimento',
-                ],
-                [
-                    'img'   => 'banner2.jpg',
-                    'title' => 'A rede de assistência ROX em Angola: proximidade e confiança',
-                ],
+                ['img' => 'banner-adamas.avif', 'title' => __('home.news.item1')],
+                ['img' => 'lichengbei.jpg', 'title' => __('home.news.item2')],
+                ['img' => 'keji.jpg', 'title' => __('home.news.item3')],
+                ['img' => 'banner1.jpg', 'title' => __('home.news.item4')],
+                ['img' => 'rox01.jpg', 'title' => __('home.news.item5')],
+                ['img' => 'banner2.jpg', 'title' => __('home.news.item6')],
             ];
         @endphp
 
@@ -270,7 +252,7 @@
                         <img src="{{ asset('assets/' . $item['img']) }}" alt="{{ $item['title'] }}" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-sm sm:text-base md:text-lg font-normal leading-snug mb-4 sm:mb-6 pr-4">{{ $item['title'] }}</h3>
-                    <a href="#" class="inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300">MAIS</a>
+                    <a href="#" class="inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300">{{ __('home.more') }}</a>
                 </div>
                 @endforeach
             </div>
@@ -620,11 +602,11 @@
 
     <!-- CTA Test Drive Section -->
     <section class="relative h-[100svh] w-full overflow-hidden">
-        <img src="{{ asset('assets/cta.avif') }}" alt="Agende o seu Test Drive" class="absolute inset-0 w-full h-full object-cover">
+        <img src="{{ asset('assets/cta.avif') }}" alt="{{ __('home.cta.title') }}" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative z-10 flex flex-col items-center justify-start h-full text-center px-6 pt-32 md:pt-40">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 md:mb-6 animate-up">Agende o seu Test Drive</h2>
-            <p class="text-base sm:text-lg md:text-xl font-light text-gray-200 mb-8 md:mb-10 animate-up">Entre em contacto e viva essa nova experiência!</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 md:mb-6 animate-up">{{ __('home.cta.title') }}</h2>
+            <p class="text-base sm:text-lg md:text-xl font-light text-gray-200 mb-8 md:mb-10 animate-up">{{ __('home.cta.subtitle') }}</p>
         </div>
     </section>
 
@@ -632,14 +614,14 @@
     <section class="py-20 md:py-28 bg-white overflow-x-clip">
         <div class="content-container">
             <div class="mb-10 md:mb-14 animate-up">
-                <p class="text-sm md:text-base font-semibold tracking-wide text-black mb-4">Descubra o seu próximo destino com a ROX App</p>
-                <h2 class="text-xl sm:text-2xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.35] max-w-4xl text-black">Controle do Veículo, Chave Bluetooth, Introdução ao Modelo ROX e VIDA ROX</h2>
+                <p class="text-sm md:text-base font-semibold tracking-wide text-black mb-4">{{ __('home.app.eyebrow') }}</p>
+                <h2 class="text-xl sm:text-2xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.35] max-w-4xl text-black">{{ __('home.app.title') }}</h2>
             </div>
 
             <div class="bg-[#F8F9F9] py-16 md:py-[137px] px-[8%] mt-10 md:mt-20 relative hidden lg:block animate-up">
                 <div class="flex flex-col w-[250px] items-center text-center">
                     <img src="{{ asset('assets/app-download.jpg') }}" alt="QR Code ROX App" class="w-[120px] md:w-[160px] h-auto mx-auto">
-                    <p class="mt-4 text-lg leading-normal text-black">Digitalize o código QR para descarregar a aplicação.</p>
+                    <p class="mt-4 text-lg leading-normal text-black">{{ __('home.app.qr') }}</p>
                 </div>
                 <img src="{{ asset('assets/app-en.png') }}" alt="ROX App Screenshots" class="absolute right-0 -top-[30px] xl:-top-[50px] w-[660px] xl:w-[640px] h-auto pointer-events-none">
             </div>
@@ -647,7 +629,7 @@
             <!-- Mobile fallback -->
             <div class="flex flex-col items-center text-center lg:hidden animate-up mt-10">
                 <img src="{{ asset('assets/app-download.jpg') }}" alt="QR Code ROX App" class="w-[120px] h-auto mx-auto mb-4">
-                <p class="text-base leading-normal text-black mb-8">Digitalize o código QR para descarregar a aplicação.</p>
+                <p class="text-base leading-normal text-black mb-8">{{ __('home.app.qr') }}</p>
                 <img src="{{ asset('assets/app-en.png') }}" alt="ROX App Screenshots" class="max-w-[400px] w-full h-auto">
             </div>
         </div>

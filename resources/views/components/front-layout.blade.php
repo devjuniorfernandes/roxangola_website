@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ROX Angola - SUV Híbrido Premium Todo-o-Terreno. Redefina o padrão para veículos todo-o-terreno inteligentes de luxo.">
+    <meta name="description" content="{{ __('common.meta.description') }}">
     <meta name="keywords" content="ROX, Angola, SUV Híbrido, Todo-o-Terreno, Carros de Luxo, ROX 01, ROX Adamas">
-    <title>{{ $title ?? 'ROX Angola' }} - Redefina o padrão para veículos todo-o-terreno inteligentes de luxo</title>
+    <title>{{ $title ?? 'ROX Angola' }} - {{ __('common.meta.tagline') }}</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo.svg') }}">
     
     <!-- Scripts & Styles -->

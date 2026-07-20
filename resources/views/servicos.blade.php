@@ -45,12 +45,6 @@
                         'desc'  => 'Consulte os manuais oficiais da ROX Motor para conhecer todas as funcionalidades, sistemas e recomendações de utilização da sua viatura. Tenha acesso rápido às informações necessárias para tirar o máximo partido da tecnologia e dos equipamentos disponíveis.',
                         'link'  => route('servicos.manual-instrucoes'),
                     ],
-                    [
-                        'img'   => 'seat-direita.avif',
-                        'title' => 'Manual de Desmontagem',
-                        'desc'  => 'Esta área reúne documentação técnica destinada a oficinas autorizadas e profissionais qualificados. Os manuais disponibilizam procedimentos de desmontagem, esquemas técnicos e informações essenciais para intervenções realizadas de acordo com os padrões definidos pela ROX Motor.',
-                        'link'  => route('servicos.manual-desmontagem'),
-                    ],
                 ];
             @endphp
 

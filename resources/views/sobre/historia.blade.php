@@ -36,7 +36,7 @@
                     ['date' => '2021.1', 'title' => 'ROX Motor fundada', 'img' => 'banner.jpg'],
                     ['date' => '2023.8', 'title' => 'Veículos ROX 01 de produção em série saem da linha de montagem', 'img' => 'banner2.jpg'],
                     ['date' => '2023.8', 'title' => 'ROX 01 lançado oficialmente', 'img' => 'banner1.jpg'],
-                    ['date' => '2023.9', 'title' => 'Primeira loja nacional inaugurada (Xangai)', 'img' => 'life.jpg'],
+                    ['date' => '2023.9', 'title' => 'Primeira loja nacional inaugurada', 'img' => 'life.jpg'],
                     ['date' => '2023.12', 'title' => 'Início das entregas do ROX 01', 'img' => 'outdoor.avif'],
                     ['date' => '2024.4', 'title' => 'ROX 01 estreia num salão automóvel internacional', 'img' => 'keji.jpg'],
                     ['date' => '2024.4', 'title' => 'ROX 01 estreia no Salão Automóvel de Pequim', 'img' => 'lichengbei.jpg'],
@@ -57,10 +57,11 @@
                     ['date' => '2025.10', 'title' => 'Conclusão do "Tour da Rota da Seda de 25.000 km"', 'img' => 'shequ.jpg'],
                     ['date' => '2025.10', 'title' => 'Estreia global do ROX ADAMAS em Abu Dhabi', 'img' => 'banner-adamas.avif'],
                     ['date' => '2025.12', 'title' => 'Lançamento nacional do ROX ADAMAS', 'img' => 'adamas.jpg'],
+                    ['date' => '2026.2', 'title' => 'Parceria com Angola', 'img' => 'dealer.jpg'],
                 ];
             @endphp
 
-            @foreach($milestones as $milestone)
+            @foreach(array_reverse($milestones) as $milestone)
             <div class="animate-up">
                 <div class="relative aspect-video overflow-hidden">
                     <img src="{{ asset('assets/' . $milestone['img']) }}" alt="{{ $milestone['title'] }}" class="w-full h-full object-cover" loading="lazy">

@@ -33,11 +33,11 @@
 
             @php
                 $servicos = [
-                    ['img' => 'banner-adamas.avif', 'title' => 'Venda de Automóveis', 'desc' => 'Somos o distribuidor oficial em Angola da ROX Motor e da SAIC Maxus. Oferecemos mode-los que combinam tecnologia, desempenho, segurança e inovação para diferentes neces-sidades de mobilidade.'],
-                    ['img' => 'banner2.jpg', 'title' => 'Test Drive', 'desc' => 'Experimente os modelos ROX e Maxus antes de tomar a sua decisão. Agende uma sessão de Test Drive e descubra o desempenho, o conforto e a tecnologia que distinguem cada veículo.'],
+                    ['img' => 'banner-adamas.avif', 'title' => 'Venda de Automóveis', 'desc' => 'Somos o distribuidor oficial em Angola da ROX Motor. Oferecemos mode-los que combinam tecnologia, desempenho, segurança e inovação para diferentes neces-sidades de mobilidade.'],
+                    ['img' => 'banner2.jpg', 'title' => 'Test Drive', 'desc' => 'Experimente os modelos ROX antes de tomar a sua decisão. Agende uma sessão de Test Drive e descubra o desempenho, o conforto e a tecnologia que distinguem cada veículo.'],
                     ['img' => 'rox01.jpg', 'title' => 'Consultoria Comercial', 'desc' => 'A nossa equipa comercial presta aconselhamento personalizado para ajudar cada cliente a escolher o modelo, a versão e os equipamentos que melhor se adaptam às suas necessi-dades pessoais ou empresariais.'],
                     ['img' => 'services.jpg', 'title' => 'Serviço Pós-Venda', 'desc' => 'Prestamos um serviço pós-venda especializado, assegurando acompanhamento contínuo, apoio técnico e soluções para preservar o desempenho e a fiabilidade do veículo.'],
-                    ['img' => 'banner1.jpg', 'title' => 'Assistência Técnica', 'desc' => 'Dispomos de uma oficina equipada com tecnologia de diagnóstico certificada pelos fabri-cantes e técnicos com formação oficial da ROX Motor e da SAIC Maxus, preparados para efectuar intervenções com elevados padrões de qualidade.'],
+                    ['img' => 'banner1.jpg', 'title' => 'Assistência Técnica', 'desc' => 'Dispomos de uma oficina equipada com tecnologia de diagnóstico certificada pelos fabri-cantes e técnicos com formação oficial da ROX Motor, preparados para efectuar intervenções com elevados padrões de qualidade.'],
                     ['img' => 'life.jpg', 'title' => 'Agendamento de Serviços', 'desc' => 'Facilitamos o agendamento de revisões, manutenções e intervenções técnicas através dos nossos canais de atendimento, garantindo um serviço organizado e adaptado à disponibi-lidade de cada cliente.'],
                     ['img' => 'keji.jpg', 'title' => 'Apoio ao Cliente', 'desc' => 'A nossa equipa encontra-se disponível para prestar informações comerciais, assistência técnica, acompanhamento pós-venda e esclarecimento de quaisquer questões relaciona-das com os produtos e serviços da OCTA Mobil.'],
                 ];
@@ -65,7 +65,7 @@
     <section class="py-20 md:py-28 bg-black text-white">
         <div class="content-container">
             <div class="mb-14 md:mb-20 animate-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Entre em contacto e viva essa nova experiência!</h2>
+                <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-4">Entre em contacto e viva esta nova experiência!</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-6">

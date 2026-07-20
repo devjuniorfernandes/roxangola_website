@@ -56,7 +56,7 @@
         </div>
     </section>
 
-    <!-- Secção 4 — Tour Virtual 360° -->
+    {{-- Secção 4 — Tour Virtual 360° — COMENTADA TEMPORARIAMENTE
     <section class="bg-black text-white">
         <div class="content-container pt-20 md:pt-28 pb-10 md:pb-14">
             <div class="animate-up">
@@ -229,6 +229,7 @@
         });
         </script>
     </section>
+    --}}
 
     <!-- Secção 5 — CTA + Formulário -->
     <section class="py-20 md:py-28 bg-black text-white">
