@@ -25,7 +25,7 @@ return [
         'm6' => 'ROX 01 estreia num salão automóvel internacional',
         'm7' => 'ROX 01 estreia no Salão Automóvel de Pequim',
         'm8' => 'Parceria assinada com os EAU, marcando o início da expansão global',
-        'm9' => 'ROX 01 estabelece recorde de segurança máxima no Instituto CIRI',
+        'm9' => 'ROX 01 estabelece recorde de segurança máxima no CIRI Auto Technology Institute ',
         'm10' => 'Parcerias assinadas com Qatar, Kuwait, Azerbaijão, Filipinas e Egipto',
         'm11' => 'Parcerias assinadas com Cazaquistão, Iraque, Omã e Líbia',
         'm12' => 'Mais de 10.000 veículos entregues e encomendados no exterior',

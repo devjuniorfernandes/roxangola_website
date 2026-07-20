@@ -252,7 +252,7 @@
                         <img src="{{ asset('assets/' . $item['img']) }}" alt="{{ $item['title'] }}" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-sm sm:text-base md:text-lg font-normal leading-snug mb-4 sm:mb-6 pr-4">{{ $item['title'] }}</h3>
-                    <a href="#" class="inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300">{{ __('home.more') }}</a>
+                    <button type="button" class="destaques-open inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300" data-title="{{ $item['title'] }}" data-image="{{ asset('assets/' . $item['img']) }}">MAIS</button>
                 </div>
                 @endforeach
             </div>
@@ -270,6 +270,40 @@
             </div>
         </div>
     </section>
+
+    <!-- Destaques article modal -->
+    <style>
+        #destaques-modal { opacity: 0; transform: translateY(32px); pointer-events: none; transition: opacity .8s ease-out, transform .8s ease-out; }
+        #destaques-modal.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        #destaques-modal.is-closing { opacity: 0; transform: translateY(32px); pointer-events: none; }
+    </style>
+    <div id="destaques-modal" class="fixed inset-0 z-[200] hidden bg-white overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="destaques-modal-title">
+        <header class="sticky top-0 z-10 h-20 border-b border-black/10 bg-white flex items-center justify-center px-6">
+            <p class="text-sm md:text-base tracking-[0.12em] text-center">{{ __('home.news.eyebrow') }}</p>
+            <button type="button" id="destaques-modal-close" class="absolute right-6 md:right-[8.5vw] w-10 h-10 flex items-center justify-center text-black hover:opacity-60 transition-opacity" aria-label="{{ __('home.news.close') }}">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M4 4l16 16M20 4L4 20"/></svg>
+            </button>
+        </header>
+        <article class="max-w-[1200px] mx-auto px-6 md:px-0 py-12 md:py-16 pb-24 md:pb-32">
+            <h2 id="destaques-modal-title" class="text-3xl md:text-[2.15rem] font-light tracking-wide leading-snug max-w-5xl"></h2>
+            <p class="mt-5 text-sm tracking-[0.08em]" id="destaques-modal-date"></p>
+            <div class="mt-12 md:mt-14 space-y-8 max-w-5xl text-base md:text-lg tracking-[0.06em] font-light leading-relaxed text-[#262626]">
+                <p>{{ __('home.news.modal_intro') }}</p>
+                <p>{{ __('home.news.modal_body') }}</p>
+            </div>
+            <img id="destaques-modal-image" src="" alt="" class="mt-12 md:mt-16 w-full h-auto max-h-[680px] object-cover">
+            <div class="mt-20 md:mt-28 flex items-center gap-8 text-sm tracking-[0.08em]">
+                <button type="button" id="destaques-modal-share" class="inline-flex items-center gap-2 hover:opacity-60 transition-opacity">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 4H4v4M16 4h4v4M8 20H4v-4M20 16v4h-4"/><path d="M8 8h3v3H8zM13 8h3v3h-3zM8 13h3v3H8zM13 13h3v3h-3z"/></svg>
+                    <span>{{ __('home.news.share') }}</span>
+                </button>
+                <button type="button" id="destaques-modal-copy" class="inline-flex items-center gap-2 hover:opacity-60 transition-opacity">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="8" y="7" width="11" height="13" rx="1.5"/><path d="M16 7V5.5A1.5 1.5 0 0014.5 4h-9A1.5 1.5 0 004 5.5v10A1.5 1.5 0 005.5 17H8"/></svg>
+                    <span id="destaques-modal-copy-label">{{ __('home.news.copy_link') }}</span>
+                </button>
+            </div>
+        </article>
+    </div>
 
     <!-- Destaques Slider Script -->
     <script>
@@ -339,6 +373,67 @@
                     touchDiff = 0;
                 });
             })();
+        });
+    </script>
+
+    <!-- Destaques modal script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById('destaques-modal');
+            var close = document.getElementById('destaques-modal-close');
+            var title = document.getElementById('destaques-modal-title');
+            var image = document.getElementById('destaques-modal-image');
+            var date = document.getElementById('destaques-modal-date');
+            var share = document.getElementById('destaques-modal-share');
+            var copy = document.getElementById('destaques-modal-copy');
+            var copyLabel = document.getElementById('destaques-modal-copy-label');
+            var lastTrigger = null;
+            var activeTitle = '';
+            if (!modal || !close || !title || !image || !date) return;
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                modal.classList.add('is-closing');
+                document.body.classList.remove('overflow-hidden');
+                window.setTimeout(function () {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('is-closing');
+                    if (lastTrigger) lastTrigger.focus();
+                }, 800);
+            }
+
+            document.querySelectorAll('.destaques-open').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    lastTrigger = button;
+                    activeTitle = button.dataset.title;
+                    title.textContent = button.dataset.title;
+                    image.src = button.dataset.image;
+                    image.alt = button.dataset.title;
+                    date.textContent = new Intl.DateTimeFormat(document.documentElement.lang || 'pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+                    modal.classList.remove('hidden', 'is-closing');
+                    document.body.classList.add('overflow-hidden');
+                    modal.scrollTop = 0;
+                    window.requestAnimationFrame(function () {
+                        modal.classList.add('is-open');
+                        close.focus();
+                    });
+                });
+            });
+
+            close.addEventListener('click', closeModal);
+            share.addEventListener('click', function () {
+                if (navigator.share) navigator.share({ title: activeTitle, url: window.location.href }).catch(function () {});
+            });
+            copy.addEventListener('click', function () {
+                if (!navigator.clipboard) return;
+                navigator.clipboard.writeText(window.location.href).then(function () {
+                    copyLabel.textContent = '{{ __('home.news.copied') }}';
+                    window.setTimeout(function () { copyLabel.textContent = '{{ __('home.news.copy_link') }}'; }, 1800);
+                });
+            });
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+            });
         });
     </script>
 

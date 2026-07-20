@@ -58,6 +58,12 @@ return [
         'item4' => 'ROX 01 testado nos terrenos mais exigentes do mundo',
         'item5' => 'Showroom ROX Angola: uma experiência premium de atendimento',
         'item6' => 'A rede de assistência ROX em Angola: proximidade e confiança',
+        'close' => 'Fechar',
+        'share' => 'Partilhar',
+        'copy_link' => 'Copiar link',
+        'copied' => 'Link copiado',
+        'modal_intro' => 'A ROX Motor Angola continua a construir uma nova referência de mobilidade premium, com soluções pensadas para responder às exigências de cada viagem.',
+        'modal_body' => 'Acompanhe as novidades, os modelos e as experiências que aproximam a marca dos seus clientes em Angola. Para mais informações, a nossa equipa está disponível para o receber e esclarecer todas as questões.',
     ],
 
     'cta' => [
