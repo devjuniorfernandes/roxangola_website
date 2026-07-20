@@ -42,6 +42,20 @@ return [
         'community' => 'ROX Community',
     ],
 
+    'learn_more' => 'LEARN MORE',
+    'read_more' => 'Read more',
+    'more' => 'more',
+
+    'forms' => [
+        'name' => 'Name',
+        'company_name' => 'Company Name',
+        'contact_name' => 'Contact Person',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'location' => 'Location',
+        'message' => 'Message',
+    ],
+
     'footer' => [
         'contact_us' => 'Contact Us',
         'marketing_sales' => 'Marketing & Sales:',
