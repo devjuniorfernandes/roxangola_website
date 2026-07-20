@@ -45,6 +45,9 @@
                 @endif
                 <x-lang-switcher variant="header" />
             </div>
+            <div class="md:hidden">
+                <x-lang-switcher variant="header" />
+            </div>
             <button id="mobile-menu" aria-label="Abrir menu" class="md:hidden flex flex-col justify-center items-center gap-[5px] w-[25px] cursor-pointer">
                 <span class="w-full h-[3px] bg-current transition-colors duration-300 bar"></span>
                 <span class="w-full h-[3px] bg-current transition-colors duration-300 bar"></span>
