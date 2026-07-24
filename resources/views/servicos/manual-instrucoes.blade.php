@@ -42,17 +42,6 @@
                                 <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="flex items-center gap-6 justify-between">
-                            <div class="flex-1 overflow-hidden flex items-center gap-2">
-                                <span class="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
-                                <a href="#" target="_blank" class="line-clamp-1 hover:underline">ROX ADAMAS Manual de Garantia & Manutenção</a>
-                            </div>
-                            <svg class="w-6 h-6 flex-shrink-0 cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="4 12 4 20 20 20 20 12" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <polyline points="16 11.5 12 15.5 8 11.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
                     </div>
                 </div>
 
@@ -78,17 +67,7 @@
                                 <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="flex items-center gap-6 justify-between">
-                            <div class="flex-1 overflow-hidden flex items-center gap-2">
-                                <span class="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
-                                <a href="#" target="_blank" class="line-clamp-1 hover:underline">ROX 01 Manual de Garantia & Manutenção</a>
-                            </div>
-                            <svg class="w-6 h-6 flex-shrink-0 cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="4 12 4 20 20 20 20 12" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <polyline points="16 11.5 12 15.5 8 11.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+
                     </div>
                 </div>
             </div>

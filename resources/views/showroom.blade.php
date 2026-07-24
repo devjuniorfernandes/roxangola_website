@@ -1,5 +1,5 @@
 <x-front-layout>
-    <x-slot name="title">Showroom</x-slot>
+    <x-slot name="title">{{ __('showroom.title') }}</x-slot>
 
     <!-- Secção 1 — Hero -->
     <section class="relative h-[100svh] w-full overflow-hidden flex items-end">
@@ -7,8 +7,8 @@
         <div class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[50%] bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
         <div class="relative z-40 pb-32 md:pb-36 w-full">
             <div class="site-container">
-                <p class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-3 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">Visite o Nosso Showroom em Talatona</p>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white max-w-3xl opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">Viva a experiência dos novos SUVs de luxo todo-o-terreno</h1>
+                <p class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-3 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">{{ __('showroom.hero.eyebrow') }}</p>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white max-w-3xl opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">{{ __('showroom.hero.title') }}</h1>
             </div>
         </div>
     </section>
@@ -17,8 +17,8 @@
     <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
         <div class="content-container animate-up">
             <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">Showroom</h3>
-            <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">Oferecemos uma experiência premium desde o primeiro contacto</h4>
-            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">O Showroom da ROX Motor Angola foi concebido para receber clientes num ambiente moderno, confortável e sofisticado. Aqui poderá conhecer toda a gama ROX, explorar as tecnologias disponíveis e receber aconselhamento especializado para escolher o modelo que melhor responde às suas necessidades.</p>
+            <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('showroom.intro.subtitle') }}</h4>
+            <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">{{ __('showroom.intro.text') }}</p>
         </div>
     </section>
 
@@ -26,19 +26,19 @@
     <section class="py-16 md:py-24 bg-white overflow-hidden">
         <div class="content-container">
             <div class="mb-14 md:mb-20 animate-up">
-                <p class="text-sm md:text-base font-semibold tracking-wide mb-4">Espaços</p>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-wide">Galeria do Showroom</h2>
+                <p class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('showroom.gallery.eyebrow') }}</p>
+                <h2 class="text-3xl md:text-4xl font-normal tracking-wide">{{ __('showroom.gallery.title') }}</h2>
             </div>
 
             @php
                 $galeria = [
-                    ['img' => 'showroom.jpg', 'label' => 'Espaço OCTA Mobil'],
-                    ['img' => 'dealer.jpg', 'label' => 'Área de exposição dos veículos'],
-                    ['img' => 'banner-adamas.avif', 'label' => 'Recepção'],
-                    ['img' => 'life.jpg', 'label' => 'Lounge de clientes'],
-                    ['img' => 'services.jpg', 'label' => 'Área comercial'],
-                    ['img' => 'keji.jpg', 'label' => 'Espaço de entrega de viaturas'],
-                    ['img' => 'banner1.jpg', 'label' => 'Equipa de apoio ao cliente'],
+                    ['img' => 'showroom.jpg', 'label' => __('showroom.gallery.g1')],
+                    ['img' => 'dealer.jpg', 'label' => __('showroom.gallery.g2')],
+                    ['img' => 'banner-adamas.avif', 'label' => __('showroom.gallery.g3')],
+                    ['img' => 'life.jpg', 'label' => __('showroom.gallery.g4')],
+                    ['img' => 'services.jpg', 'label' => __('showroom.gallery.g5')],
+                    ['img' => 'keji.jpg', 'label' => __('showroom.gallery.g6')],
+                    ['img' => 'banner1.jpg', 'label' => __('showroom.gallery.g7')],
                 ];
             @endphp
 
@@ -56,7 +56,7 @@
         </div>
     </section>
 
-    <!-- Secção 4 — Tour Virtual 360° -->
+    {{-- Secção 4 — Tour Virtual 360° — COMENTADA TEMPORARIAMENTE
     <section class="bg-black text-white">
         <div class="content-container pt-20 md:pt-28 pb-10 md:pb-14">
             <div class="animate-up">
@@ -229,15 +229,16 @@
         });
         </script>
     </section>
+    --}}
 
     <!-- Secção 5 — CTA + Formulário -->
     <section class="py-20 md:py-28 bg-black text-white">
         <div class="content-container">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
                 <div class="animate-up">
-                    <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-6">Venha conhecer a ROX</h2>
-                    <p class="text-base md:text-lg text-gray-400 font-light leading-relaxed mb-4">Preencha o formulário e escolha a data e o horário mais convenientes para visitar o nosso Showroom.</p>
-                    <p class="text-base md:text-lg text-gray-400 font-light leading-relaxed">A nossa equipa entrará em contacto para confirmar o seu agendamento e garantir um atendimento personalizado.</p>
+                    <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-6">{{ __('showroom.form.title') }}</h2>
+                    <p class="text-base md:text-lg text-gray-400 font-light leading-relaxed mb-4">{{ __('showroom.form.p1') }}</p>
+                    <p class="text-base md:text-lg text-gray-400 font-light leading-relaxed">{{ __('showroom.form.p2') }}</p>
                 </div>
 
                 <div class="animate-up">
@@ -251,45 +252,45 @@
                         @endif
 
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1.5">Nome completo <span class="text-red-400">*</span></label>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('showroom.form.name_full') }} <span class="text-red-400">*</span></label>
                             <input type="text" id="name" name="name" value="{{ old('name') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors" required>
                             @error('name') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-1.5">Telefone <span class="text-red-400">*</span></label>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('common.forms.phone') }} <span class="text-red-400">*</span></label>
                                 <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors" required>
                                 @error('phone') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1.5">E-mail <span class="text-red-400">*</span></label>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('showroom.form.email') }} <span class="text-red-400">*</span></label>
                                 <input type="email" id="email" name="email" value="{{ old('email') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors" required>
                                 @error('email') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                             </div>
                         </div>
 
                         <div>
-                            <label for="model_interest" class="block text-sm font-medium text-gray-300 mb-1.5">Modelo de interesse <span class="text-red-400">*</span></label>
+                            <label for="model_interest" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('showroom.form.model') }} <span class="text-red-400">*</span></label>
                             <select id="model_interest" name="model_interest" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors appearance-none" required>
-                                <option value="" disabled selected class="text-black">Selecione um modelo</option>
+                                <option value="" disabled selected class="text-black">{{ __('showroom.form.model_placeholder') }}</option>
                                 <option value="ROX 01" class="text-black" {{ old('model_interest') == 'ROX 01' ? 'selected' : '' }}>ROX 01</option>
                                 <option value="ROX ADAMAS" class="text-black" {{ old('model_interest') == 'ROX ADAMAS' ? 'selected' : '' }}>ROX ADAMAS</option>
-                                <option value="Ambos" class="text-black" {{ old('model_interest') == 'Ambos' ? 'selected' : '' }}>Ambos</option>
+                                <option value="Ambos" class="text-black" {{ old('model_interest') == 'Ambos' ? 'selected' : '' }}>{{ __('showroom.form.both') }}</option>
                             </select>
                             @error('model_interest') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label for="preferred_date" class="block text-sm font-medium text-gray-300 mb-1.5">Data pretendida</label>
+                                <label for="preferred_date" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('showroom.form.date') }}</label>
                                 <input type="date" id="preferred_date" name="preferred_date" value="{{ old('preferred_date') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors">
                                 @error('preferred_date') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                             </div>
                             <div>
-                                <label for="preferred_time" class="block text-sm font-medium text-gray-300 mb-1.5">Hora pretendida</label>
+                                <label for="preferred_time" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('showroom.form.time') }}</label>
                                 <select id="preferred_time" name="preferred_time" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors appearance-none">
-                                    <option value="" class="text-black">Selecione a hora</option>
+                                    <option value="" class="text-black">{{ __('showroom.form.time_placeholder') }}</option>
                                     <option value="08:00" class="text-black" {{ old('preferred_time') == '08:00' ? 'selected' : '' }}>08:00</option>
                                     <option value="09:00" class="text-black" {{ old('preferred_time') == '09:00' ? 'selected' : '' }}>09:00</option>
                                     <option value="10:00" class="text-black" {{ old('preferred_time') == '10:00' ? 'selected' : '' }}>10:00</option>
@@ -305,12 +306,12 @@
                         </div>
 
                         <div>
-                            <label for="observations" class="block text-sm font-medium text-gray-300 mb-1.5">Observações</label>
+                            <label for="observations" class="block text-sm font-medium text-gray-300 mb-1.5">{{ __('showroom.form.observations') }}</label>
                             <textarea id="observations" name="observations" rows="3" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors resize-none">{{ old('observations') }}</textarea>
                             @error('observations') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
-                        <button type="submit" class="w-full py-3 text-sm font-medium tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">Agendar Visita</button>
+                        <button type="submit" class="w-full py-3 text-sm font-medium tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">{{ __('showroom.form.submit') }}</button>
                     </form>
                 </div>
             </div>

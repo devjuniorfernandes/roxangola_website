@@ -3,6 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/locale/{locale}', function (string $locale) {
+    if (in_array($locale, \App\Http\Middleware\SetLocale::SUPPORTED, true)) {
+        session(['locale' => $locale]);
+        cookie()->queue(cookie('locale', $locale, 525600)); // 1 ano
+    }
+    return redirect()->back();
+})->name('locale.switch');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -50,6 +58,8 @@ Route::get('/sobre/comunidade', function () {
     return view('sobre.comunidade');
 })->name('sobre.comunidade');
 
+Route::post('/sobre/comunidade', [\App\Http\Controllers\InfoRequestController::class, 'store'])->name('sobre.comunidade.store');
+
 Route::get('/showroom', function () {
     return view('showroom');
 })->name('showroom');
@@ -67,6 +77,8 @@ Route::get('/concessionaria', function () {
 Route::get('/revendedores', function () {
     return view('revendedores');
 })->name('revendedores');
+
+Route::post('/revendedores', [\App\Http\Controllers\DealerApplicationController::class, 'store'])->name('revendedores.store');
 
 Route::get('/servicos', function () {
     return view('servicos');
@@ -89,10 +101,6 @@ Route::get('/servicos/pecas-acessorios', function () {
 Route::get('/servicos/manual-instrucoes', function () {
     return view('servicos.manual-instrucoes');
 })->name('servicos.manual-instrucoes');
-
-Route::get('/servicos/manual-desmontagem', function () {
-    return view('servicos.manual-desmontagem');
-})->name('servicos.manual-desmontagem');
 
 Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');

@@ -71,8 +71,8 @@
                                 @error('model') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                             </div>
                             <div>
-                                <label for="plate" class="block text-sm font-medium text-gray-300 mb-1.5">Matrícula <span class="text-red-400">*</span></label>
-                                <input type="text" id="plate" name="plate" value="{{ old('plate') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors" placeholder="Ex: LD-00-00-AA" required>
+                                <label for="plate" class="block text-sm font-medium text-gray-300 mb-1.5">Matrícula </label>
+                                <input type="text" id="plate" name="plate" value="{{ old('plate') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors" placeholder="Ex: LD-00-00-AA">
                                 @error('plate') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                             </div>
                         </div>
@@ -81,6 +81,7 @@
                             <label for="service_type" class="block text-sm font-medium text-gray-300 mb-1.5">Tipo de Serviço <span class="text-red-400">*</span></label>
                             <select id="service_type" name="service_type" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors appearance-none" required>
                                 <option value="" disabled selected class="text-black">Selecione o tipo de serviço</option>
+                                <option value="Acessórios ROX" class="text-black" {{ old('service_type') == 'Acessórios ROX' ? 'selected' : '' }}>Acessórios ROX</option>
                                 <option value="Manutenção Preventiva" class="text-black" {{ old('service_type') == 'Manutenção Preventiva' ? 'selected' : '' }}>Manutenção Preventiva</option>
                                 <option value="Manutenção Correctiva" class="text-black" {{ old('service_type') == 'Manutenção Correctiva' ? 'selected' : '' }}>Manutenção Correctiva</option>
                                 <option value="Diagnóstico" class="text-black" {{ old('service_type') == 'Diagnóstico' ? 'selected' : '' }}>Diagnóstico</option>
@@ -92,13 +93,13 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label for="preferred_date" class="block text-sm font-medium text-gray-300 mb-1.5">Data pretendida <span class="text-red-400">*</span></label>
-                                <input type="date" id="preferred_date" name="preferred_date" value="{{ old('preferred_date') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors" required>
+                                <label for="preferred_date" class="block text-sm font-medium text-gray-300 mb-1.5">Data pretendida</label>
+                                <input type="date" id="preferred_date" name="preferred_date" value="{{ old('preferred_date') }}" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors">
                                 @error('preferred_date') <p class="text-red-400 text-xs mt-1">{{ $message }}</p> @enderror
                             </div>
                             <div>
-                                <label for="preferred_time" class="block text-sm font-medium text-gray-300 mb-1.5">Hora pretendida <span class="text-red-400">*</span></label>
-                                <select id="preferred_time" name="preferred_time" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors appearance-none" required>
+                                <label for="preferred_time" class="block text-sm font-medium text-gray-300 mb-1.5">Hora pretendida</label>
+                                <select id="preferred_time" name="preferred_time" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-white/30 transition-colors appearance-none">
                                     <option value="" disabled selected class="text-black">Selecione a hora</option>
                                     <option value="08:00" class="text-black" {{ old('preferred_time') == '08:00' ? 'selected' : '' }}>08:00</option>
                                     <option value="09:00" class="text-black" {{ old('preferred_time') == '09:00' ? 'selected' : '' }}>09:00</option>
