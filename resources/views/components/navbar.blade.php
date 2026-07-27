@@ -24,7 +24,6 @@
             <div class="relative nav-item" data-has-mega="concessionaria">
                 <span class="group relative pb-1 cursor-pointer transition-colors">{{ __('common.nav.concessionaria') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('concessionaria', 'showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
             </div>
-            <a href="{{ route('revendedores') }}" class="group relative pb-1 transition-colors nav-item">{{ __('common.nav.dealers') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('revendedores') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <div class="relative nav-item" data-has-mega="servicos">
                 <span class="group relative pb-1 cursor-pointer transition-colors">{{ __('common.nav.services') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('servicos', 'servicos/*') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
             </div>
@@ -186,7 +185,6 @@
                     <a href="{{ route('showroom') }}" class="text-[12px] tracking-widest uppercase font-medium {{ Request::is('showroom') ? 'text-black' : 'text-gray-500' }} hover:text-black transition-colors">{{ __('common.nav.showroom') }}</a>
                 </div>
             </div>
-            <a href="{{ route('revendedores') }}" class="group relative text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">{{ __('common.nav.dealers') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('revendedores') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></a>
             <!-- Serviços -->
             <div>
                 <span class="text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">{{ __('common.nav.services') }}</span>
