@@ -4,13 +4,13 @@ return [
     'title' => 'Dealership',
 
     'hero' => [
-        'eyebrow' => 'Octa Mobil',
+        'eyebrow' => 'Octa Angola',
         'title' => 'The official ROX Motor distributor in Angola',
     ],
 
     'octa' => [
         'subtitle' => 'Exclusive Official Distributor of ROX Motor in Angola',
-        'text' => 'Octa Mobil is the official ROX Motor representative in Angola. Headquartered in Talatona, Luanda, we offer a premium automotive experience — from vehicle purchase to after-sales support — with infrastructure, technical training and specialised service to ensure trust and quality for our customers.',
+        'text' => 'Octa Angola is the official ROX Motor representative in Angola. Headquartered in Talatona, Luanda, we offer a premium automotive experience — from vehicle purchase to after-sales support — with infrastructure, technical training and specialised service to ensure trust and quality for our customers.',
     ],
 
     'services' => [
@@ -30,7 +30,7 @@ return [
         's6_title' => 'Service Scheduling',
         's6_desc' => 'We make it easy to schedule inspections, maintenance and technical work through our service channels, ensuring an organised service tailored to each customer\'s availability.',
         's7_title' => 'Customer Support',
-        's7_desc' => 'Our team is available to provide commercial information, technical assistance, after-sales follow-up and answers to any questions related to OCTA Mobil products and services.',
+        's7_desc' => 'Our team is available to provide commercial information, technical assistance, after-sales follow-up and answers to any questions related to OCTA Angola products and services.',
     ],
 
     'contact' => [

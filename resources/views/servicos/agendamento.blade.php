@@ -16,7 +16,7 @@
         <div class="content-container">
             <div class="max-w-4xl animate-up">
                 <h2 class="text-3xl md:text-4xl font-normal tracking-wide mb-6">O nosso compromisso</h2>
-                <p class="text-base md:text-lg text-gray-500 font-light leading-relaxed">O compromisso da ROX Motor Angola não termina na entrega da sua viatura. Através da OCTA Mobil, disponibilizamos um serviço pós-venda especializado, assegurado por técnicos certificados, equipamentos de diagnóstico oficiais e peças originais, garantindo a máxima qualidade, segurança e desempenho em cada intervenção.</p>
+                <p class="text-base md:text-lg text-gray-500 font-light leading-relaxed">O compromisso da ROX Motor Angola não termina na entrega da sua viatura. Através da OCTA Angola, disponibilizamos um serviço pós-venda especializado, assegurado por técnicos certificados, equipamentos de diagnóstico oficiais e peças originais, garantindo a máxima qualidade, segurança e desempenho em cada intervenção.</p>
             </div>
         </div>
     </section>

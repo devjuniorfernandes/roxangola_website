@@ -16,7 +16,7 @@
         <div class="content-container">
             <div class="mb-10 md:mb-14 animate-up">
                 <p class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white/60 mb-4">Apoio Técnico & Manutenção</p>
-                <h2 class="text-3xl md:text-4xl font-light text-white max-w-3xl leading-snug">Por intermédio da OCTA Mobil, disponibilizamos apoio técnico especializado, manutenção e assistência realizada por técnicos certificados</h2>
+                <h2 class="text-3xl md:text-4xl font-light text-white max-w-3xl leading-snug">Por intermédio da OCTA Angola, disponibilizamos apoio técnico especializado, manutenção e assistência realizada por técnicos certificados</h2>
             </div>
 
             @php
@@ -34,7 +34,7 @@
                     [
                         'img'   => '1.jpg',
                         'title' => 'Oficina e Apoio Técnico',
-                        'desc'  => 'A oficina da OCTA Mobil está equipada com tecnologia de diagnóstico oficial e conta com técnicos formados para assegurar intervenções realizadas de acordo com os mais elevados padrões de qualidade.',
+                        'desc'  => 'A oficina da OCTA Angola está equipada com tecnologia de diagnóstico oficial e conta com técnicos formados para assegurar intervenções realizadas de acordo com os mais elevados padrões de qualidade.',
                     ],
                     [
                         'img'   => 'services.jpg',

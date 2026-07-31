@@ -16,7 +16,7 @@ return [
     'gallery' => [
         'eyebrow' => 'Espaços',
         'title' => 'Galeria do Showroom',
-        'g1' => 'Espaço OCTA Mobil',
+        'g1' => 'Showroom ROX Angola',
         'g2' => 'Área de exposição dos veículos',
         'g3' => 'Recepção',
         'g4' => 'Lounge de clientes',

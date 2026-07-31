@@ -19,7 +19,7 @@
                 <!-- 1 -->
                 <div>
                     <h2 class="text-xl font-medium text-black mb-4">1. Responsável pelo Tratamento dos Dados</h2>
-                    <p>A <strong>Octa Mobil</strong>, distribuidor oficial da marca ROX em Angola, com sede em Luanda, Angola, é a entidade responsável pelo tratamento dos dados pessoais recolhidos através deste website (<strong>roxangola.com</strong>).</p>
+                    <p>A <strong>Octa Angola</strong>, distribuidor oficial da marca ROX em Angola, com sede em Luanda, Angola, é a entidade responsável pelo tratamento dos dados pessoais recolhidos através deste website (<strong>roxangola.com</strong>).</p>
                     <p class="mt-2">Para questões relacionadas com a privacidade dos seus dados, contacte-nos através de <a href="mailto:info@octamobil.com" class="text-black underline hover:no-underline">info@octamobil.com</a>.</p>
                 </div>
 
@@ -119,7 +119,7 @@
                     <h2 class="text-xl font-medium text-black mb-4">11. Contacto</h2>
                     <p>Para questões, esclarecimentos ou exercício dos seus direitos relativos à privacidade dos seus dados pessoais:</p>
                     <div class="mt-4 bg-[#f4f6f9] p-6 rounded-sm">
-                        <p class="font-medium text-black">Octa Mobil</p>
+                        <p class="font-medium text-black">Octa Angola</p>
                         <p class="mt-1">Distribuidor Oficial ROX em Angola</p>
                         <p class="mt-1">Email: <a href="mailto:info@octamobil.com" class="text-black underline hover:no-underline">info@octamobil.com</a></p>
                         <p class="mt-1">Telefone: <a href="tel:+24494511022" class="text-black underline hover:no-underline">(+244) 945 110 22</a></p>

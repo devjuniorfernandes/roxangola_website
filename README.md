@@ -111,4 +111,4 @@ O painel de administração sofreu um redesign focado no minimalismo e num aspet
 
 ---
 
-*Desenvolvido pela equipa técnica da Octa Mobil Angola.*
+*Desenvolvido pela equipa técnica da Octa Angola Angola.*

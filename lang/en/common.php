@@ -8,7 +8,7 @@ return [
 
     'nav' => [
         'models' => 'Models',
-        'concessionaria' => 'Representative in AO',
+        'concessionaria' => 'Representative',
         'dealers' => 'Global Dealers',
         'services' => 'Services',
         'about' => 'About Us',
@@ -23,7 +23,7 @@ return [
         'catalog_title' => 'ROX Motor Angola Catalogue',
         'catalog_desc' => 'Download the official catalogue',
         // Mega menu Dealership
-        'octa_mobil' => 'OCTA Mobil',
+        'octa_mobil' => 'OCTA Angola',
         'octa_mobil_desc' => 'Official ROX distributor in Angola',
         'showroom' => 'Showroom',
         'showroom_desc' => 'Book a showroom visit',
@@ -54,6 +54,16 @@ return [
         'phone' => 'Phone',
         'location' => 'Location',
         'message' => 'Message',
+    ],
+
+    'lead_popup' => [
+        'close' => 'Close',
+        'title' => 'Would you like to know more about ROX?',
+        'description' => 'Leave your contact details and we will call you.',
+        'submit' => 'Contact me',
+        'success_title' => 'Thank you!',
+        'success_description' => 'We will be in touch shortly.',
+        'error' => 'We could not send your contact details. Please try again.',
     ],
 
     'footer' => [

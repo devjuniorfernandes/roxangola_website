@@ -58,7 +58,7 @@
             <div class="subtitle">Full-Scenario All-Terrain Luxury SUV</div>
         </div>
 
-        <div class="distributor">Distribuído por Octa Mobil &bull; Luanda, Angola</div>
+        <div class="distributor">Distribuído por Octa Angola &bull; Luanda, Angola</div>
     </div>
 
     <!-- Specs Pages -->
@@ -171,8 +171,8 @@
     @endforeach
 
     <div class="disclaimer">
-        <p>Todas as especificações estão sujeitas a alterações sem aviso prévio. As imagens são meramente ilustrativas. Consulte o seu concessionário Octa Mobil para informações atualizadas.</p>
-        <p style="margin-top: 6px;">&copy; {{ date('Y') }} ROX Angola — Distribuído por Octa Mobil, Luanda, Angola &bull; info@octamobil.com &bull; (+244) 945 110 22</p>
+        <p>Todas as especificações estão sujeitas a alterações sem aviso prévio. As imagens são meramente ilustrativas. Consulte o seu concessionário Octa Angola para informações atualizadas.</p>
+        <p style="margin-top: 6px;">&copy; {{ date('Y') }} ROX Angola — Distribuído por Octa Angola, Luanda, Angola &bull; info@octamobil.com &bull; (+244) 945 110 22</p>
     </div>
 
     <div class="footer">roxmotors.ao</div>

@@ -32,13 +32,10 @@
 
             @php
                 $galeria = [
-                    ['img' => 'showroom.jpg', 'label' => __('showroom.gallery.g1')],
-                    ['img' => 'dealer.jpg', 'label' => __('showroom.gallery.g2')],
-                    ['img' => 'banner-adamas.avif', 'label' => __('showroom.gallery.g3')],
-                    ['img' => 'life.jpg', 'label' => __('showroom.gallery.g4')],
-                    ['img' => 'services.jpg', 'label' => __('showroom.gallery.g5')],
-                    ['img' => 'keji.jpg', 'label' => __('showroom.gallery.g6')],
-                    ['img' => 'banner1.jpg', 'label' => __('showroom.gallery.g7')],
+                    ['img' => 'showroom/Gemini_Generated_Image_tvmk14tvmk14tvmk.png', 'label' => __('showroom.gallery.g1')],
+                    ['img' => 'showroom/Gemini_Generated_Image_qzc3l3qzc3l3qzc3.png', 'label' => __('showroom.gallery.g2')],
+                    ['img' => 'showroom/Gemini_Generated_Image_fnsi3zfnsi3zfnsi.png', 'label' => __('showroom.gallery.g3')],
+                    ['img' => 'showroom/Gemini_Generated_Image_bpajg6bpajg6bpaj.png', 'label' => __('showroom.gallery.g4')],
                 ];
             @endphp
 
@@ -56,7 +53,7 @@
         </div>
     </section>
 
-    {{-- Secção 4 — Tour Virtual 360° — COMENTADA TEMPORARIAMENTE
+    <!-- Secção 4 — Tour Virtual 360° -->
     <section class="bg-black text-white">
         <div class="content-container pt-20 md:pt-28 pb-10 md:pb-14">
             <div class="animate-up">
@@ -75,13 +72,10 @@
             <div class="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent">
                 <div class="site-container py-4 md:py-6">
                     <div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="entrada" data-active>Entrada</button>
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="exposicao">Exposição</button>
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="recepcao">Recepção</button>
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="lounge">Lounge</button>
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="comercial">Área Comercial</button>
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="entrega">Entrega</button>
-                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="apoio">Apoio</button>
+                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="vista-1" data-active>Vista 1</button>
+                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="vista-2">Vista 2</button>
+                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="vista-3">Vista 3</button>
+                        <button type="button" class="tour-nav-btn flex-shrink-0 px-4 py-2 text-xs font-medium tracking-wide text-white/60 border border-white/10 rounded-full transition-all duration-300 hover:text-white hover:border-white/30 whitespace-nowrap" data-scene="vista-4">Vista 4</button>
                     </div>
                 </div>
             </div>
@@ -111,7 +105,7 @@
 
             var viewer = pannellum.viewer('tour-panorama', {
                 default: {
-                    firstScene: 'entrada',
+                    firstScene: 'vista-1',
                     autoLoad: true,
                     showControls: false,
                     compass: false,
@@ -124,73 +118,43 @@
                     autoRotateInactivityDelay: 3000
                 },
                 scenes: {
-                    entrada: {
-                        panorama: basePath + 'entrada.png',
+                    'vista-1': {
+                        panorama: basePath + 'Gemini_Generated_Image_tvmk14tvmk14tvmk.png',
                         pitch: 0,
                         yaw: 0,
                         hfov: 100,
                         hotSpots: [
-                            { pitch: -5, yaw: 90, type: 'scene', text: 'Ir para Exposição', sceneId: 'exposicao' }
+                            { pitch: -5, yaw: 90, type: 'scene', text: 'Vista 2', sceneId: 'vista-2' }
                         ]
                     },
-                    exposicao: {
-                        panorama: basePath + 'exposicao.png',
+                    'vista-2': {
+                        panorama: basePath + 'Gemini_Generated_Image_qzc3l3qzc3l3qzc3.png',
                         pitch: 0,
                         yaw: 0,
                         hfov: 100,
                         hotSpots: [
-                            { pitch: -5, yaw: -90, type: 'scene', text: 'Voltar à Entrada', sceneId: 'entrada' },
-                            { pitch: -5, yaw: 90, type: 'scene', text: 'Ir para Recepção', sceneId: 'recepcao' }
+                            { pitch: -5, yaw: -90, type: 'scene', text: 'Vista 1', sceneId: 'vista-1' },
+                            { pitch: -5, yaw: 90, type: 'scene', text: 'Vista 3', sceneId: 'vista-3' }
                         ]
                     },
-                    recepcao: {
-                        panorama: basePath + 'recepcao.png',
+                    'vista-3': {
+                        panorama: basePath + 'Gemini_Generated_Image_fnsi3zfnsi3zfnsi.png',
                         pitch: 0,
                         yaw: 0,
                         hfov: 100,
                         hotSpots: [
-                            { pitch: -5, yaw: -90, type: 'scene', text: 'Voltar à Exposição', sceneId: 'exposicao' },
-                            { pitch: -5, yaw: 90, type: 'scene', text: 'Ir para Lounge', sceneId: 'lounge' }
+                            { pitch: -5, yaw: -90, type: 'scene', text: 'Vista 2', sceneId: 'vista-2' },
+                            { pitch: -5, yaw: 90, type: 'scene', text: 'Vista 4', sceneId: 'vista-4' }
                         ]
                     },
-                    lounge: {
-                        panorama: basePath + 'lounge.png',
+                    'vista-4': {
+                        panorama: basePath + 'Gemini_Generated_Image_bpajg6bpajg6bpaj.png',
                         pitch: 0,
                         yaw: 0,
                         hfov: 100,
                         hotSpots: [
-                            { pitch: -5, yaw: -90, type: 'scene', text: 'Voltar à Recepção', sceneId: 'recepcao' },
-                            { pitch: -5, yaw: 90, type: 'scene', text: 'Ir para Área Comercial', sceneId: 'comercial' }
-                        ]
-                    },
-                    comercial: {
-                        panorama: basePath + 'areacomercial.png',
-                        pitch: 0,
-                        yaw: 0,
-                        hfov: 100,
-                        hotSpots: [
-                            { pitch: -5, yaw: -90, type: 'scene', text: 'Voltar ao Lounge', sceneId: 'lounge' },
-                            { pitch: -5, yaw: 90, type: 'scene', text: 'Ir para Entrega', sceneId: 'entrega' }
-                        ]
-                    },
-                    entrega: {
-                        panorama: basePath + 'entrega.png',
-                        pitch: 0,
-                        yaw: 0,
-                        hfov: 100,
-                        hotSpots: [
-                            { pitch: -5, yaw: -90, type: 'scene', text: 'Voltar à Área Comercial', sceneId: 'comercial' },
-                            { pitch: -5, yaw: 90, type: 'scene', text: 'Ir para Apoio', sceneId: 'apoio' }
-                        ]
-                    },
-                    apoio: {
-                        panorama: basePath + 'apoio.png',
-                        pitch: 0,
-                        yaw: 0,
-                        hfov: 100,
-                        hotSpots: [
-                            { pitch: -5, yaw: -90, type: 'scene', text: 'Voltar à Entrega', sceneId: 'entrega' },
-                            { pitch: -5, yaw: 180, type: 'scene', text: 'Ir para Entrada', sceneId: 'entrada' }
+                            { pitch: -5, yaw: -90, type: 'scene', text: 'Vista 3', sceneId: 'vista-3' },
+                            { pitch: -5, yaw: 180, type: 'scene', text: 'Vista 1', sceneId: 'vista-1' }
                         ]
                     }
                 }
@@ -229,8 +193,6 @@
         });
         </script>
     </section>
-    --}}
-
     <!-- Secção 5 — CTA + Formulário -->
     <section class="py-20 md:py-28 bg-black text-white">
         <div class="content-container">

@@ -91,7 +91,7 @@
         <div class="grid grid-cols-2 gap-4 md:gap-6" style="max-width: 480px;">
             <a href="{{ route('concessionaria') }}" class="group block">
                 <div class="overflow-hidden rounded-sm mb-2 md:mb-3">
-                    <img src="{{ asset('assets/dealer.jpg') }}" alt="OCTA Mobil" class="w-full h-[100px] md:h-[130px] lg:h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
+                    <img src="{{ asset('assets/dealer.jpg') }}" alt="OCTA Angola" class="w-full h-[100px] md:h-[130px] lg:h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
                 <h3 class="text-xs md:text-[13px] font-normal text-black mb-0.5">{{ __('common.nav.octa_mobil') }}</h3>
                 <p class="text-[10px] md:text-[11px] text-gray-400 font-light leading-snug">{{ __('common.nav.octa_mobil_desc') }}</p>
@@ -213,7 +213,7 @@
         </nav>
     </div>
     <div class="p-8 bg-white border-t border-gray-200 flex flex-col gap-5">
-        <img src="{{ asset('logo_octamobil.svg') }}" alt="Octa Mobil" class="h-6 object-contain self-start">
+        <img src="{{ asset('logo_octamobil.svg') }}" alt="Octa Angola" class="h-6 object-contain self-start">
         <div class="flex flex-col gap-2 text-[13px] text-gray-500 font-medium tracking-wide">
             <a href="tel:+24494511022" class="hover:text-black transition-colors">(+244) 945 110 22</a>
             <a href="mailto:info@octamobil.com" class="hover:text-black transition-colors">info@octamobil.com</a>

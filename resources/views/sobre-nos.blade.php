@@ -5,7 +5,7 @@
     <section class="pt-32 pb-20 px-6 bg-black text-white relative">
         <div class="max-w-[1280px] mx-auto text-center animate-up">
             <h1 class="text-4xl md:text-5xl font-medium mb-4">Sobre a ROX Angola</h1>
-            <p class="text-lg font-light text-gray-400 max-w-2xl mx-auto">Trazemos a revolução off-road de luxo para o mercado angolano através da Octa Mobil.</p>
+            <p class="text-lg font-light text-gray-400 max-w-2xl mx-auto">Trazemos a revolução off-road de luxo para o mercado angolano através da Octa Angola.</p>
         </div>
     </section>
 
@@ -27,7 +27,7 @@
                 <div>
                     <h3 class="text-xl font-medium mb-4">Serviço Premium</h3>
                     <p class="text-gray-500 font-light leading-relaxed">
-                        Através da Octa Mobil, garantimos uma assistência técnica especializada, peças originais e um atendimento que acompanha o prestígio da marca ROX.
+                        Através da Octa Angola, garantimos uma assistência técnica especializada, peças originais e um atendimento que acompanha o prestígio da marca ROX.
                     </p>
                 </div>
             </div>

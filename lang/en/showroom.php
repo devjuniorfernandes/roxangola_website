@@ -16,7 +16,7 @@ return [
     'gallery' => [
         'eyebrow' => 'Spaces',
         'title' => 'Showroom Gallery',
-        'g1' => 'OCTA Mobil Space',
+        'g1' => 'ROX Angola Showroom',
         'g2' => 'Vehicle display area',
         'g3' => 'Reception',
         'g4' => 'Customer lounge',

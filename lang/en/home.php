@@ -11,7 +11,7 @@ return [
 
     'octa' => [
         'subtitle' => 'Exclusive Official Distributor of ROX Motor in Angola',
-        'text' => 'More than selling vehicles, Octa Mobil invests in infrastructure, technical training and specialised service to ensure trust, quality and peace of mind for ROX customers.',
+        'text' => 'More than selling vehicles, Octa Angola invests in infrastructure, technical training and specialised service to ensure trust, quality and peace of mind for ROX customers.',
     ],
 
     'explore' => [
@@ -52,7 +52,7 @@ return [
     'news' => [
         'eyebrow' => 'ROX Highlights',
         'title' => 'Discover the latest headlines around ROX Motor Angola',
-        'item1' => 'ROX Motor and OCTA Mobil celebrate an exclusive partnership for the Angolan market',
+        'item1' => 'ROX Motor and OCTA Angola celebrate an exclusive partnership for the Angolan market',
         'item2' => 'ROX ADAMAS: the all-terrain luxury SUV arriving in Angola',
         'item3' => 'REEV technology: the intelligent range defining the future of mobility',
         'item4' => 'ROX 01 tested on the world\'s most demanding terrains',

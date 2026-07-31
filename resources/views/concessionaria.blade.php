@@ -3,7 +3,7 @@
 
     <!-- Hero -->
     <section class="relative h-[100svh] w-full overflow-hidden flex items-end">
-        <img src="{{ asset('assets/dealer.jpg') }}" alt="OCTA Mobil" class="absolute inset-0 w-full h-full object-cover">
+        <img src="{{ asset('assets/dealer.jpg') }}" alt="OCTA Angola" class="absolute inset-0 w-full h-full object-cover">
         <div class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[50%] bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
         <div class="relative z-40 pb-32 md:pb-36 w-full">
             <div class="site-container">
@@ -13,10 +13,10 @@
         </div>
     </section>
 
-    <!-- Octa Mobil Section (mesmo layout da homepage) -->
+    <!-- Octa Angola Section (mesmo layout da homepage) -->
     <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
         <div class="content-container animate-up">
-            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Mobil</h3>
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Angola</h3>
             <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('concessionaria.octa.subtitle') }}</h4>
             <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">{{ __('concessionaria.octa.text') }}</p>
         </div>

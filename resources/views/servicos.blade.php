@@ -30,7 +30,7 @@
                     [
                         'img'   => 'services-ver.jpg',
                         'title' => 'Apoio Técnico & Manutenção',
-                        'desc'  => 'Por intermédio da OCTA Mobil, disponibilizamos apoio técnico especializado, manutenção e assistência realizada por técnicos certificados, utilizando equipamentos de diagnóstico oficiais e seguindo os procedimentos definidos.',
+                        'desc'  => 'Por intermédio da OCTA Angola, disponibilizamos apoio técnico especializado, manutenção e assistência realizada por técnicos certificados, utilizando equipamentos de diagnóstico oficiais e seguindo os procedimentos definidos.',
                         'link'  => route('servicos.apoio-tecnico'),
                     ],
                     [

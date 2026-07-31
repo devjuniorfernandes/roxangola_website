@@ -56,7 +56,7 @@
     <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
         <!-- Title -->
         <div class="content-container mb-14 md:mb-20 animate-up">
-            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Mobil</h3>
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Angola</h3>
             <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('home.octa.subtitle') }}</h4>
             <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">{{ __('home.octa.text') }}</p>
         </div>

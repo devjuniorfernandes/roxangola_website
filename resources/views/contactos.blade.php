@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="mt-12 pt-8 border-t border-gray-100">
-                    <img src="{{ asset('logo_octamobil.svg') }}" alt="Octa Mobil" class="h-8">
+                    <img src="{{ asset('logo_octamobil.svg') }}" alt="Octa Angola" class="h-8">
                     <p class="text-sm text-gray-500 mt-4">{{ __('contactos.info.distributor') }}</p>
                 </div>
             </div>

@@ -190,7 +190,7 @@
 
             <!-- Bottom -->
             <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <p class="text-xs text-gray-400">Todas as especificações estão sujeitas a alterações. Consulte o seu concessionário Octa Mobil para informações atualizadas.</p>
+                <p class="text-xs text-gray-400">Todas as especificações estão sujeitas a alterações. Consulte o seu concessionário Octa Angola para informações atualizadas.</p>
                 <a href="{{ route('especificacoes.pdf', $initialModel) }}" id="download-link-bottom" class="inline-flex items-center gap-2 px-6 py-3 text-xs font-medium tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110 flex-shrink-0" style="background: var(--rox-dune-yellow);">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Baixar PDF
