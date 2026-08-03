@@ -32,10 +32,10 @@
 
             @php
                 $galeria = [
-                    ['img' => 'showroom/Gemini_Generated_Image_tvmk14tvmk14tvmk.png', 'label' => __('showroom.gallery.g1')],
-                    ['img' => 'showroom/Gemini_Generated_Image_qzc3l3qzc3l3qzc3.png', 'label' => __('showroom.gallery.g2')],
-                    ['img' => 'showroom/Gemini_Generated_Image_fnsi3zfnsi3zfnsi.png', 'label' => __('showroom.gallery.g3')],
-                    ['img' => 'showroom/Gemini_Generated_Image_bpajg6bpajg6bpaj.png', 'label' => __('showroom.gallery.g4')],
+                    ['img' => 'showroom/Gemini_Generated_Image_bpajg6bpajg6bpaj.png', 'label' => __('Showroom ROX Motor Angola')],
+                    ['img' => 'showroom/Gemini_Generated_Image_qzc3l3qzc3l3qzc3.png', 'label' => __('Lounge de clientes')],
+                    ['img' => 'showroom/Gemini_Generated_Image_fnsi3zfnsi3zfnsi.png', 'label' => __('Área de exposição de veículos')],
+                    ['img' => 'showroom/Gemini_Generated_Image_tvmk14tvmk14tvmk.png', 'label' => __('Área comercial')],
                 ];
             @endphp
 
