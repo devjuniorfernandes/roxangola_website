@@ -38,7 +38,7 @@
                     ],
                     [
                         'img'   => 'life.jpg',
-                        'title' => 'Stock de Necessidades',
+                        'title' => 'Stock de peças disponíveis',
                         'desc'  => 'Mantemos stock local de diversas peças e componentes, permitindo uma resposta mais rápida às necessidades de manutenção e reduzindo o tempo de imobilização da sua viatura.',
                     ],
                 ];
