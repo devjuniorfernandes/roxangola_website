@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Concessionária',
+    'title' => 'Representante',
 
     'hero' => [
         'eyebrow' => 'Octa Angola',

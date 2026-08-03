@@ -1,11 +1,11 @@
 <!-- Desktop Navbar -->
-<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria', 'showroom', 'revendedores', 'servicos', 'servicos/*', 'sobre/*', 'contactos') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
+<nav class="fixed w-full z-50 transition-all duration-300 {{ Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'representante', 'showroom', 'revendedores', 'servicos', 'servicos/*', 'sobre/*', 'contactos') ? 'nav-glass border-b text-white nav-transparent' : 'bg-white border-b border-gray-200 text-black' }}" id="navbar">
     <div class="site-container flex items-center justify-between h-[60px]">
         <!-- Left: Logo + Menu -->
         <div class="flex items-center gap-8 lg:gap-12">
             <!-- Logo + Angola -->
             <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center gap-3">
-                @if(Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'concessionaria', 'showroom', 'revendedores', 'servicos', 'servicos/*', 'sobre/*', 'contactos'))
+                @if(Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'representante', 'showroom', 'revendedores', 'servicos', 'servicos/*', 'sobre/*', 'contactos'))
                     <img src="{{ asset('assets/logo-full-w.svg') }}" alt="ROX" class="h-5 logo-default">
                     <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX" class="h-5 logo-hover hidden">
                     <span class="text-[11px] font-medium tracking-[3px] uppercase opacity-70 logo-default">Angola</span>
@@ -22,7 +22,7 @@
                 <span class="group relative pb-1 cursor-pointer transition-colors">{{ __('common.nav.models') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('rox-01', 'rox-adamas', 'catalogo') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
             </div>
             <div class="relative nav-item" data-has-mega="concessionaria">
-                <span class="group relative pb-1 cursor-pointer transition-colors">{{ __('common.nav.concessionaria') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('concessionaria', 'showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
+                <span class="group relative pb-1 cursor-pointer transition-colors">{{ __('common.nav.concessionaria') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('representante', 'showroom') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
             </div>
             <div class="relative nav-item" data-has-mega="servicos">
                 <span class="group relative pb-1 cursor-pointer transition-colors">{{ __('common.nav.services') }} <span class="absolute bottom-0 left-0 w-full h-px transition-transform duration-300 origin-left {{ Request::is('servicos', 'servicos/*') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}" style="background: var(--rox-dune-yellow);"></span></span>
@@ -89,7 +89,7 @@
 <div id="mega-concessionaria" class="mega-panel fixed top-[60px] left-0 w-full z-[49] bg-gray-100 border-b border-gray-200 overflow-hidden pointer-events-none" style="max-height: 0; opacity: 0; transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease;">
     <div class="site-container py-6 md:py-8">
         <div class="grid grid-cols-2 gap-4 md:gap-6" style="max-width: 480px;">
-            <a href="{{ route('concessionaria') }}" class="group block">
+            <a href="{{ route('representante') }}" class="group block">
                 <div class="overflow-hidden rounded-sm mb-2 md:mb-3">
                     <img src="{{ asset('assets/dealer.jpg') }}" alt="OCTA Angola" class="w-full h-[100px] md:h-[130px] lg:h-[140px] object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
@@ -181,7 +181,7 @@
             <div>
                 <span class="text-[13px] tracking-widest uppercase font-medium text-black pb-1 inline-block">{{ __('common.nav.concessionaria') }}</span>
                 <div class="flex flex-col gap-4 mt-4 pl-4 border-l border-gray-300">
-                    <a href="{{ route('concessionaria') }}" class="text-[12px] tracking-widest uppercase font-medium {{ Request::is('concessionaria') ? 'text-black' : 'text-gray-500' }} hover:text-black transition-colors">{{ __('common.nav.octa_mobil') }}</a>
+                    <a href="{{ route('representante') }}" class="text-[12px] tracking-widest uppercase font-medium {{ Request::is('representante') ? 'text-black' : 'text-gray-500' }} hover:text-black transition-colors">{{ __('common.nav.octa_mobil') }}</a>
                     <a href="{{ route('showroom') }}" class="text-[12px] tracking-widest uppercase font-medium {{ Request::is('showroom') ? 'text-black' : 'text-gray-500' }} hover:text-black transition-colors">{{ __('common.nav.showroom') }}</a>
                 </div>
             </div>

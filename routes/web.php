@@ -70,9 +70,9 @@ Route::get('/catalogo', function () {
     return view('catalogo');
 })->name('catalogo');
 
-Route::get('/concessionaria', function () {
+Route::get('/representante', function () {
     return view('concessionaria');
-})->name('concessionaria');
+})->name('representante');
 
 Route::get('/revendedores', function () {
     return view('revendedores');

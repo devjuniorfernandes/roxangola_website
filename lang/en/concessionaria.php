@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Dealership',
+    'title' => 'Representative',
 
     'hero' => [
         'eyebrow' => 'Octa Angola',
