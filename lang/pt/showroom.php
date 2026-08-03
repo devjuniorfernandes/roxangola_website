@@ -16,9 +16,9 @@ return [
     'gallery' => [
         'eyebrow' => 'Espaços',
         'title' => 'Galeria do Showroom',
-        'g1' => 'Showroom ROX Angola',
-        'g2' => 'Área de exposição dos veículos',
-        'g3' => 'Recepção',
+        'g1' => 'Área comercial',
+        'g2' => 'Lounge de clientes',
+        'g3' => 'Área de exposição de veículos',
         'g4' => 'Lounge de clientes',
         'g5' => 'Área comercial',
         'g6' => 'Espaço de entrega de viaturas',
