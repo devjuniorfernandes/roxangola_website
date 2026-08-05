@@ -3,8 +3,8 @@
 
     @php
         $models = [
-            'rox-01' => ['name' => 'ROX 01', 'dimensoes' => '5.295 × 1.980 × 1.869 mm', 'potencia' => '350 kW / 740 N·m'],
-            'rox-adamas' => ['name' => 'ROX ADAMAS', 'dimensoes' => '5.298 × 1.985 × 1.856 mm', 'potencia' => '380 kW / 780 N·m'],
+            'rox-01' => ['name' => 'ROX 01', 'dimensoes' => '5.295 × 1.980 × 1.869 mm', 'potencia' => '350 kW / 740 N·m', 'autonomia_hibrida' => '1.115 km', 'carregamento_ac' => '8.6 h (0-100%)'],
+            'rox-adamas' => ['name' => 'ROX ADAMAS', 'dimensoes' => '5.298 × 1.985 × 1.856 mm', 'potencia' => '350 kW / 740 N·m', 'autonomia_hibrida' => '1.226 km', 'carregamento_ac' => '8.8 h (0-100%)'],
         ];
         $initialModel = $modeloActivo ?? 'rox-01';
 
@@ -35,12 +35,12 @@
                     ['label' => 'Motor traseiro 3-in-1 de alta eficiência', '7' => '200 kW / 400 N·m', '6' => '200 kW / 400 N·m'],
                     ['label' => 'Potência/binário total do sistema', '7' => '__POTENCIA__', '6' => '__POTENCIA__', 'dynamic' => 'potencia'],
                     ['label' => 'Autonomia elétrica WLTC', '7' => '235 km', '6' => '235 km'],
-                    ['label' => 'Autonomia híbrida WLTC', '7' => '1.115 km', '6' => '1.115 km'],
+                    ['label' => 'Autonomia híbrida WLTC', '7' => '1.115 km', '6' => '1.115 km', 'dynamic' => 'autonomia_hibrida'],
                     ['label' => 'Range extender', '7' => '1.5T quatro cilindros', '6' => '1.5T quatro cilindros'],
                     ['label' => 'Tipo de combustível', '7' => '95', '6' => '95'],
                     ['label' => 'Norma de emissões', '7' => 'Euro V', '6' => 'Euro V'],
                     ['label' => 'Capacidade do depósito', '7' => '70 L', '6' => '70 L'],
-                    ['label' => 'Carregamento AC lento (7 kW)', '7' => '8.6 h (0-100%)', '6' => '8.6 h (0-100%)'],
+                    ['label' => 'Carregamento AC lento (7 kW)', '7' => '8.6 h (0-100%)', '6' => '8.6 h (0-100%)', 'dynamic' => 'carregamento_ac'],
                 ],
             ],
             'chassis' => [
