@@ -23,10 +23,7 @@
         </div>
         <!-- Slide 2: ROX 01 -->
         <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="{{ __('home.hero.rox01_subtitle') }}" data-link="{{ route('rox01') }}">
-            <video class="h-full w-full object-cover" muted loop playsinline poster="{{ asset('assets/banner2.jpg') }}">
-                <source src="{{ asset('Dealer Feed Video ADAMAS - Subtitle free version.mp4') }}" type="video/mp4">
-                <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="h-full w-full object-cover">
-            </video>
+            <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="h-full w-full object-cover">
         </div>
 
         <!-- Gradient overlays -->

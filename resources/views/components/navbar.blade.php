@@ -3,16 +3,13 @@
     <div class="site-container flex items-center justify-between h-[60px]">
         <!-- Left: Logo + Menu -->
         <div class="flex items-center gap-8 lg:gap-12">
-            <!-- Logo + Angola -->
+            <!-- Logo -->
             <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center gap-3">
                 @if(Request::is('/', 'rox-01', 'rox-adamas', 'catalogo', 'representante', 'showroom', 'revendedores', 'servicos', 'servicos/*', 'sobre/*', 'contactos'))
                     <img src="{{ asset('assets/logo-full-w.svg') }}" alt="ROX" class="h-5 logo-default">
                     <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX" class="h-5 logo-hover hidden">
-                    <span class="text-[11px] font-medium tracking-[3px] uppercase opacity-70 logo-default">Angola</span>
-                    <span class="text-[11px] font-medium tracking-[3px] uppercase text-gray-500 logo-hover hidden">Angola</span>
                 @else
                     <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX" class="h-5">
-                    <span class="text-[11px] font-medium tracking-[3px] uppercase text-gray-500">Angola</span>
                 @endif
             </a>
 
@@ -163,7 +160,6 @@
             </button>
             <div class="flex items-center gap-2">
                 <img src="{{ asset('assets/logo-full.svg') }}" alt="ROX Logo" class="h-4">
-                <span class="text-[10px] font-medium tracking-[3px] uppercase text-gray-400">Angola</span>
             </div>
             <x-lang-switcher variant="header" />
         </div>

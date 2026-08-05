@@ -4,7 +4,6 @@
             <div class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4">
                 <div class="flex items-center gap-2">
                     <img src="{{ asset('assets/logo-footer.svg') }}" alt="ROX Logo" class="h-4 md:h-5">
-                    <span class="text-white text-[10px] md:text-xs font-light tracking-[0.2em] uppercase">Angola</span>
                 </div>
                 <p class="text-[11px] text-gray-500 font-light italic">{{ __('common.footer.disclaimer') }}</p>
             </div>
