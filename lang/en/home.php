@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Home',
+    'title' => 'ROX Angola | Crafting the ultimate travel experience for wanderlust dreamers',
     'more' => 'MORE',
 
     'hero' => [

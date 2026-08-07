@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Página Inicial',
+    'title' => 'ROX ANGOLA | Criar a experiência de viagem definitiva para os sonhadores apaixonados por viagens',
     'more' => 'MAIS',
 
     'hero' => [
