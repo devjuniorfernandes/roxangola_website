@@ -1,5 +1,5 @@
 <x-front-layout>
-    <x-slot name="title">{{ __('home.title') }}</x-slot>
+    <x-slot name="title">ROX Angola | Criar a experiência de viagem definitiva para os sonhadores apaixonados por viagens</x-slot>
 
     @php
         $hero = \App\Models\SiteSection::where('section_name', 'hero')->get()->keyBy('key');
