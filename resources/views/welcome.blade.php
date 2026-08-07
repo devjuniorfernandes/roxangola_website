@@ -116,32 +116,32 @@
             @php
                 $showcaseSpecSlides = [
                     [
-                        'img'    => 'rox01.jpg',
+                        'img'    => 'sellingpoint.avif',
                         'title'  => __('home.specs.reev_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.reev_text') . '</p>',
                     ],
                     [
-                        'img'    => 'lichengbei.jpg',
+                        'img'    => 'banner1_en.jfif',
                         'title'  => __('home.specs.range_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.range_text') . '</p>',
                     ],
                     [
-                        'img'    => 'banner1.jpg',
+                        'img'    => 'rox01_global.jfif',
                         'title'  => __('home.specs.terrain_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.terrain_text') . '</p>',
                     ],
                     [
-                        'img'    => 'keji.jpg',
+                        'img'    => 'Amber Orange.jpg',
                         'title'  => __('home.specs.luxury_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.luxury_text') . '</p>',
                     ],
                     [
-                        'img'    => 'banner-adamas.avif',
+                        'img'    => 'banner3_global.jfif',
                         'title'  => __('home.specs.safety_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.safety_text') . '</p>',
                     ],
                     [
-                        'img'    => 'banner2.jpg',
+                        'img'    => 'banner6_global.jfif',
                         'title'  => __('home.specs.connect_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.connect_text') . '</p>',
                     ],
