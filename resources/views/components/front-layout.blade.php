@@ -87,6 +87,10 @@
         {!! app(\App\Support\PageContentTranslator::class)->translate($slot->toHtml()) !!}
     </main>
 
+    @if(Request::is('rox-01'))
+        <script src="{{ asset('js/rox01.js') }}?v={{ filemtime(public_path('js/rox01.js')) }}"></script>
+    @endif
+
     <x-footer />
 
     <!-- WhatsApp Floating Button -->

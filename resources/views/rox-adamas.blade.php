@@ -308,6 +308,10 @@
             <div class="relative w-full cursor-none select-none touch-pan-y overflow-hidden bg-[#F0F0EE] rounded-sm" id="viewer-container">
                 <canvas id="viewer-canvas" class="w-full max-h-[70vh] object-contain mx-auto"></canvas>
 
+                <div id="interior-viewer" class="hidden relative aspect-video w-full overflow-hidden bg-[#E8E1D8]">
+                    <img id="interior-image" src="{{ asset('assets/rox_adamas/interior/First-Class 6-Seater/amethyst_purple.png') }}" alt="Interior ROX ADAMAS First-Class 6-Seater em Amethyst Purple" class="absolute inset-0 h-full w-full object-cover object-center">
+                </div>
+
                 <div id="icon-360" class="absolute flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#2A2A2A]/90 backdrop-blur-sm rounded-full text-white transition-opacity duration-300 pointer-events-none shadow-xl z-50 opacity-0 transform -translate-x-1/2 -translate-y-1/2">
                     <span class="text-sm md:text-base font-medium tracking-wider mb-[-2px]">360&deg;</span>
                     <svg class="w-6 h-6 md:w-8 md:h-8 text-white mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -321,16 +325,67 @@
             </div>
         </div>
 
-        <!-- Color swatches -->
-        <div class="content-container mt-6 md:mt-8">
+        <!-- Exterior color swatches -->
+        <div class="content-container mt-6 md:mt-8" id="exterior-controls">
             <div class="border-t border-gray-100 pt-6 flex items-center gap-6 md:gap-8">
                 <span class="text-sm md:text-base font-normal text-gray-400 tracking-wide whitespace-nowrap">Cores Exteriores</span>
                 <div class="flex items-center gap-3 md:gap-4">
-                    <button class="color-swatch w-10 h-10 md:w-11 md:h-11 rounded-[3px] border-2 border-gray-200 transition-all hover:border-gray-400 bg-[#C5A059]" data-color="golden" aria-label="Dourado"></button>
-                    <button class="color-swatch w-10 h-10 md:w-11 md:h-11 rounded-[3px] border-2 border-gray-200 transition-all hover:border-gray-400 bg-[#283832]" data-color="green" aria-label="Verde"></button>
-                    <button class="color-swatch w-10 h-10 md:w-11 md:h-11 rounded-[3px] border-2 border-gray-200 transition-all hover:border-gray-400 bg-[#7B7C7F]" data-color="gray" aria-label="Cinzento"></button>
-                    <button class="color-swatch w-10 h-10 md:w-11 md:h-11 rounded-[3px] border-2 border-black active-color bg-[#E8E9EB]" data-color="white" aria-label="Branco"></button>
-                    <button class="color-swatch w-10 h-10 md:w-11 md:h-11 rounded-[3px] border-2 border-gray-200 transition-all hover:border-gray-400 bg-[#1D1E20]" data-color="black" aria-label="Preto"></button>
+                    @php
+                        $exteriorColors = [
+                            ['key' => 'golden', 'name' => 'Desert Gold', 'swatch' => 'Desert Gold.png'],
+                            ['key' => 'green', 'name' => 'Emerald Green', 'swatch' => 'Emerald Green.png'],
+                            ['key' => 'gray', 'name' => 'Basalt Grey', 'swatch' => 'Basalt Grey.png'],
+                            ['key' => 'white', 'name' => 'Polar White', 'swatch' => 'Polar White.png'],
+                            ['key' => 'black', 'name' => 'Obsidian Black - Black Knight Edition', 'swatch' => 'Obsidian Black - Black Knight Edition.png'],
+                        ];
+                    @endphp
+                    @foreach($exteriorColors as $color)
+                        <div class="relative group">
+                            <button
+                                class="exterior-color-swatch w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-[3px] border-2 transition-all hover:border-gray-400 {{ $loop->first ? 'border-black active-color' : 'border-gray-200' }}"
+                                data-color="{{ $color['key'] }}"
+                                aria-label="{{ $color['name'] }}"
+                                aria-pressed="{{ $loop->first ? 'true' : 'false' }}"
+                            >
+                                <img src="{{ asset('assets/rox_adamas/exterior_colors/' . $color['swatch']) }}" alt="" class="w-full h-full object-cover pointer-events-none">
+                            </button>
+                            <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max max-w-48 -translate-x-1/2 rounded bg-black px-2 py-1 text-center text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <!-- Interior configuration -->
+        <div class="content-container mt-6 md:mt-8 hidden" id="interior-controls">
+            <div class="flex flex-col gap-5 bg-[#F7F7F7] px-5 py-6 md:flex-row md:items-center md:justify-center md:gap-8 md:px-8">
+                <div class="flex flex-wrap items-center gap-3 md:gap-5">
+                    <span class="text-xs md:text-sm font-normal tracking-wide text-black whitespace-nowrap">Configuração dos bancos</span>
+                    <div class="flex items-center gap-3 md:gap-4">
+                        <button class="interior-layout-button border border-black bg-white px-4 py-2.5 text-xs tracking-wide text-black transition-none md:px-5" data-layout="first-class-6-seater" aria-pressed="true">First-Class 6-Seater</button>
+                        <button class="interior-layout-button border border-gray-300 bg-white px-4 py-2.5 text-xs tracking-wide text-black transition-none md:px-5" data-layout="couch-7-seater" aria-pressed="false">Couch 7-Seater</button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 md:gap-5">
+                    <span class="text-xs md:text-sm font-normal tracking-wide text-black whitespace-nowrap">Cor do interior</span>
+                    <div class="flex items-center gap-3 md:gap-4">
+                        @php
+                            $interiorColors = [
+                                ['key' => 'amethyst_purple', 'name' => 'Amethyst Purple', 'hex' => '#776D88'],
+                                ['key' => 'amber_orange', 'name' => 'Amber Orange', 'hex' => '#D5804A'],
+                                ['key' => 'pearl_black', 'name' => 'Pearl Black', 'hex' => '#292A2C'],
+                                ['key' => 'jade_white', 'name' => 'Jade White', 'hex' => '#D5D5D5'],
+                            ];
+                        @endphp
+                        @foreach($interiorColors as $color)
+                            <div class="relative group">
+                                <button class="interior-color-swatch h-8 w-8 border-2 transition-none {{ $loop->first ? 'border-black p-0.5' : 'border-transparent' }}" data-color="{{ $color['key'] }}" aria-label="{{ $color['name'] }}" aria-pressed="{{ $loop->first ? 'true' : 'false' }}">
+                                    <span class="block h-full w-full" style="background-color: {{ $color['hex'] }};"></span>
+                                </button>
+                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max max-w-48 -translate-x-1/2 rounded bg-black px-2 py-1 text-center text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -666,7 +721,7 @@
             <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/banner-ver.avif') }}" alt="Sistema de Cozinha" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/kitchen.jpg') }}" alt="Sistema de Cozinha" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6">
                             <div class="text-white">
@@ -676,7 +731,7 @@
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/b.avif') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/camping.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6">
                             <div class="text-white">
@@ -871,11 +926,11 @@
                     <div class="grid grid-cols-2 gap-x-10 gap-y-8">
                         <div>
                             <p class="text-xs text-gray-400 font-light mb-1">Autonomia (REEV)</p>
-                            <p class="text-lg font-semibold text-black">1.115 km</p>
+                            <p class="text-lg font-semibold text-black">1.226 km</p>
                         </div>
                         <div>
                             <p class="text-xs text-gray-400 font-light mb-1">Potência Total</p>
-                            <p class="text-lg font-semibold text-black">380 kW / 780 N·m</p>
+                            <p class="text-lg font-semibold text-black">350 kW / 740 N·m</p>
                         </div>
                         <div>
                             <p class="text-xs text-gray-400 font-light mb-1">Capacidade de Vadeamento</p>
@@ -895,9 +950,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Page Scripts -->
-    <script src="{{ asset('js/rox01.js') }}"></script>
 
     <!-- Play videos when they enter the viewport -->
     <script>
@@ -1096,67 +1148,120 @@
             const container = document.getElementById('viewer-container');
             const canvas = document.getElementById('viewer-canvas');
             const ctx = canvas.getContext('2d');
-            const swatches = document.querySelectorAll('.color-swatch');
+            const exteriorSwatches = document.querySelectorAll('.exterior-color-swatch');
+            const viewerTabs = document.querySelectorAll('.viewer-tab');
+            const exteriorControls = document.getElementById('exterior-controls');
+            const interiorControls = document.getElementById('interior-controls');
+            const interiorViewer = document.getElementById('interior-viewer');
+            const interiorImage = document.getElementById('interior-image');
+            const interiorLayoutButtons = document.querySelectorAll('.interior-layout-button');
+            const interiorColorSwatches = document.querySelectorAll('.interior-color-swatch');
             const loading = document.getElementById('viewer-loading');
             const icon360 = document.getElementById('icon-360');
             
-            // Set default color to golden since it has all 36 frames loaded
+            // Frame numbers correspond to the image files available for each exterior color.
             let currentColor = 'golden';
             let currentFrame = 1;
-            const totalFrames = 36;
+            const colorFrameIndexes = {
+                golden: Array.from({ length: 36 }, (_, index) => index + 1),
+                green: [1, 3, 4, 12, 16, 23, 24, 26, 28, 30, 31, 34],
+                gray: [1, 3, 4, 12, 16, 23, 24, 26, 28, 30, 31, 34],
+                white: [1, 3, 4, 12, 16, 23, 24, 26, 28, 30, 31, 34],
+                black: [1, 3, 4, 12, 16, 23, 24, 26, 28, 30, 31, 34]
+            };
             let images = {}; // Cache images by color
+            const loadedColors = new Set();
+            const loadingColors = new Set();
             let isDragging = false;
             let startX = 0;
             let isLoaded = false;
             let isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            let activeViewer = 'exterior';
+            let currentInteriorLayout = 'first-class-6-seater';
+            let currentInteriorColor = 'amethyst_purple';
+            const interiorImageBase = @json(asset('assets/rox_adamas/interior'));
+            const interiorLayouts = {
+                'first-class-6-seater': 'First-Class 6-Seater',
+                'couch-7-seater': 'Couch 7-Seater'
+            };
             
             // Set internal resolution of canvas high for crispness
             canvas.width = 1920;
             canvas.height = 1080;
             
-            function loadImagesForColor(color) {
-                loading.style.opacity = '1';
-                loading.style.pointerEvents = 'auto';
-                isLoaded = false;
-                
-                // If already cached, just render
-                if (images[color] && images[color].length === totalFrames) {
-                    drawFrame(currentFrame, color);
-                    loading.style.opacity = '0';
-                    loading.style.pointerEvents = 'none';
-                    isLoaded = true;
+            function framePositionForAngle(color, angle) {
+                const frameIndexes = colorFrameIndexes[color];
+                let closestPosition = 0;
+                let shortestDistance = Infinity;
+
+                frameIndexes.forEach((frameNumber, index) => {
+                    const distance = Math.abs(frameNumber - angle);
+                    const circularDistance = Math.min(distance, 36 - distance);
+                    if (circularDistance < shortestDistance) {
+                        closestPosition = index;
+                        shortestDistance = circularDistance;
+                    }
+                });
+
+                return closestPosition + 1;
+            }
+
+            function currentAngle() {
+                return colorFrameIndexes[currentColor][currentFrame - 1] || 1;
+            }
+
+            function completeColorLoad(color) {
+                loadedColors.add(color);
+                loadingColors.delete(color);
+
+                // A color may finish loading after another one has been selected.
+                // Only the active selection is allowed to draw on the canvas.
+                if (color !== currentColor) return;
+
+                drawFrame(currentFrame, color);
+                loading.style.opacity = '0';
+                loading.style.pointerEvents = 'none';
+                isLoaded = true;
+            }
+
+            function loadImagesForColor(color, showLoader = true) {
+                if (showLoader) {
+                    loading.style.opacity = '1';
+                    loading.style.pointerEvents = 'auto';
+                    isLoaded = false;
+                }
+
+                if (loadedColors.has(color)) {
+                    if (showLoader && color === currentColor) {
+                        drawFrame(currentFrame, color);
+                        loading.style.opacity = '0';
+                        loading.style.pointerEvents = 'none';
+                        isLoaded = true;
+                    }
                     return;
                 }
-                
+
+                // This color is already being preloaded; its existing completion
+                // handler will render it when it becomes the active selection.
+                if (loadingColors.has(color)) return;
+
+                const frameIndexes = colorFrameIndexes[color];
                 images[color] = [];
+                loadingColors.add(color);
                 let loadedCount = 0;
-                
-                for(let i = 1; i <= totalFrames; i++) {
+
+                frameIndexes.forEach((frameNumber, index) => {
                     const img = new Image();
-                    img.onload = () => {
+                    const markComplete = () => {
                         loadedCount++;
-                        if(loadedCount === totalFrames) {
-                            drawFrame(currentFrame, color);
-                            loading.style.opacity = '0';
-                            loading.style.pointerEvents = 'none';
-                            isLoaded = true;
-                        }
+                        if (loadedCount === frameIndexes.length) completeColorLoad(color);
                     };
-                    
-                    // Basic fallback to prevent JS breaking if an image is missing
-                    img.onerror = () => {
-                        loadedCount++;
-                        if(loadedCount === totalFrames) {
-                            drawFrame(currentFrame, color);
-                            loading.style.opacity = '0';
-                            loading.style.pointerEvents = 'none';
-                            isLoaded = true;
-                        }
-                    };
-                    
-                    img.src = `/assets/rox_adamas/${color}_${i}.png`;
-                    images[color][i-1] = img;
-                }
+
+                    img.onload = markComplete;
+                    img.onerror = markComplete;
+                    img.src = `/assets/rox_adamas/${color}_${frameNumber}.png`;
+                    images[color][index] = img;
+                });
             }
             
             function drawFrame(frameIndex, color) {
@@ -1178,24 +1283,111 @@
                 ctx.drawImage(img, 0,0, img.width, img.height,
                                    centerShift_x, centerShift_y, img.width*ratio, img.height*ratio);
             }
+
+            function getInteriorImagePath(layout, color) {
+                return `${interiorImageBase}/${encodeURIComponent(interiorLayouts[layout])}/${color}.png`;
+            }
+
+            function updateInteriorImage() {
+                interiorImage.src = getInteriorImagePath(currentInteriorLayout, currentInteriorColor);
+                interiorImage.alt = `Interior ROX ADAMAS ${interiorLayouts[currentInteriorLayout]} em ${currentInteriorColor.replace('_', ' ')}`;
+            }
+
+            function preloadInteriorImages() {
+                Object.keys(interiorLayouts).forEach(layout => {
+                    ['amethyst_purple', 'amber_orange', 'pearl_black', 'jade_white'].forEach(color => {
+                        const image = new Image();
+                        image.src = getInteriorImagePath(layout, color);
+                    });
+                });
+            }
+
+            function preloadExteriorImages() {
+                Object.keys(colorFrameIndexes).forEach(color => {
+                    if (color !== currentColor) loadImagesForColor(color, false);
+                });
+            }
             
             // Initial load
             loadImagesForColor(currentColor);
             
             // Color Switching Logic
-            swatches.forEach(swatch => {
+            exteriorSwatches.forEach(swatch => {
                 swatch.addEventListener('click', (e) => {
-                    swatches.forEach(s => { s.classList.remove('border-black'); s.classList.add('border-gray-200'); });
-                    e.target.classList.remove('border-gray-200');
-                    e.target.classList.add('border-black');
-                    currentColor = e.target.getAttribute('data-color');
+                    exteriorSwatches.forEach(s => { s.classList.remove('border-black'); s.classList.add('border-gray-200'); });
+                    exteriorSwatches.forEach(s => s.setAttribute('aria-pressed', 'false'));
+                    const selectedSwatch = e.currentTarget;
+                    selectedSwatch.classList.remove('border-gray-200');
+                    selectedSwatch.classList.add('border-black');
+                    selectedSwatch.setAttribute('aria-pressed', 'true');
+                    const angle = currentAngle();
+                    currentColor = selectedSwatch.getAttribute('data-color');
+                    currentFrame = framePositionForAngle(currentColor, angle);
                     loadImagesForColor(currentColor);
                 });
             });
+
+            viewerTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    activeViewer = tab.dataset.tab;
+                    const isInterior = activeViewer === 'interior';
+
+                    viewerTabs.forEach(item => {
+                        const isActive = item === tab;
+                        item.classList.toggle('text-black', isActive);
+                        item.classList.toggle('text-gray-400', !isActive);
+                        item.classList.toggle('border-black', isActive);
+                        item.classList.toggle('border-transparent', !isActive);
+                    });
+
+                    canvas.classList.toggle('hidden', isInterior);
+                    interiorViewer.classList.toggle('hidden', !isInterior);
+                    exteriorControls.classList.toggle('hidden', isInterior);
+                    interiorControls.classList.toggle('hidden', !isInterior);
+                    container.classList.toggle('cursor-none', !isInterior);
+                    container.classList.toggle('cursor-default', isInterior);
+                    icon360.style.opacity = '0';
+                    icon360.classList.toggle('hidden', isInterior);
+
+                    if (isInterior) {
+                        updateInteriorImage();
+                    }
+                });
+            });
+
+            interiorLayoutButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    currentInteriorLayout = button.dataset.layout;
+                    interiorLayoutButtons.forEach(item => {
+                        const isActive = item === button;
+                        item.classList.toggle('border-black', isActive);
+                        item.classList.toggle('border-gray-300', !isActive);
+                        item.setAttribute('aria-pressed', String(isActive));
+                    });
+                    updateInteriorImage();
+                });
+            });
+
+            interiorColorSwatches.forEach(swatch => {
+                swatch.addEventListener('click', () => {
+                    currentInteriorColor = swatch.dataset.color;
+                    interiorColorSwatches.forEach(item => {
+                        const isActive = item === swatch;
+                        item.classList.toggle('border-black', isActive);
+                        item.classList.toggle('border-transparent', !isActive);
+                        item.classList.toggle('p-0.5', isActive);
+                        item.setAttribute('aria-pressed', String(isActive));
+                    });
+                    updateInteriorImage();
+                });
+            });
+
+            preloadInteriorImages();
+            preloadExteriorImages();
             
             // Custom Cursor Logic
             container.addEventListener('mouseenter', () => {
-                if(!isDragging && !isTouchDevice && isLoaded) {
+                if(activeViewer === 'exterior' && !isDragging && !isTouchDevice && isLoaded) {
                     icon360.style.opacity = '1';
                 }
             });
@@ -1207,14 +1399,14 @@
             
             // Interaction Logic
             function startDrag(x) {
-                if(!isLoaded) return;
+                if(activeViewer !== 'exterior' || !isLoaded) return;
                 isDragging = true;
                 startX = x;
                 icon360.style.opacity = '0'; // Hide 360 icon when user starts interacting
             }
             
             function onDrag(x, y, isMouse = false) {
-                if (!isLoaded) return;
+                if (activeViewer !== 'exterior' || !isLoaded) return;
                 
                 // Update custom cursor position if mouse
                 if(isMouse && !isDragging && !isTouchDevice) {
@@ -1229,6 +1421,7 @@
                 const diff = x - startX;
                 // Sensitivity
                 if (Math.abs(diff) > 12) {
+                    const totalFrames = colorFrameIndexes[currentColor].length;
                     if (diff > 0) {
                         currentFrame--;
                         if (currentFrame < 1) currentFrame = totalFrames;
@@ -1243,7 +1436,7 @@
             
             function stopDrag() {
                 isDragging = false;
-                if(!isTouchDevice) {
+                if(activeViewer === 'exterior' && !isTouchDevice) {
                     icon360.style.opacity = '1';
                 }
             }

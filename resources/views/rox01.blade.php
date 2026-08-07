@@ -19,18 +19,18 @@
             $highlights = [
                 [
                     'title' => 'Estética Robusta com Corpo Extra-Grande',
-                    'img' => 'banner2.jpg',
+                    'img' => 'Extra-large.avif',
                     'video' => '',
                     'stats' => [
-                        ['label' => 'Comprimento', 'value' => '5.298', 'unit' => 'mm'],
-                        ['label' => 'Largura', 'value' => '1.985', 'unit' => 'mm'],
-                        ['label' => 'Altura', 'value' => '1.856', 'unit' => 'mm'],
+                        ['label' => 'Comprimento', 'value' => '5.295', 'unit' => 'mm'],
+                        ['label' => 'Largura', 'value' => '1.980', 'unit' => 'mm'],
+                        ['label' => 'Altura', 'value' => '1.869', 'unit' => 'mm'],
                         ['label' => 'Entre-eixos', 'value' => '3.010', 'unit' => 'mm'],
                     ],
                 ],
                 [
                     'title' => 'Assentos luxuosos para uma experiência extraordinária',
-                    'img' => 'keji.jpg',
+                    'img' => 'assentos.avif',
                     'video' => '',
                     'stats' => [
                         ['label' => 'Bilateral', 'value' => 'Assentos Zero-Gravidade', 'unit' => ''],
@@ -41,18 +41,18 @@
                 ],
                 [
                     'title' => 'Grande Autonomia, Potência Emocionante',
-                    'img' => 'lichengbei.jpg',
+                    'img' => 'capacidade.avif',
                     'video' => '',
                     'stats' => [
                         ['label' => 'Autonomia Híbrida WLTC', 'value' => '1.115', 'unit' => 'km'],
                         ['label' => 'Autonomia Eléctrica WLTC', 'value' => '235', 'unit' => 'km'],
-                        ['label' => 'Aceleração 0-100 km/h', 'value' => '5.9', 'unit' => 's'],
-                        ['label' => 'Saída V2L', 'value' => '6.6', 'unit' => 'kW'],
+                        ['label' => 'Aceleração 0-100 km/h', 'value' => '5.5', 'unit' => 's'],
+                        ['label' => 'Saída V2L', 'value' => '4.4（2.2kW V2L + 2.2kW 220V）', 'unit' => 'kW'],
                     ],
                 ],
                 [
                     'title' => 'Condução Assistida Completa para Viagens Sem Limites',
-                    'img' => 'banner1.jpg',
+                    'img' => 'conducao.avif',
                     'video' => '',
                     'stats' => [
                         ['label' => 'Travessia Inteligente', 'value' => 'Todo-o-Terreno', 'unit' => ''],
@@ -60,7 +60,7 @@
                 ],
                 [
                     'title' => 'Protecção Inabalável para Segurança Total',
-                    'img' => 'rox01.jpg',
+                    'img' => 'proteccao.avif',
                     'video' => '',
                     'stats' => [
                         ['label' => 'Carroçaria', 'value' => 'Aço de alta resistência', 'unit' => '>80%'],
@@ -119,8 +119,8 @@
     </section>
 
     <!-- 360 Viewer Section -->
-    <section class="py-14 md:py-24 bg-[#F5F6F7] relative overflow-hidden">
-        <div class="max-w-[1280px] mx-auto px-6 md:px-8 mb-4 md:mb-6">
+    <section class="pt-20 pb-14 md:pt-24 md:pb-24 bg-[#F5F6F7] relative overflow-hidden">
+        <div class="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 mb-8 md:mb-10">
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                 <h2 class="text-2xl md:text-3xl lg:text-[2rem] font-semibold tracking-tight text-[#191919] max-w-md animate-up">SUV de Luxo Todo-o-Terreno para Cenário Completo</h2>
                 <div class="flex flex-col md:items-end gap-4 animate-up">
@@ -128,18 +128,54 @@
                         <button id="viewer-tab-ext" class="text-sm md:text-base pb-1 border-b-2 border-black text-black font-medium transition-colors cursor-pointer">Exterior</button>
                         <button id="viewer-tab-int" class="text-sm md:text-base pb-1 border-b-2 border-transparent text-gray-400 hover:text-gray-600 transition-colors cursor-pointer">Interior</button>
                     </div>
-                    <div class="flex gap-3 md:gap-4">
-                        <button class="color-swatch w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-300 shadow-sm transition-transform hover:scale-110 active-color ring-2 ring-offset-2 ring-black bg-[#E8E9EB]" data-color="white" aria-label="Branco"></button>
-                        <button class="color-swatch w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-300 shadow-sm transition-transform hover:scale-110 bg-[#7B7C7F]" data-color="gray" aria-label="Cinzento"></button>
-                        <button class="color-swatch w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-300 shadow-sm transition-transform hover:scale-110 bg-[#1D1E20]" data-color="black" aria-label="Preto"></button>
+                    <div class="flex flex-nowrap gap-3 md:gap-4" id="exterior-swatches">
+                        @php
+                            $rox01ExteriorColors = [
+                                ['key' => 'white', 'name' => 'Polar White', 'swatch' => 'white exterior.png'],
+                                ['key' => 'gray', 'name' => 'Gloaming Gray', 'swatch' => 'grey exterior.png'],
+                                ['key' => 'black', 'name' => 'Starlit Night Black', 'swatch' => 'black exterior.png'],
+                            ];
+                        @endphp
+                        @foreach($rox01ExteriorColors as $color)
+                            <div class="relative group">
+                                <button class="exterior-color-swatch h-8 w-8 overflow-hidden rounded-full border-2 transition-none md:h-9 md:w-9 {{ $loop->first ? 'border-black p-0.5' : 'border-transparent' }}" data-color="{{ $color['key'] }}" aria-label="{{ $color['name'] }}" aria-pressed="{{ $loop->first ? 'true' : 'false' }}">
+                                    <img src="{{ asset('assets/rox_1/interior/swatches/' . $color['swatch']) }}" alt="" class="h-full w-full rounded-full object-cover pointer-events-none">
+                                </button>
+                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="hidden flex flex-nowrap items-center justify-end gap-4 md:gap-6" id="interior-controls">
+                        <button class="interior-layout-button shrink-0 border border-black bg-[#191919] px-5 py-2.5 text-xs font-medium tracking-wide text-white transition-none" data-layout="6-seater" aria-pressed="true">6-seater</button>
+                        <button class="interior-layout-button shrink-0 border border-black bg-transparent px-5 py-2.5 text-xs font-medium tracking-wide text-black transition-none" data-layout="7-seater" aria-pressed="false">7-seater</button>
+                        @php
+                            $rox01InteriorColors = [
+                                ['key' => 'Amber Orange', 'name' => 'Amber Orange', 'swatch' => 'orange interior.png'],
+                                ['key' => 'Jade White', 'name' => 'Jade White', 'swatch' => 'white interior.png'],
+                                ['key' => 'Pearl Black', 'name' => 'Pearl Black', 'swatch' => 'black interior.png'],
+                            ];
+                        @endphp
+                        @foreach($rox01InteriorColors as $color)
+                            <div class="relative group">
+                                <button class="interior-color-swatch h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 transition-none {{ $loop->first ? 'border-[#E5793C] p-0.5' : 'border-transparent' }}" data-color="{{ $color['key'] }}" aria-label="{{ $color['name'] }}" aria-pressed="{{ $loop->first ? 'true' : 'false' }}">
+                                    <img src="{{ asset('assets/rox_1/interior/swatches/' . $color['swatch']) }}" alt="" class="h-full w-full rounded-full object-cover pointer-events-none">
+                                </button>
+                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-        <div class="relative w-full cursor-none select-none touch-pan-y overflow-hidden" id="viewer-container">
-            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#E9EBED] to-transparent pointer-events-none"></div>
-            <div class="absolute left-1/2 -translate-x-1/2 bottom-[16%] w-[58%] max-w-[760px] aspect-[3.6/1] rounded-[50%] border border-gray-300/50 pointer-events-none"></div>
-            <canvas id="viewer-canvas" class="relative w-full max-h-[80vh] object-contain mx-auto"></canvas>
+        <div class="relative mx-auto w-full max-w-[1600px] cursor-none select-none touch-pan-y overflow-hidden" id="viewer-container">
+            <div id="exterior-viewer-decor">
+                <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#E9EBED] to-transparent pointer-events-none"></div>
+                <div class="absolute left-1/2 -translate-x-1/2 bottom-[16%] w-[58%] max-w-[760px] aspect-[3.6/1] rounded-[50%] border border-gray-300/50 pointer-events-none"></div>
+            </div>
+            <canvas id="viewer-canvas" class="relative mx-auto block w-full max-h-[76vh] object-contain"></canvas>
+            <div id="interior-viewer" class="hidden relative aspect-[1.92/1] w-full overflow-hidden bg-black">
+                <img id="interior-image" src="{{ asset('assets/rox_1/interior/6-seater/Amber Orange.jpg') }}" alt="Interior ROX 01 6-seater em Amber Orange" class="absolute inset-0 h-full w-full object-cover object-center">
+            </div>
             <div id="icon-360" class="absolute flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#2A2A2A]/90 backdrop-blur-sm rounded-full text-white transition-opacity duration-300 pointer-events-none shadow-xl z-50 opacity-0 transform -translate-x-1/2 -translate-y-1/2">
                 <span class="text-sm md:text-base font-medium tracking-wider mb-[-2px]">360&deg;</span>
                 <svg class="w-6 h-6 md:w-8 md:h-8 text-white mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -159,19 +195,19 @@
                 [
                     'title' => 'Design em caixa',
                     'desc' => 'O veículo apresenta linhas de carroçaria nítidas e um tecto recto, criando uma silhueta ousada e clássica que transmite uma presença forte e poderosa.',
-                    'img' => 'banner2.jpg',
+                    'img' => 'boxed.avif',
                     'video' => '',
                 ],
                 [
                     'title' => 'Faróis inspirados no carácter chinês "石" (pedra)',
                     'desc' => 'Inspirados na forma do carácter chinês "石" (pedra), os faróis dianteiros e traseiros incorporam elementos tridimensionais, criando uma estética espacial distintiva.',
-                    'img' => 'lichengbei.jpg',
+                    'img' => 'banner2.avif',
                     'video' => '',
                 ],
                 [
                     'title' => 'Porta lateral traseira com fecho suave eléctrico',
                     'desc' => 'Para viagens que desafiam os elementos, a porta traseira desliza com graciosidade, selando poeira e detritos, preservando a pureza da sua aventura.',
-                    'img' => 'banner1.jpg',
+                    'img' => 'showroom.jpg',
                     'video' => '',
                 ],
             ];
@@ -201,7 +237,7 @@
     <section class="bg-white">
         <!-- Wide landscape background with overlay heading -->
         <div class="relative w-full aspect-[16/7] md:aspect-[16/6] overflow-hidden">
-            <img src="{{ asset('assets/banner1.jpg') }}" alt="Capacidades Todo-o-Terreno" class="w-full h-full object-cover">
+            <img src="{{ asset('assets/banner1_en.jfif') }}" alt="Capacidades Todo-o-Terreno" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             <div class="absolute bottom-8 md:bottom-14 left-0 right-0">
                 <div class="content-container">
@@ -216,7 +252,7 @@
                 [
                     'title' => 'Performance',
                     'desc' => 'Além das expectativas, liberdade sem limites.',
-                    'img' => 'banner1.jpg',
+                    'img' => 'banner2_global.jfif',
                     'blocks' => [
                         ['img' => 'banner1.jpg', 'heading' => 'Autonomia híbrida WLTC de 1.115 km', 'desc' => 'Percorra distâncias extraordinárias sem a preocupação de recarregar.'],
                         ['img' => 'lichengbei.jpg', 'heading' => 'Aceleração 0–100 km/h em 5,9 segundos', 'desc' => 'Potência instantânea que transforma cada arranque numa emoção.'],
@@ -225,7 +261,7 @@
                 [
                     'title' => 'Segurança',
                     'desc' => 'Um escudo de protecção, protegendo-o em todo o lado.',
-                    'img' => 'rox01.jpg',
+                    'img' => 'banner3_safety.jfif',
                     'blocks' => [
                         ['img' => 'rox01.jpg', 'heading' => 'Mais de 80% de aço de alta resistência', 'desc' => 'Uma carroçaria reforçada que protege o que mais importa.'],
                         ['img' => 'banner2.jpg', 'heading' => 'Carga máxima no tecto de 59.730 N', 'desc' => 'Robustez comprovada para as aventuras mais exigentes.'],
@@ -278,7 +314,7 @@
     <section class="bg-white">
         <!-- Wide lifestyle image with overlay heading -->
         <div class="relative w-full aspect-[16/8] md:aspect-[16/7] overflow-hidden">
-            <img src="{{ asset('assets/life.jpg') }}" alt="Versatilidade para Cada Ocasião" class="w-full h-full object-cover">
+            <img src="{{ asset('assets/banner1_g.jfif') }}" alt="Versatilidade para Cada Ocasião" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             <div class="absolute bottom-8 md:bottom-14 left-0 right-0">
                 <div class="content-container">
@@ -291,28 +327,28 @@
         @php
             $versatileCards = [
                 [
-                    'title' => 'Espaço Amplo', 'desc' => 'Experimente liberdade sem limites e conforto absoluto no interior.', 'img' => 'life-ver.jpg',
+                    'title' => 'Espaço Amplo', 'desc' => 'Experimente liberdade sem limites e conforto absoluto no interior.', 'img' => 'banner4_global.jfif',
                     'blocks' => [
                         ['img' => 'keji.jpg', 'heading' => '6,54 m² de área total envidraçada', 'desc' => 'Desfrute de vistas amplas que transformam cada viagem numa experiência visual.'],
                         ['img' => 'seat-superior.avif', 'heading' => 'Tecto panorâmico de vidro', 'desc' => 'Luz natural abundante e uma sensação de amplitude em toda a cabine.'],
                     ],
                 ],
                 [
-                    'title' => 'Versatilidade', 'desc' => 'Conduza com liberdade, onde a alegria da viagem vai além do veículo.', 'img' => 'services-ver.jpg',
+                    'title' => 'Versatilidade', 'desc' => 'Conduza com liberdade, onde a alegria da viagem vai além do veículo.', 'img' => 'banner5_global.jfif',
                     'blocks' => [
                         ['img' => 'services.jpg', 'heading' => 'Configurações de bancos flexíveis', 'desc' => 'Adapte o espaço interior a cada aventura, de carga a descanso.'],
                         ['img' => 'life.jpg', 'heading' => 'Fonte de alimentação V2L de 6,6 kW', 'desc' => 'Leve energia para onde for — do acampamento ao trabalho ao ar livre.'],
                     ],
                 ],
                 [
-                    'title' => 'Cockpit Inteligente', 'desc' => 'Acompanhando cada viagem, desbloqueando diversão infinita.', 'img' => 'keji-ver.jpg',
+                    'title' => 'Cockpit Inteligente', 'desc' => 'Acompanhando cada viagem, desbloqueando diversão infinita.', 'img' => 'banner6_global.jfif',
                     'blocks' => [
                         ['img' => 'keji.jpg', 'heading' => 'Ecrã panorâmico inteligente', 'desc' => 'Toda a informação essencial ao seu alcance, com uma interface intuitiva.'],
                         ['img' => 'banner2.jpg', 'heading' => 'Assistente de condução inteligente', 'desc' => 'Acompanha cada viagem, desbloqueando diversão e segurança sem limites.'],
                     ],
                 ],
                 [
-                    'title' => 'Conforto', 'desc' => 'Diga adeus à fadiga de condução e desfrute plenamente da viagem.', 'img' => 'banner-ver.jpg',
+                    'title' => 'Conforto', 'desc' => 'Diga adeus à fadiga de condução e desfrute plenamente da viagem.', 'img' => 'banner3_global.jfif',
                     'blocks' => [
                         ['img' => 'seat-direita.avif', 'heading' => 'Bancos Zero-Gravidade bilaterais', 'desc' => 'Diga adeus à fadiga com uma postura de descanso perfeita.'],
                         ['img' => 'seat-esquerda.avif', 'heading' => 'Ventilação e aquecimento em 3 fases', 'desc' => 'O clima ideal para cada estação, em qualquer viagem.'],
@@ -611,5 +647,4 @@
         });
     })();
     </script>
-    <script src="{{ asset('js/rox01.js') }}"></script>
 </x-front-layout>

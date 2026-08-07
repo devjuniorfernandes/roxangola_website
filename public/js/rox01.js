@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function initRox01Page() {
 
     // ========================================
     // 360 Viewer
@@ -9,83 +9,227 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!container || !canvas) return;
 
         var ctx = canvas.getContext('2d');
-        var swatches = document.querySelectorAll('.color-swatch');
+        var exteriorSwatches = document.querySelectorAll('.exterior-color-swatch');
+        var exteriorSwatchesPanel = document.getElementById('exterior-swatches');
+        var interiorControls = document.getElementById('interior-controls');
+        var interiorViewer = document.getElementById('interior-viewer');
+        var interiorImage = document.getElementById('interior-image');
+        var exteriorDecor = document.getElementById('exterior-viewer-decor');
+        var exteriorTab = document.getElementById('viewer-tab-ext');
+        var interiorTab = document.getElementById('viewer-tab-int');
+        var interiorLayoutButtons = document.querySelectorAll('.interior-layout-button');
+        var interiorColorSwatches = document.querySelectorAll('.interior-color-swatch');
         var loading = document.getElementById('viewer-loading');
         var icon360 = document.getElementById('icon-360');
 
         var currentColor = 'white';
         var currentFrame = 1;
         var totalFrames = 36;
+        var exteriorColorFiles = {
+            white: 'white',
+            gray: 'gray',
+            black: 'black'
+        };
         var images = {};
+        var loadedColors = new Set();
+        var loadingColors = new Set();
         var isDragging = false;
         var startX = 0;
         var isLoaded = false;
         var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        var activeViewer = 'exterior';
+        var currentInteriorLayout = '6-seater';
+        var currentInteriorColor = 'Amber Orange';
+        var interiorImageBase = '/assets/rox_1/interior';
 
         canvas.width = 1920;
         canvas.height = 1080;
 
-        function loadImagesForColor(color) {
-            loading.style.opacity = '1';
-            loading.style.pointerEvents = 'auto';
-            isLoaded = false;
+        function completeColorLoad(color) {
+            loadedColors.add(color);
+            loadingColors.delete(color);
 
-            if (images[color] && images[color].length === totalFrames) {
-                drawFrame(currentFrame, color);
-                loading.style.opacity = '0';
-                loading.style.pointerEvents = 'none';
-                isLoaded = true;
+            // Do not allow a completed background request to overwrite the
+            // vehicle color the visitor has chosen in the meantime.
+            if (color !== currentColor) return;
+
+            drawFrame(currentFrame, color);
+            loading.style.opacity = '0';
+            loading.style.pointerEvents = 'none';
+            isLoaded = true;
+        }
+
+        function loadImagesForColor(color, showLoader) {
+            if (showLoader === undefined) showLoader = true;
+
+            if (showLoader) {
+                loading.style.opacity = '1';
+                loading.style.pointerEvents = 'auto';
+                isLoaded = false;
+            }
+
+            if (loadedColors.has(color)) {
+                if (showLoader && color === currentColor) {
+                    drawFrame(currentFrame, color);
+                    loading.style.opacity = '0';
+                    loading.style.pointerEvents = 'none';
+                    isLoaded = true;
+                }
                 return;
             }
 
+            // The same color may already be loading in the background.
+            if (loadingColors.has(color)) return;
+
             images[color] = [];
+            loadingColors.add(color);
             var loadedCount = 0;
 
-            for (var i = 1; i <= totalFrames; i++) {
-                var img = new Image();
-                img.onload = function () {
-                    loadedCount++;
-                    if (loadedCount === totalFrames) {
-                        drawFrame(currentFrame, color);
-                        loading.style.opacity = '0';
-                        loading.style.pointerEvents = 'none';
-                        isLoaded = true;
-                    }
-                };
-                img.src = '/assets/rox_1/' + color + '_' + i + '.png';
-                images[color][i - 1] = img;
+            for (var frame = 1; frame <= totalFrames; frame++) {
+                (function (frame, index) {
+                    var img = new Image();
+                    var markComplete = function () {
+                        loadedCount++;
+                        if (loadedCount === totalFrames) completeColorLoad(color);
+                    };
+
+                    img.onload = markComplete;
+                    img.onerror = markComplete;
+                    img.src = '/assets/rox_1/' + exteriorColorFiles[color] + '_' + frame + '.png';
+                    images[color][index] = img;
+                })(frame, frame - 1);
             }
         }
 
         function drawFrame(frameIndex, color) {
             if (!images[color] || !images[color][frameIndex - 1]) return;
             var img = images[color][frameIndex - 1];
+            if (!img.complete || !img.naturalWidth) return;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             var hRatio = canvas.width / img.width;
             var vRatio = canvas.height / img.height;
-            var ratio = Math.min(hRatio, vRatio);
-            var centerShift_x = (canvas.width - img.width * ratio) / 2;
-            var centerShift_y = (canvas.height - img.height * ratio) / 2;
+            // Match the Adamas viewer while giving the ROX 01 a more prominent
+            // presence inside its framed presentation area.
+            var ratio = Math.min(hRatio, vRatio) * 1.12;
+            var centerShiftX = (canvas.width - img.width * ratio) / 2;
+            var centerShiftY = (canvas.height - img.height * ratio) / 2;
 
             ctx.drawImage(img, 0, 0, img.width, img.height,
-                centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+                centerShiftX, centerShiftY, img.width * ratio, img.height * ratio);
+        }
+
+        function getInteriorImagePath() {
+            return interiorImageBase + '/' + currentInteriorLayout + '/' + encodeURIComponent(currentInteriorColor) + '.jpg';
+        }
+
+        function updateInteriorImage() {
+            interiorImage.src = getInteriorImagePath();
+            interiorImage.alt = 'Interior ROX 01 ' + currentInteriorLayout + ' em ' + currentInteriorColor;
+        }
+
+        function preloadInteriorImages() {
+            ['6-seater', '7-seater'].forEach(function (layout) {
+                ['Amber Orange', 'Jade White', 'Pearl Black'].forEach(function (color) {
+                    var image = new Image();
+                    image.src = interiorImageBase + '/' + layout + '/' + encodeURIComponent(color) + '.jpg';
+                });
+            });
+        }
+
+        function preloadExteriorImages() {
+            ['white', 'gray', 'black'].forEach(function (color) {
+                if (color !== currentColor) loadImagesForColor(color, false);
+            });
         }
 
         loadImagesForColor(currentColor);
+        preloadExteriorImages();
+        preloadInteriorImages();
 
-        swatches.forEach(function (swatch) {
+        exteriorSwatches.forEach(function (swatch) {
             swatch.addEventListener('click', function (e) {
-                swatches.forEach(function (s) { s.classList.remove('ring-2', 'ring-offset-2', 'ring-black'); });
-                e.target.classList.add('ring-2', 'ring-offset-2', 'ring-black');
-                currentColor = e.target.getAttribute('data-color');
+                exteriorSwatches.forEach(function (s) {
+                    s.classList.remove('border-black', 'p-0.5');
+                    s.classList.add('border-transparent');
+                    s.setAttribute('aria-pressed', 'false');
+                });
+                var selectedSwatch = e.currentTarget;
+                selectedSwatch.classList.remove('border-transparent');
+                selectedSwatch.classList.add('border-black', 'p-0.5');
+                selectedSwatch.setAttribute('aria-pressed', 'true');
+                currentColor = selectedSwatch.getAttribute('data-color');
                 loadImagesForColor(currentColor);
             });
         });
 
+        function switchViewer(viewer) {
+            activeViewer = viewer;
+            var isInterior = viewer === 'interior';
+
+            canvas.classList.toggle('hidden', isInterior);
+            interiorViewer.classList.toggle('hidden', !isInterior);
+            exteriorDecor.classList.toggle('hidden', isInterior);
+            exteriorSwatchesPanel.classList.toggle('hidden', isInterior);
+            interiorControls.classList.toggle('hidden', !isInterior);
+            container.classList.toggle('cursor-none', !isInterior);
+            container.classList.toggle('cursor-default', isInterior);
+            icon360.classList.toggle('hidden', isInterior);
+            icon360.style.opacity = '0';
+
+            exteriorTab.classList.toggle('border-black', !isInterior);
+            exteriorTab.classList.toggle('border-transparent', isInterior);
+            exteriorTab.classList.toggle('text-black', !isInterior);
+            exteriorTab.classList.toggle('text-gray-400', isInterior);
+            interiorTab.classList.toggle('border-black', isInterior);
+            interiorTab.classList.toggle('border-transparent', !isInterior);
+            interiorTab.classList.toggle('text-black', isInterior);
+            interiorTab.classList.toggle('text-gray-400', !isInterior);
+
+            if (isInterior) {
+                loading.style.opacity = '0';
+                loading.style.pointerEvents = 'none';
+                updateInteriorImage();
+            } else if (!isLoaded) {
+                loadImagesForColor(currentColor);
+            }
+        }
+
+        exteriorTab.addEventListener('click', function () { switchViewer('exterior'); });
+        interiorTab.addEventListener('click', function () { switchViewer('interior'); });
+
+        interiorLayoutButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                currentInteriorLayout = button.getAttribute('data-layout');
+                interiorLayoutButtons.forEach(function (item) {
+                    var isActive = item === button;
+                    item.classList.toggle('bg-[#191919]', isActive);
+                    item.classList.toggle('text-white', isActive);
+                    item.classList.toggle('bg-transparent', !isActive);
+                    item.classList.toggle('text-black', !isActive);
+                    item.setAttribute('aria-pressed', String(isActive));
+                });
+                updateInteriorImage();
+            });
+        });
+
+        interiorColorSwatches.forEach(function (swatch) {
+            swatch.addEventListener('click', function () {
+                currentInteriorColor = swatch.getAttribute('data-color');
+                interiorColorSwatches.forEach(function (item) {
+                    var isActive = item === swatch;
+                    item.classList.toggle('border-[#E5793C]', isActive);
+                    item.classList.toggle('border-transparent', !isActive);
+                    item.classList.toggle('p-0.5', isActive);
+                    item.setAttribute('aria-pressed', String(isActive));
+                });
+                updateInteriorImage();
+            });
+        });
+
         container.addEventListener('mouseenter', function () {
-            if (!isDragging && !isTouchDevice && isLoaded) icon360.style.opacity = '1';
+            if (activeViewer === 'exterior' && !isDragging && !isTouchDevice && isLoaded) icon360.style.opacity = '1';
         });
         container.addEventListener('mouseleave', function () {
             icon360.style.opacity = '0';
@@ -93,14 +237,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         function startDrag(x) {
-            if (!isLoaded) return;
+            if (activeViewer !== 'exterior' || !isLoaded) return;
             isDragging = true;
             startX = x;
             icon360.style.opacity = '0';
         }
 
         function onDrag(x, y, isMouse) {
-            if (!isLoaded) return;
+            if (activeViewer !== 'exterior' || !isLoaded) return;
             if (isMouse && !isDragging && !isTouchDevice) {
                 icon360.style.opacity = '1';
                 var rect = container.getBoundingClientRect();
@@ -109,9 +253,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             if (!isDragging) return;
             var diff = x - startX;
-            if (Math.abs(diff) > 12) {
-                if (diff > 0) { currentFrame--; if (currentFrame < 1) currentFrame = totalFrames; }
-                else { currentFrame++; if (currentFrame > totalFrames) currentFrame = 1; }
+            if (Math.abs(diff) > 8) {
+                if (diff > 0) {
+                    currentFrame--;
+                    if (currentFrame < 1) currentFrame = totalFrames;
+                } else {
+                    currentFrame++;
+                    if (currentFrame > totalFrames) currentFrame = 1;
+                }
                 drawFrame(currentFrame, currentColor);
                 startX = x;
             }
@@ -119,19 +268,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function stopDrag() {
             isDragging = false;
-            if (!isTouchDevice) icon360.style.opacity = '1';
+            if (activeViewer === 'exterior' && !isTouchDevice) icon360.style.opacity = '1';
         }
 
-        container.addEventListener('mousedown', function (e) { startDrag(e.pageX); });
-        window.addEventListener('mousemove', function (e) { onDrag(e.pageX, e.clientY, true); });
-        window.addEventListener('mouseup', stopDrag);
-
-        container.addEventListener('touchstart', function (e) {
-            icon360.style.opacity = '0';
-            startDrag(e.touches[0].pageX);
-        });
-        window.addEventListener('touchmove', function (e) { onDrag(e.touches[0].pageX, e.touches[0].pageY, false); }, { passive: true });
-        window.addEventListener('touchend', stopDrag);
+        // Pointer Events provide the same reliable drag interaction for mouse,
+        // trackpad and touch screens, while pointer capture keeps the rotation
+        // active even if the pointer leaves the vehicle area.
+        if (window.PointerEvent) {
+            container.addEventListener('pointerdown', function (e) {
+                if (activeViewer !== 'exterior') return;
+                container.setPointerCapture(e.pointerId);
+                startDrag(e.clientX);
+            });
+            container.addEventListener('pointermove', function (e) {
+                onDrag(e.clientX, e.clientY, e.pointerType === 'mouse');
+            });
+            container.addEventListener('pointerup', stopDrag);
+            container.addEventListener('pointercancel', stopDrag);
+        } else {
+            container.addEventListener('mousedown', function (e) { startDrag(e.pageX); });
+            window.addEventListener('mousemove', function (e) { onDrag(e.pageX, e.clientY, true); });
+            window.addEventListener('mouseup', stopDrag);
+            container.addEventListener('touchstart', function (e) { startDrag(e.touches[0].pageX); }, { passive: true });
+            window.addEventListener('touchmove', function (e) { onDrag(e.touches[0].pageX, e.touches[0].pageY, false); }, { passive: true });
+            window.addEventListener('touchend', stopDrag);
+        }
     })();
 
     // ========================================
@@ -449,4 +610,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })();
 
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRox01Page);
+} else {
+    initRox01Page();
+}
