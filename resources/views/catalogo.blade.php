@@ -48,7 +48,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Descarregar Catálogo PDF -->
-                <a href="#" class="animate-up block group">
+                <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" download="Catalogo_ROX_PT_baixa.pdf" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
                         <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
                     </div>
@@ -62,7 +62,7 @@
                 </a>
 
                 <!-- Visualizar Catálogo -->
-                <a href="#" class="animate-up block group">
+                <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" target="_blank" rel="noopener noreferrer" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
                         <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-full object-cover">
                     </div>
