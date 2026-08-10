@@ -23,7 +23,7 @@
         </div>
         <!-- Slide 2: ROX 01 -->
         <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="{{ __('home.hero.rox01_subtitle') }}" data-link="{{ route('rox01') }}">
-            <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="h-full w-full object-cover">
+            <img src="{{ cms_image('home.hero.rox01', asset('assets/banner2.jpg')) }}" alt="ROX 01" class="h-full w-full object-cover">
         </div>
 
         <!-- Gradient overlays -->
@@ -68,7 +68,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <!-- ROX ADAMAS -->
                 <div class="relative h-[300px] md:h-[460px] overflow-hidden group animate-up">
-                    <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <img src="{{ cms_image('home.explore.adamas', asset('assets/banner-adamas.avif')) }}" alt="ROX ADAMAS" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div class="text-white">
@@ -81,7 +81,7 @@
 
                 <!-- ROX 01 -->
                 <div class="relative h-[300px] md:h-[460px] overflow-hidden group animate-up">
-                    <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <img src="{{ cms_image('home.explore.rox01', asset('assets/banner2.jpg')) }}" alt="ROX 01" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div class="text-white">
@@ -101,7 +101,7 @@
         <!-- Image Feature with Sticky Title -->
         <div class="feature-wrapper relative" style="height: 200vh;">
             <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-                <img src="{{ asset('assets/banner.jpg') }}" alt="" class="absolute inset-0 w-full h-full object-cover">
+                <img src="{{ cms_image('home.showcase.bg', asset('assets/banner.jpg')) }}" alt="" class="absolute inset-0 w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                 <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
                     <div class="content-container">
@@ -694,7 +694,7 @@
 
     <!-- CTA Test Drive Section -->
     <section class="relative h-[100svh] w-full overflow-hidden">
-        <img src="{{ asset('assets/cta.avif') }}" alt="{{ __('home.cta.title') }}" class="absolute inset-0 w-full h-full object-cover">
+        <img src="{{ cms_image('home.cta.bg', asset('assets/cta.avif')) }}" alt="{{ __('home.cta.title') }}" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative z-10 flex flex-col items-center justify-start h-full text-center px-6 pt-32 md:pt-40">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 md:mb-6 animate-up">{{ __('home.cta.title') }}</h2>

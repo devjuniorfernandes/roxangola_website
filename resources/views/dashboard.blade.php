@@ -97,5 +97,35 @@
             </div>
             <a href="{{ route('admin.pages.index') }}" class="absolute inset-0"></a>
         </div>
+
+        <!-- Conteúdo do Site (CMS) Card -->
+        <div class="bg-white overflow-hidden shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl group relative">
+            <div class="p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-amber-50 text-amber-600 rounded-lg p-3 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">Texto e Imagens (PT/EN)</dt>
+                            <dd class="flex items-baseline">
+                                <div class="text-2xl font-semibold text-gray-900">Conteúdo do Site</div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-6 py-3">
+                <div class="text-sm">
+                    <a href="{{ route('admin.cms.edit') }}" class="font-medium text-amber-600 hover:text-amber-500 flex items-center justify-between">
+                        <span>Editar conteúdo de cada página</span>
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            <a href="{{ route('admin.cms.edit') }}" class="absolute inset-0"></a>
+        </div>
     </div>
 </x-app-layout>

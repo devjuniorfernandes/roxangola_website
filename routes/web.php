@@ -143,6 +143,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // Pages / Site Sections
     Route::get('/pages', [\App\Http\Controllers\SiteSectionController::class, 'index'])->name('pages.index');
     Route::put('/pages', [\App\Http\Controllers\SiteSectionController::class, 'update'])->name('pages.update');
+
+    // CMS — conteúdo editável (texto + imagens)
+    Route::get('/cms', [\App\Http\Controllers\CmsContentController::class, 'edit'])->name('cms.edit');
+    Route::put('/cms', [\App\Http\Controllers\CmsContentController::class, 'update'])->name('cms.update');
     
     // Vehicles
     Route::resource('vehicles', \App\Http\Controllers\VehicleController::class)->except(['show']);
