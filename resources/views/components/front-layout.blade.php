@@ -4,9 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ __('common.meta.description') }}">
-    <meta name="keywords" content="ROX, Angola, SUV Híbrido, Todo-o-Terreno, Carros de Luxo, ROX 01, ROX Adamas">
-    <title>{{ app(\App\Support\PageContentTranslator::class)->translate((string) ($title ?? 'ROX Angola')) }} - {{ __('common.meta.tagline') }}</title>
+    @php
+        $pageSeo = \App\Models\PageSeo::forCurrentRoute();
+        $seoTitle = $pageSeo?->title()
+            ?: (app(\App\Support\PageContentTranslator::class)->translate((string) ($title ?? 'ROX Angola')) . ' - ' . __('common.meta.tagline'));
+        $seoDescription = $pageSeo?->description() ?: __('common.meta.description');
+        $seoKeywords = $pageSeo?->keywords ?: 'ROX, Angola, SUV Híbrido, Todo-o-Terreno, Carros de Luxo, ROX 01, ROX Adamas';
+    @endphp
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="keywords" content="{{ $seoKeywords }}">
+    <title>{{ $seoTitle }}</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo.svg') }}">
     
     <!-- Scripts & Styles -->

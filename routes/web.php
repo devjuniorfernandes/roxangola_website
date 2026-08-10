@@ -11,6 +11,27 @@ Route::get('/locale/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('locale.switch');
 
+Route::get('/sitemap.xml', function () {
+    $paths = [
+        '/', '/rox-01', '/rox-adamas', '/catalogo',
+        '/representante', '/showroom', '/revendedores',
+        '/servicos', '/servicos/agendamento', '/servicos/apoio-tecnico',
+        '/servicos/pecas-acessorios', '/servicos/manual-instrucoes',
+        '/sobre/marca', '/sobre/historia', '/sobre/comunidade',
+        '/contactos', '/especificacoes/rox-01', '/especificacoes/rox-adamas',
+        '/politica-privacidade',
+    ];
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    foreach ($paths as $p) {
+        $loc = htmlspecialchars(url($p), ENT_XML1);
+        $priority = $p === '/' ? '1.0' : '0.8';
+        $xml .= "  <url><loc>{$loc}</loc><changefreq>weekly</changefreq><priority>{$priority}</priority></url>\n";
+    }
+    $xml .= '</urlset>';
+    return response($xml, 200)->header('Content-Type', 'application/xml; charset=utf-8');
+})->name('sitemap');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
