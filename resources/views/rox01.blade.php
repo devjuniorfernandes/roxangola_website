@@ -18,7 +18,7 @@
         @php
             $highlights = [
                 [
-                    'title' => 'Estética Robusta com Corpo Extra-Grande',
+                    'title' => 'Design imponente e carroçaria robusta',
                     'img' => 'Extra-large.avif',
                     'video' => '',
                     'stats' => [
@@ -55,7 +55,7 @@
                     'img' => 'conducao.avif',
                     'video' => '',
                     'stats' => [
-                        ['label' => 'Travessia Inteligente', 'value' => 'Todo-o-Terreno', 'unit' => ''],
+                        ['label' => 'Desempenho Inteligente', 'value' => 'Em qualquer terreno', 'unit' => ''],
                     ],
                 ],
                 [
@@ -65,7 +65,7 @@
                     'stats' => [
                         ['label' => 'Carroçaria', 'value' => 'Aço de alta resistência', 'unit' => '>80%'],
                         ['label' => 'Estrutura', 'value' => 'Aço boro conformado a quente', 'unit' => '>25%'],
-                        ['label' => 'Carga no tecto', 'value' => 'Capacidade máxima', 'unit' => '59.730 N'],
+                        ['label' => 'Resistência máxima do tejadilho', 'value' => 'Resistência máxima', 'unit' => '59.730 N'],
                     ],
                 ],
             ];
@@ -193,20 +193,20 @@
         @php
             $designFeatures = [
                 [
-                    'title' => 'Design em caixa',
+                    'title' => 'Design robusto de linhas clássicas',
                     'desc' => 'O veículo apresenta linhas de carroçaria nítidas e um tecto recto, criando uma silhueta ousada e clássica que transmite uma presença forte e poderosa.',
                     'img' => 'boxed.avif',
                     'video' => '',
                 ],
                 [
                     'title' => 'Faróis inspirados no carácter chinês "石" (pedra)',
-                    'desc' => 'Inspirados na forma do carácter chinês "石" (pedra), os faróis dianteiros e traseiros incorporam elementos tridimensionais, criando uma estética espacial distintiva.',
+                    'desc' => 'Inspirados na forma do carácter chinês "石" (pedra), os faróis dianteiros e traseiros incorporam elementos tridimensionais, criando uma estética espacial distinta.',
                     'img' => 'banner2.avif',
                     'video' => '',
                 ],
                 [
-                    'title' => 'Porta lateral traseira com fecho suave eléctrico',
-                    'desc' => 'Para viagens que desafiam os elementos, a porta traseira desliza com graciosidade, selando poeira e detritos, preservando a pureza da sua aventura.',
+                    'title' => 'Porta traseira com fecho suave eléctrico',
+                    'desc' => 'Para viagens que desafiam os elementos, a porta traseira desliza com suavidade, selando poeira e detritos, preservando a pureza da sua aventura.',
                     'img' => 'showroom.jpg',
                     'video' => '',
                 ],
@@ -254,17 +254,87 @@
                     'desc' => 'Além das expectativas, liberdade sem limites.',
                     'img' => 'banner2_global.jfif',
                     'blocks' => [
-                        ['img' => 'banner1.jpg', 'heading' => 'Autonomia híbrida WLTC de 1.115 km', 'desc' => 'Percorra distâncias extraordinárias sem a preocupação de recarregar.'],
-                        ['img' => 'lichengbei.jpg', 'heading' => 'Aceleração 0–100 km/h em 5,9 segundos', 'desc' => 'Potência instantânea que transforma cada arranque numa emoção.'],
+                        [ 
+                        'img' => 'performence-fallback2.avif',
+                        'video' => 'performance.mp4',
+                        'heading' => 'Confiança a longo prazo', 
+                        'desc' => '- Bateria de grande capacidade (56 kWh) e depósito de combustível extragrande (70 litros)
+                        - Autonomia híbrida WLTC: 1 115 km
+                        - Autonomia elétrica WLTC: 235 km
+
+                        * As especificações variam consoante a versão do modelo. Consulte a tabela de especificações para obter mais detalhes', 
+                        
+                    ],
+                        ['img' => 'performance2.avif', 
+                        'heading' => 'Tração integral com dois motores de alto desempenho', 
+                        'desc' => '- Binário máximo: 740 N·m
+                        - Potência máxima: 350 kW
+                        - Aceleração de 0 a 100 km/h: 5,5 s'
+                        ],
+
+                        ['img' => 'performance3.avif', 
+                        'heading' => 'Chassis totalmente em alumínio', 
+                        'desc' => 'O veículo possui um chassis totalmente em alumínio, o que reduz o peso total, oferecendo, ao mesmo tempo, uma resistência, ductilidade, resistência à corrosão e condutividade térmica excecionais. Estas características melhoram significativamente o desempenho, a segurança e a durabilidade do veículo em todos os tipos de terreno, ao mesmo tempo que melhoram a experiência de condução dos ocupantes.'
+                        ],
+
+                         ['img' => 'performance-fallbck.avif', 
+                        'heading' => 'Suspensão dianteira de braços duplos + suspensão traseira multibraço com braço em H', 
+                        'desc' => '- As suspensões dianteira e traseira, inteiramente em alumínio, reduzem significativamente a massa não suspensa, melhorando tanto a manobrabilidade como o conforto durante a condução.
+                        - A suspensão dianteira utiliza um sistema de braços duplos, enquanto a traseira recorre a uma estrutura multibraço com braços em H. Esta combinação garante um controlo preciso do ângulo das rodas e um melhor contacto dos pneus com a superfície da estrada.
+                        - Com a sua extraordinária flexibilidade de ajuste, o ROX 01 oferece uma vasta gama de configurações de suspensão, permitindo aos utilizadores enfrentar sem esforço terrenos diversos e exigentes.'
+                        ],
+
+                        ['img' => 'performance-fallback1.avif', 
+                        'video' => 'performance_video.mp4',
+                        'heading' => 'Suspensão dianteira de braços duplos + suspensão traseira multibraço com braço em H', 
+                        'desc' => '- As suspensões dianteira e traseira, inteiramente em alumínio, reduzem significativamente a massa não suspensa, melhorando tanto a manobrabilidade como o conforto durante a condução.
+                        - A suspensão dianteira utiliza um sistema de braços duplos, enquanto a traseira recorre a uma estrutura multibraço com braços em H. Esta combinação garante um controlo preciso do ângulo das rodas e um melhor contacto dos pneus com a superfície da estrada.
+                        - Com a sua extraordinária flexibilidade de ajuste, o ROX 01 oferece uma vasta gama de configurações de suspensão, permitindo aos utilizadores enfrentar sem esforço terrenos diversos e exigentes.'
+                        ],
+
+                         ['img' => 'performance5.avif', 
+                        'video' => 'performance_video4.mp4',
+                        'heading' => 'Excelente capacidade todo-o-terreno', 
+                        'desc' => '- Ângulo de aproximação: 22,2°, Ângulo de saída: 25,1°, Ângulo de rampa: 19,7°
+                        - Distância ao solo do conjunto de baterias: 255 mm
+                        - Inclinação máxima de subida: 100% (Ângulo máximo de subida: 45°)
+                        - Profundidade máxima de travessia: 700 mm
+                        - Curso máximo entre eixos: 600 mm'
+                        ],
+
+                         ['img' => 'performance6.avif', 
+                        'video' => 'performance_video6.mp4',
+                        'heading' => 'Modos especiais de terreno', 
+                        'desc' => 'Seja em areia, água, neve, lama ou terrenos montanhosos, o veículo ajusta de forma inteligente a distribuição de potência, as configurações do chassis e a lógica do ESP, tornando a exploração e a aventura mais fáceis e seguras.'
+                        ],
+                         ['img' => 'performance7.avif', 
+                        'video' => '',
+                        'heading' => 'Raio mínimo de viragem: 5,98 m', 
+                        'desc' => 'Seja em areia, água, neve, lama ou terrenos montanhosos, o veículo ajusta de forma inteligente a distribuição de potência, as configurações do chassis e a lógica do ESP, tornando a exploração e a aventura mais fáceis e seguras.'
+                        ],
                     ],
                 ],
                 [
                     'title' => 'Segurança',
-                    'desc' => 'Um escudo de protecção, protegendo-o em todo o lado.',
+                    'desc' => 'Um escudo protector em todos os terrenos',
                     'img' => 'banner3_safety.jfif',
                     'blocks' => [
-                        ['img' => 'rox01.jpg', 'heading' => 'Mais de 80% de aço de alta resistência', 'desc' => 'Uma carroçaria reforçada que protege o que mais importa.'],
-                        ['img' => 'banner2.jpg', 'heading' => 'Carga máxima no tecto de 59.730 N', 'desc' => 'Robustez comprovada para as aventuras mais exigentes.'],
+                        ['img' => 'safety1.avif', 
+                        'heading' => 'Carroçaria de alta resistência', 
+                        'desc' => '- Mais de 87 % da carroçaria é constituída por aço de alta resistência, sendo que mais de 32 % é fabricada em aço ao boro moldado a quente.
+                        - Desfrute de uma segurança inigualável com o ROX 01, que obteve uma classificação de cinco estrelas no C-NCAP e uma pontuação perfeita no teste de colisão do CIRI.'
+                        ],
+
+                        ['img' => 'safety2.avif',
+                        'video' => 'safety_video1.mp4', 
+                        'heading' => 'Telhado de alta resistência', 
+                        'desc' => '- Resistência máxima do tejadilho de 159 730 N, estabelecendo um novo recorde nos ensaios de colisão do CIRI.
+                        - Em caso de capotamento, garante a integridade da cabina, proporcionando mais espaço de sobrevivência a todos os ocupantes.
+                        * Estes dados batem o recorde do CIRI a 16 de agosto de 2024.'],
+
+                        ['img' => 'safety3.avif', 
+                        'heading' => 'Segurança Avançada das Baterias', 
+                        'desc' => 'A bateria de lítio ternário da série 5 da CATL oferece um controlo de temperatura superior e funcionalidades de segurança melhoradas. Inclui isolamento ignífugo, sistemas direcionais de alívio de pressão e de escape, arrefecimento ativo inteligente, corte rápido com fusíveis inteligentes, monitorização dinâmica abrangente do BMS e alertas ativos baseados em big data. Estas tecnologias garantem a conformidade com a norma de segurança «sem chama aberta».'],
                     ],
                 ],
             ];
@@ -274,12 +344,18 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 @foreach($terrainCards as $card)
                 <div class="card-more relative aspect-[16/11] overflow-hidden group md:cursor-none" data-title="{{ $card['title'] }}" data-subtitle="{{ $card['desc'] }}">
+                    @if(!empty($card['video']))
+                    <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" @if(!empty($card['img'])) poster="{{ asset('assets/' . $card['img']) }}" @endif autoplay muted loop playsinline>
+                        <source src="{{ asset('assets/' . $card['video']) }}" type="video/mp4">
+                    </video>
+                    @else
                     <img src="{{ asset('assets/' . $card['img']) }}" alt="{{ $card['title'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    @endif
                     <div class="absolute inset-0 bg-black/10"></div>
                     <!-- Title + desc top center -->
                     <div class="absolute top-8 md:top-12 left-0 right-0 px-6 text-center text-white">
                         <h3 class="text-2xl md:text-3xl font-medium mb-2 drop-shadow">{{ $card['title'] }}</h3>
-                        <p class="text-sm md:text-base font-light text-white/90 drop-shadow">{{ $card['desc'] }}</p>
+                        <p class="text-sm md:text-base font-light text-white/90 drop-shadow">{!! nl2br(e($card['desc'])) !!}</p>
                     </div>
                     <!-- More button bottom center -->
                     <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center">
@@ -295,14 +371,21 @@
                         @foreach($card['blocks'] as $block)
                         <div>
                             <div class="w-full overflow-hidden">
+                                @if(!empty($block['video']))
+                                <video class="w-full h-auto block" @if(!empty($block['img'])) poster="{{ asset('assets/' . $block['img']) }}" @endif autoplay muted loop playsinline>
+                                    <source src="{{ asset('assets/' . $block['video']) }}" type="video/mp4">
+                                </video>
+                                @else
                                 <img src="{{ asset('assets/' . $block['img']) }}" alt="{{ $block['heading'] }}" class="w-full h-auto">
+                                @endif
                             </div>
-                            <div class="bg-[#F6F7F8] px-6 md:px-10 py-6 md:py-8">
-                                <h3 class="text-lg md:text-2xl font-medium text-[#191919] mb-2">{{ $block['heading'] }}</h3>
-                                <p class="text-sm md:text-base font-light text-gray-500">{{ $block['desc'] }}</p>
+                            <div class="bg-[#F6F7F8] px-5 md:px-7 py-5 md:py-6">
+                                <h3 class="text-base md:text-xl font-medium text-[#191919] mb-2">{{ $block['heading'] }}</h3>
+                                <div class="text-sm md:text-base font-light text-gray-500 space-y-3">{!! rich_text($block['desc']) !!}</div>
                             </div>
                         </div>
                         @endforeach
+                        <p class="text-xs md:text-sm font-light text-gray-400 px-6 md:px-10 py-6">* As imagens são meramente ilustrativas, podendo o veículo efetivamente entregue diferir.</p>
                     </div>
                 </div>
                 @endforeach
@@ -327,33 +410,182 @@
         @php
             $versatileCards = [
                 [
+                    'title' => 'Conforto', 
+                    'desc' => 'Diga adeus à fadiga ao volante e aproveite a viagem.', 
+                    'img' => 'banner3_global.jfif',
+                    'blocks' => [
+                        ['img' => 'comfort.jfif', 
+                        'heading' => 'Seleção de materiais de luxo para os bancos', 
+                        'desc' => 'Os bancos são estofados em couro Nappa de grão integral de alta qualidade, proporcionando uma sensação de elegância suave e requintada. Complementados por acabamentos em madeira de freixo branco com texturas naturais, conferem um toque de frescura e requinte à experiência de viagem.'],
+
+                        ['img' => 'comfort2.avif', 
+                        'heading' => 'Assentos com função de massagem', 
+                        'desc' => 'Equipado com um sistema de relaxamento lombar e das costas com 10 airbags: incluindo apoio lombar elétrico de 2 pontos e massagem completa das costas em 8 pontos. Diga adeus à fadiga ao volante e desfrute de uma viagem confortável.'
+                        ],
+
+                        ['img' => 'comfort3.avif', 
+                        'heading' => 'Bancos ventilados', 
+                        'desc' => 'Os bancos ventilados de 3 níveis mantêm-no fresco e confortável durante as viagens de verão.'
+                        ],
+                         
+                        ['img' => 'comfort4.avif', 
+                        'heading' => 'Bancos aquecidos', 
+                        'desc' => 'O sistema de aquecimento dos bancos de 3 níveis mantém-no quente e confortável nas viagens de carro durante o inverno frio.'
+                        ],
+
+                        ['img' => 'comfort5.avif', 
+                        'video' => 'comfort5.mp4',
+                        'heading' => 'Assentos bilaterais de gravidade zero', 
+                        'desc' => 'Com um clique, desfrute de uma experiência de primeira classe para duas pessoas, que oferece luxo e conforto inigualáveis.'
+                        ],
+                    ],
+                ],
+                [
                     'title' => 'Espaço Amplo', 'desc' => 'Experimente liberdade sem limites e conforto absoluto no interior.', 'img' => 'banner4_global.jfif',
                     'blocks' => [
-                        ['img' => 'keji.jpg', 'heading' => '6,54 m² de área total envidraçada', 'desc' => 'Desfrute de vistas amplas que transformam cada viagem numa experiência visual.'],
-                        ['img' => 'seat-superior.avif', 'heading' => 'Tecto panorâmico de vidro', 'desc' => 'Luz natural abundante e uma sensação de amplitude em toda a cabine.'],
+                        ['img' => 'expansive.jfif', 
+                        'heading' => 'Uma ampla área total de janelas de 6,54 metros quadrados', 
+                        'desc' => 'Desfrute de vistas infinitas que transformam cada viagem de carro numa viagem visual.'
+                        ],
+
+                        ['img' => 'expansive2.avif',
+                         'heading' => 'Conforto em todos os lugares', 
+                         'desc' => 'Espaço total para passageiros: 2 693 mm
+                            - Espaço para as pernas na 1.ª fila: até 1 100 mm
+                            - Espaço para as pernas na 2.ª fila: até 1 180 mm
+                            - Espaço para as pernas na 3.ª fila: até 1 030 mm
+                            *As especificações e os dados aplicam-se apenas à versão de 6 lugares.'
+                        ],
+
+                        ['img' => 'expansive3.avif',
+                         'heading' => '2,95 metros quadrados de área útil plana', 
+                         'desc' => '- Ligação perfeita entre a 2.ª e a 3.ª filas para uma viagem sem obstáculos.
+                            - Diga adeus aos bancos apertados: a terceira fila já não é um «lugar temporário».'
+                        ],
+
+                        ['img' => 'expansive4.avif',
+                         'heading' => 'Um corredor central extra-largo na 2.ª fila', 
+                         'desc' => 'The spacious and convenient aisle makes boarding and exiting effortless, ideal for family trips.
+
+                        * As especificações e os dados aplicam-se apenas à versão de 7 lugares.'
+                        ],
+
+                        ['img' => 'expansive5.avif',
+                        'video' => 'expansive5.mp4',
+                         'heading' => 'Modo de cama individual e modo de cama king-size', 
+                         'desc' => '- Modo de cama individual: Pode ser facilmente transformada numa cama para um descanso rápido e repousante.
+                                    - Modo de cama king-size: Com apenas um toque, transforma-se numa cama de dois metros, permitindo-lhe relaxar em qualquer lugar.
+                                   
+                                    * As especificações e os dados aplicam-se apenas à versão de 7 lugares.'            
+                        ],
+
+                         ['img' => 'expansive6.avif',
+                         'heading' => 'Porta-bagagens de grande capacidade', 
+                         'desc' => '- Capacidade total: Cabe facilmente uma bagagem de porão de 28 polegadas, duas bagagens de mão de 20 polegadas e várias malas de viagem.
+                        - 3.ª fila rebatida: Aumenta a profundidade da bagageira para 1,2 metros, oferecendo espaço amplo para o equipamento de campismo de toda a família.
+                        - 2.ª e 3.ª filas rebatidas: Aumenta a profundidade da bagageira para 2,07 metros, acomodando facilmente todo o seu equipamento de atividades ao ar livre.
+                        
+                        *As especificações e os dados aplicam-se apenas à versão de 7 lugares.'            
+                        ],
                     ],
                 ],
                 [
                     'title' => 'Versatilidade', 'desc' => 'Conduza com liberdade, onde a alegria da viagem vai além do veículo.', 'img' => 'banner5_global.jfif',
                     'blocks' => [
-                        ['img' => 'services.jpg', 'heading' => 'Configurações de bancos flexíveis', 'desc' => 'Adapte o espaço interior a cada aventura, de carga a descanso.'],
-                        ['img' => 'life.jpg', 'heading' => 'Fonte de alimentação V2L de 6,6 kW', 'desc' => 'Leve energia para onde for — do acampamento ao trabalho ao ar livre.'],
+                        ['img' => 'versatility.jfif', 
+                        'heading' => 'Modo de acampamento', 
+                        'desc' => 'Configuração da cama com um único toque e alarme ao nascer do sol.
+                        
+                        * As especificações variam consoante a versão do modelo. Consulte a tabela de especificações para obter mais detalhes.'],
+
+
+                        [
+                        
+                        'img' => 'versatility2.jfif', 
+                        'heading' => 'Fortaleza da Energia', 
+                        'desc' => '- Com uma bateria de grande capacidade de 56 kWh, um depósito de combustível de grande capacidade com 70 litros e 10 kW de geração de energia no local, desfrutará de total liberdade para alimentar as suas aventuras.
+                        - As duas portas de saída V2L de 2,2 kW podem funcionar em simultâneo, fornecendo um total de 4,4 kW de potência.
+                        
+                        *As especificações variam consoante a versão do modelo. Consulte a tabela de especificações para obter mais detalhes.'
+                        
+                        ],
+
+                        [
+                        
+                        'img' => 'versatility3.avif', 
+                        'heading' => 'Bar de cozinha para festas no parque de estacionamento', 
+                        'desc' => '- Dispensador de água quente instantânea (aquece em 3 segundos): Escolha entre água à temperatura ambiente, morna ou a ferver.
+                        - Bancada iluminada: Compatível com fogões de indução, fritadeiras sem óleo e outros eletrodomésticos, proporcionando uma cozinha flexível para preparar refeições deliciosas a qualquer hora.
+                        
+                       *Disponível para compra através de revendedores locais.'
+                        ],
+
+                         [
+                        
+                        'img' => 'versatility4.jfif', 
+                        'heading' => 'Toldo para carro em forma de L de montagem rápida', 
+                        'desc' => '- Este toldo para automóvel de 270° pode ser aberto ou recolhido por uma única pessoa em apenas 5 minutos.
+                        - O toldo de 13 metros quadrados acomoda confortavelmente entre 6 e 7 pessoas.
+                        - Tecido com revestimento prateado que protege do sol, capaz de resistir a ventos de nível 7.
+                       
+                       *Disponível para compra através de revendedores locais.'
+                        ],
+
+                        [
+                        
+                        'img' => 'versatility5.avif', 
+                        'heading' => 'Barra de tejadilho', 
+                        'desc' => 'Aumenta o espaço de arrumação leve no tejadilho para responder às diversas necessidades de viagem.
+                        
+                        * Disponível para compra através de revendedores locais.'
+                        ],
+
+                          [
+                        
+                        'img' => 'cockpit.avif', 
+                        'heading' => 'Barra de tejadilho', 
+                        'desc' => 'Aumenta o espaço de arrumação leve no tejadilho para responder às diversas necessidades de viagem.
+                        
+                        * Disponível para compra através de revendedores locais.'
+                        ],
                     ],
                 ],
                 [
-                    'title' => 'Cockpit Inteligente', 'desc' => 'Acompanhando cada viagem, desbloqueando diversão infinita.', 'img' => 'banner6_global.jfif',
+                    'title' => 'Cockpit Inteligente', 
+                    'desc' => 'Acompanhando cada viagem, revelando diversão sem limites.', 
+                    'img' => 'banner6_global.jfif',
+
                     'blocks' => [
-                        ['img' => 'keji.jpg', 'heading' => 'Ecrã panorâmico inteligente', 'desc' => 'Toda a informação essencial ao seu alcance, com uma interface intuitiva.'],
-                        ['img' => 'banner2.jpg', 'heading' => 'Assistente de condução inteligente', 'desc' => 'Acompanha cada viagem, desbloqueando diversão e segurança sem limites.'],
+                        ['img' => 'cockpit.avif',
+                        'video' => 'cockpit.mp4',
+                        'heading' => 'Interação no cockpit inteligente com quatro ecrãs', 
+                        'desc' => '- Ecrã de controlo central ultra-nítido de 15,7 polegadas com resolução 3K, painel de instrumentos de alta definição de 12,3 polegadas e ecrã HD de 15,6 polegadas para os passageiros da segunda fila.
+                        - Espelho retrovisor com ecrã de 9 polegadas e transmissão em direto, com alternância entre dois modos de visualização.
+                        - Equipado com o processador automóvel Qualcomm Snapdragon 8155, que permite uma integração perfeita entre vários ecrãs de alta definição.'
+                        ],
+
+                        [
+
+                        'img' => 'comfort2.jfif', 
+                        'heading' => 'Compatível com CarPlay e Screen Mirroring', 
+                        'desc' => '- Ligue o seu smartphone ao seu veículo de forma integrada para desfrutar de uma navegação precisa, entretenimento envolvente e comunicação prática — tudo ao alcance dos seus dedos.
+                        - Transforme cada viagem numa combinação perfeita de tecnologia inteligente e conforto máximo.
+                        
+                        *A interface efetiva pode variar consoante o estado do veículo entregue.'
+                        
+                        ],
+
+                         [
+
+                        'img' => 'cockpit5.avif', 
+                        'video' => 'cockpit2.mp4',
+                        'heading' => 'Sistema de som premium com 14 altifalantes', 
+                        'desc' => 'O sistema de som surround de 7.1 canais realça a profundidade espacial e proporciona um áudio rico e envolvente, dando vida a cada viagem com uma qualidade de som excecional. Desfrute de um novo nível de experiência musical na estrada.'
+                        
+                        ],
                     ],
                 ],
-                [
-                    'title' => 'Conforto', 'desc' => 'Diga adeus à fadiga de condução e desfrute plenamente da viagem.', 'img' => 'banner3_global.jfif',
-                    'blocks' => [
-                        ['img' => 'seat-direita.avif', 'heading' => 'Bancos Zero-Gravidade bilaterais', 'desc' => 'Diga adeus à fadiga com uma postura de descanso perfeita.'],
-                        ['img' => 'seat-esquerda.avif', 'heading' => 'Ventilação e aquecimento em 3 fases', 'desc' => 'O clima ideal para cada estação, em qualquer viagem.'],
-                    ],
-                ],
+                
             ];
         @endphp
 
@@ -362,11 +594,17 @@
                 @foreach($versatileCards as $card)
                 <div class="vers-slide flex-shrink-0 px-2 md:px-3">
                     <div class="card-more relative aspect-[16/11] overflow-hidden group md:cursor-none" data-title="{{ $card['title'] }}" data-subtitle="{{ $card['desc'] }}">
+                        @if(!empty($card['video']))
+                        <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" @if(!empty($card['img'])) poster="{{ asset('assets/' . $card['img']) }}" @endif autoplay muted loop playsinline>
+                            <source src="{{ asset('assets/' . $card['video']) }}" type="video/mp4">
+                        </video>
+                        @else
                         <img src="{{ asset('assets/' . $card['img']) }}" alt="{{ $card['title'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        @endif
                         <div class="absolute inset-0 bg-black/10"></div>
                         <div class="absolute top-8 md:top-12 left-0 right-0 px-6 text-center text-white">
                             <h3 class="text-2xl md:text-3xl font-medium mb-2 drop-shadow">{{ $card['title'] }}</h3>
-                            <p class="text-sm md:text-base font-light text-white/90 drop-shadow max-w-md mx-auto">{{ $card['desc'] }}</p>
+                            <p class="text-sm md:text-base font-light text-white/90 drop-shadow max-w-md mx-auto">{!! nl2br(e($card['desc'])) !!}</p>
                         </div>
                         <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center">
                             <span class="flex items-center gap-2 bg-white/25 backdrop-blur-sm text-white text-xs md:text-sm font-medium pl-4 pr-1.5 py-1.5 rounded-full group-hover:bg-white/40 transition-colors">
@@ -381,14 +619,21 @@
                             @foreach($card['blocks'] as $block)
                             <div>
                                 <div class="w-full overflow-hidden">
+                                    @if(!empty($block['video']))
+                                    <video class="w-full h-auto block" @if(!empty($block['img'])) poster="{{ asset('assets/' . $block['img']) }}" @endif autoplay muted loop playsinline>
+                                        <source src="{{ asset('assets/' . $block['video']) }}" type="video/mp4">
+                                    </video>
+                                    @else
                                     <img src="{{ asset('assets/' . $block['img']) }}" alt="{{ $block['heading'] }}" class="w-full h-auto">
+                                    @endif
                                 </div>
-                                <div class="bg-[#F6F7F8] px-6 md:px-10 py-6 md:py-8">
-                                    <h3 class="text-lg md:text-2xl font-medium text-[#191919] mb-2">{{ $block['heading'] }}</h3>
-                                    <p class="text-sm md:text-base font-light text-gray-500">{{ $block['desc'] }}</p>
+                                <div class="bg-[#F6F7F8] px-5 md:px-7 py-5 md:py-6">
+                                    <h3 class="text-base md:text-xl font-medium text-[#191919] mb-2">{{ $block['heading'] }}</h3>
+                                    <div class="text-sm md:text-base font-light text-gray-500 space-y-3">{!! rich_text($block['desc']) !!}</div>
                                 </div>
                             </div>
                             @endforeach
+                            <p class="text-xs md:text-sm font-light text-gray-400 px-6 md:px-10 py-6">* As imagens são meramente ilustrativas, podendo o veículo efetivamente entregue diferir.</p>
                         </div>
                     </div>
                 </div>
@@ -453,19 +698,19 @@
     <!-- Card Detail Modal -->
     <div id="card-modal" class="fixed inset-0 z-[200] hidden">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-        <div class="relative h-full flex items-start md:items-center justify-center p-3 md:p-8">
-            <div id="card-modal-dialog" class="relative bg-white w-full max-w-[1080px] max-h-[92vh] md:max-h-[88vh] overflow-y-auto shadow-2xl">
-                <div class="sticky top-0 z-10 flex justify-end pt-4 pr-4 md:pt-5 md:pr-6 pointer-events-none">
+        <div class="relative h-full flex items-start md:items-center justify-center p-3 md:p-6">
+            <div id="card-modal-dialog" class="relative bg-white w-full max-w-[760px] max-h-[88vh] md:max-h-[85vh] overflow-y-auto shadow-2xl">
+                <div class="sticky top-0 z-10 flex justify-end pt-3 pr-3 md:pt-4 md:pr-4 pointer-events-none">
                     <button id="card-modal-close" class="pointer-events-auto text-gray-700 hover:text-black transition-colors cursor-pointer">
-                        <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
                 </div>
-                <div class="px-4 md:px-10 pb-8 md:pb-12 -mt-4 md:-mt-6">
-                    <div class="text-center mb-6 md:mb-10">
-                        <h2 id="card-modal-title" class="text-2xl md:text-4xl font-medium text-[#191919] mb-3"></h2>
-                        <p id="card-modal-subtitle" class="text-sm md:text-base font-light text-gray-500 max-w-xl mx-auto"></p>
+                <div class="px-4 md:px-7 pb-6 md:pb-8 -mt-3 md:-mt-4">
+                    <div class="text-center mb-5 md:mb-7">
+                        <h2 id="card-modal-title" class="text-xl md:text-3xl font-medium text-[#191919] mb-2"></h2>
+                        <p id="card-modal-subtitle" class="text-sm font-light text-gray-500 max-w-xl mx-auto"></p>
                     </div>
-                    <div id="card-modal-body" class="space-y-8 md:space-y-12"></div>
+                    <div id="card-modal-body" class="space-y-6 md:space-y-8"></div>
                 </div>
             </div>
         </div>
