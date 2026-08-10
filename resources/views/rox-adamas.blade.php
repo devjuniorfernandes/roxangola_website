@@ -32,35 +32,36 @@
             @php
                 $adamasSpecSlides = [
                     [
-                        'img'    => 'lichengbei.jpg',
+                        'img'    => 'adamasslider1.avif',
                         'title'  => 'SUV Médio-Grande de Luxo de Referência',
                         'bottom' => '<div class="flex gap-8 md:gap-14 text-center justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Comprimento</p><p class="text-sm md:text-lg font-mono font-medium">5.298 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Largura</p><p class="text-sm md:text-lg font-mono font-medium">1.985 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Altura</p><p class="text-sm md:text-lg font-mono font-medium">1.856 mm</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Entre eixos</p><p class="text-sm md:text-lg font-mono font-medium">3.010 mm</p></div></div>',
                     ],
-                    [
-                        'img'    => 'banner-adamas.avif',
-                        'title'  => 'Fortaleza Móvel, Protecção Extrema',
-                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Estampado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência Recorde do Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tecto: 159.730 N] Mais alta nos testes C-IASI até setembro de 2025</p>',
-                    ],
-                    [
-                        'img'    => 'life.jpg',
+                     [
+                        'img'    => 'adamasslider2.avif',
                         'title'  => 'Testado em Todo o Mundo, Mestre de Todos os Terrenos',
                         'bottom' => '<div class="text-center space-y-1"><p class="text-xs md:text-sm text-white/90 font-light">Suspensão pneumática de curso longo + algoritmos DCC</p><p class="text-xs md:text-sm text-white/90 font-light">Distância mínima ao solo <span class="font-medium">272 mm</span></p><p class="text-xs md:text-sm text-white/90 font-light">Ângulo de ataque <span class="font-medium">27.5°</span>, ângulo de saída <span class="font-medium">27.9°</span>, ângulo ventral <span class="font-medium">24.6°</span></p><p class="text-xs md:text-sm text-white/90 font-light">Profundidade máxima de travessia <span class="font-medium">770 mm</span></p></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">Distância mínima ao solo 272mm, ângulo de ataque 27.5°, ângulo de saída 27.9°, ângulo ventral 24.6°, profundidade máxima de travessia 770mm; todos os valores representam desempenho em Modo de Recuperação.</p>',
                     ],
                     [
-                        'img'    => 'keji.jpg',
+                        'img'    => 'adamasslider3.avif',
                         'title'  => 'Assentos Versáteis, Cabine Espaçosa e Luxuosa',
                         'bottom' => '<div class="flex gap-6 md:gap-12 text-left justify-center"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Primeira classe</p><p class="text-sm md:text-base font-medium">Dois assentos zero-gravity</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Modos de assento</p><p class="text-sm md:text-base font-medium">Modo cama completa</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">8 airbags</p><p class="text-sm md:text-base font-medium">Massagem tipo Shiatsu</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Assentos</p><p class="text-sm md:text-base font-medium">Ventilação e aquecimento</p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Modo cama completa]: Sofá 7 lugares [8 airbags; massagem tipo Shiatsu]: Primeira classe 6 lugares</p>',
                     ],
-                    [
-                        'img'    => '1.jpg',
+                     [
+                        'img'    => 'adamasslider4.avif',
                         'title'  => 'REEV Líder em Desempenho Potente e Autonomia Prolongada',
                         'bottom' => '<div class="flex gap-10 md:gap-16 justify-center"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Autonomia total WLTC</p><p class="text-xl md:text-2xl font-light tracking-wide">1.226 <span class="text-sm md:text-base font-light">km</span></p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">0-100 km/h</p><p class="text-xl md:text-2xl font-light tracking-wide">5,5 <span class="text-sm md:text-base font-light">segundos</span></p></div></div>',
                     ],
                     [
-                        'img'    => 'seat-direita.avif',
+                        'img'    => 'adamasslider5.avif',
                         'title'  => 'Expansão Flexível, Prazer Máximo ao Ar Livre',
                         'bottom' => '<div class="flex gap-6 md:gap-10 justify-center flex-wrap"><div><p class="text-sm md:text-base font-medium">Bar de cozinha na mala</p></div><div><p class="text-sm md:text-base font-medium">Toldo 270°</p></div><div><p class="text-sm md:text-base font-medium">Descarga V2L 5,7 kW</p></div><div><p class="text-sm md:text-base font-medium">Qualificação legal de reboque</p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Descarga V2L 5,7 kW] V2L 3,5kW exterior + 2,2kW interior com tomada 220V</p>',
                     ],
+                    [
+                        'img'    => 'adamasslider6.avif',
+                        'title'  => 'Fortaleza Móvel, Protecção Extrema',
+                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Estampado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência Recorde do Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tecto: 159.730 N] Mais alta nos testes C-IASI até setembro de 2025</p>',
+                    ],
+                   
                 ];
                 $allAdamasSpecSlides = array_merge([end($adamasSpecSlides)], $adamasSpecSlides, [$adamasSpecSlides[0]]);
             @endphp
@@ -100,8 +101,8 @@
     <!-- Dark Features (Performance & Tech) -->
     <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section" id="performance-section">
-            <video autoplay loop muted playsinline poster="{{ asset('assets/life.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
+            <video autoplay loop muted playsinline poster="{{ asset('assets/adamas-all-terrain.avif') }}" class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ asset('assets/rox_adamas/adamas-all-terrain.mp4') }}" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
@@ -118,7 +119,7 @@
             <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="chassis-card">
-                        <img src="{{ asset('assets/1.jpg') }}" alt="Arquitectura de Chassis" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/arquitectura-chassi.avif') }}" alt="Arquitectura de Chassis" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -128,7 +129,7 @@
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="terrain-card">
-                        <img src="{{ asset('assets/seat-direita.avif') }}" alt="Terreno" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/global-comprove.avif') }}" alt="Terreno" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -160,58 +161,37 @@
                 <!-- Item 1: Capacidade Off-Road -->
                 <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
                     <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
-                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Capacidade Off-Road Impecável</h3>
-                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">No modo de recuperação, a altura do veículo aumenta 80 mm, atingindo uma distância mínima ao solo de 324 mm. Com um ângulo de ataque de 27,5°, um ângulo de saída de 27,9°, capacidade de subida de 100% (45°) e uma profundidade máxima de travessia de 770 mm, foi concebido para enfrentar as condições off-road mais exigentes com total confiança.</p>
+                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Suspensão pneumática de câmara fechada de curso longo</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">Uma suspensão pneumática de câmara fechada com curso longo de 140 mm e 7 níveis de regulação, que proporciona um equilíbrio entre o conforto na estrada e uma capacidade todo-o-terreno que inspira confiança.</p>
                     </div>
                     <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/life.jpg') }}" class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/chassi1.avif') }}" class="w-full h-full object-cover">
                         </video>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
-                            <p class="text-white text-xs font-medium tracking-wide mb-0.5">Armadura Inferior de Alta Resistência e Chassis em Alumínio</p>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Item 2: Desempenho em Estrada -->
                 <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
                     <div class="relative h-[280px] md:h-[420px] order-1">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/chassi2.avif') }}" class="w-full h-full object-cover">
                         </video>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
-                            <p class="text-white text-xs font-medium tracking-wide mb-0.5">Controlo Dinâmico de Amortecimento</p>
-                            <p class="text-white/70 text-[11px] font-light">Bloqueia oscilações em milissegundos para uma condução serena</p>
-                        </div>
+                        
                     </div>
                     <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2">
-                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Desempenho Suave em Estrada</h3>
-                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">Uma arquitectura de chassis de referência e uma afinação precisa proporcionam uma condução excepcionalmente suave e refinada. Com um raio de viragem reduzido de 5,98 m, navegar em ruas urbanas e fazer inversões de marcha torna-se intuitivo e sem esforço.</p>
+                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Amortecedores eletrónicos DCC com resposta em milésimos de segundo</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">Equipado com um algoritmo de controlo DCC desenvolvido internamente, o sistema adapta continuamente a amortecimento em tempo real às condições de condução, melhorando o conforto de condução, a estabilidade e a confiança geral ao volante.</p>
                     </div>
                 </div>
 
                 <!-- Item 3: Modos Todo-o-Terreno -->
                 <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
                     <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
-                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Modos Todo-o-Terreno</h3>
-                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-6">7 modos de condução: Polivalente, Auto, Neve, Lama, Rocha, Areia e Travessia — dominando todos os terrenos e ambientes sem esforço.</p>
-                        <div class="flex gap-4 text-gray-500">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 12h16M4 8h16M4 16h16"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 17l4-4 4 4 4-4 4 4M5 7h14"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 17c2-3 4-5 6-5s4 4 6 4 4-3 6-6M3 7h18"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 20L8 8l4 8 4-12 4 16"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 3c-3 4-6 6-6 10a6 6 0 1012 0c0-4-3-6-6-10z"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/></svg>
-                        </div>
+                        <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Chassis totalmente em alumínio com suspensão dianteira de braços duplos + suspensão traseira de braço em H</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-6">Construção robusta e de alta qualidade, comparável à de automóveis de luxo de um milhão de dólares, concebida para conquistar diversos tipos de terreno, combinando uma condução ágil com um conforto requintado.</p>
                     </div>
                     <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/banner-adamas.avif') }}" class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/arquitectura-chassi.avif') }}" class="w-full h-full object-cover">
                         </video>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
-                            <p class="text-white text-xs font-medium tracking-wide">POLIVALENTE</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -240,8 +220,8 @@
                         <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">No modo de recuperação, a altura do veículo aumenta 80 mm, atingindo uma distância mínima ao solo de 324 mm. Com um ângulo de ataque de 27,5°, um ângulo de saída de 27,9°, capacidade de subida de 100% (45°) e uma profundidade máxima de travessia de 770 mm, foi concebido para enfrentar as condições off-road mais exigentes com total confiança.</p>
                     </div>
                     <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/life.jpg') }}" class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/off-road-capability.avif') }}" class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -249,8 +229,8 @@
                 <!-- Item 2: Desempenho em Estrada -->
                 <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
                     <div class="relative h-[280px] md:h-[420px] order-1">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/on-road-capability.avif') }}" class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/on-road-capability.mp4') }}" type="video/mp4">
                         </video>
                     </div>
                     <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2">
@@ -264,23 +244,30 @@
                     <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
                         <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Modos Todo-o-Terreno</h3>
                         <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-6">7 modos de condução: Polivalente, Auto, Neve, Lama, Rocha, Areia e Travessia — dominando todos os terrenos e ambientes sem esforço.</p>
-                        <div class="flex gap-4 text-gray-500">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 12h16M4 8h16M4 16h16"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 17l4-4 4 4 4-4 4 4M5 7h14"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 17c2-3 4-5 6-5s4 4 6 4 4-3 6-6M3 7h18"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 20L8 8l4 8 4-12 4 16"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 3c-3 4-6 6-6 10a6 6 0 1012 0c0-4-3-6-6-10z"/></svg>
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/></svg>
+                        @php
+                            // Slots de ícone dos Modos Todo-o-Terreno.
+                            // Coloca as imagens descarregadas em: public/assets/rox_adamas/modos/
+                            // (mesma ordem/nome; PNG ou SVG com fundo transparente recomendado)
+                            $terrainModes = [
+                                ['label' => 'Polivalente', 'icon' => 'assets/polivalente.png'],
+                                ['label' => 'Auto',        'icon' => 'assets/auto.png'],
+                                ['label' => 'Neve',        'icon' => 'assets/rox_adamas/modos/neve.png'],
+                                ['label' => 'Travessia',   'icon' => 'assets/rox_adamas/modos/travessia.png'],
+                                ['label' => 'Rocha',       'icon' => 'assets/rox_adamas/modos/rocha.png'],
+                                ['label' => 'Lama',        'icon' => 'assets/rox_adamas/modos/lama.png'],
+                                ['label' => 'Areia',       'icon' => 'assets/rox_adamas/modos/areia.png'],
+                            ];
+                        @endphp
+                        <div class="flex flex-wrap gap-4 md:gap-5">
+                            @foreach($terrainModes as $mode)
+                            <img src="{{ asset($mode['icon']) }}" alt="Modo {{ $mode['label'] }}" title="{{ $mode['label'] }}" class="w-10 h-10 object-contain" loading="lazy">
+                            @endforeach
                         </div>
                     </div>
                     <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/banner-adamas.avif') }}" class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
+                        <video autoplay loop muted playsinline poster="{{ asset('assets/all-terrain-modes.avif') }}" class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/all-terrain-modes.mp4') }}" type="video/mp4">
                         </video>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 pb-5 pt-10">
-                            <p class="text-white text-xs font-medium tracking-wide">AUTO</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -394,14 +381,14 @@
     <!-- Dark Features (Capacidade todo-o-terreno 2) -->
     <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-            <video autoplay loop muted playsinline poster="{{ asset('assets/life.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
+            <video autoplay loop muted playsinline poster="{{ asset('assets/design-exterior-fallback.avif') }}" class="absolute inset-0 w-full h-full object-cover">
                 <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
                 <div class="content-container w-full">
-                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Capacidade todo-o-terreno</p>
-                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Testado em todo o mundo, dominando todos os tipos de terreno com confiança</h2>
+                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Design exterior</p>
+                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-4 md:mb-6 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A ROX ADAMAS redefine a estética do luxo ao ar livre</h2>
                     </div>
             </div>
         </div>
@@ -416,17 +403,17 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Arquitectura de Chassis de Vanguarda</h3>
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Uma presença imponente, a qualquer hora e em qualquer lugar</h3>
                             </div>
                             <span class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">+</span>
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="terrain-card-2">
-                        <img src="{{ asset('assets/seat-direita.avif') }}" alt="Terreno" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/presenca.avif') }}" alt="Terreno" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Comprovado Globalmente, Domínio Total em Qualquer Terreno</h3>
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Detalhes que marcam a diferença</h3>
                             </div>
                             <span class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">+</span>
                         </div>
@@ -435,67 +422,11 @@
             </div>
         </div>
     </section>
-     <!-- Dark Features (Performance Extrema) -->
-     <div class="feature-wrapper relative" style="height: 200vh;">
-        <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-black/30"></div>
-            <!-- Top text -->
-            <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
-                <div class="content-container w-full">
-                    <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Design exterior</p>
-                    <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">A ROX ADAMAS redefine a estética do luxo ao ar livre</h2>
-                    <!--<a href="#" class="feature-title inline-block border border-white/60 text-white text-xs md:text-sm font-medium tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-black transition-all duration-300" style="opacity: 0; transform: translateY(40px);">MAIS</a>-->
-                </div>
-            </div>
-            <!-- Bottom text with left border -->
-            <div class="absolute bottom-0 left-0 right-0 pb-12 md:pb-20">
-                <div class="content-container w-full">
-                    <div class="border-l-2 border-white/60 pl-4 md:pl-6">
-                        <p class="feature-desc text-xl md:text-3xl font-light text-white/90 mb-1 leading-snug" style="opacity: 0; transform: translateY(40px);"></p>
-                        <p class="feature-desc text-base md:text-xl font-light text-white/70" style="opacity: 0; transform: translateY(40px);"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="relative bg-black">
-        <div class="relative pt-16 md:pt-24 pb-16 md:pb-24">
-            <div class="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="content-container">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="presence-card">
-                        <img src="{{ asset('assets/adamas.jpg') }}" alt="Presença Imponente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
-                            <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Presença Imponente a Qualquer Hora, em Qualquer Lugar</h3>
-                            </div>
-                            <span class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">+</span>
-                        </div>
-                    </div>
-                    <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="details-card">
-                        <img src="{{ asset('assets/banner1.jpg') }}" alt="Detalhes de Distinção" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
-                            <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Detalhes que Definem Distinção</h3>
-                            </div>
-                            <span class="flex-shrink-0 w-8 h-8 md:w-9 md:h-9 border border-white/50 flex items-center justify-center text-white text-sm group-hover:bg-white group-hover:text-black transition-all duration-300">+</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Dark Features (Interior Design) -->
     <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-            <video autoplay loop muted playsinline poster="{{ asset('assets/7.avif') }}" class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+            <video autoplay loop muted playsinline poster="{{ asset('assets/interior-design.avif') }}" class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ asset('assets/rox_adamas/interior-design.mp4') }}" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-black/30"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
@@ -515,7 +446,7 @@
             <div class="cabin-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Conforto na cabina" data-heading="Uma experiência de luxo suave e confortável entre movimento e tranquilidade" data-caption="ROX ADAMAS - 6 Lugares - 2-2-2">
                 <img src="{{ asset('assets/7.avif') }}" alt="ROX ADAMAS interior de seis lugares" class="h-full w-full object-cover">
             </div>
-            <div class="cabin-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Espaço premium" data-heading="Uma cabina refinada, concebida para oferecer conforto a cada passageiro" data-caption="ROX ADAMAS - 7 Lugares - 2-3-2">
+            <div class="cabin-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-cabin-slide data-kicker="Espaço premium" data-heading="Uma cabine refinada, concebida para oferecer conforto a cada passageiro" data-caption="ROX ADAMAS - 7 Lugares - 2-3-2">
                 <img src="{{ asset('assets/6.avif') }}" alt="ROX ADAMAS interior de sete lugares" class="h-full w-full object-cover">
             </div>
         </div>
@@ -523,7 +454,7 @@
         <div class="pointer-events-none absolute inset-x-0 top-0 z-30 h-[28%] bg-gradient-to-b from-black/25 to-transparent"></div>
         <div class="absolute inset-x-0 top-[9.2rem] md:top-[8.7rem] z-40">
             <div class="mx-auto max-w-[1280px] px-6 md:px-8">
-                <p id="cabin-kicker" class="mb-6 text-sm md:text-base font-semibold tracking-[0.08em] transition-opacity duration-500">Conforto na cabina</p>
+                <p id="cabin-kicker" class="mb-6 text-sm md:text-base font-semibold tracking-[0.08em] transition-opacity duration-500">Conforto na cabine</p>
                 <h2 id="cabin-heading" class="max-w-[1050px] text-3xl md:text-[34px] font-light leading-tight tracking-[0.055em] transition-opacity duration-500">
                     Uma experiência de luxo suave e confortável entre movimento e tranquilidade
                 </h2>
@@ -559,7 +490,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[340px] md:h-[560px] overflow-hidden group animate-up cursor-pointer" id="cabin-space-card">
-                        <img src="{{ asset('assets/6.avif') }}" alt="ROX ADAMAS configuração de sete lugares" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/expansive-space.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -586,8 +517,8 @@
  <!-- Dark Features (Performance Extrema) -->
  <div class="feature-wrapper relative" style="height: 200vh;">
     <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
-            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+        <video autoplay loop muted playsinline poster="{{ asset('assets/reev.avif') }}" class="absolute inset-0 w-full h-full object-cover">
+            <source src="{{ asset('assets/reev.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
@@ -613,8 +544,8 @@
  <!-- Dark Features (Performance Extrema 2) -->
  <div class="feature-wrapper relative" style="height: 200vh;">
     <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
-            <source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4">
+        <video autoplay loop muted playsinline poster="{{ asset('assets/rox-safety.avif') }}" class="absolute inset-0 w-full h-full object-cover">
+            <source src="{{ asset('assets/rox-safety.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
@@ -640,8 +571,8 @@
  <!-- Dark Features (Performance Extrema 3 - vídeo) -->
  <div class="feature-wrapper relative" style="height: 200vh;">
     <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
-        <video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="absolute inset-0 w-full h-full object-cover">
-            <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
+        <video autoplay loop muted playsinline poster="{{ asset('assets/eco.avif') }}" class="absolute inset-0 w-full h-full object-cover">
+            <source src="{{ asset('assets/eco.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-black/30"></div>
         <!-- Top text -->
@@ -668,7 +599,7 @@
             <div class="content-container">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="cockpit-card">
-                        <img src="{{ asset('assets/1.jpg') }}" alt="Cockpit Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/smart-cockpit.avif') }}" alt="Cockpit Inteligente" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -678,7 +609,7 @@
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up cursor-pointer" id="driving-card">
-                        <img src="{{ asset('assets/banner-v.avif') }}" alt="Assistência à Condução" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/drive-ass.avif') }}" alt="Assistência à Condução" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex items-end justify-between">
                             <div class="text-white">
@@ -731,7 +662,7 @@
                         </div>
                     </div>
                     <div class="relative h-[300px] md:h-[500px] overflow-hidden group animate-up">
-                        <img src="{{ asset('assets/camping.jpg') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
+                        <img src="{{ asset('assets/camp.avif') }}" alt="Camping" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6">
                             <div class="text-white">
@@ -800,12 +731,16 @@
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/keji.jpg') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Ecrã Panorâmico Integrado</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">O ecrã panorâmico de alta resolução coloca toda a informação e entretenimento ao alcance do condutor, com uma interface intuitiva e fluida.</p></div></div>
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/voice.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assistente de voz</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">O seu assistente de voz mais intuitivo, que permite uma interação inteligente multizona e multilingue em Inglês, Russo e Árabe em todo o veículo.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Interacção por Voz</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Sistema de reconhecimento de voz inteligente que suporta múltiplos idiomas incluindo Português, Árabe, Inglês, Francês, Russo e Espanhol.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/1.jpg') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Um ecossistema de aplicações rico com o Apple CarPlay</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Vista panorâmica HD de 360° integrada, juntamente com aplicações populares como o Spotify e o YouTube, com suporte para o Apple CarPlay.</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/carplay.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/ui-theme.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">O novo tema de interface do utilizador «Luminous Realm»</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Inspirado no brilho dos diamantes, uma homenagem à «simplicidade que domina a complexidade».</p></div></div>
                 </div>
             </div>
         </div>
@@ -822,12 +757,20 @@
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/banner-v.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Consciência de Precisão</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Sensores avançados e câmaras de alta definição proporcionam uma percepção envolvente de 360°, garantindo viagens confiantes em qualquer condição.</p></div></div>
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/banner-v.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/drive-ass.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Controlo de Centragem na Faixa de Rodagem (LCC)</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Mantém o veículo dentro das marcações da faixa de rodagem, ajusta automaticamente a velocidade e a distância, permite configurações de velocidade definidas pelo utilizador e possibilita as mudanças de faixa através do pisca-pisca.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Condução Autónoma Assistida</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Sistema de assistência à condução de nível avançado que combina cruise control adaptativo, manutenção de faixa e travagem de emergência automática.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/adamas.jpg') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assistência ao estacionamento automático</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Identifica com precisão vários cenários de estacionamento, tais como estacionamento vertical e lateral, e estaciona automaticamente com um único clique.</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/drive-ass2.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/drive-ass3.mp4') }}" type="video/mp4"></video></div>
+                </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/drive-ass6.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/drive-ass.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Passeio todo-o-terreno</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Controla automaticamente a velocidade do veículo em terrenos fora de estrada, proporcionando uma experiência de condução mais segura e controlada.</p></div></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Detecção da profundidade de travessia</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">A deteção padrão da profundidade da água permite receber alertas atempados, garantindo travessias seguras de ribeiros e rios.</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/drive-ass7.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -844,12 +787,13 @@
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/seat-superior.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assentos Zero-Gravity de Primeira Classe</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Dois assentos de primeira classe com regulação eléctrica completa, ventilação, aquecimento e massagem tipo Shiatsu para o máximo conforto em qualquer viagem.</p></div></div>
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/cabin.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assentos de aviação Nappa com sistema Dual Zero-Gravity</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Reclinação do encosto até 150°, apoio para as pernas ajustável em 55° e inclinação da almofada do assento em 30°, proporcionando uma experiência de conforto que ultrapassa a da primeira classe. <br><br>* Edição First-Class 6-Seater</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Modo Cama Completa</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Os assentos reclinam completamente para criar uma superfície plana, transformando a cabina num espaço de descanso ideal para viagens longas ou campismo.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/7.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Modo Cama Completa</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ao rebater a segunda e a terceira filas de bancos, obtém-se uma cama completa, que proporciona conforto durante a noite sem qualquer esforço.
+<br><br>*Sofá de 7 lugares</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/full-bed.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -866,12 +810,15 @@
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/6.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/banner_p.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Configuração 7 Lugares (2-3-2)</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">A configuração sofá de 7 lugares oferece espaço generoso para toda a família, com o banco central configurável para máximo conforto ou capacidade de carga.</p></div></div>
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/legroom.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Espaço para as pernas</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Espaço máximo para as pernas: 1 100 mm na primeira fila, 1 180 mm na segunda fila e 995 mm na terceira fila.
+<br><br>*Versão de 6 lugares «First-Class»: dados apresentados.
+
+<br><br>*Versão de 7 lugares com banco tipo sofá: segunda fila 1 110 mm, terceira fila 890 mm.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Entre-eixos de 3.010 mm</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">O generoso entre-eixos garante espaço amplo para pernas em todas as filas, proporcionando uma experiência de viagem confortável para cada passageiro.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/seat-direita.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Espaço na terceira fila</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Excelente espaço para a cabeça e para as pernas, garantindo conforto em todos os lugares.</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/third-room.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -888,12 +835,31 @@
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/b.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Iluminação Ambiente Inteligente</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Sistema de iluminação ambiente com múltiplos modos que se adapta ao seu estado de espírito, criando uma atmosfera envolvente e personalizada na cabina.</p></div></div>
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin1.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Refrigerador/aquecedor inteligente de modo duplo de 8,5 L</h3>
+                        </div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Climatização Multizona</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Sistema de climatização automática multizona que permite a cada passageiro definir a sua temperatura ideal, garantindo conforto personalizado em cada viagem.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/keji.jpg') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Carregamento rápido sem fios de 50 W com refrigeração a ar</h3></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin2.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin3.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Espelho retrovisor com ecrã de 9,2 polegadas para streaming</h3>
+                        </div></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Teto panorâmico com cortina de sol elétrica</h3></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin4.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin5.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Mais de 20 compartimentos de arrumação espalhados pelo habitáculo</h3>
+                        </div></div>
+                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Sistema de som surround de 7.1 canais com 14 altifalantes</h3></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin6.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -903,13 +869,23 @@
     <section class="bg-black py-12 md:py-16">
         <div class="content-container">
             <div class="space-y-3 text-[10px] md:text-xs text-white/40 leading-relaxed">
-                <p>*Todos os dados de consumo de energia nesta página baseiam-se em condições de teste WLTC. O consumo real pode variar dependendo da utilização real.</p>
-                <p>*O sistema de assistência à condução é apenas uma função auxiliar e não consegue lidar com todas as condições de trânsito, meteorológicas ou rodoviárias. O condutor deve manter sempre o controlo activo do veículo.</p>
+                <p>*Todos os dados relativos ao consumo de energia apresentados nesta página baseiam-se nas condições de ensaio WLTC. O consumo de energia real pode variar consoante a utilização no dia-a-dia.</p>
+                <p>*Idiomas suportados pelo IHU: árabe, inglês, francês, cazaque, português, russo e espanhol. A interação por voz na cabina de pilotagem suporta: árabe, inglês e russo.</p>
                 <p>*A tinta exterior preta está disponível apenas com as jantes starlight pretas.</p>
-                <p>*Algumas funcionalidades poderão ser introduzidas através de futuras actualizações OTA ou upgrades pós-venda. Os detalhes do produto podem ter sido alterados desde a data de publicação e estão sujeitos a modificação sem aviso prévio.</p>
-                <p>*As funcionalidades e especificações aqui descritas são fornecidas apenas para fins ilustrativos e podem variar dependendo do país ou região onde o veículo é comercializado.</p>
-                <p>*A ROX não garante que as informações contidas neste material — incluindo imagens, descrições e funções apresentadas — sejam actuais, precisas ou completas.</p>
-                <p>*Sujeito às leis e regulamentos aplicáveis, a ROX reserva-se o direito de modificar, actualizar ou rever os conteúdos deste material a qualquer momento sem aviso prévio.</p>
+                <p>*A rede de dados integrada e as funcionalidades OTA estão atualmente disponíveis no Egito, na Jordânia, no Kuwait, em Omã, no Catar, na Arábia Saudita e nos Emirados Árabes Unidos, e estarão disponíveis noutros países e regiões posteriormente. A disponibilidade, os preços e as condições relacionadas com a conectividade de dados podem variar consoante o mercado; consulte o seu revendedor autorizado local para obter mais informações.</p>
+                <p>*A pintura exterior preta só está disponível com as jantes «Starlight» pretas.</p>
+                <p>*O sistema de assistência ao condutor é apenas uma função auxiliar e não consegue lidar com todas as condições de trânsito, meteorológicas ou rodoviárias. O condutor deve monitorizar sempre o veículo e manter o controlo ativo do mesmo. Utilize-o com precaução em condições meteorológicas ou rodoviárias complexas.</p>
+                <p>*Esta página destina-se a ser utilizada nos mercados do Médio Oriente.</p>
+                <p>*Algumas funcionalidades poderão ser introduzidas através de futuras atualizações OTA ou atualizações pós-venda. Os detalhes do produto podem ter sofrido alterações desde a data de publicação e estão sujeitos a modificações sem aviso prévio.</p>
+                <p>*As características e especificações aqui descritas são fornecidas apenas a título ilustrativo e podem variar consoante o país ou a região onde o veículo é comercializado. Certos equipamentos, configurações ou detalhes técnicos podem não estar disponíveis nos mercados do Médio Oriente, ou podem ser oferecidos apenas como equipamento opcional. Para obter as informações mais precisas e atualizadas sobre a disponibilidade dos modelos e os pacotes opcionais, contacte o seu concessionário ou importador autorizado da ROX.</p>
+                <p>*A ROX não garante que as informações contidas nesta brochura — incluindo imagens, descrições e funções apresentadas — sejam atuais, precisas ou completas.</p>
+                <p>*Sujeito às leis e regulamentos aplicáveis, a ROX reserva-se o direito de modificar, atualizar ou rever o conteúdo deste folheto a qualquer momento, sem aviso prévio.</p>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <p>* * As imagens são meramente ilustrativas, podendo o veículo efetivamente entregue diferir.
             </div>
         </div>
     </section>
@@ -970,6 +946,43 @@
             }, { threshold: 0.25 });
 
             videos.forEach(function(v) { observer.observe(v); });
+        });
+    </script>
+
+    <!-- Feature Sections Scroll Reveal Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var wrappers = document.querySelectorAll('.feature-wrapper');
+            if (!wrappers.length) return;
+
+            function onScroll() {
+                wrappers.forEach(function(wrapper) {
+                    var section = wrapper.querySelector('.feature-section');
+                    if (!section) return;
+
+                    var titles = section.querySelectorAll('.feature-title');
+                    var descs = section.querySelectorAll('.feature-desc');
+                    var allEls = Array.from(titles).concat(Array.from(descs));
+
+                    var wRect = wrapper.getBoundingClientRect();
+                    var vh = window.innerHeight;
+                    var totalScroll = wrapper.offsetHeight - vh;
+                    var scrolled = -wRect.top;
+                    var progress = totalScroll > 0 ? Math.max(0, Math.min(1, scrolled / totalScroll)) : 0;
+
+                    allEls.forEach(function(el, i) {
+                        var start = 0.05 + i * 0.1;
+                        var end = start + 0.15;
+                        var p = Math.max(0, Math.min(1, (progress - start) / (end - start)));
+                        el.style.opacity = p;
+                        el.style.transform = 'translateY(' + (40 * (1 - p)) + 'px)';
+                    });
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
+            onScroll();
         });
     </script>
 

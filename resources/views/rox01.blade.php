@@ -539,15 +539,6 @@
                         
                         * Disponível para compra através de revendedores locais.'
                         ],
-
-                          [
-                        
-                        'img' => 'cockpit.avif', 
-                        'heading' => 'Barra de tejadilho', 
-                        'desc' => 'Aumenta o espaço de arrumação leve no tejadilho para responder às diversas necessidades de viagem.
-                        
-                        * Disponível para compra através de revendedores locais.'
-                        ],
                     ],
                 ],
                 [
