@@ -231,14 +231,7 @@
         </div>
 
         @php
-            $destaques = [
-                ['img' => 'banner-adamas.avif', 'title' => __('home.news.item1')],
-                ['img' => 'lichengbei.jpg', 'title' => __('home.news.item2')],
-                ['img' => 'keji.jpg', 'title' => __('home.news.item3')],
-                ['img' => 'banner1.jpg', 'title' => __('home.news.item4')],
-                ['img' => 'rox01.jpg', 'title' => __('home.news.item5')],
-                ['img' => 'banner2.jpg', 'title' => __('home.news.item6')],
-            ];
+            $destaques = \App\Models\Highlight::published()->get();
         @endphp
 
         <div class="relative overflow-hidden animate-up">
@@ -246,10 +239,10 @@
                 @foreach($destaques as $item)
                 <div class="destaques-card flex-shrink-0">
                     <div class="h-[200px] sm:h-[260px] md:h-[340px] overflow-hidden mb-4 sm:mb-6">
-                        <img src="{{ asset('assets/' . $item['img']) }}" alt="{{ $item['title'] }}" class="w-full h-full object-cover">
+                        <img src="{{ img_src($item->image) }}" alt="{{ $item->tr('title') }}" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-sm sm:text-base md:text-lg font-normal leading-snug mb-4 sm:mb-6 pr-4">{{ $item['title'] }}</h3>
-                    <button type="button" class="destaques-open inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300" data-title="{{ $item['title'] }}" data-image="{{ asset('assets/' . $item['img']) }}">MAIS</button>
+                    <h3 class="text-sm sm:text-base md:text-lg font-normal leading-snug mb-4 sm:mb-6 pr-4">{{ $item->tr('title') }}</h3>
+                    <button type="button" class="destaques-open inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300" data-title="{{ $item->tr('title') }}" data-image="{{ img_src($item->image) }}">{{ __('home.more') }}</button>
                 </div>
                 @endforeach
             </div>

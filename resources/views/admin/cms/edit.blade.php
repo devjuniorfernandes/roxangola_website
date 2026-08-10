@@ -47,8 +47,9 @@
 
         {{-- ---------- TEXTO ---------- --}}
         @foreach($pages as $file => $rows)
-            <details class="mb-4 bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden">
-                <summary class="bg-gray-50 border-b border-gray-100 px-6 py-4 cursor-pointer font-medium text-black capitalize">
+            <details class="mb-4 bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden" {{ $loop->first ? 'open' : '' }}>
+                <summary class="bg-gray-50 border-b border-gray-100 px-6 py-4 cursor-pointer font-medium text-black capitalize flex items-center gap-2 select-none hover:bg-gray-100 transition-colors">
+                    <span class="text-gray-400 text-xs">▶</span>
                     Texto — {{ $file }} <span class="text-xs text-gray-400 font-normal">({{ count($rows) }} campos)</span>
                 </summary>
                 <div class="p-6 space-y-6">

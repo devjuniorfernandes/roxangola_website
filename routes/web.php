@@ -137,7 +137,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
     
     // Pages / Site Sections
@@ -147,6 +147,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // CMS — conteúdo editável (texto + imagens)
     Route::get('/cms', [\App\Http\Controllers\CmsContentController::class, 'edit'])->name('cms.edit');
     Route::put('/cms', [\App\Http\Controllers\CmsContentController::class, 'update'])->name('cms.update');
+
+    // CMS — Coleções (CRUD guiado por schema)
+    Route::resource('highlights', \App\Http\Controllers\Admin\HighlightController::class)->except(['show']);
     
     // Vehicles
     Route::resource('vehicles', \App\Http\Controllers\VehicleController::class)->except(['show']);
