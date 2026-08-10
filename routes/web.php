@@ -150,6 +150,8 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.'
 
     // CMS — Coleções (CRUD guiado por schema)
     Route::resource('highlights', \App\Http\Controllers\Admin\HighlightController::class)->except(['show']);
+    Route::resource('gallery-images', \App\Http\Controllers\Admin\GalleryImageController::class)->except(['show']);
+    Route::resource('milestones', \App\Http\Controllers\Admin\MilestoneController::class)->except(['show']);
     
     // Vehicles
     Route::resource('vehicles', \App\Http\Controllers\VehicleController::class)->except(['show']);

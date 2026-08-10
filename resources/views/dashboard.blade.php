@@ -157,5 +157,51 @@
             </div>
             <a href="{{ route('admin.highlights.index') }}" class="absolute inset-0"></a>
         </div>
+
+        <!-- Galeria do Showroom (coleção) -->
+        <div class="bg-white overflow-hidden shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl group relative">
+            <div class="p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-teal-50 text-teal-600 rounded-lg p-3 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"></path></svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">Imagens + legendas (PT/EN)</dt>
+                            <dd class="text-2xl font-semibold text-gray-900">Galeria Showroom</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-6 py-3">
+                <div class="text-sm">
+                    <a href="{{ route('admin.gallery-images.index') }}" class="font-medium text-teal-600 hover:text-teal-500 flex items-center justify-between"><span>Gerir galeria do showroom</span><span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+            <a href="{{ route('admin.gallery-images.index') }}" class="absolute inset-0"></a>
+        </div>
+
+        <!-- Marcos da História (coleção) -->
+        <div class="bg-white overflow-hidden shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl group relative">
+            <div class="p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-indigo-50 text-indigo-600 rounded-lg p-3 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">Linha do tempo (PT/EN)</dt>
+                            <dd class="text-2xl font-semibold text-gray-900">Marcos</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-6 py-3">
+                <div class="text-sm">
+                    <a href="{{ route('admin.milestones.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500 flex items-center justify-between"><span>Gerir marcos da história</span><span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+            <a href="{{ route('admin.milestones.index') }}" class="absolute inset-0"></a>
+        </div>
     </div>
 </x-app-layout>

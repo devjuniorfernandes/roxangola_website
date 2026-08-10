@@ -32,43 +32,17 @@
     <section class="bg-white pb-20 md:pb-[120px]">
         <div class="content-container space-y-6">
             @php
-                $milestones = [
-                    ['date' => '2021.1', 'title' => __('historia.ms.m1'), 'img' => 'banner.jpg'],
-                    ['date' => '2023.8', 'title' => __('historia.ms.m2'), 'img' => 'banner2.jpg'],
-                    ['date' => '2023.8', 'title' => __('historia.ms.m3'), 'img' => 'banner1.jpg'],
-                    ['date' => '2023.9', 'title' => __('historia.ms.m4'), 'img' => 'life.jpg'],
-                    ['date' => '2023.12', 'title' => __('historia.ms.m5'), 'img' => 'outdoor.avif'],
-                    ['date' => '2024.4', 'title' => __('historia.ms.m6'), 'img' => 'keji.jpg'],
-                    ['date' => '2024.4', 'title' => __('historia.ms.m7'), 'img' => 'lichengbei.jpg'],
-                    ['date' => '2024.4', 'title' => __('historia.ms.m8'), 'img' => 'shequ.jpg'],
-                    ['date' => '2024.5', 'title' => __('historia.ms.m9'), 'img' => '1.jpg'],
-                    ['date' => '2024.8', 'title' => __('historia.ms.m10'), 'img' => 'services.jpg'],
-                    ['date' => '2024.10', 'title' => __('historia.ms.m11'), 'img' => 'services-ver.jpg'],
-                    ['date' => '2024.10', 'title' => __('historia.ms.m12'), 'img' => 'dealer.jpg'],
-                    ['date' => '2024.10', 'title' => __('historia.ms.m13'), 'img' => 'showroom.jpg'],
-                    ['date' => '2024.12', 'title' => __('historia.ms.m14'), 'img' => 'life.jpg'],
-                    ['date' => '2025.2', 'title' => __('historia.ms.m15'), 'img' => 'keji.jpg'],
-                    ['date' => '2025.4', 'title' => __('historia.ms.m16'), 'img' => 'banner.jpg'],
-                    ['date' => '2025.4', 'title' => __('historia.ms.m17'), 'img' => 'lichengbei.jpg'],
-                    ['date' => '2025.4', 'title' => __('historia.ms.m18'), 'img' => 'outdoor.avif'],
-                    ['date' => '2025.7', 'title' => __('historia.ms.m19'), 'img' => 'banner1.jpg'],
-                    ['date' => '2025.7', 'title' => __('historia.ms.m20'), 'img' => 'services.jpg'],
-                    ['date' => '2025.9', 'title' => __('historia.ms.m21'), 'img' => '1.jpg'],
-                    ['date' => '2025.10', 'title' => __('historia.ms.m22'), 'img' => 'shequ.jpg'],
-                    ['date' => '2025.10', 'title' => __('historia.ms.m23'), 'img' => 'banner-adamas.avif'],
-                    ['date' => '2025.12', 'title' => __('historia.ms.m24'), 'img' => 'adamas.jpg'],
-                    ['date' => '2026.2', 'title' => __('historia.ms.m25'), 'img' => 'dealer.jpg'],
-                ];
+                $milestones = \App\Models\Milestone::published()->get();
             @endphp
 
-            @foreach(array_reverse($milestones) as $milestone)
+            @foreach($milestones->reverse() as $milestone)
             <div class="animate-up">
                 <div class="relative aspect-video overflow-hidden">
-                    <img src="{{ asset('assets/' . $milestone['img']) }}" alt="{{ $milestone['title'] }}" class="w-full h-full object-cover" loading="lazy">
+                    <img src="{{ img_src($milestone->image) }}" alt="{{ $milestone->tr('title') }}" class="w-full h-full object-cover" loading="lazy">
                 </div>
                 <div class="p-5 sm:p-10 bg-[#F8F9F9] text-[#191919] text-lg sm:text-2xl">
-                    <div>{{ $milestone['date'] }}</div>
-                    <div class="mt-1 sm:mt-2">{{ $milestone['title'] }}</div>
+                    <div>{{ $milestone->date }}</div>
+                    <div class="mt-1 sm:mt-2">{{ $milestone->tr('title') }}</div>
                 </div>
             </div>
             @endforeach

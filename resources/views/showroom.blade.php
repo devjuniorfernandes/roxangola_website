@@ -31,21 +31,16 @@
             </div>
 
             @php
-                $galeria = [
-                    ['img' => 'showroom/Gemini_Generated_Image_bpajg6bpajg6bpaj.png', 'label' => __('Showroom ROX Motor Angola')],
-                    ['img' => 'showroom/Gemini_Generated_Image_qzc3l3qzc3l3qzc3.png', 'label' => __('Lounge de clientes')],
-                    ['img' => 'showroom/Gemini_Generated_Image_fnsi3zfnsi3zfnsi.png', 'label' => __('Área de exposição de veículos')],
-                    ['img' => 'showroom/Gemini_Generated_Image_tvmk14tvmk14tvmk.png', 'label' => __('Área comercial')],
-                ];
+                $galeria = \App\Models\GalleryImage::published()->get();
             @endphp
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                 @foreach($galeria as $i => $item)
                 <div class="relative {{ $i === 0 ? 'md:col-span-2 h-[300px] md:h-[500px]' : 'h-[280px] md:h-[400px]' }} overflow-hidden group animate-up">
-                    <img src="{{ asset('assets/' . $item['img']) }}" alt="{{ $item['label'] }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <img src="{{ img_src($item->image) }}" alt="{{ $item->tr('label') }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6">
-                        <p class="text-white text-sm md:text-base font-medium">{{ $item['label'] }}</p>
+                        <p class="text-white text-sm md:text-base font-medium">{{ $item->tr('label') }}</p>
                     </div>
                 </div>
                 @endforeach
