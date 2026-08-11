@@ -22,17 +22,17 @@
             @php
                 $cards = [
                     [
-                        'img'   => 'keji.jpg',
+                        'img'   => 'revisao.avif',
                         'title' => 'Revisões',
                         'desc'  => 'As revisões periódicas são fundamentais para preservar o desempenho, a segurança e a durabilidade da sua viatura. Seguimos rigorosamente o plano de manutenção recomendado.',
                     ],
                     [
-                        'img'   => 'life.jpg',
+                        'img'   => 'Diagnostico.avif',
                         'title' => 'Diagnóstico',
                         'desc'  => 'Através de equipamentos de diagnóstico certificados, efectuamos uma análise completa dos sistemas electrónicos e mecânicos da viatura, permitindo identificar e resolver qualquer anomalia com precisão.',
                     ],
                     [
-                        'img'   => '1.jpg',
+                        'img'   => 'oficina_apoio_tecnico.avif',
                         'title' => 'Oficina e Apoio Técnico',
                         'desc'  => 'A oficina da OCTA Angola está equipada com tecnologia de diagnóstico oficial e conta com técnicos formados para assegurar intervenções realizadas de acordo com os mais elevados padrões de qualidade.',
                     ],
