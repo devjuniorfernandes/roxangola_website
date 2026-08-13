@@ -1176,7 +1176,7 @@
             var cards = document.querySelectorAll('.adamas-specs-card');
             var prevBtn = document.getElementById('adamas-specs-prev');
             var nextBtn = document.getElementById('adamas-specs-next');
-            if (!track || !cards.length) return;
+            if (!track || !cards.length || !prevBtn || !nextBtn) return;
 
             var realCount = cards.length - 2;
             var domIndex = 1;
@@ -1639,8 +1639,8 @@
                 function next() { if (isAnimating) return; isAnimating = true; goTo(domIndex + 1); }
                 function prev() { if (isAnimating) return; isAnimating = true; goTo(domIndex - 1); }
 
-                specsPrev.addEventListener('click', prev);
-                specsNext.addEventListener('click', next);
+                if (specsPrev) specsPrev.addEventListener('click', prev);
+                if (specsNext) specsNext.addEventListener('click', next);
                 specsDots.forEach(function (dot) {
                     dot.addEventListener('click', function () {
                         if (isAnimating) return;

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu');
 
     // Sticky Navbar & Logo switch
-    const isTransparentNav = navbar.classList.contains('nav-transparent');
+    const isTransparentNav = navbar?.classList.contains('nav-transparent');
 
     window.addEventListener('scroll', () => {
         if (!isTransparentNav) return;
@@ -56,9 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    mobileMenuBtn.addEventListener('click', openSidebar);
-    closeSidebarBtn.addEventListener('click', closeSidebar);
-    sidebarOverlay.addEventListener('click', closeSidebar);
+    if (mobileMenuBtn && closeSidebarBtn && sidebarOverlay && mobileSidebar) {
+        mobileMenuBtn.addEventListener('click', openSidebar);
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    }
 
     // Simple Tab Switching logic (Explore Models)
     const tabs = document.querySelectorAll('.tab-btn');
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.remove('text-gray-400');
             
             // Add a subtle fade effect for image
+            if (!carImage) return;
             carImage.style.opacity = '0';
             setTimeout(() => {
                 carImage.style.opacity = '1';
