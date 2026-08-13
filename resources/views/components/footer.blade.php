@@ -40,8 +40,8 @@
                     <x-lang-switcher variant="footer" />
                     <a href="{{ route('rox-adamas') }}" class="hover:text-white/70 transition-colors">ROX ADAMAS</a>
                     <a href="{{ route('rox01') }}" class="hover:text-white/70 transition-colors">ROX 01</a>
-                    <a href="#" class="hover:text-white/70 transition-colors">{{ __('common.footer.brand') }}</a>
-                    <a href="#" class="hover:text-white/70 transition-colors">{{ __('common.footer.manual') }}</a>
+                    <a href="{{ route('sobre.marca') }}" class="hover:text-white/70 transition-colors">{{ __('common.footer.brand') }}</a>
+                    <a href="{{ route('servicos.manual-instrucoes') }}" class="hover:text-white/70 transition-colors">{{ __('common.footer.manual') }}</a>
                     <a href="{{ route('politica-privacidade') }}" class="hover:text-white/70 transition-colors">{{ __('common.footer.privacy') }}</a>
                 </div>
                 <p class="text-xs text-white">{{ __('common.footer.copyright', ['year' => date('Y')]) }}</p>

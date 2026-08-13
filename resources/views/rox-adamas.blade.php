@@ -59,35 +59,37 @@
                     [
                         'img'    => 'adamasslider6.avif',
                         'title'  => 'Fortaleza Móvel, Protecção Extrema',
-                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Estampado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência Recorde do Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tecto: 159.730 N] Mais alta nos testes C-IASI até setembro de 2025</p>',
+                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Moldado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência do esmagamento Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tecto: 159.730 N] A maior nos testes C-IASI até setembro de 2025</p>',
                     ],
                    
                 ];
                 $allAdamasSpecSlides = array_merge([end($adamasSpecSlides)], $adamasSpecSlides, [$adamasSpecSlides[0]]);
             @endphp
 
-            <div class="flex gap-4" id="adamas-specs-track">
+            <div class="flex items-start gap-4" id="adamas-specs-track">
                 @foreach($allAdamasSpecSlides as $spec)
-                <div class="adamas-specs-card relative flex-shrink-0 h-[420px] sm:h-[480px] lg:h-[580px] xl:h-[650px] overflow-hidden">
-                    <img src="{{ asset('assets/' . $spec['img']) }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
-                    <div class="absolute top-6 sm:top-8 md:top-10 lg:top-12 left-0 right-0 text-center px-4 sm:px-6">
-                        <h4 class="text-base sm:text-lg lg:text-xl font-medium text-white">{{ $spec['title'] }}</h4>
+                <div class="adamas-specs-card flex-shrink-0 overflow-hidden bg-[#1A1A1A]">
+                    <div class="relative aspect-[16/11] md:aspect-auto md:h-[480px] lg:h-[580px] xl:h-[650px] overflow-hidden">
+                        <img src="{{ asset('assets/' . $spec['img']) }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
+                        {{-- Desktop: título + specs sobrepostos --}}
+                        <div class="hidden md:block">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
+                            <div class="absolute top-6 sm:top-8 md:top-10 lg:top-12 left-0 right-0 text-center px-4 sm:px-6">
+                                <h4 class="text-base sm:text-lg lg:text-xl font-medium text-white">{{ $spec['title'] }}</h4>
+                            </div>
+                            <div class="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-0 right-0 px-5 sm:px-8 lg:px-12 text-white">
+                                {!! $spec['bottom'] !!}
+                            </div>
+                        </div>
                     </div>
-                    <div class="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-0 right-0 px-5 sm:px-8 lg:px-12 text-white">
-                        {!! $spec['bottom'] !!}
+                    {{-- Telemóvel: corpo escuro por baixo (título + specs em lista) --}}
+                    <div class="md:hidden bg-[#1A1A1A] text-white px-6 py-6">
+                        <h4 class="text-lg font-medium mb-5">{{ $spec['title'] }}</h4>
+                        <div class="adamas-spec-mobile-body">{!! $spec['bottom'] !!}</div>
                     </div>
                 </div>
                 @endforeach
             </div>
-
-            <!-- Arrow controls -->
-            <button id="adamas-specs-prev" class="adamas-spec-arrow absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center text-white transition-all duration-300" style="background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7-7m-7 7l7 7"/></svg>
-            </button>
-            <button id="adamas-specs-next" class="adamas-spec-arrow absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center text-white transition-all duration-300" style="background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-7-7m7 7l-7 7"/></svg>
-            </button>
 
             <!-- Pagination dots -->
             <div class="flex justify-center gap-2 mt-10" id="adamas-specs-dots">
@@ -101,8 +103,8 @@
     <!-- Dark Features (Performance & Tech) -->
     <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section" id="performance-section">
-            <video autoplay loop muted playsinline poster="{{ asset('assets/adamas-all-terrain.avif') }}" class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('assets/rox_adamas/adamas-all-terrain.mp4') }}" type="video/mp4">
+            <video autoplay loop muted playsinline poster="{{ asset('assets/2_1.avif') }}" class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
@@ -159,39 +161,38 @@
             <!-- Content -->
             <div class="content-container py-10 md:py-16 space-y-6 md:space-y-8">
                 <!-- Item 1: Capacidade Off-Road -->
-                <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-                    <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
+                <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+                    <div class="md:col-span-2 flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
                         <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Suspensão pneumática de câmara fechada de curso longo</h3>
                         <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">Uma suspensão pneumática de câmara fechada com curso longo de 140 mm e 7 níveis de regulação, que proporciona um equilíbrio entre o conforto na estrada e uma capacidade todo-o-terreno que inspira confiança.</p>
                     </div>
-                    <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
+                    <div class="md:col-span-3 aspect-video order-1 md:order-2">
                         <video autoplay loop muted playsinline poster="{{ asset('assets/chassi1.avif') }}" class="w-full h-full object-cover">
                         </video>
                     </div>
                 </div>
 
                 <!-- Item 2: Desempenho em Estrada -->
-                <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-                    <div class="relative h-[280px] md:h-[420px] order-1">
+                <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+                    <div class="md:col-span-3 aspect-video order-1">
                         <video autoplay loop muted playsinline poster="{{ asset('assets/chassi2.avif') }}" class="w-full h-full object-cover">
                         </video>
                         
                     </div>
-                    <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2">
+                    <div class="md:col-span-2 flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2">
                         <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Amortecedores eletrónicos DCC com resposta em milésimos de segundo</h3>
                         <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed">Equipado com um algoritmo de controlo DCC desenvolvido internamente, o sistema adapta continuamente a amortecimento em tempo real às condições de condução, melhorando o conforto de condução, a estabilidade e a confiança geral ao volante.</p>
                     </div>
                 </div>
 
                 <!-- Item 3: Modos Todo-o-Terreno -->
-                <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-                    <div class="flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
+                <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+                    <div class="md:col-span-2 flex flex-col justify-center px-8 md:px-14 py-10 md:py-16 bg-gray-100 order-2 md:order-1">
                         <h3 class="text-lg md:text-xl font-medium text-black mb-4 md:mb-6">Chassis totalmente em alumínio com suspensão dianteira de braços duplos + suspensão traseira de braço em H</h3>
-                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-6">Construção robusta e de alta qualidade, comparável à de automóveis de luxo de um milhão de dólares, concebida para conquistar diversos tipos de terreno, combinando uma condução ágil com um conforto requintado.</p>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-6">Construção robusta e de alta qualidade, comparável à de automóveis de luxo, concebida para conquistar diversos tipos de terreno, combinando uma condução ágil com um conforto requintado.</p>
                     </div>
-                    <div class="relative h-[280px] md:h-[420px] order-1 md:order-2">
-                        <video autoplay loop muted playsinline poster="{{ asset('assets/arquitectura-chassi.avif') }}" class="w-full h-full object-cover">
-                        </video>
+                    <div class="md:col-span-3 aspect-video order-1 md:order-2" style="background:#E4D7C6;">
+                        <img src="{{ asset('assets/1_3.avif') }}" alt="Chassis totalmente em alumínio com suspensão dianteira de braços duplos e traseira de braço em H" class="w-full h-full object-contain">
                     </div>
                 </div>
             </div>
@@ -304,12 +305,13 @@
                 <span class="text-sm md:text-base font-normal text-gray-400 tracking-wide whitespace-nowrap">Cores Exteriores</span>
                 <div class="flex items-center gap-3 md:gap-4">
                     @php
+                        $isEn = app()->getLocale() === 'en';
                         $exteriorColors = [
-                            ['key' => 'golden', 'name' => 'Desert Gold', 'swatch' => 'Desert Gold.png'],
-                            ['key' => 'green', 'name' => 'Emerald Green', 'swatch' => 'Emerald Green.png'],
-                            ['key' => 'gray', 'name' => 'Basalt Grey', 'swatch' => 'Basalt Grey.png'],
-                            ['key' => 'white', 'name' => 'Polar White', 'swatch' => 'Polar White.png'],
-                            ['key' => 'black', 'name' => 'Obsidian Black - Black Knight Edition', 'swatch' => 'Obsidian Black - Black Knight Edition.png'],
+                            ['key' => 'golden', 'name' => $isEn ? 'Desert Gold' : 'Dourado Deserto', 'swatch' => 'Desert Gold.png'],
+                            ['key' => 'green', 'name' => $isEn ? 'Emerald Green' : 'Verde Esmeralda', 'swatch' => 'Emerald Green.png'],
+                            ['key' => 'gray', 'name' => $isEn ? 'Basalt Grey' : 'Cinzento Basalto', 'swatch' => 'Basalt Grey.png'],
+                            ['key' => 'white', 'name' => $isEn ? 'Polar White' : 'Branco Polar', 'swatch' => 'Polar White.png'],
+                            ['key' => 'black', 'name' => $isEn ? 'Obsidian Black - Black Knight Edition' : 'Preto Obsidiana - Edição Black Knight', 'swatch' => 'Obsidian Black - Black Knight Edition.png'],
                         ];
                     @endphp
                     @foreach($exteriorColors as $color)
@@ -344,10 +346,10 @@
                     <div class="flex items-center gap-3 md:gap-4">
                         @php
                             $interiorColors = [
-                                ['key' => 'amethyst_purple', 'name' => 'Amethyst Purple', 'hex' => '#776D88'],
-                                ['key' => 'amber_orange', 'name' => 'Amber Orange', 'hex' => '#D5804A'],
-                                ['key' => 'pearl_black', 'name' => 'Pearl Black', 'hex' => '#292A2C'],
-                                ['key' => 'jade_white', 'name' => 'Jade White', 'hex' => '#D5D5D5'],
+                                ['key' => 'amethyst_purple', 'name' => $isEn ? 'Amethyst Purple' : 'Roxo Ametista', 'hex' => '#776D88'],
+                                ['key' => 'amber_orange', 'name' => $isEn ? 'Amber Orange' : 'Laranja Âmbar', 'hex' => '#D5804A'],
+                                ['key' => 'pearl_black', 'name' => $isEn ? 'Pearl Black' : 'Preto Perolado', 'hex' => '#292A2C'],
+                                ['key' => 'jade_white', 'name' => $isEn ? 'Jade White' : 'Branco Jade', 'hex' => '#D5D5D5'],
                             ];
                         @endphp
                         @foreach($interiorColors as $color)
@@ -412,7 +414,7 @@
     <div class="feature-wrapper relative" style="height: 200vh;">
         <div class="sticky top-0 w-full h-[100svh] overflow-hidden feature-section">
             <video autoplay loop muted playsinline poster="{{ asset('assets/interior-design.avif') }}" class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('assets/rox_adamas/interior-design.mp4') }}" type="video/mp4">
+                <source src="{{ asset('assets/interior-design.mp4') }}" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-black/30"></div>
             <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
@@ -564,8 +566,8 @@
         <!-- Top text -->
         <div class="absolute top-0 left-0 right-0 pt-24 md:pt-32">
             <div class="content-container w-full">
-                <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Um ecossistema inteligente integrado</p>
-                <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Ecossistema Inteligente Líder</h2>
+                <p class="feature-title text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white mb-4 md:mb-6" style="opacity: 0; transform: translateY(40px);">Um ecossistema inteligente e fluido que integra a tecnologia de forma intuitiva a cada jornada.</p>
+                <h2 class="feature-title text-2xl md:text-4xl font-light text-white mb-6 md:mb-8 max-w-2xl leading-snug" style="opacity: 0; transform: translateY(40px);">Ecossistema Inteligente de Vanguarda</h2>
             </div>
         </div>
         <!-- Bottom text with left border -->
@@ -652,8 +654,8 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6">
                             <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Acampar a qualquer hora, em qualquer lugar</h3>
-                                <p class="font-light text-xs md:text-sm text-gray-300">O Modo Camping mantém a energia ligada mesmo quando se afasta</p>
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Acampe Sem Limites, Onde e Quando Desejar</h3>
+                                <p class="font-light text-xs md:text-sm text-gray-300">O Modo Camping mantém a energia do veículo sempre ativa, mesmo quando se afasta, enquanto o Modo Sentinela vela pela sua tranquilidade durante o sono. Tudo isso potencializado por uma entrega de energia externa de até 5,7 kW.</p>
                             </div>
                         </div>
                     </div>
@@ -677,13 +679,12 @@
                     <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Silhueta angular</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Inspirado no diamante natural mais raro e mais duro do mundo.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Carroçaria robusta e quadrada</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">As proporções arrojadas e de linhas retas melhoram a visibilidade e o controlo, facilitando as manobras com confiança em estradas estreitas e percursos exigentes.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Carroçaria Robusta e Imponente</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">As proporções retilíneas e de presença marcante ampliam a visibilidade e o controle, proporcionando a máxima confiança ao manobrar por estradas estreitas e trajetos desafiadores.</p></div></div>
                     <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/boxy.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/tailgate.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Porta traseira com abertura lateral</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Acesso mais fácil aos objetos em espaços apertados.
-Em conjunto com o pneu sobressalente de tamanho normal, de novo design, montado na porta traseira, realça a presença imponente do veículo.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Porta traseira com abertura lateral</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Facilita o acesso à bagagem mesmo em espaços restritos. Combinado ao novo design do pneu sobressalente integrado na porta traseira, eleva a presença imponente e audaciosa do veículo.</p></div></div>
                 </div>
             </div>
         </div>
@@ -701,7 +702,7 @@ Em conjunto com o pneu sobressalente de tamanho normal, de novo design, montado 
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/led.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Luz de cabeça LED Eagle-Eye</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Caracterizado por linhas bem definidas, que evocam o olhar penetrante de uma águia.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Faróis dianteiros LED Eagle-Eye</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Caracterizado por linhas bem definidas, que evocam o olhar penetrante de uma águia.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Grelha frontal</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Inspirada na interação entre a luz e a sombra, a grelha combina linhas geométricas bem definidas com reflexos naturais. À medida que a luz do sol dança pelas suas centenas de facetas, irradia um brilho resplandecente.</p></div></div>
@@ -709,7 +710,7 @@ Em conjunto com o pneu sobressalente de tamanho normal, de novo design, montado 
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/stellar.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Jantes Stellar de 21"</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Jantes Starburst com raios múltiplos, concebidas para uma condução segura em todo o tipo de terreno e uma viagem suave em qualquer tipo de paisagem, disponíveis nos acabamentos bicolor e preto brilhante.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Jantes Stellar de 21"</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Jantes multi raios com design estelar, concebidas para uma condução segura em todo o tipo de terreno e uma viagem suave em qualquer tipo de paisagem, disponíveis nos acabamentos bicolor e preto brilhante</p></div></div>
                 </div>
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Portas com fecho suave</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Todas as cinco portas incluem a funcionalidade de fecho suave, para uma elegância intemporal.</p></div></div>
@@ -730,17 +731,22 @@ Em conjunto com o pneu sobressalente de tamanho normal, de novo design, montado 
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
-                    <div class="md:col-span-3 aspect-video md:aspect-auto md:h-[420px]"><video autoplay loop muted playsinline poster="{{ asset('assets/nappa.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/interior-design.mp4') }}" type="video/mp4"></video></div>
-                    <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Couro Nappa de grão integral de alta qualidade</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Excepcionalmente macio e delicado, com um toque requintado e luxuoso.
-A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto e no assento.</p></div></div>
+                    <div class="md:col-span-2 relative bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1">
+                        <div>
+                            <h3 class="text-lg md:text-xl font-medium text-black mb-3">Couro Nappa Integral Premium</h3>
+                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">Excepcionalmente macio e delicado, proporciona uma experiência tátil refinada e de puro luxo.</p>
+                            <p class="text-xs md:text-sm text-gray-400 leading-relaxed mt-4 md:mt-0 md:absolute md:left-12 md:right-12 md:bottom-12">* O revestimento em couro Nappa abrange as áreas com perfuração parcial do encosto e do assento.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/nappa.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/interior-design.mp4') }}" type="video/mp4"></video></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Iluminação ambiente</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">A iluminação ambiente de 256 cores transmite uma elegância discreta com um brilho suave e uniforme, incluindo 6 modos de design para uma experiência totalmente envolvente.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/light.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+                    <div class="md:col-span-3 aspect-video order-1"><video autoplay loop muted playsinline poster="{{ asset('assets/light.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12 order-2"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Iluminação ambiente</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">A iluminação ambiente de 256 cores transmite uma elegância discreta com um brilho suave e uniforme, incluindo 6 modos de design para uma experiência totalmente envolvente.</p></div></div>
                 </div>
-                    <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
-                    <div class="md:col-span-3 aspect-video md:aspect-auto md:h-[420px]"><video autoplay loop muted playsinline poster="{{ asset('assets/screen.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Conectividade em quatro ecrãs</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ecrã tátil central de 15,7 polegadas com resolução 3K e ecrã de entretenimento traseiro de 15,7 polegadas com resolução 3K, com quatro ecrãs interligados em todo o veículo, criando um ambiente de alta tecnologia e luxuoso.</p></div></div>
+                <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+                    <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Conectividade em quatro ecrãs</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ecrã tátil central de 15,7 polegadas com resolução 3K e ecrã de entretenimento traseiro de 15,7 polegadas com resolução 3K, com quatro ecrãs interligados em todo o veículo, criando um luxuoso ambiente de alta tecnologia.</p></div></div>
+                    <div class="md:col-span-3 aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/screen.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -761,7 +767,7 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
                     <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Desempenho potente</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Desempenho potente com tração integral permanente e dois motores, atingindo os 0–100 km/h em 5,5 s.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Longo Alcance</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Bateria de 56 kWh, com uma autonomia máxima combinada (elétrica e a combustível) de 1 226 km (WLTC).</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Autonomia Estendida</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Bateria de 56 kWh, com uma autonomia máxima combinada (elétrica e a combustível) de 1 226 km (WLTC).</p></div></div>
                     <div class="aspect-video order-1 md:order-2"><img src="{{ asset('assets/global-reev2.avif') }}" alt="Tecnologia REEV" class="w-full h-full object-cover"></div>
                 </div>
             </div>
@@ -779,8 +785,8 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/all-around.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Bateria de 56 kWh, com uma autonomia máxima combinada (elétrica e a combustível) de 1 226 km (WLTC).</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Rigidez torcional: 40 469 N·m/deg. O aço de alta resistência representa 87,7 % da carroçaria. Resistência máxima à deformação do tejadilho: 16,3 t, estabelecendo um novo padrão de referência no setor.</p></div></div>
+                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/360.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Segurança total a 360°</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Rigidez torcional: 40 469 N·m/deg. O aço de alta resistência representa 87,7 % da carroçaria. Resistência máxima à deformação do tejadilho: 16,3 t, estabelecendo um novo padrão de referência no setor.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">8 airbags de segurança de série</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Os airbags laterais de cortina esquerdo e direito têm um volume total de 140 L, mais de 2 830 mm de comprimento e cobrem todas as janelas laterais, com um tempo de retenção de pressão prolongado.</p></div></div>
@@ -791,7 +797,7 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
                     <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Segurança das baterias</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Equipado de série com baterias de lítio ternárias da CATL, que proporcionam maior qualidade e segurança reforçada.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">AEB em cenário completo a alta velocidade</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">AEB para todos os cenários, eficaz entre 5 e 120 km/h.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">AEB de Alta Velocidade em Cenários Múltiplos</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Travagem Autónoma de Emergência altamente eficaz em velocidades de 5 a 120 km/h, atuando nos mais diversos cenários urbanos e rodoviários.</p></div></div>
                     <div class="aspect-video order-1 md:order-2"><img src="{{ asset('assets/aeb.avif') }}" alt="Segurança ROX" class="w-full h-full object-cover"></div>
                 </div>
             </div>
@@ -809,16 +815,16 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
             </div>
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/voice.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assistente de voz</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">O seu assistente de voz mais intuitivo, que permite uma interação inteligente multizona e multilingue em Inglês, Russo e Árabe em todo o veículo.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assistente de voz</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">O seu assistente de voz mais intuitivo, que permite uma interação inteligente multizona e multilingue em Inglês, Russo e Árabe em todo o veículo.</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/voice.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Um ecossistema de aplicações rico com o Apple CarPlay</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Vista panorâmica HD de 360° integrada, juntamente com aplicações populares como o Spotify e o YouTube, com suporte para o Apple CarPlay.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/carplay.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="aspect-video order-1"><video autoplay loop muted playsinline poster="{{ asset('assets/carplay.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Um ecossistema de aplicações rico com o Apple CarPlay</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Vista panorâmica HD de 360° integrada, juntamente com aplicações populares como o Spotify e o YouTube, com suporte para o Apple CarPlay.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/ui-theme.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">O novo tema de interface do utilizador «Luminous Realm»</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Inspirado no brilho dos diamantes, uma homenagem à «simplicidade que domina a complexidade».</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">O novo tema de interface do utilizador «Luminous Realm»</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Inspirado no brilho dos diamantes, uma homenagem à «simplicidade que domina a complexidade».</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/ui-theme.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -836,7 +842,7 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/banner-v.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/drive-ass.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Controlo de Centragem na Faixa de Rodagem (LCC)</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Mantém o veículo dentro das marcações da faixa de rodagem, ajusta automaticamente a velocidade e a distância, permite configurações de velocidade definidas pelo utilizador e possibilita as mudanças de faixa através do pisca-pisca.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Controlo de Centralização na Faixa de Rodagem (LCC)</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Mantém o veículo dentro das marcações da faixa de rodagem, ajusta automaticamente a velocidade e a distância, permite configurações de velocidade definidas pelo utilizador e possibilita as mudanças de faixa através do pisca-pisca.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assistência ao estacionamento automático</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Identifica com precisão vários cenários de estacionamento, tais como estacionamento vertical e lateral, e estaciona automaticamente com um único clique.</p></div></div>
@@ -844,7 +850,7 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
                 </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/drive-ass6.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/drive-ass.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Passeio todo-o-terreno</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Controla automaticamente a velocidade do veículo em terrenos fora de estrada, proporcionando uma experiência de condução mais segura e controlada.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Piloto Automático todo-o-terreno</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Controla automaticamente a velocidade do veículo em terrenos fora de estrada, proporcionando uma experiência de condução mais segura e controlada.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Detecção da profundidade de travessia</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">A deteção padrão da profundidade da água permite receber alertas atempados, garantindo travessias seguras de ribeiros e rios.</p></div></div>
@@ -866,12 +872,11 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/cabin.mp4') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assentos de aviação Nappa com sistema Dual Zero-Gravity</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Reclinação do encosto até 150°, apoio para as pernas ajustável em 55° e inclinação da almofada do assento em 30°, proporcionando uma experiência de conforto que ultrapassa a da primeira classe. <br><br>* Edição First-Class 6-Seater</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Assentos de aviação Nappa com sistema Dual Zero-Gravity</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Reclinação do encosto até 150°, apoio para as pernas ajustável em 55° e inclinação da almofada do assento em 30°, proporcionando uma experiência de conforto que ultrapassa a da primeira classe.</p><p class="text-xs md:text-sm text-gray-400 leading-relaxed mt-4 md:mt-5">* Edição First-Class 6 lugares</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Modo Cama Completa</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ao rebater a segunda e a terceira filas de bancos, obtém-se uma cama completa, que proporciona conforto durante a noite sem qualquer esforço.
-<br><br>*Sofá de 7 lugares</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/full-bed.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/video.mp4') }}" type="video/mp4"></video></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Modo Cama Completa</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ao rebater a segunda e a terceira filas de bancos, obtém-se uma cama completa, que proporciona conforto durante a noite sem qualquer esforço.</p><p class="text-xs md:text-sm text-gray-400 leading-relaxed mt-4 md:mt-5">* Edição de 7 Lugares</p></div></div>
+                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/full-bed.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
@@ -882,21 +887,32 @@ A área revestida a couro Nappa inclui zonas parcialmente perfuradas no encosto 
         <div id="cabin-space-modal-panel" class="absolute inset-0 bg-white overflow-y-auto translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
             <div class="sticky top-0 z-10 bg-white border-b border-gray-200">
                 <div class="content-container flex items-center justify-between py-4 md:py-5">
-                    <h2 class="text-lg md:text-xl font-medium text-black">Espaço amplo, conforto supremo</h2>
+                    <h2 class="text-lg md:text-xl font-medium text-black">{{ app()->getLocale() === 'en' ? 'Expansive Space, Supreme Comfort' : 'Espaço Amplo, Conforto Supremo' }}</h2>
                     <button id="cabin-space-modal-close" class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-black transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
                 </div>
             </div>
+            @php $en = app()->getLocale() === 'en'; @endphp
             <div class="content-container py-10 md:py-16 space-y-12 md:space-y-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="aspect-video"><video autoplay loop muted playsinline poster="{{ asset('assets/legroom.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Espaço para as pernas</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Espaço máximo para as pernas: 1 100 mm na primeira fila, 1 180 mm na segunda fila e 995 mm na terceira fila.
-<br><br>*Versão de 6 lugares «First-Class»: dados apresentados.
-
-<br><br>*Versão de 7 lugares com banco tipo sofá: segunda fila 1 110 mm, terceira fila 890 mm.</p></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1">
+                        <div>
+                            <h3 class="text-lg md:text-xl font-medium text-black mb-3 md:mb-4">{{ $en ? 'Legroom' : 'Espaço para as Pernas' }}</h3>
+                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">{{ $en ? 'Maximum legroom: 1,100mm in the first row, 1,180mm in the second row, and 995mm in the third row.' : 'Espaço máximo para as pernas: 1.100 mm na primeira fila, 1.180 mm na segunda fila e 995 mm na terceira fila.' }}</p>
+                            <br>
+                            <br>
+                            <p class="text-xs md:text-sm text-gray-400 leading-relaxed mb-5 md:mb-6">{!! $en ? '*First-Class 6-Seater: Data shown.<br>Couch 7-Seater: Second row 1,110mm, third row 890mm.' : '*Versão de 6 lugares «First-Class»: dados apresentados.<br>*Versão de 7 lugares com banco tipo sofá: segunda fila 1.110 mm, terceira fila 890 mm.' !!}</p>
+                        </div>
+                    </div>
+                    <div class="aspect-video md:aspect-auto order-1 md:order-2"><img src="{{ asset('assets/legroom.avif') }}" alt="{{ $en ? 'Legroom' : 'Espaço para as pernas' }}" class="w-full h-full object-cover"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Espaço na terceira fila</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Excelente espaço para a cabeça e para as pernas, garantindo conforto em todos os lugares.</p></div></div>
-                    <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/third-room.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/rox_adamas/2_1.mp4') }}" type="video/mp4"></video></div>
+                    <div class="aspect-video order-1"><img src="{{ asset('assets/third-row.avif') }}" alt="{{ $en ? 'Third-Row Space' : 'Espaço da terceira fila' }}" class="w-full h-full object-cover"></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2">
+                        <div>
+                            <h3 class="text-lg md:text-xl font-medium text-black mb-3 md:mb-4">{{ $en ? 'Third-Row Space' : 'Espaço da Terceira Fila' }}</h3>
+                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">{{ $en ? 'Excellent headroom and legroom, ensuring comfort for every seat.' : 'Excelente espaço para a cabeça e para as pernas, garantindo conforto em todos os lugares.' }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

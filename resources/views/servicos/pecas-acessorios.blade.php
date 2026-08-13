@@ -22,7 +22,7 @@
             @php
                 $cards = [
                     [
-                        'img'   => 'pecas_originais.avif',
+                        'img'   => 'pecas.avif',
                         'title' => 'Peças Originais',
                         'desc'  => 'As peças originais ROX são desenvolvidas para garantir total compatibilidade, desempenho e segurança. A sua utilização contribui para preservar a qualidade, a fiabilidade e a durabilidade da viatura.',
                     ],

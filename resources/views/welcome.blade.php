@@ -195,7 +195,7 @@
                 <!-- Descarregar Catálogo PDF -->
                 <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" download="Catalogo_ROX_PT_baixa.pdf" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
-                        <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
+                        <img src="{{ asset('assets/adamasslider1.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
                     </div>
                     <div class="bg-[#1a1a1a] text-white px-5 sm:px-6 md:px-8 h-[120px] sm:h-[130px] md:h-[140px] flex items-start pt-4 sm:pt-5 md:pt-6 justify-between gap-4">
                         <div>

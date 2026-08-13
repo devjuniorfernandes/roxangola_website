@@ -31,7 +31,7 @@
                         'title' => 'Diagnóstico',
                         'desc'  => 'Através de equipamentos de diagnóstico certificados, efectuamos uma análise completa dos sistemas electrónicos e mecânicos da viatura, permitindo identificar e resolver qualquer anomalia com precisão.',
                     ],
-                    [
+                    [  
                         'img'   => 'oficina_apoio_tecnico.avif',
                         'title' => 'Oficina e Apoio Técnico',
                         'desc'  => 'A oficina da OCTA Angola está equipada com tecnologia de diagnóstico oficial e conta com técnicos formados para assegurar intervenções realizadas de acordo com os mais elevados padrões de qualidade.',

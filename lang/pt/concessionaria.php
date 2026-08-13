@@ -20,7 +20,7 @@ return [
         's1_title' => 'Venda de Automóveis',
         's1_desc' => 'Somos o distribuidor oficial em Angola da ROX Motor. Oferecemos modelos que combinam tecnologia, desempenho, segurança e inovação para diferentes necessidades de mobilidade.',
         's2_title' => 'Test Drive',
-        's2_desc' => 'Experimente os modelos ROX antes de tomar a sua decisão. Agende uma sessão de Test Drive e descubra o desempenho, o conforto e a tecnologia que distinguem cada veículo.',
+        's2_desc' => 'Experimente conduzir um ROX. Agende uma sessão de Test Drive e descubra o desempenho, o conforto e a tecnologia que distinguem cada veículo.',
         's3_title' => 'Consultoria Comercial',
         's3_desc' => 'A nossa equipa comercial presta aconselhamento personalizado para ajudar cada cliente a escolher o modelo, a versão e os equipamentos que melhor se adaptam às suas necessidades pessoais ou empresariais.',
         's4_title' => 'Serviço Pós-Venda',

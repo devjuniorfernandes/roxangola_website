@@ -31,6 +31,22 @@
         body { font-family: 'TTNormsPro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; overflow-x: hidden; }
         .site-container { max-width: 1920px; margin-left: auto; margin-right: auto; padding-left: var(--site-gutter); padding-right: var(--site-gutter); }
         .content-container { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: var(--site-gutter); padding-right: var(--site-gutter); }
+        /* Conteúdo dos modais mais largo (só dentro dos painéis de modal) */
+        [id$="-modal-panel"] .content-container { max-width: 1680px; padding-left: clamp(1.5rem, 4vw, 4rem); padding-right: clamp(1.5rem, 4vw, 4rem); }
+        /* ADAMAS specs slider (telemóvel): specs em lista vertical à esquerda */
+        .adamas-spec-mobile-body > div { display: block !important; text-align: left !important; }
+        .adamas-spec-mobile-body > div > div { margin-bottom: 1.1rem; }
+        .adamas-spec-mobile-body > div > div:last-child { margin-bottom: 0; }
+        .adamas-spec-mobile-body p { text-align: left !important; }
+        /* Robustez dos modais no telemóvel: scroll suave iOS + header/fechar sempre visíveis */
+        [id$="-modal-panel"] { -webkit-overflow-scrolling: touch; }
+        [id$="-modal-panel"] .sticky { position: -webkit-sticky; position: sticky; top: 0; }
+        /* Padrão 60/40 (imagem larga / texto) em todas as linhas dos modais */
+        @media (min-width: 768px) {
+            [id$="-modal-panel"] .grid.md\:grid-cols-2 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+            [id$="-modal-panel"] .grid.md\:grid-cols-2 > .aspect-video { grid-column: span 3 / span 3; }
+            [id$="-modal-panel"] .grid.md\:grid-cols-2 > .bg-gray-100 { grid-column: span 2 / span 2; }
+        }
 
         .hero-bg { background-image: url('{{ asset('assets/banner.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; }
         .cap-bg { background-image: url('{{ asset('assets/banner1.jpg') }}'); background-size: cover; background-position: center; }

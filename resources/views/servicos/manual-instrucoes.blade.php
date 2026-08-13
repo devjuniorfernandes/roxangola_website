@@ -23,7 +23,7 @@
                 <!-- ROX ADAMAS -->
                 <div class="animate-up">
                     <div class="relative aspect-square overflow-hidden">
-                        <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
+                        <img src="{{ asset('assets/adamasslider1.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 right-0 h-80" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);"></div>
                         <div class="absolute inset-0 flex flex-col justify-end text-white p-5 sm:p-10 z-10">
                             <div class="text-lg sm:text-2xl font-semibold">ROX ADAMAS</div>
@@ -34,13 +34,15 @@
                         <div class="flex items-center gap-6 justify-between">
                             <div class="flex-1 overflow-hidden flex items-center gap-2">
                                 <span class="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
-                                <a href="#" target="_blank" class="line-clamp-1 hover:underline">ROX ADAMAS Manual do Utilizador</a>
+                                <a href="{{ asset('assets/ROX%20ADAMAS%20User%20Manual.pdf') }}" target="_blank" rel="noopener" class="line-clamp-1 hover:underline">ROX ADAMAS Manual do Utilizador</a>
                             </div>
-                            <svg class="w-6 h-6 flex-shrink-0 cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="4 12 4 20 20 20 20 12" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <polyline points="16 11.5 12 15.5 8 11.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <a href="{{ asset('assets/ROX%20ADAMAS%20User%20Manual.pdf') }}" download aria-label="Descarregar manual ROX ADAMAS" class="flex-shrink-0">
+                                <svg class="w-6 h-6 cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="4 12 4 20 20 20 20 12" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="16 11.5 12 15.5 8 11.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -59,13 +61,15 @@
                         <div class="flex items-center gap-6 justify-between">
                             <div class="flex-1 overflow-hidden flex items-center gap-2">
                                 <span class="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
-                                <a href="#" target="_blank" class="line-clamp-1 hover:underline">ROX 01 Manual do Utilizador</a>
+                                <a href="{{ asset('assets/ROX%2001%20User%20Manual.pdf') }}" target="_blank" rel="noopener" class="line-clamp-1 hover:underline">ROX 01 Manual do Utilizador</a>
                             </div>
-                            <svg class="w-6 h-6 flex-shrink-0 cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="4 12 4 20 20 20 20 12" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <polyline points="16 11.5 12 15.5 8 11.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <a href="{{ asset('assets/ROX%2001%20User%20Manual.pdf') }}" download aria-label="Descarregar manual ROX 01" class="flex-shrink-0">
+                                <svg class="w-6 h-6 cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="4 12 4 20 20 20 20 12" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="16 11.5 12 15.5 8 11.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="12" y1="4" x2="12" y2="15.5" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
 
                     </div>

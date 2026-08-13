@@ -32,6 +32,7 @@
                     'title' => 'Assentos luxuosos para uma experiência extraordinária',
                     'img' => 'assentos.avif',
                     'video' => '',
+                    'overlay' => true,
                     'stats' => [
                         ['label' => 'Bilateral', 'value' => 'Assentos Zero-Gravidade', 'unit' => ''],
                         ['label' => 'Dez Airbags', 'value' => 'Sistema de Relaxamento Lombar e Dorsal', 'unit' => ''],
@@ -64,7 +65,7 @@
                     'video' => '',
                     'stats' => [
                         ['label' => 'Carroçaria', 'value' => 'Aço de alta resistência', 'unit' => '>80%'],
-                        ['label' => 'Estrutura', 'value' => 'Aço boro conformado a quente', 'unit' => '>25%'],
+                        ['label' => 'Estrutura', 'value' => 'Aço Boro moldado a quente', 'unit' => '>25%'],
                         ['label' => 'Resistência máxima do tejadilho', 'value' => 'Resistência máxima', 'unit' => '59.730 N'],
                     ],
                 ],
@@ -84,31 +85,57 @@
                         <img src="{{ asset('assets/' . $hl['img']) }}" alt="{{ $hl['title'] }}" class="w-full h-full object-cover">
                         @endif
 
-                        <!-- Title top center -->
-                        <div class="absolute top-6 md:top-10 left-0 right-0 px-8 text-center">
-                            <h3 class="text-lg md:text-2xl lg:text-3xl font-light text-white drop-shadow-md">{{ $hl['title'] }}</h3>
-                        </div>
+                        {{-- Overlay + texto sobreposto: só em ecrãs md+ --}}
+                        <div class="hidden md:block">
+                            @if(!empty($hl['overlay']))
+                            <!-- Overlays ovais (elipses pretas) para legibilidade do título e das especificações -->
+                            <div class="absolute inset-x-0 top-0 h-2/5 pointer-events-none" style="background: radial-gradient(120% 105% at 50% 0%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.28) 45%, transparent 75%);"></div>
+                            <div class="absolute inset-x-0 bottom-0 h-3/5 pointer-events-none" style="background: radial-gradient(120% 105% at 50% 100%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.3) 45%, transparent 75%);"></div>
+                            @endif
 
-                        <!-- Stats bottom -->
-                        <div class="absolute bottom-6 md:bottom-8 lg:bottom-10 left-0 right-0 px-6 md:px-8 lg:px-14">
-                            <div class="flex flex-wrap md:flex-nowrap gap-x-5 lg:gap-x-10 gap-y-3">
-                                @foreach($hl['stats'] as $stat)
-                                <div class="text-white basis-[45%] md:basis-0 md:flex-1 md:min-w-0">
-                                    <p class="text-[11px] lg:text-sm font-light text-gray-200 mb-1">{{ $stat['label'] }}</p>
-                                    <p class="text-xs md:text-sm lg:text-base font-semibold leading-snug">{{ $stat['value'] }}@if($stat['unit']) <span class="font-normal">{{ $stat['unit'] }}</span>@endif</p>
+                            <!-- Title top center -->
+                            <div class="absolute top-6 md:top-10 left-0 right-0 px-8 text-center">
+                                <h3 class="text-lg md:text-2xl lg:text-3xl font-light text-white drop-shadow-md">{{ $hl['title'] }}</h3>
+                            </div>
+
+                            <!-- Stats bottom -->
+                            <div class="absolute bottom-6 md:bottom-8 lg:bottom-10 left-0 right-0 px-6 md:px-8 lg:px-14">
+                                <div class="flex flex-wrap md:flex-nowrap gap-x-5 lg:gap-x-10 gap-y-3">
+                                    @foreach($hl['stats'] as $stat)
+                                    <div class="text-white basis-[45%] md:basis-0 md:flex-1 md:min-w-0">
+                                        <p class="text-[11px] lg:text-sm font-light text-gray-200 mb-1">{{ $stat['label'] }}</p>
+                                        <p class="text-xs md:text-sm lg:text-base font-semibold leading-snug">{{ $stat['value'] }}@if($stat['unit']) <span class="font-normal">{{ $stat['unit'] }}</span>@endif</p>
+                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
                             </div>
                         </div>
                     </div>
-                    <p class="text-[11px] md:text-xs text-gray-400 font-light mt-3">*As especificações variam consoante a versão do modelo. Consulte a tabela de especificações para mais detalhes.</p>
+
+                    {{-- Telemóvel: imagem em cima, detalhes dentro de um card (fundo igual às descrições dos modais) --}}
+                    <div class="hl-body md:hidden bg-[#F6F7F8] p-5 min-h-[172px] flex flex-col">
+                        <h3 class="text-base font-medium text-black mb-3 leading-snug">{{ $hl['title'] }}</h3>
+                        <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+                            @foreach($hl['stats'] as $stat)
+                            <div>
+                                <p class="text-[11px] font-light text-gray-400 mb-0.5">{{ $stat['label'] }}</p>
+                                <p class="text-sm font-semibold text-black leading-snug">{{ $stat['value'] }}@if($stat['unit']) <span class="font-normal text-gray-600">{{ $stat['unit'] }}</span>@endif</p>
+                            </div>
+                            @endforeach
+                        </div>
+                        <p class="text-[11px] font-light text-gray-400 leading-snug mt-auto pt-4">*As especificações variam consoante a versão do modelo. Consulte a tabela de especificações para mais detalhes.</p>
+                    </div>
+                    <p class="hidden md:block text-[11px] md:text-xs text-gray-400 font-light mt-3">*As especificações variam consoante a versão do modelo. Consulte a tabela de especificações para mais detalhes.</p>
                 </div>
                 @endforeach
             </div>
         </div>
 
-        <!-- Arrows -->
-        <div class="flex justify-center items-center gap-4 mt-6 md:mt-8">
+        <!-- Dots (telemóvel) -->
+        <div id="hl-dots" class="flex md:hidden justify-center items-center gap-1.5 mt-6"></div>
+
+        <!-- Arrows (desktop) -->
+        <div class="hidden md:flex justify-center items-center gap-4 mt-6 md:mt-8">
             <button id="hl-prev" class="w-11 h-11 md:w-12 md:h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:border-black hover:text-black transition-colors cursor-pointer" aria-label="Anterior">
                 <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
             </button>
@@ -122,7 +149,7 @@
     <section class="pt-20 pb-14 md:pt-24 md:pb-24 bg-[#F5F6F7] relative overflow-hidden">
         <div class="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 mb-8 md:mb-10">
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                <h2 class="text-2xl md:text-3xl lg:text-[2rem] font-semibold tracking-tight text-[#191919] max-w-md animate-up">SUV de Luxo Todo-o-Terreno para Cenário Completo</h2>
+                <h2 class="text-2xl md:text-3xl lg:text-[2rem] font-semibold tracking-tight text-[#191919] max-w-md animate-up">SUV de Luxo Todo-Terreno para Qualquer Cenário</h2>
                 <div class="flex flex-col md:items-end gap-4 animate-up">
                     <div class="flex gap-6">
                         <button id="viewer-tab-ext" class="text-sm md:text-base pb-1 border-b-2 border-black text-black font-medium transition-colors cursor-pointer">Exterior</button>
@@ -130,10 +157,11 @@
                     </div>
                     <div class="flex flex-nowrap gap-3 md:gap-4" id="exterior-swatches">
                         @php
+                            $isEn = app()->getLocale() === 'en';
                             $rox01ExteriorColors = [
-                                ['key' => 'white', 'name' => 'Polar White', 'swatch' => 'white exterior.png'],
-                                ['key' => 'gray', 'name' => 'Gloaming Gray', 'swatch' => 'grey exterior.png'],
-                                ['key' => 'black', 'name' => 'Starlit Night Black', 'swatch' => 'black exterior.png'],
+                                ['key' => 'white', 'name' => $isEn ? 'Polar White' : 'Branco Polar', 'swatch' => 'white exterior.png'],
+                                ['key' => 'gray', 'name' => $isEn ? 'Gloaming Gray' : 'Cinza Crepúsculo', 'swatch' => 'grey exterior.png'],
+                                ['key' => 'black', 'name' => $isEn ? 'Starlit Night Black' : 'Série Especial Black Knight — Kit Exterior All Black (incluindo acabamento em aço tungsténio)', 'swatch' => 'black exterior.png'],
                             ];
                         @endphp
                         @foreach($rox01ExteriorColors as $color)
@@ -141,7 +169,7 @@
                                 <button class="exterior-color-swatch h-8 w-8 overflow-hidden rounded-full border-2 transition-none md:h-9 md:w-9 {{ $loop->first ? 'border-black p-0.5' : 'border-transparent' }}" data-color="{{ $color['key'] }}" aria-label="{{ $color['name'] }}" aria-pressed="{{ $loop->first ? 'true' : 'false' }}">
                                     <img src="{{ asset('assets/rox_1/interior/swatches/' . $color['swatch']) }}" alt="" class="h-full w-full rounded-full object-cover pointer-events-none">
                                 </button>
-                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
+                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max max-w-[220px] whitespace-normal text-center leading-snug -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
                             </div>
                         @endforeach
                     </div>
@@ -150,9 +178,9 @@
                         <button class="interior-layout-button shrink-0 border border-black bg-transparent px-5 py-2.5 text-xs font-medium tracking-wide text-black transition-none" data-layout="7-seater" aria-pressed="false">7-seater</button>
                         @php
                             $rox01InteriorColors = [
-                                ['key' => 'Amber Orange', 'name' => 'Amber Orange', 'swatch' => 'orange interior.png'],
-                                ['key' => 'Jade White', 'name' => 'Jade White', 'swatch' => 'white interior.png'],
-                                ['key' => 'Pearl Black', 'name' => 'Pearl Black', 'swatch' => 'black interior.png'],
+                                ['key' => 'Amber Orange', 'name' => $isEn ? 'Amber Orange' : 'Laranja Âmbar', 'swatch' => 'orange interior.png'],
+                                ['key' => 'Jade White', 'name' => $isEn ? 'Jade White' : 'Branco Jade', 'swatch' => 'white interior.png'],
+                                ['key' => 'Pearl Black', 'name' => $isEn ? 'Pearl Black' : 'Preto Perolado', 'swatch' => 'black interior.png'],
                             ];
                         @endphp
                         @foreach($rox01InteriorColors as $color)
@@ -160,7 +188,7 @@
                                 <button class="interior-color-swatch h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 transition-none {{ $loop->first ? 'border-[#E5793C] p-0.5' : 'border-transparent' }}" data-color="{{ $color['key'] }}" aria-label="{{ $color['name'] }}" aria-pressed="{{ $loop->first ? 'true' : 'false' }}">
                                     <img src="{{ asset('assets/rox_1/interior/swatches/' . $color['swatch']) }}" alt="" class="h-full w-full rounded-full object-cover pointer-events-none">
                                 </button>
-                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
+                                <span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max max-w-[220px] whitespace-normal text-center leading-snug -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ $color['name'] }}</span>
                             </div>
                         @endforeach
                     </div>
@@ -194,7 +222,7 @@
             $designFeatures = [
                 [
                     'title' => 'Design robusto de linhas clássicas',
-                    'desc' => 'O veículo apresenta linhas de carroçaria nítidas e um tecto recto, criando uma silhueta ousada e clássica que transmite uma presença forte e poderosa.',
+                    'desc' => 'O veículo apresenta linhas de carroçaria nítidas e um tejadilho recto, criando uma silhueta ousada e clássica que transmite uma presença forte e poderosa.',
                     'img' => 'boxed.avif',
                     'video' => '',
                 ],
@@ -236,7 +264,7 @@
     <!-- All-terrain Capabilities Section -->
     <section class="bg-white">
         <!-- Wide landscape background with overlay heading -->
-        <div class="relative w-full aspect-[16/7] md:aspect-[16/6] overflow-hidden">
+        <div class="relative w-full h-[78svh] md:h-auto md:aspect-[16/6] overflow-hidden">
             <img src="{{ asset('assets/banner1_en.jfif') }}" alt="Capacidades Todo-o-Terreno" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             <div class="absolute bottom-8 md:bottom-14 left-0 right-0">
@@ -286,10 +314,9 @@
 
                         ['img' => 'performance-fallback1.avif', 
                         'video' => 'performance_video.mp4',
-                        'heading' => 'Suspensão dianteira de braços duplos + suspensão traseira multibraço com braço em H', 
-                        'desc' => '- As suspensões dianteira e traseira, inteiramente em alumínio, reduzem significativamente a massa não suspensa, melhorando tanto a manobrabilidade como o conforto durante a condução.
-                        - A suspensão dianteira utiliza um sistema de braços duplos, enquanto a traseira recorre a uma estrutura multibraço com braços em H. Esta combinação garante um controlo preciso do ângulo das rodas e um melhor contacto dos pneus com a superfície da estrada.
-                        - Com a sua extraordinária flexibilidade de ajuste, o ROX 01 oferece uma vasta gama de configurações de suspensão, permitindo aos utilizadores enfrentar sem esforço terrenos diversos e exigentes.'
+                        'heading' => 'Suspensão adaptativa DCC', 
+                        'desc' => '- Oferece quatro modos de suspensão: Conforto, Padrão, Desportivo e Todo-o-terreno.
+                        - Na condução urbana, consegue um equilíbrio perfeito entre controlo e conforto, garantindo uma condução suave. Em viagens de longa distância fora de estrada, absorve eficazmente os solavancos e os terrenos acidentados, proporcionando uma condução confortável.'
                         ],
 
                          ['img' => 'performance5.avif', 
@@ -310,7 +337,7 @@
                          ['img' => 'performance7.avif', 
                         'video' => '',
                         'heading' => 'Raio mínimo de viragem: 5,98 m', 
-                        'desc' => 'Seja em areia, água, neve, lama ou terrenos montanhosos, o veículo ajusta de forma inteligente a distribuição de potência, as configurações do chassis e a lógica do ESP, tornando a exploração e a aventura mais fáceis e seguras.'
+                        'desc' => 'O raio de viragem, o melhor da sua classe, garante uma manobrabilidade sem esforço, mesmo em zonas urbanas com pouco espaço, permitindo que até os veículos de grandes dimensões sejam surpreendentemente ágeis.'
                         ],
                     ],
                 ],
@@ -327,7 +354,7 @@
 
                         ['img' => 'safety2.avif',
                         'video' => 'safety_video1.mp4', 
-                        'heading' => 'Telhado de alta resistência', 
+                        'heading' => 'Tejadilho de alta resistência', 
                         'desc' => '- Resistência máxima do tejadilho de 159 730 N, estabelecendo um novo recorde nos ensaios de colisão do CIRI.
                         - Em caso de capotamento, garante a integridade da cabina, proporcionando mais espaço de sobrevivência a todos os ocupantes.
                         * Estes dados batem o recorde do CIRI a 16 de agosto de 2024.'],
@@ -340,31 +367,41 @@
             ];
         @endphp
 
-        <div class="content-container py-6 md:py-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div class="max-w-[1600px] mx-auto px-0 md:px-6 py-6 md:py-10 overflow-hidden">
+            <div id="terrain-track" class="flex md:grid md:grid-cols-2 md:gap-8">
                 @foreach($terrainCards as $card)
-                <div class="card-more relative aspect-[16/11] overflow-hidden group md:cursor-none" data-title="{{ $card['title'] }}" data-subtitle="{{ $card['desc'] }}">
-                    @if(!empty($card['video']))
-                    <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" @if(!empty($card['img'])) poster="{{ asset('assets/' . $card['img']) }}" @endif autoplay muted loop playsinline>
-                        <source src="{{ asset('assets/' . $card['video']) }}" type="video/mp4">
-                    </video>
-                    @else
-                    <img src="{{ asset('assets/' . $card['img']) }}" alt="{{ $card['title'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    @endif
-                    <div class="absolute inset-0 bg-black/10"></div>
-                    <!-- Title + desc top center -->
-                    <div class="absolute top-8 md:top-12 left-0 right-0 px-6 text-center text-white">
-                        <h3 class="text-2xl md:text-3xl font-medium mb-2 drop-shadow">{{ $card['title'] }}</h3>
-                        <p class="text-sm md:text-base font-light text-white/90 drop-shadow">{!! nl2br(e($card['desc'])) !!}</p>
+                <div class="terrain-slide flex-shrink-0 w-full md:w-auto px-4 md:px-0">
+                <div class="card-more group cursor-pointer md:cursor-none relative" data-title="{{ $card['title'] }}" data-subtitle="{{ $card['desc'] }}">
+                    <div class="relative aspect-[16/10] md:aspect-[4/3] overflow-hidden">
+                        @if(!empty($card['video']))
+                        <video class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700" @if(!empty($card['img'])) poster="{{ asset('assets/' . $card['img']) }}" @endif autoplay muted loop playsinline>
+                            <source src="{{ asset('assets/' . $card['video']) }}" type="video/mp4">
+                        </video>
+                        @else
+                        <img src="{{ asset('assets/' . $card['img']) }}" alt="{{ $card['title'] }}" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        @endif
+                        {{-- Desktop: título + descrição sobrepostos --}}
+                        <div class="hidden md:block">
+                            <div class="absolute inset-0 bg-black/10"></div>
+                            <div class="absolute top-8 md:top-12 left-0 right-0 px-6 text-center text-white">
+                                <h3 class="text-2xl md:text-3xl font-medium mb-2 drop-shadow">{{ $card['title'] }}</h3>
+                                <p class="text-sm md:text-base font-light text-white/90 drop-shadow">{!! nl2br(e($card['desc'])) !!}</p>
+                            </div>
+                            <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center">
+                                <span class="flex items-center gap-2 bg-white/25 backdrop-blur-sm text-white text-xs md:text-sm font-medium pl-4 pr-1.5 py-1.5 rounded-full group-hover:bg-white/40 transition-colors">
+                                    mais
+                                    <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/30 flex items-center justify-center">
+                                        <svg class="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <!-- More button bottom center -->
-                    <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center">
-                        <span class="flex items-center gap-2 bg-white/25 backdrop-blur-sm text-white text-xs md:text-sm font-medium pl-4 pr-1.5 py-1.5 rounded-full group-hover:bg-white/40 transition-colors">
-                            mais
-                            <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/30 flex items-center justify-center">
-                                <svg class="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                            </span>
-                        </span>
+                    {{-- Telemóvel: corpo do card (fundo igual aos modais, tamanho uniforme) --}}
+                    <div class="md:hidden bg-[#F6F7F8] p-5 min-h-[172px] flex flex-col">
+                        <h3 class="text-lg font-semibold text-black mb-2">{{ $card['title'] }}</h3>
+                        <p class="text-sm font-light text-gray-500 leading-relaxed">{!! nl2br(e($card['desc'])) !!}</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-medium text-black mt-auto pt-4">mais <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                     <!-- Hidden detail content for modal -->
                     <div class="card-detail hidden">
@@ -388,15 +425,17 @@
                         <p class="text-xs md:text-sm font-light text-gray-400 px-6 md:px-10 py-6">* As imagens são meramente ilustrativas, podendo o veículo efetivamente entregue diferir.</p>
                     </div>
                 </div>
+                </div>
                 @endforeach
             </div>
+            <div id="terrain-dots" class="flex md:hidden justify-center items-center gap-1.5 mt-6"></div>
         </div>
     </section>
 
     <!-- Versatile for Every Occasion Section -->
     <section class="bg-white">
         <!-- Wide lifestyle image with overlay heading -->
-        <div class="relative w-full aspect-[16/8] md:aspect-[16/7] overflow-hidden">
+        <div class="relative w-full h-[78svh] md:h-auto md:aspect-[16/7] overflow-hidden">
             <img src="{{ asset('assets/banner1_g.jfif') }}" alt="Versatilidade para Cada Ocasião" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             <div class="absolute bottom-8 md:bottom-14 left-0 right-0">
@@ -415,8 +454,8 @@
                     'img' => 'banner3_global.jfif',
                     'blocks' => [
                         ['img' => 'comfort.jfif', 
-                        'heading' => 'Seleção de materiais de luxo para os bancos', 
-                        'desc' => 'Os bancos são estofados em couro Nappa de grão integral de alta qualidade, proporcionando uma sensação de elegância suave e requintada. Complementados por acabamentos em madeira de freixo branco com texturas naturais, conferem um toque de frescura e requinte à experiência de viagem.'],
+                        'heading' => 'Selecção Exclusiva de Materiais para os Assentos', 
+                        'desc' => 'Os assentos são revestidos em couro Nappa integral de primeiríssima linha, proporcionando um toque suave, delicado e de extrema elegância. O acabamento é harmonizado por detalhes em madeira de Freixo Branco de texturas naturais, conferindo uma atmosfera de leveza e sofisticação a cada jornada.'],
 
                         ['img' => 'comfort2.avif', 
                         'heading' => 'Assentos com função de massagem', 
@@ -430,7 +469,7 @@
                          
                         ['img' => 'comfort4.avif', 
                         'heading' => 'Bancos aquecidos', 
-                        'desc' => 'O sistema de aquecimento dos bancos de 3 níveis mantém-no quente e confortável nas viagens de carro durante o inverno frio.'
+                        'desc' => 'O sistema de aquecimento dos bancos de 3 níveis mantém-no quente e confortável nas viagens de carro quando o clima está frio.'
                         ],
 
                         ['img' => 'comfort5.avif', 
@@ -444,7 +483,7 @@
                     'title' => 'Espaço Amplo', 'desc' => 'Experimente liberdade sem limites e conforto absoluto no interior.', 'img' => 'banner4_global.jfif',
                     'blocks' => [
                         ['img' => 'expansive.jfif', 
-                        'heading' => 'Uma ampla área total de janelas de 6,54 metros quadrados', 
+                        'heading' => 'Ambiente Iluminado com 6,54 m² de Área Envidraçada', 
                         'desc' => 'Desfrute de vistas infinitas que transformam cada viagem de carro numa viagem visual.'
                         ],
 
@@ -464,8 +503,8 @@
                         ],
 
                         ['img' => 'expansive4.avif',
-                         'heading' => 'Um corredor central extra-largo na 2.ª fila', 
-                         'desc' => 'The spacious and convenient aisle makes boarding and exiting effortless, ideal for family trips.
+                         'heading' => 'Amplo Corredor Central na Segunda Fileira', 
+                         'desc' => 'Um acesso espaçoso e conveniente que torna a entrada e a saída do veículo um gesto simples e sem esforço — ideal para viagens em família.
 
                         * As especificações e os dados aplicam-se apenas à versão de 7 lugares.'
                         ],
@@ -481,7 +520,7 @@
 
                          ['img' => 'expansive6.avif',
                          'heading' => 'Porta-bagagens de grande capacidade', 
-                         'desc' => '- Capacidade total: Cabe facilmente uma bagagem de porão de 28 polegadas, duas bagagens de mão de 20 polegadas e várias malas de viagem.
+                         'desc' => '- Capacidade total: Cabe facilmente uma bagagem de porão de 71cm , duas bagagens de mão de 52cm e vários sacos de viagem.
                         - 3.ª fila rebatida: Aumenta a profundidade da bagageira para 1,2 metros, oferecendo espaço amplo para o equipamento de campismo de toda a família.
                         - 2.ª e 3.ª filas rebatidas: Aumenta a profundidade da bagageira para 2,07 metros, acomodando facilmente todo o seu equipamento de atividades ao ar livre.
                         
@@ -501,8 +540,8 @@
 
                         [
                         
-                        'img' => 'versatility2.jfif', 
-                        'heading' => 'Fortaleza da Energia', 
+                        'img' => 'versatility2.png', 
+                        'heading' => 'Fortaleza de Energia', 
                         'desc' => '- Com uma bateria de grande capacidade de 56 kWh, um depósito de combustível de grande capacidade com 70 litros e 10 kW de geração de energia no local, desfrutará de total liberdade para alimentar as suas aventuras.
                         - As duas portas de saída V2L de 2,2 kW podem funcionar em simultâneo, fornecendo um total de 4,4 kW de potência.
                         
@@ -513,7 +552,7 @@
                         [
                         
                         'img' => 'versatility3.avif', 
-                        'heading' => 'Bar de cozinha para festas no parque de estacionamento', 
+                        'heading' => 'Kit de Cozinha Integrado no Porta-Malas', 
                         'desc' => '- Dispensador de água quente instantânea (aquece em 3 segundos): Escolha entre água à temperatura ambiente, morna ou a ferver.
                         - Bancada iluminada: Compatível com fogões de indução, fritadeiras sem óleo e outros eletrodomésticos, proporcionando uma cozinha flexível para preparar refeições deliciosas a qualquer hora.
                         
@@ -523,12 +562,12 @@
                          [
                         
                         'img' => 'versatility4.jfif', 
-                        'heading' => 'Toldo para carro em forma de L de montagem rápida', 
-                        'desc' => '- Este toldo para automóvel de 270° pode ser aberto ou recolhido por uma única pessoa em apenas 5 minutos.
+                        'heading' => 'Toldo em forma de L de montagem rápida', 
+                        'desc' => '- Este toldo de 270° pode ser aberto ou recolhido por uma única pessoa em apenas 5 minutos.
                         - O toldo de 13 metros quadrados acomoda confortavelmente entre 6 e 7 pessoas.
                         - Tecido com revestimento prateado que protege do sol, capaz de resistir a ventos de nível 7.
                        
-                       *Disponível para compra através de revendedores locais.'
+                       *Disponível para compra no distribuidor oficial.'
                         ],
 
                         [
@@ -549,7 +588,7 @@
                     'blocks' => [
                         ['img' => 'cockpit.avif',
                         'video' => 'cockpit.mp4',
-                        'heading' => 'Interação no cockpit inteligente com quatro ecrãs', 
+                        'heading' => 'Ecossistema Digital Imersivo em Quatro Telas', 
                         'desc' => '- Ecrã de controlo central ultra-nítido de 15,7 polegadas com resolução 3K, painel de instrumentos de alta definição de 12,3 polegadas e ecrã HD de 15,6 polegadas para os passageiros da segunda fila.
                         - Espelho retrovisor com ecrã de 9 polegadas e transmissão em direto, com alternância entre dois modos de visualização.
                         - Equipado com o processador automóvel Qualcomm Snapdragon 8155, que permite uma integração perfeita entre vários ecrãs de alta definição.'
@@ -562,7 +601,7 @@
                         'desc' => '- Ligue o seu smartphone ao seu veículo de forma integrada para desfrutar de uma navegação precisa, entretenimento envolvente e comunicação prática — tudo ao alcance dos seus dedos.
                         - Transforme cada viagem numa combinação perfeita de tecnologia inteligente e conforto máximo.
                         
-                        *A interface efetiva pode variar consoante o estado do veículo entregue.'
+                        A interface pode variar de acordo com veículo.'
                         
                         ],
 
@@ -581,29 +620,41 @@
         @endphp
 
         <div class="py-6 md:py-10 overflow-hidden">
-            <div class="flex px-4 md:px-6" id="vers-track">
+            <div class="flex px-0 md:px-6" id="vers-track">
                 @foreach($versatileCards as $card)
-                <div class="vers-slide flex-shrink-0 px-2 md:px-3">
-                    <div class="card-more relative aspect-[16/11] overflow-hidden group md:cursor-none" data-title="{{ $card['title'] }}" data-subtitle="{{ $card['desc'] }}">
-                        @if(!empty($card['video']))
-                        <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" @if(!empty($card['img'])) poster="{{ asset('assets/' . $card['img']) }}" @endif autoplay muted loop playsinline>
-                            <source src="{{ asset('assets/' . $card['video']) }}" type="video/mp4">
-                        </video>
-                        @else
-                        <img src="{{ asset('assets/' . $card['img']) }}" alt="{{ $card['title'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        @endif
-                        <div class="absolute inset-0 bg-black/10"></div>
-                        <div class="absolute top-8 md:top-12 left-0 right-0 px-6 text-center text-white">
-                            <h3 class="text-2xl md:text-3xl font-medium mb-2 drop-shadow">{{ $card['title'] }}</h3>
-                            <p class="text-sm md:text-base font-light text-white/90 drop-shadow max-w-md mx-auto">{!! nl2br(e($card['desc'])) !!}</p>
+                <div class="vers-slide flex-shrink-0 px-4 md:px-3">
+                    <div class="card-more group cursor-pointer md:cursor-none relative" data-title="{{ $card['title'] }}" data-subtitle="{{ $card['desc'] }}">
+                        <div class="relative aspect-[16/10] md:aspect-[4/3] overflow-hidden">
+                            @if(!empty($card['video']))
+                            <video class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700" @if(!empty($card['img'])) poster="{{ asset('assets/' . $card['img']) }}" @endif autoplay muted loop playsinline>
+                                <source src="{{ asset('assets/' . $card['video']) }}" type="video/mp4">
+                            </video>
+                            @else
+                            <img src="{{ asset('assets/' . $card['img']) }}" alt="{{ $card['title'] }}" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                            @endif
+                            {{-- Desktop: overlay + título + descrição + botão --}}
+                            <div class="hidden md:block">
+                                <div class="absolute inset-0 bg-black/10"></div>
+                                <div class="absolute inset-x-0 top-0 h-1/2 pointer-events-none" style="background: radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 42%, transparent 72%);"></div>
+                                <div class="absolute top-8 md:top-12 left-0 right-0 px-6 text-center text-white">
+                                    <h3 class="text-2xl md:text-3xl font-medium mb-2 drop-shadow">{{ $card['title'] }}</h3>
+                                    <p class="text-sm md:text-base font-light text-white/90 drop-shadow max-w-md mx-auto">{!! nl2br(e($card['desc'])) !!}</p>
+                                </div>
+                                <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center">
+                                    <span class="flex items-center gap-2 bg-white/25 backdrop-blur-sm text-white text-xs md:text-sm font-medium pl-4 pr-1.5 py-1.5 rounded-full group-hover:bg-white/40 transition-colors">
+                                        mais
+                                        <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/30 flex items-center justify-center">
+                                            <svg class="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center">
-                            <span class="flex items-center gap-2 bg-white/25 backdrop-blur-sm text-white text-xs md:text-sm font-medium pl-4 pr-1.5 py-1.5 rounded-full group-hover:bg-white/40 transition-colors">
-                                mais
-                                <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/30 flex items-center justify-center">
-                                    <svg class="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                                </span>
-                            </span>
+                        {{-- Telemóvel: corpo do card (fundo igual aos modais, tamanho uniforme) --}}
+                        <div class="md:hidden bg-[#F6F7F8] p-5 min-h-[172px] flex flex-col">
+                            <h3 class="text-lg font-semibold text-black mb-2">{{ $card['title'] }}</h3>
+                            <p class="text-sm font-light text-gray-500 leading-relaxed">{!! nl2br(e($card['desc'])) !!}</p>
+                            <span class="inline-flex items-center gap-2 text-sm font-medium text-black mt-auto pt-4">mais <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                         </div>
                         <!-- Hidden detail content for modal -->
                         <div class="card-detail hidden">
@@ -631,8 +682,11 @@
                 @endforeach
             </div>
 
-            <!-- Arrows -->
-            <div class="flex justify-center items-center gap-4 mt-6 md:mt-8">
+            <!-- Dots (telemóvel) -->
+            <div id="vers-dots" class="flex md:hidden justify-center items-center gap-1.5 mt-6"></div>
+
+            <!-- Arrows (desktop) -->
+            <div class="hidden md:flex justify-center items-center gap-4 mt-6 md:mt-8">
                 <button id="vers-prev" class="w-11 h-11 md:w-12 md:h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:border-black hover:text-black transition-colors cursor-pointer" aria-label="Anterior">
                     <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
                 </button>
@@ -690,17 +744,19 @@
     <div id="card-modal" class="fixed inset-0 z-[200] hidden">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
         <div class="relative h-full flex items-start md:items-center justify-center p-3 md:p-6">
-            <div id="card-modal-dialog" class="relative bg-white w-full max-w-[760px] max-h-[88vh] md:max-h-[85vh] overflow-y-auto shadow-2xl">
-                <div class="sticky top-0 z-10 flex justify-end pt-3 pr-3 md:pt-4 md:pr-4 pointer-events-none">
-                    <button id="card-modal-close" class="pointer-events-auto text-gray-700 hover:text-black transition-colors cursor-pointer">
-                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                    </button>
-                </div>
-                <div class="px-4 md:px-7 pb-6 md:pb-8 -mt-3 md:-mt-4">
-                    <div class="text-center mb-5 md:mb-7">
-                        <h2 id="card-modal-title" class="text-xl md:text-3xl font-medium text-[#191919] mb-2"></h2>
-                        <p id="card-modal-subtitle" class="text-sm font-light text-gray-500 max-w-xl mx-auto"></p>
+            <div id="card-modal-dialog" class="relative bg-white w-full max-w-[1120px] max-h-[88vh] md:max-h-[85vh] overflow-y-auto shadow-2xl">
+                <!-- Barra fixa (título + subtítulo) -->
+                <div class="sticky top-0 z-10 bg-white border-b border-gray-200">
+                    <div class="relative px-12 md:px-16 py-4 md:py-5 text-center">
+                        <h2 id="card-modal-title" class="text-lg md:text-2xl font-medium text-[#191919] leading-snug"></h2>
+                        <p id="card-modal-subtitle" class="text-xs md:text-sm font-light text-gray-500 mt-1"></p>
+                        <button id="card-modal-close" class="absolute top-1/2 -translate-y-1/2 right-4 md:right-6 text-gray-500 hover:text-black transition-colors cursor-pointer">
+                            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
                     </div>
+                </div>
+                <!-- Corpo (scroll) -->
+                <div class="px-4 md:px-7 py-6 md:py-8">
                     <div id="card-modal-body" class="space-y-6 md:space-y-8"></div>
                 </div>
             </div>
@@ -708,7 +764,7 @@
     </div>
 
     <!-- Custom "mais" cursor -->
-    <div id="more-cursor" class="fixed z-[150] pointer-events-none opacity-0 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/40 backdrop-blur-md border border-white/40 flex items-center justify-center text-white text-sm font-medium tracking-wide shadow-lg transition-opacity duration-200">mais</div>
+    <div id="more-cursor" class="fixed z-[150] pointer-events-none opacity-0 -translate-x-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/40 flex items-center justify-center text-white text-xs font-medium tracking-wide shadow-lg transition-opacity duration-200">mais</div>
 
     <!-- Page Scripts -->
     <script>
@@ -732,6 +788,32 @@
         var domIndex = 1; // first real slide
         var isAnimating = false;
 
+        // Dots (telemóvel)
+        var dotsWrap = document.getElementById('hl-dots');
+        var dots = [];
+        if (dotsWrap) {
+            for (var d = 0; d < realCount; d++) {
+                (function (rk) {
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.setAttribute('aria-label', 'Ir para ' + (rk + 1));
+                    b.className = 'transition-all duration-300 cursor-pointer';
+                    b.style.height = '2px';
+                    b.addEventListener('click', function () { if (!isAnimating) { isAnimating = true; goTo(rk + 1); } });
+                    dotsWrap.appendChild(b);
+                    dots.push(b);
+                })(d);
+            }
+        }
+        function updateDots() {
+            var realIndex = (domIndex - 1 + realCount) % realCount;
+            dots.forEach(function (b, k) {
+                var active = k === realIndex;
+                b.style.width = active ? '28px' : '20px';
+                b.style.background = active ? '#111111' : '#d1d5db';
+            });
+        }
+
         function slideWidth() {
             var vw = window.innerWidth;
             return vw < 768 ? vw * 0.86 : vw * 0.66;
@@ -739,6 +821,7 @@
 
         function updateActive() {
             slides.forEach(function (s, i) { s.style.opacity = (i === domIndex) ? '1' : '0.4'; });
+            updateDots();
         }
 
         function goTo(idx) {
@@ -750,9 +833,20 @@
             updateActive();
         }
 
+        // Igualar a altura dos corpos (mesma altura independentemente do conteúdo)
+        var bodies = Array.prototype.slice.call(track.querySelectorAll('.hl-body'));
+        function equalizeBodies() {
+            bodies.forEach(function (b) { b.style.height = ''; });
+            if (window.innerWidth >= 768) return;
+            var max = 0;
+            bodies.forEach(function (b) { max = Math.max(max, b.offsetHeight); });
+            bodies.forEach(function (b) { b.style.height = max + 'px'; });
+        }
+
         function layout() {
             var w = slideWidth();
             slides.forEach(function (s) { s.style.width = w + 'px'; s.style.marginRight = GAP + 'px'; });
+            equalizeBodies();
             track.style.transition = 'none';
             goTo(domIndex);
             void track.offsetWidth;
@@ -805,7 +899,30 @@
         if (!slides.length) return;
         var idx = 0;
 
-        function slideW() { var vw = window.innerWidth; return vw < 768 ? vw * 0.86 : vw * 0.46; }
+        // Dots de paginação (telemóvel)
+        var dotsWrap = document.getElementById('vers-dots');
+        var dots = [];
+        if (dotsWrap) {
+            slides.forEach(function (s, k) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.setAttribute('aria-label', 'Ir para ' + (k + 1));
+                b.className = 'transition-all duration-300 cursor-pointer';
+                b.style.height = '2px';
+                b.addEventListener('click', function () { go(k); });
+                dotsWrap.appendChild(b);
+                dots.push(b);
+            });
+        }
+        function updateDots() {
+            dots.forEach(function (b, k) {
+                var active = k === idx;
+                b.style.width = active ? '28px' : '20px';
+                b.style.background = active ? '#111111' : '#d1d5db';
+            });
+        }
+
+        function slideW() { var vw = window.innerWidth; return vw < 768 ? vw : vw * 0.46; }
         function maxIndex() { var vis = Math.max(1, Math.floor(window.innerWidth / slideW())); return Math.max(0, slides.length - vis); }
 
         function go(i) {
@@ -813,6 +930,7 @@
             track.style.transform = 'translateX(' + (-idx * slideW()) + 'px)';
             if (prevBtn) prevBtn.style.opacity = idx === 0 ? '0.4' : '1';
             if (nextBtn) nextBtn.style.opacity = idx >= maxIndex() ? '0.4' : '1';
+            updateDots();
         }
         function layout() {
             slides.forEach(function (s) { s.style.width = slideW() + 'px'; });
@@ -831,6 +949,64 @@
         track.addEventListener('touchend', function () {
             if (vdx > 50) go(idx - 1); else if (vdx < -50) go(idx + 1);
             vdx = 0;
+        });
+    })();
+
+    // Terrain cards slider (telemóvel; grelha 2-cols no desktop)
+    (function () {
+        var track = document.getElementById('terrain-track');
+        if (!track) return;
+        var slides = Array.prototype.slice.call(track.querySelectorAll('.terrain-slide'));
+        if (!slides.length) return;
+        var dotsWrap = document.getElementById('terrain-dots');
+        var idx = 0, dots = [];
+
+        function isMobile() { return window.innerWidth < 768; }
+
+        if (dotsWrap) {
+            slides.forEach(function (s, k) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.setAttribute('aria-label', 'Ir para ' + (k + 1));
+                b.className = 'transition-all duration-300 cursor-pointer';
+                b.style.height = '2px';
+                b.addEventListener('click', function () { go(k); });
+                dotsWrap.appendChild(b);
+                dots.push(b);
+            });
+        }
+        function updateDots() {
+            dots.forEach(function (b, k) {
+                var active = k === idx;
+                b.style.width = active ? '28px' : '20px';
+                b.style.background = active ? '#111111' : '#d1d5db';
+            });
+        }
+        function go(i) {
+            idx = Math.max(0, Math.min(i, slides.length - 1));
+            if (isMobile()) { track.style.transform = 'translateX(' + (-idx * track.clientWidth) + 'px)'; }
+            updateDots();
+        }
+        function layout() {
+            if (isMobile()) {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                slides.forEach(function (s) { s.style.width = track.clientWidth + 'px'; });
+                go(idx);
+            } else {
+                track.style.transform = '';
+                slides.forEach(function (s) { s.style.width = ''; });
+            }
+        }
+        layout();
+        window.addEventListener('resize', layout);
+
+        var tsx = 0, tdx = 0;
+        track.addEventListener('touchstart', function (e) { tsx = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchmove', function (e) { tdx = e.touches[0].clientX - tsx; }, { passive: true });
+        track.addEventListener('touchend', function () {
+            if (!isMobile()) return;
+            if (tdx > 50) go(idx - 1); else if (tdx < -50) go(idx + 1);
+            tdx = 0;
         });
     })();
 

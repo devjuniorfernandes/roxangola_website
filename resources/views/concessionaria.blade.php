@@ -16,7 +16,8 @@
     <!-- Octa Angola Section (mesmo layout da homepage) -->
     <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
         <div class="content-container animate-up">
-            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Angola</h3>
+            <img src="{{ asset('assets/Logo Octamobil.png') }}" alt="Octamobil" class="h-12 md:h-16 w-auto mb-6 md:mb-8">
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6"></h3>
             <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('concessionaria.octa.subtitle') }}</h4>
             <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">{{ __('concessionaria.octa.text') }}</p>
         </div>
@@ -33,13 +34,13 @@
 
             @php
                 $servicos = [
-                    ['img' => 'banner-adamas.avif', 'title' => __('concessionaria.services.s1_title'), 'desc' => __('concessionaria.services.s1_desc')],
-                    ['img' => 'banner2.jpg', 'title' => __('concessionaria.services.s2_title'), 'desc' => __('concessionaria.services.s2_desc')],
-                    ['img' => 'rox01.jpg', 'title' => __('concessionaria.services.s3_title'), 'desc' => __('concessionaria.services.s3_desc')],
+                    ['img' => 'show.jpeg', 'title' => __('concessionaria.services.s1_title'), 'desc' => __('concessionaria.services.s1_desc')],
+                    ['img' => 'keji.jpg', 'title' => __('concessionaria.services.s2_title'), 'desc' => __('concessionaria.services.s2_desc')],
+                    ['img' => 'area-comercial.png', 'title' => __('concessionaria.services.s3_title'), 'desc' => __('concessionaria.services.s3_desc')],
                     ['img' => 'services.jpg', 'title' => __('concessionaria.services.s4_title'), 'desc' => __('concessionaria.services.s4_desc')],
-                    ['img' => 'banner1.jpg', 'title' => __('concessionaria.services.s5_title'), 'desc' => __('concessionaria.services.s5_desc')],
-                    ['img' => 'life.jpg', 'title' => __('concessionaria.services.s6_title'), 'desc' => __('concessionaria.services.s6_desc')],
-                    ['img' => 'keji.jpg', 'title' => __('concessionaria.services.s7_title'), 'desc' => __('concessionaria.services.s7_desc')],
+                    ['img' => 'revisao.avif', 'title' => __('concessionaria.services.s5_title'), 'desc' => __('concessionaria.services.s5_desc')],
+                    ['img' => 'warranty.avif', 'title' => __('concessionaria.services.s6_title'), 'desc' => __('concessionaria.services.s6_desc')],
+                    ['img' => 'apoio.avif', 'title' => __('concessionaria.services.s7_title'), 'desc' => __('concessionaria.services.s7_desc')],
                 ];
             @endphp
 

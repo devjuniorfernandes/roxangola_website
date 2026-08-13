@@ -20,7 +20,7 @@ return [
         's1_title' => 'Vehicle Sales',
         's1_desc' => 'We are the official ROX Motor distributor in Angola. We offer models that combine technology, performance, safety and innovation for different mobility needs.',
         's2_title' => 'Test Drive',
-        's2_desc' => 'Try the ROX models before making your decision. Book a Test Drive session and discover the performance, comfort and technology that set each vehicle apart.',
+        's2_desc' => 'Experience driving a ROX. Book a Test Drive session and discover the performance, comfort and technology that set each vehicle apart.',
         's3_title' => 'Commercial Consulting',
         's3_desc' => 'Our sales team provides personalised advice to help each customer choose the model, version and equipment that best suit their personal or business needs.',
         's4_title' => 'After-Sales Service',
