@@ -54,7 +54,7 @@ class PageSeoSeeder extends Seeder
                 'description_pt' => 'Conheça a OCTA Angola, representante oficial da ROX em Angola. Descubra os nossos serviços, showroom e apoio especializado.',
                 'description_en' => 'Meet OCTA Angola, the official ROX representative in Angola. Discover our services, showroom and specialised support.',
                 'h1_pt' => 'Representante Oficial ROX em Angola', 'h1_en' => 'Official ROX Representative in Angola',
-                'keywords' => 'Representante Oficial ROX Angola, OCTA Angola, Concessionário ROX Angola',
+                'keywords' => 'Representante Oficial ROX Angola, OCTA Angola, Distribuidor ROX Angola',
             ],
             [
                 'page_key' => 'showroom', 'label' => 'Showroom',

@@ -1,33 +1,28 @@
-<a href="{{ route('dashboard') }}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('dashboard') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
-    <svg class="flex-shrink-0 -ml-1 mr-3 h-5 w-5 {{ request()->routeIs('dashboard') ? 'text-white' : 'text-gray-400 group-hover:text-gray-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-    <span class="truncate">Dashboard</span>
+<a href="{{ route('dashboard') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('dashboard') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
+    <svg class="-ml-1 mr-3 h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2 7-7 7 7 2 2m-4-2v10a1 1 0 01-1 1H8a1 1 0 01-1-1V10" /></svg>
+    <span>Dashboard</span>
 </a>
 
-<div class="pt-6 pb-2">
-    <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Conteúdos</p>
-</div>
+<div class="pb-2 pt-6"><p class="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Conteúdo</p></div>
 
-<a href="{{ route('admin.pages.index') }}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('admin.pages.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
-    <svg class="flex-shrink-0 -ml-1 mr-3 h-5 w-5 {{ request()->routeIs('admin.pages.*') ? 'text-white' : 'text-gray-400 group-hover:text-gray-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5L18.5 7H20"></path></svg>
-    <span class="truncate">Páginas</span>
+<a href="{{ route('admin.cms.edit') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.cms.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
+    <svg class="-ml-1 mr-3 h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6m14 0a8 8 0 11-16 0 8 8 0 0116 0z" /></svg>
+    <span>CMS — Páginas</span>
 </a>
-
-<a href="{{ route('admin.vehicles.index') }}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('admin.vehicles.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
-    <svg class="flex-shrink-0 -ml-1 mr-3 h-5 w-5 {{ request()->routeIs('admin.vehicles.*') ? 'text-white' : 'text-gray-400 group-hover:text-gray-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-    <span class="truncate">Veículos</span>
+<a href="{{ route('admin.vehicles.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.vehicles.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
+    <svg class="-ml-1 mr-3 h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 17h16M7 7l2-3m6 3-2-3M7 17l2 3m6-3-2 3" /></svg>
+    <span>Veículos</span>
 </a>
+<a href="{{ route('admin.highlights.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.highlights.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Destaques</span></a>
+<a href="{{ route('admin.gallery-images.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.gallery-images.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Galeria</span></a>
+<a href="{{ route('admin.milestones.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.milestones.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Marcos</span></a>
+<a href="{{ route('admin.services.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.services.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Serviços</span></a>
 
-<div class="pt-6 pb-2">
-    <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Interações</p>
-</div>
+<div class="pb-2 pt-6"><p class="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Operação</p></div>
 
-<a href="{{ route('admin.contacts.index') }}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors {{ request()->routeIs('admin.contacts.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}">
-    <svg class="flex-shrink-0 -ml-1 mr-3 h-5 w-5 {{ request()->routeIs('admin.contacts.*') ? 'text-white' : 'text-gray-400 group-hover:text-gray-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-    <span class="truncate">Contactos</span>
-    @php
-        $unreadContactsCount = \App\Models\Contact::where('is_read', false)->count() ?? 0;
-    @endphp
-    @if($unreadContactsCount > 0)
-        <span class="ml-auto bg-white text-black py-0.5 px-2 rounded-full text-xs font-bold">{{ $unreadContactsCount }}</span>
-    @endif
-</a>
+<a href="{{ route('admin.contacts.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.contacts.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Contactos</span></a>
+<a href="{{ route('admin.showroom-visits.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.showroom-visits.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Visitas ao Showroom</span></a>
+<a href="{{ route('admin.service-bookings.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.service-bookings.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Marcações de Serviço</span></a>
+<a href="{{ route('admin.dealer-applications.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.dealer-applications.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Candidaturas de Revendedor</span></a>
+<a href="{{ route('admin.info-requests.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.info-requests.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Pedidos de Informação</span></a>
+<a href="{{ route('admin.leads.index') }}" class="group flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors {{ request()->routeIs('admin.leads.*') ? 'bg-black text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white' }}"><span class="ml-8">Leads</span></a>

@@ -59,7 +59,7 @@
                     [
                         'img'    => 'adamasslider6.avif',
                         'title'  => 'Fortaleza Móvel, Protecção Extrema',
-                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Moldado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência do esmagamento Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tecto: 159.730 N] A maior nos testes C-IASI até setembro de 2025</p>',
+                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Moldado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência do esmagamento Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tejadilho: 159.730 N] A maior nos testes C-IASI até setembro de 2025</p>',
                     ],
                    
                 ];
@@ -90,6 +90,14 @@
                 </div>
                 @endforeach
             </div>
+
+            <!-- Desktop navigation: mobile uses horizontal swipe instead. -->
+            <button type="button" id="adamas-specs-prev" aria-label="Slide anterior" class="adamas-spec-arrow absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full text-white transition-all duration-300 md:flex lg:h-14 lg:w-14" style="background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7-7m-7 7l7 7" /></svg>
+            </button>
+            <button type="button" id="adamas-specs-next" aria-label="Slide seguinte" class="adamas-spec-arrow absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full text-white transition-all duration-300 md:flex lg:h-14 lg:w-14" style="background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-7-7m7 7l-7 7" /></svg>
+            </button>
 
             <!-- Pagination dots -->
             <div class="flex justify-center gap-2 mt-10" id="adamas-specs-dots">
@@ -900,7 +908,7 @@
                             <p class="text-sm md:text-base text-gray-600 leading-relaxed">{{ $en ? 'Maximum legroom: 1,100mm in the first row, 1,180mm in the second row, and 995mm in the third row.' : 'Espaço máximo para as pernas: 1.100 mm na primeira fila, 1.180 mm na segunda fila e 995 mm na terceira fila.' }}</p>
                             <br>
                             <br>
-                            <p class="text-xs md:text-sm text-gray-400 leading-relaxed mb-5 md:mb-6">{!! $en ? '*First-Class 6-Seater: Data shown.<br>Couch 7-Seater: Second row 1,110mm, third row 890mm.' : '*Versão de 6 lugares «First-Class»: dados apresentados.<br>*Versão de 7 lugares com banco tipo sofá: segunda fila 1.110 mm, terceira fila 890 mm.' !!}</p>
+                            <p class="text-xs md:text-sm text-gray-400 leading-relaxed mb-5 md:mb-6">{!! $en ? '*First-Class 6-Seater: Data shown.<br>Couch 7-Seater: Second row 1,110mm, third row 890mm.' : 'Imagem: *Versão de 6 lugares «First-Class»<br>*Versão de 7 lugares com banco tipo sofá: segunda fila 1.110 mm, terceira fila 890 mm.' !!}</p>
                         </div>
                     </div>
                     <div class="aspect-video md:aspect-auto order-1 md:order-2"><img src="{{ asset('assets/legroom.avif') }}" alt="{{ $en ? 'Legroom' : 'Espaço para as pernas' }}" class="w-full h-full object-cover"></div>
@@ -971,7 +979,7 @@
                 <p>*O sistema de assistência ao condutor é apenas uma função auxiliar e não consegue lidar com todas as condições de trânsito, meteorológicas ou rodoviárias. O condutor deve monitorizar sempre o veículo e manter o controlo ativo do mesmo. Utilize-o com precaução em condições meteorológicas ou rodoviárias complexas.</p>
                 <p>*Esta página destina-se a ser utilizada nos mercados do Médio Oriente.</p>
                 <p>*Algumas funcionalidades poderão ser introduzidas através de futuras atualizações OTA ou atualizações pós-venda. Os detalhes do produto podem ter sofrido alterações desde a data de publicação e estão sujeitos a modificações sem aviso prévio.</p>
-                <p>*As características e especificações aqui descritas são fornecidas apenas a título ilustrativo e podem variar consoante o país ou a região onde o veículo é comercializado. Certos equipamentos, configurações ou detalhes técnicos podem não estar disponíveis nos mercados do Médio Oriente, ou podem ser oferecidos apenas como equipamento opcional. Para obter as informações mais precisas e atualizadas sobre a disponibilidade dos modelos e os pacotes opcionais, contacte o seu concessionário ou importador autorizado da ROX.</p>
+                <p>*As características e especificações aqui descritas são fornecidas apenas a título ilustrativo e podem variar consoante o país ou a região onde o veículo é comercializado. Certos equipamentos, configurações ou detalhes técnicos podem não estar disponíveis nos mercados do Médio Oriente, ou podem ser oferecidos apenas como equipamento opcional. Para obter as informações mais precisas e atualizadas sobre a disponibilidade dos modelos e os pacotes opcionais, contacte o seu distribuidor ou importador autorizado da ROX.</p>
                 <p>*A ROX não garante que as informações contidas nesta brochura — incluindo imagens, descrições e funções apresentadas — sejam atuais, precisas ou completas.</p>
                 <p>*Sujeito às leis e regulamentos aplicáveis, a ROX reserva-se o direito de modificar, atualizar ou rever o conteúdo deste folheto a qualquer momento, sem aviso prévio.</p>
 

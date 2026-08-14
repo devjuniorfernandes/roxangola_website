@@ -139,6 +139,11 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
+    Route::get('/showroom-visits', [\App\Http\Controllers\Admin\SubmissionController::class, 'showroomVisits'])->name('showroom-visits.index');
+    Route::get('/service-bookings', [\App\Http\Controllers\Admin\SubmissionController::class, 'serviceBookings'])->name('service-bookings.index');
+    Route::get('/dealer-applications', [\App\Http\Controllers\Admin\SubmissionController::class, 'dealerApplications'])->name('dealer-applications.index');
+    Route::get('/info-requests', [\App\Http\Controllers\Admin\SubmissionController::class, 'infoRequests'])->name('info-requests.index');
+    Route::get('/leads', [\App\Http\Controllers\Admin\SubmissionController::class, 'leads'])->name('leads.index');
     
     // Pages / Site Sections
     Route::get('/pages', [\App\Http\Controllers\SiteSectionController::class, 'index'])->name('pages.index');

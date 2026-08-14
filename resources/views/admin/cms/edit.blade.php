@@ -17,17 +17,32 @@
         Deixar um campo igual ao original mantém o texto por defeito. Guardar aplica de imediato no site.
     </p>
 
+    <div x-data="{ tab: '{{ array_key_first($pages) }}' }">
+    <div class="mb-6 flex flex-wrap gap-1 border-b border-gray-200">
+        @foreach($pages as $file => $rows)
+            <button type="button" @click="tab = '{{ $file }}'" class="border-b-2 px-3 py-3 text-sm font-medium transition-colors" :class="tab === '{{ $file }}' ? 'border-black text-black' : 'border-transparent text-gray-500 hover:text-black'">
+                {{ $tabLabels[$file] ?? \Illuminate\Support\Str::headline($file) }}
+            </button>
+        @endforeach
+        <button type="button" @click="tab = 'media'" class="border-b-2 px-3 py-3 text-sm font-medium transition-colors" :class="tab === 'media' ? 'border-black text-black' : 'border-transparent text-gray-500 hover:text-black'">Imagens</button>
+    </div>
+
+    <div class="mb-6 max-w-xl">
+        <label for="cms-filter" class="mb-1 block text-xs font-medium uppercase tracking-wide text-gray-500">Pesquisar conteúdo</label>
+        <input id="cms-filter" type="search" placeholder="Página, secção, cartão, modal ou texto…" class="w-full rounded border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-black focus:ring-black">
+    </div>
+
     <form action="{{ route('admin.cms.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         {{-- ---------- IMAGENS ---------- --}}
         @foreach($imageGroups as $groupKey => $group)
-            <details class="mb-4 bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden" open>
+            <details x-show="tab === 'media'" x-cloak data-cms-group class="mb-4 bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden">
                 <summary class="bg-gray-50 border-b border-gray-100 px-6 py-4 cursor-pointer font-medium text-black">
                     Imagens — {{ $group['label'] }}
                 </summary>
-                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <fieldset :disabled="tab !== 'media'" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     @foreach($group['slots'] as $slotKey => $slot)
                         @php $current = $imageOverrides[$slotKey] ?? $slot['default']; @endphp
                         <div class="border border-gray-100 rounded-sm p-4">
@@ -41,18 +56,18 @@
                             @endif
                         </div>
                     @endforeach
-                </div>
+                </fieldset>
             </details>
         @endforeach
 
         {{-- ---------- TEXTO ---------- --}}
         @foreach($pages as $file => $rows)
-            <details class="mb-4 bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden" {{ $loop->first ? 'open' : '' }}>
+            <details x-show="tab === '{{ $file }}'" x-cloak data-cms-group class="mb-4 bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden" {{ $loop->first ? 'open' : '' }}>
                 <summary class="bg-gray-50 border-b border-gray-100 px-6 py-4 cursor-pointer font-medium text-black capitalize flex items-center gap-2 select-none hover:bg-gray-100 transition-colors">
                     <span class="text-gray-400 text-xs">▶</span>
                     Texto — {{ $file }} <span class="text-xs text-gray-400 font-normal">({{ count($rows) }} campos)</span>
                 </summary>
-                <div class="p-6 space-y-6">
+                <fieldset :disabled="tab !== '{{ $file }}'" class="p-6 space-y-6">
                     @foreach($rows as $row)
                         <div class="{{ $row['overridden'] ? 'border-l-2 border-black pl-4' : '' }}">
                             <label class="block text-xs font-medium text-gray-500 mb-2">
@@ -79,7 +94,7 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                </fieldset>
             </details>
         @endforeach
 
@@ -89,4 +104,16 @@
             </button>
         </div>
     </form>
+    </div>
+
+    <script>
+        document.getElementById('cms-filter').addEventListener('input', function () {
+            var term = this.value.trim().toLocaleLowerCase();
+            document.querySelectorAll('[data-cms-group]').forEach(function (group) {
+                var matches = !term || group.textContent.toLocaleLowerCase().includes(term);
+                group.classList.toggle('hidden', !matches);
+                if (term && matches) group.open = true;
+            });
+        });
+    </script>
 </x-app-layout>

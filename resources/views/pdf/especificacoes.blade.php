@@ -91,13 +91,13 @@
         $sections = [
             'Cores Exteriores & Interiores' => [
                 '_sub:Cores Exteriores' => null,
-                'Gloaming Gray' => ['●', '●'],
-                'Polar White' => ['●', '●'],
-                'Black Knight Special Version — All Black Exterior Kit' => ['○', '○'],
+                'Branco Polar' => ['●', '●'],
+                'Cinza Crepúsculo' => ['●', '●'],
+                'Preto Noite Estrelada — Série Especial Black Knight (Kit Exterior All Black, incluindo acabamento em aço tungsténio)' => ['○', '○'],
                 '_sub:Cores Interiores' => null,
-                'Amber Orange' => ['●', '●'],
-                'Jade White' => ['●', '●'],
-                'Pearl Black' => ['●', '●'],
+                'Laranja Âmbar' => ['●', '●'],
+                'Branco Jade' => ['●', '●'],
+                'Preto Perolado' => ['●', '●'],
             ],
             'Parâmetros Básicos' => [
                 'Dimensões do veículo' => $modelo === 'rox-01' ? ['5.295 × 1.980 × 1.869 mm', '5.295 × 1.980 × 1.869 mm'] : ['5.298 × 1.985 × 1.856 mm', '5.298 × 1.985 × 1.856 mm'],
@@ -149,6 +149,22 @@
                 'Airbags de cortina' => ['●', '●'],
             ],
         ];
+
+        if ($modelo === 'rox-adamas') {
+            $sections[array_key_first($sections)] = [
+                '_sub:Cores Exteriores' => null,
+                'Dourado Deserto' => ['●', '●'],
+                'Verde Esmeralda' => ['●', '●'],
+                'Cinzento Basalto' => ['●', '●'],
+                'Branco Polar' => ['●', '●'],
+                'Preto Obsidiana — Edição Black Knight' => ['○', '○'],
+                '_sub:Cores Interiores' => null,
+                'Roxo Ametista' => ['●', '●'],
+                'Laranja Âmbar' => ['●', '●'],
+                'Preto Perolado' => ['●', '●'],
+                'Branco Jade' => ['●', '●'],
+            ];
+        }
     @endphp
 
     @foreach($sections as $sectionName => $rows)
@@ -171,7 +187,7 @@
     @endforeach
 
     <div class="disclaimer">
-        <p>Todas as especificações estão sujeitas a alterações sem aviso prévio. As imagens são meramente ilustrativas. Consulte o seu concessionário Octa Angola para informações atualizadas.</p>
+        <p>Todas as especificações estão sujeitas a alterações sem aviso prévio. As imagens são meramente ilustrativas. Consulte o seu distribuidor Octa Angola para informações atualizadas.</p>
         <p style="margin-top: 6px;">&copy; {{ date('Y') }} ROX Angola — Distribuído por Octa Angola, Luanda, Angola &bull; info@octamobil.com &bull; (+244) 945 110 22</p>
     </div>
 

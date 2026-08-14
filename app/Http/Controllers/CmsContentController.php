@@ -6,11 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use App\Models\ContentOverride;
+use App\Support\CmsMediaCatalog;
 
 class CmsContentController extends Controller
 {
+    /** Rótulos editoriais dos separadores, inspirados no CMS do Maculusso. */
+    private array $tabLabels = [
+        'home' => 'Página inicial',
+        'catalogo' => 'Catálogo',
+        'concessionaria' => 'Concessionária',
+        'contactos' => 'Contactos',
+        'comunidade' => 'Comunidade',
+        'historia' => 'História',
+        'marca' => 'A marca',
+        'revendedores' => 'Revendedores',
+        'servicos' => 'Serviços',
+        'showroom' => 'Showroom',
+        'page_content' => 'Modelos, cartões e modais',
+    ];
     /** Ficheiros de tradução que NÃO são conteúdo do site. */
-    private array $exclude = ['auth', 'passwords', 'pagination', 'validation', 'page_content'];
+    private array $exclude = ['auth', 'passwords', 'pagination', 'validation'];
 
     /**
      * Lê os defaults (sem overrides) de um ficheiro de tradução, achatados (dot).
@@ -39,6 +54,17 @@ class CmsContentController extends Controller
         return $files;
     }
 
+    /** Conteúdo literal das vistas: chave PT => tradução EN. */
+    private function pageContentDefaults(): array
+    {
+        $translations = $this->fileDefaults('page_content', 'en');
+
+        return collect($translations)
+            ->filter(fn ($value, $key) => is_string($key) && is_string($value))
+            ->mapWithKeys(fn ($value, $key) => [$key => ['pt' => $key, 'en' => $value]])
+            ->all();
+    }
+
     public function edit()
     {
         // Mapa de overrides de texto: [key => [pt=>, en=>]]
@@ -48,6 +74,23 @@ class CmsContentController extends Controller
 
         $pages = [];
         foreach ($this->contentFiles() as $file) {
+            if ($file === 'page_content') {
+                $rows = [];
+                foreach ($this->pageContentDefaults() as $dotKey => $defaults) {
+                    $fullKey = "page_content.{$dotKey}";
+                    $rows[] = [
+                        'key' => $fullKey,
+                        'label' => $dotKey,
+                        'pt' => $overrides[$fullKey]['pt'] ?? $defaults['pt'],
+                        'en' => $overrides[$fullKey]['en'] ?? $defaults['en'],
+                        'overridden' => isset($overrides[$fullKey]),
+                        'long' => mb_strlen($defaults['pt']) > 90,
+                    ];
+                }
+                $pages[$file] = $rows;
+                continue;
+            }
+
             $pt = $this->fileDefaults($file, 'pt');
             $en = $this->fileDefaults($file, 'en');
             $keys = array_keys($pt + $en);
@@ -75,9 +118,10 @@ class CmsContentController extends Controller
 
         // Slots de imagem
         $imageOverrides = ContentOverride::where('type', 'image')->pluck('value', 'key')->all();
-        $imageGroups = config('cms.images', []);
+        $imageGroups = array_merge(config('cms.images', []), CmsMediaCatalog::groups());
 
-        return view('admin.cms.edit', compact('pages', 'imageGroups', 'imageOverrides'));
+        return view('admin.cms.edit', compact('pages', 'imageGroups', 'imageOverrides'))
+            ->with('tabLabels', $this->tabLabels);
     }
 
     public function update(Request $request)
@@ -96,7 +140,9 @@ class CmsContentController extends Controller
                     continue;
                 }
                 $defaultsCache[$file][$locale] ??= $this->fileDefaults($file, $locale);
-                $default = $defaultsCache[$file][$locale][$dotKey] ?? null;
+                $default = $file === 'page_content'
+                    ? ($locale === 'pt' ? $dotKey : ($defaultsCache[$file][$locale][$dotKey] ?? null))
+                    : ($defaultsCache[$file][$locale][$dotKey] ?? null);
 
                 if ($value === '' || $value === $default) {
                     // Igual ao default (ou vazio) → remove override, volta ao original.

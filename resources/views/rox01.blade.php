@@ -556,7 +556,7 @@
                         'desc' => '- Dispensador de água quente instantânea (aquece em 3 segundos): Escolha entre água à temperatura ambiente, morna ou a ferver.
                         - Bancada iluminada: Compatível com fogões de indução, fritadeiras sem óleo e outros eletrodomésticos, proporcionando uma cozinha flexível para preparar refeições deliciosas a qualquer hora.
                         
-                       *Disponível para compra através de revendedores locais.'
+                       *Disponível para compra no distribuidor oficial.'
                         ],
 
                          [
@@ -601,7 +601,7 @@
                         'desc' => '- Ligue o seu smartphone ao seu veículo de forma integrada para desfrutar de uma navegação precisa, entretenimento envolvente e comunicação prática — tudo ao alcance dos seus dedos.
                         - Transforme cada viagem numa combinação perfeita de tecnologia inteligente e conforto máximo.
                         
-                        A interface pode variar de acordo com veículo.'
+                        O interface pode variar de acordo com veículo.'
                         
                         ],
 

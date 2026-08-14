@@ -53,4 +53,23 @@ class ContentOverride extends Model
 
         return $images[$key] ?? null;
     }
+
+    /** Mapa completo de imagens substituídas, resiliente a falhas de BD. */
+    public static function imageMap(): array
+    {
+        static $images = null;
+
+        if ($images === null) {
+            try {
+                $images = static::query()
+                    ->where('type', 'image')
+                    ->pluck('value', 'key')
+                    ->all();
+            } catch (\Throwable $e) {
+                $images = [];
+            }
+        }
+
+        return $images;
+    }
 }
