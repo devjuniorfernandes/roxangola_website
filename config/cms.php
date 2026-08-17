@@ -7,6 +7,24 @@
  * usar cms_image('chave', asset('assets/....')) na respetiva view.
  */
 return [
+    /**
+     * Páginas mapeadas para edição de texto no CMS.
+     * page_key => [label, file (ficheiro em lang/{locale}), route (para pré-visualizar)]
+     * Os textos destas páginas usam __() e são editáveis via overrides.
+     */
+    'pages' => [
+        'home'          => ['label' => 'Página Inicial', 'file' => 'home', 'route' => 'home'],
+        'showroom'      => ['label' => 'Showroom', 'file' => 'showroom', 'route' => 'showroom'],
+        'representante' => ['label' => 'Representante (OCTA)', 'file' => 'concessionaria', 'route' => 'representante'],
+        'revendedores'  => ['label' => 'Revendedores', 'file' => 'revendedores', 'route' => 'revendedores'],
+        'catalogo'      => ['label' => 'Catálogo', 'file' => 'catalogo', 'route' => 'catalogo'],
+        'contactos'     => ['label' => 'Contactos', 'file' => 'contactos', 'route' => 'contactos'],
+        'marca'         => ['label' => 'Sobre — A Marca', 'file' => 'marca', 'route' => 'sobre.marca'],
+        'historia'      => ['label' => 'Sobre — História', 'file' => 'historia', 'route' => 'sobre.historia'],
+        'comunidade'    => ['label' => 'Sobre — Comunidade', 'file' => 'comunidade', 'route' => 'sobre.comunidade'],
+        'common'        => ['label' => 'Comum (menu, rodapé, formulários)', 'file' => 'common', 'route' => 'home'],
+    ],
+
     'images' => [
         'home' => [
             'label' => 'Página Inicial',

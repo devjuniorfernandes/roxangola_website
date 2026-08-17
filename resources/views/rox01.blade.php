@@ -343,7 +343,7 @@
                 ],
                 [
                     'title' => 'Segurança',
-                    'desc' => 'Um escudo protector em todos os terrenos',
+                    'desc' => 'Um escudo protetor em todos os terrenos',
                     'img' => 'banner3_safety.jfif',
                     'blocks' => [
                         ['img' => 'safety1.avif', 

@@ -143,10 +143,19 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'verified', 'admin'])->prefix('painel')->name('cms.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Cms\DashboardController::class, 'index'])->name('dashboard');
 
+    // Operação — caixas de entrada (submissões)
+    Route::get('submissoes/{type}', [\App\Http\Controllers\Cms\SubmissionController::class, 'index'])->name('submissions.index');
+    Route::get('submissoes/{type}/{id}', [\App\Http\Controllers\Cms\SubmissionController::class, 'show'])->name('submissions.show');
+    Route::delete('submissoes/{type}/{id}', [\App\Http\Controllers\Cms\SubmissionController::class, 'destroy'])->name('submissions.destroy');
+
     Route::resource('highlights', \App\Http\Controllers\Cms\HighlightController::class)->except(['show']);
     Route::resource('gallery', \App\Http\Controllers\Cms\GalleryImageController::class)->except(['show']);
     Route::resource('milestones', \App\Http\Controllers\Cms\MilestoneController::class)->except(['show']);
     Route::resource('services', \App\Http\Controllers\Cms\ServiceController::class)->except(['show']);
+
+    Route::get('paginas', [\App\Http\Controllers\Cms\PageTextController::class, 'index'])->name('pages.index');
+    Route::get('paginas/{page}', [\App\Http\Controllers\Cms\PageTextController::class, 'edit'])->name('pages.edit');
+    Route::put('paginas/{page}', [\App\Http\Controllers\Cms\PageTextController::class, 'update'])->name('pages.update');
 
     Route::get('content', [\App\Http\Controllers\Cms\ContentController::class, 'index'])->name('content.index');
     Route::put('content', [\App\Http\Controllers\Cms\ContentController::class, 'update'])->name('content.update');

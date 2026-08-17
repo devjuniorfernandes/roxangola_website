@@ -5,7 +5,8 @@
             ['Galeria do Showroom', 'cms.gallery.index', $counts['gallery'] ?? 0, 'imagens'],
             ['Marcos da História', 'cms.milestones.index', $counts['milestones'] ?? 0, 'marcos'],
             ['Serviços', 'cms.services.index', $counts['services'] ?? 0, 'cards'],
-            ['Textos & Imagens', 'cms.content.index', null, 'Imagens do site'],
+            ['Páginas (textos)', 'cms.pages.index', null, 'Editar textos PT/EN'],
+            ['Imagens', 'cms.content.index', null, 'Imagens do site'],
             ['SEO', 'cms.seo.index', null, 'Meta de cada página'],
         ];
     @endphp

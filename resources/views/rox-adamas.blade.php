@@ -951,7 +951,7 @@
                         </div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Teto panorâmico com cortina de sol elétrica</h3></div></div>
+                    <div class="bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Tejadilho panorâmico com cortina elétrica</h3></div></div>
                     <div class="aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/cabin4.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
