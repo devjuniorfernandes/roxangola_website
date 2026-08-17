@@ -59,7 +59,7 @@
                     [
                         'img'    => 'adamasslider6.avif',
                         'title'  => 'Fortaleza Móvel, Protecção Extrema',
-                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Moldado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência do esmagamento Tecto</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tejadilho: 159.730 N] A maior nos testes C-IASI até setembro de 2025</p>',
+                        'bottom' => '<div class="flex gap-6 md:gap-12 justify-center flex-wrap"><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Carroçaria em Aço de Alta Resistência</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;87%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Aço de Boro Moldado a Quente</p><p class="text-xl md:text-2xl font-light tracking-wide">&gt;32%</p></div><div><p class="text-xs text-gray-400 font-medium tracking-wider mb-2">Resistência ao esmagamento Tejadilho</p><p class="text-xl md:text-2xl font-light tracking-wide">159.730 <span class="text-sm md:text-base font-light">N</span></p></div></div><p class="text-[9px] md:text-[10px] text-white/40 font-light italic mt-4 leading-snug">[Resistência recorde do tejadilho: 159.730 N] A maior nos testes C-IASI até setembro de 2025</p>',
                     ],
                    
                 ];
@@ -652,7 +652,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6">
                             <div class="text-white">
-                                <h3 class="text-lg md:text-xl font-medium mb-1">Sistema de Cozinha na Mala</h3>
+                                <h3 class="text-lg md:text-xl font-medium mb-1">Kit de Cozinha na Mala</h3>
                                 <p class="font-light text-xs md:text-sm text-gray-300">Um aroma de cozinha, acrescentando calor à sua viagem</p>
                             </div>
                         </div>
@@ -753,7 +753,7 @@
                     <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12 order-2"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Iluminação ambiente</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">A iluminação ambiente de 256 cores transmite uma elegância discreta com um brilho suave e uniforme, incluindo 6 modos de design para uma experiência totalmente envolvente.</p></div></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-5 overflow-hidden">
-                    <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Conectividade em quatro ecrãs</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ecrã tátil central de 15,7 polegadas com resolução 3K e ecrã de entretenimento traseiro de 15,7 polegadas com resolução 3K, com quatro ecrãs interligados em todo o veículo, criando um luxuoso ambiente de alta tecnologia.</p></div></div>
+                    <div class="md:col-span-2 bg-gray-100 flex items-center p-8 md:p-12 order-2 md:order-1"><div><h3 class="text-lg md:text-xl font-medium text-black mb-3">Conectividade em quatro ecrãs</h3><p class="text-sm md:text-base text-gray-600 leading-relaxed">Ecrã central tátil de 15,7 polegadas com resolução 3K e ecrã de entretenimento traseiro de 15,7 polegadas com resolução 3K, com quatro ecrãs interligados em todo o veículo, criando um luxuoso ambiente de alta tecnologia.</p></div></div>
                     <div class="md:col-span-3 aspect-video order-1 md:order-2"><video autoplay loop muted playsinline poster="{{ asset('assets/screen.avif') }}" class="w-full h-full object-cover"><source src="{{ asset('assets/') }}" type="video/mp4"></video></div>
                 </div>
             </div>

@@ -161,7 +161,7 @@
                             $rox01ExteriorColors = [
                                 ['key' => 'white', 'name' => $isEn ? 'Polar White' : 'Branco Polar', 'swatch' => 'white exterior.png'],
                                 ['key' => 'gray', 'name' => $isEn ? 'Gloaming Gray' : 'Cinza Crepúsculo', 'swatch' => 'grey exterior.png'],
-                                ['key' => 'black', 'name' => $isEn ? 'Starlit Night Black' : 'Série Especial Black Knight — Kit Exterior All Black (incluindo acabamento em aço tungsténio)', 'swatch' => 'black exterior.png'],
+                                ['key' => 'black', 'name' => $isEn ? 'Starlit Night Black' : 'Série Especial Black Knight — Kit Exterior All Black (incluindo acabamento em aço tungstênio)', 'swatch' => 'black exterior.png'],
                             ];
                         @endphp
                         @foreach($rox01ExteriorColors as $color)
@@ -576,7 +576,7 @@
                         'heading' => 'Barra de tejadilho', 
                         'desc' => 'Aumenta o espaço de arrumação leve no tejadilho para responder às diversas necessidades de viagem.
                         
-                        * Disponível para compra através de revendedores locais.'
+                        *Disponível para compra no distribuidor oficial.'
                         ],
                     ],
                 ],
