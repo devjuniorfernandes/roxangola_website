@@ -137,30 +137,23 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
-    Route::get('/showroom-visits', [\App\Http\Controllers\Admin\SubmissionController::class, 'showroomVisits'])->name('showroom-visits.index');
-    Route::get('/service-bookings', [\App\Http\Controllers\Admin\SubmissionController::class, 'serviceBookings'])->name('service-bookings.index');
-    Route::get('/dealer-applications', [\App\Http\Controllers\Admin\SubmissionController::class, 'dealerApplications'])->name('dealer-applications.index');
-    Route::get('/info-requests', [\App\Http\Controllers\Admin\SubmissionController::class, 'infoRequests'])->name('info-requests.index');
-    Route::get('/leads', [\App\Http\Controllers\Admin\SubmissionController::class, 'leads'])->name('leads.index');
-    
-    // Pages / Site Sections
-    Route::get('/pages', [\App\Http\Controllers\SiteSectionController::class, 'index'])->name('pages.index');
-    Route::put('/pages', [\App\Http\Controllers\SiteSectionController::class, 'update'])->name('pages.update');
+// -----------------------------------------------------------------------------
+// Novo CMS à medida (/painel)
+// -----------------------------------------------------------------------------
+Route::middleware(['auth', 'verified', 'admin'])->prefix('painel')->name('cms.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Cms\DashboardController::class, 'index'])->name('dashboard');
 
-    // CMS — conteúdo editável (texto + imagens)
-    Route::get('/cms', [\App\Http\Controllers\CmsContentController::class, 'edit'])->name('cms.edit');
-    Route::put('/cms', [\App\Http\Controllers\CmsContentController::class, 'update'])->name('cms.update');
+    Route::resource('highlights', \App\Http\Controllers\Cms\HighlightController::class)->except(['show']);
+    Route::resource('gallery', \App\Http\Controllers\Cms\GalleryImageController::class)->except(['show']);
+    Route::resource('milestones', \App\Http\Controllers\Cms\MilestoneController::class)->except(['show']);
+    Route::resource('services', \App\Http\Controllers\Cms\ServiceController::class)->except(['show']);
 
-    // CMS — Coleções (CRUD guiado por schema)
-    Route::resource('highlights', \App\Http\Controllers\Admin\HighlightController::class)->except(['show']);
-    Route::resource('gallery-images', \App\Http\Controllers\Admin\GalleryImageController::class)->except(['show']);
-    Route::resource('milestones', \App\Http\Controllers\Admin\MilestoneController::class)->except(['show']);
-    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->except(['show']);
-    
-    // Vehicles
-    Route::resource('vehicles', \App\Http\Controllers\VehicleController::class)->except(['show']);
+    Route::get('content', [\App\Http\Controllers\Cms\ContentController::class, 'index'])->name('content.index');
+    Route::put('content', [\App\Http\Controllers\Cms\ContentController::class, 'update'])->name('content.update');
+
+    Route::get('seo', [\App\Http\Controllers\Cms\SeoController::class, 'index'])->name('seo.index');
+    Route::get('seo/{pageSeo}/editar', [\App\Http\Controllers\Cms\SeoController::class, 'edit'])->name('seo.edit');
+    Route::put('seo/{pageSeo}', [\App\Http\Controllers\Cms\SeoController::class, 'update'])->name('seo.update');
 });
 
 Route::middleware('auth')->group(function () {
