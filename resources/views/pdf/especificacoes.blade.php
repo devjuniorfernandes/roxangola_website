@@ -93,7 +93,7 @@
                 '_sub:Cores Exteriores' => null,
                 'Branco Polar' => ['●', '●'],
                 'Cinza Crepúsculo' => ['●', '●'],
-                'Preto Noite Estrelada — Série Especial Black Knight (Kit Exterior All Black, incluindo acabamento em aço tungsténio)' => ['○', '○'],
+                'Série Especial Black Knight — Kit Exterior All Black (incluindo acabamento em aço tungstênio)' => ['○', '○'],
                 '_sub:Cores Interiores' => null,
                 'Laranja Âmbar' => ['●', '●'],
                 'Branco Jade' => ['●', '●'],
