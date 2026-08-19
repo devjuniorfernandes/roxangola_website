@@ -16,16 +16,23 @@ class PageSeo extends Model
     ];
 
     /**
-     * Devolve o valor de um campo para o locale atual, com fallback para PT.
+     * Devolve o valor de um campo para o locale atual, com fallback e auto-tradução para EN.
      */
     public function forLocale(string $field): ?string
     {
         $locale = app()->getLocale();
         $value = $this->{$field . '_' . $locale} ?? null;
 
-        return $value !== null && $value !== ''
-            ? $value
-            : ($this->{$field . '_pt'} ?? null);
+        if ($value !== null && $value !== '') {
+            return $value;
+        }
+
+        $pt = $this->{$field . '_pt'} ?? null;
+        if ($locale === 'en' && $pt !== null && $pt !== '') {
+            return translate_auto($pt, 'en', 'pt');
+        }
+
+        return $pt;
     }
 
     public function title(): ?string

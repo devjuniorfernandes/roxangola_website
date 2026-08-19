@@ -605,7 +605,7 @@
 
                 // Update label
                 document.getElementById('model-dropdown-label').textContent = newName;
-                document.getElementById('page-title').textContent = 'Especificações do ' + newName;
+                document.getElementById('page-title').textContent = (isEnglish ? 'Specifications for ' : 'Especificações do ') + newName;
 
                 // Update checks
                 document.querySelectorAll('.model-check').forEach(function(c) { c.classList.add('hidden'); });

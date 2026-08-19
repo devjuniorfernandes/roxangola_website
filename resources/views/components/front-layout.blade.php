@@ -14,6 +14,9 @@
     <meta name="description" content="{{ $seoDescription }}">
     <meta name="keywords" content="{{ $seoKeywords }}">
     <title>{{ $seoTitle }}</title>
+    <link rel="alternate" hreflang="pt" href="{{ url()->current() }}">
+    <link rel="alternate" hreflang="en" href="{{ url()->current() }}">
+    <link rel="alternate" hreflang="x-default" href="{{ url()->current() }}">
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo.svg') }}">
     
     <!-- Scripts & Styles -->

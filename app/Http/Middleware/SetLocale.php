@@ -18,16 +18,18 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = $request->session()->get('locale')
+        $locale = $request->query('lang')
+            ?? $request->session()->get('locale')
             ?? $request->cookie('locale')
-            ?? config('app.locale');
+            ?? config('app.locale', 'en');
 
         if (! in_array($locale, self::SUPPORTED, true)) {
-            $locale = config('app.locale');
+            $locale = config('app.locale', 'en');
         }
 
         app()->setLocale($locale);
         $request->session()->put('locale', $locale);
+        cookie()->queue(cookie('locale', $locale, 525600));
 
         return $next($request);
     }

@@ -95,3 +95,15 @@ if (! function_exists('cms_image')) {
         return $path ? asset($path) : $default;
     }
 }
+
+if (! function_exists('translate_auto')) {
+    /**
+     * Traduz automaticamente um texto (PT -> EN) utilizando o TranslationService com cache.
+     */
+    function translate_auto(?string $text, ?string $target = null, string $source = 'pt'): string
+    {
+        $target = $target ?: app()->getLocale();
+
+        return app(\App\Services\Translation\TranslationService::class)->translate($text, $target, $source);
+    }
+}
