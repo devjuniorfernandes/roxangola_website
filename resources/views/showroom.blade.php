@@ -32,6 +32,15 @@
 
             @php
                 $galeria = \App\Models\GalleryImage::published()->get();
+
+                if ($galeria->isEmpty()) {
+                    $galeria = collect([
+                        new \App\Models\GalleryImage(['image' => 'assets/showroom/Gemini_Generated_Image_bpajg6bpajg6bpaj.png', 'label' => 'Showroom ROX Motor Angola', 'label_en' => 'ROX Motor Angola Showroom']),
+                        new \App\Models\GalleryImage(['image' => 'assets/showroom/Gemini_Generated_Image_qzc3l3qzc3l3qzc3.png', 'label' => 'Lounge de clientes', 'label_en' => 'Customer lounge']),
+                        new \App\Models\GalleryImage(['image' => 'assets/showroom/Gemini_Generated_Image_fnsi3zfnsi3zfnsi.png', 'label' => 'Área de exposição de veículos', 'label_en' => 'Vehicle display area']),
+                        new \App\Models\GalleryImage(['image' => 'assets/showroom/Gemini_Generated_Image_tvmk14tvmk14tvmk.png', 'label' => 'Área comercial', 'label_en' => 'Sales area']),
+                    ]);
+                }
             @endphp
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">

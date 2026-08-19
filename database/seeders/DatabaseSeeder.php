@@ -16,12 +16,22 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Criação do Administrador por defeito
-        \App\Models\User::firstOrCreate(
+        User::firstOrCreate(
             ['email' => 'admin@roxangola.com'],
             [
                 'name' => 'Administrador',
-                'password' => \Illuminate\Support\Facades\Hash::make('password')
+                'password' => \Illuminate\Support\Facades\Hash::make('password'),
+                'is_admin' => true,
             ]
         );
+
+        $this->call([
+            GalleryImageSeeder::class,
+            HighlightSeeder::class,
+            MilestoneSeeder::class,
+            PageSeoSeeder::class,
+            ServiceSeeder::class,
+            SiteSectionSeeder::class,
+        ]);
     }
 }
