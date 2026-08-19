@@ -8,7 +8,7 @@ return [
 
     'nav' => [
         'models' => 'Models',
-        'concessionaria' => 'Representative',
+        'concessionaria' => 'Dealership',
         'dealers' => 'Global Dealers',
         'services' => 'Services',
         'about' => 'About Us',

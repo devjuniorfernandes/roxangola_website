@@ -51,11 +51,11 @@
 
         <!-- Right (desktop): Test Drive + Switcher -->
         <div class="ml-auto hidden md:flex items-center gap-5 lg:gap-6">
-            @if(Request::is('rox-01'))
-                <a href="{{ route('contactos', ['modelo' => 'ROX 01', 'intencao' => 'Test Drive']) }}" class="px-5 py-2 text-xs tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">{{ __('common.nav.test_drive') }}</a>
-            @elseif(Request::is('rox-adamas'))
-                <a href="{{ route('contactos', ['modelo' => 'ROX ADAMAS', 'intencao' => 'Test Drive']) }}" class="px-5 py-2 text-xs tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">{{ __('common.nav.test_drive') }}</a>
-            @endif
+            @php
+                $currentModel = Request::is('rox-01') ? 'ROX 01' : (Request::is('rox-adamas') ? 'ROX ADAMAS' : '');
+                $testDriveParams = array_filter(['modelo' => $currentModel, 'intencao' => 'Test Drive']);
+            @endphp
+            <a href="{{ route('contactos', $testDriveParams) }}" class="px-5 py-2 text-xs tracking-widest uppercase text-white transition-all duration-300 hover:brightness-110" style="background: var(--rox-dune-yellow);">{{ __('common.nav.test_drive') }}</a>
             <x-lang-switcher variant="header" />
         </div>
     </div>
