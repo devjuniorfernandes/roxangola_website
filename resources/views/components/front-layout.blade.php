@@ -243,6 +243,7 @@
         let pdfZoomScale = 1.0;
         let pdfPageCanvases = [];
         let pageFlipInstance = null;
+        let pdfSessionId = 0;
 
         window.openPdfModal = function(pdfUrl, title) {
             var modal = document.getElementById('pdf-modal');
@@ -294,45 +295,98 @@
                 return;
             }
 
-            pdfLib.getDocument(url).promise.then(function(pdf) {
+            var currentSession = ++pdfSessionId;
+            var RENDER_SCALE = 2.0; // 2x gives crisp typography with 56% less memory/load time
+            var INITIAL_PAGES = 2;   // Render cover + first spread to open instantly
+
+            pdfLib.getDocument({ url: url, disableRange: false, disableStream: false }).promise.then(function(pdf) {
+                if (currentSession !== pdfSessionId) return;
+
                 pdfDocInstance = pdf;
                 pdfTotalPages = pdf.numPages;
 
                 var totalEl = document.getElementById('pdf-total-pages');
-                var currEl = document.getElementById('pdf-current-page');
+                var currEl  = document.getElementById('pdf-current-page');
                 if (totalEl) totalEl.textContent = pdfTotalPages;
-                if (currEl) currEl.textContent = pdfCurrentPageNum;
+                if (currEl)  currEl.textContent  = pdfCurrentPageNum;
 
-                var promises = [];
-                for (let i = 1; i <= pdfTotalPages; i++) {
-                    promises.push(
-                        pdf.getPage(i).then(function(page) {
-                            var v = page.getViewport({ scale: 3.0 }); // 3.0x ultra-high DPI scale for razor sharp text
-                            var canvas = document.createElement('canvas');
-                            var ctx = canvas.getContext('2d');
-                            canvas.height = v.height;
-                            canvas.width = v.width;
-                            return page.render({ canvasContext: ctx, viewport: v }).promise.then(function() {
-                                return { pageNum: i, canvas: canvas, aspect: v.width / v.height };
-                            });
-                        })
-                    );
+                pdfPageCanvases = new Array(pdfTotalPages).fill(null);
+
+                // Phase 1: Render first 2 pages to open viewer immediately (< 1.5s)
+                var initialCount = Math.min(INITIAL_PAGES, pdfTotalPages);
+                var initialPromises = [];
+                for (var i = 1; i <= initialCount; i++) {
+                    initialPromises.push(renderPage(pdf, i, RENDER_SCALE));
                 }
 
-                Promise.all(promises).then(function(results) {
-                    pdfPageCanvases = results;
+                Promise.all(initialPromises).then(function(results) {
+                    if (currentSession !== pdfSessionId) return;
+
+                    results.forEach(function(r) {
+                        pdfPageCanvases[r.pageNum - 1] = r;
+                    });
+
                     if (loader) loader.classList.add('hidden');
                     if (viewport) viewport.classList.remove('hidden');
+
                     setTimeout(function() {
+                        if (currentSession !== pdfSessionId) return;
                         render3DFlipbook();
                     }, 50);
+
+                    // Phase 2: Stream remaining pages in background without blocking UI
+                    loadRemainingPages(pdf, initialCount + 1, pdfTotalPages, RENDER_SCALE, currentSession);
+
                 }).catch(function(err) {
                     console.error('Render error, using fallback:', err);
                     fallbackIframe();
                 });
+
             }).catch(function(err) {
                 console.error('PDF Load Error, using fallback:', err);
                 fallbackIframe();
+            });
+        }
+
+        function renderPage(pdf, pageNum, scale) {
+            return pdf.getPage(pageNum).then(function(page) {
+                var v = page.getViewport({ scale: scale });
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                canvas.height = v.height;
+                canvas.width  = v.width;
+                return page.render({ canvasContext: ctx, viewport: v }).promise.then(function() {
+                    return { pageNum: pageNum, canvas: canvas, aspect: v.width / v.height };
+                });
+            });
+        }
+
+        function loadRemainingPages(pdf, from, total, scale, session) {
+            if (from > total || session !== pdfSessionId) return;
+
+            renderPage(pdf, from, scale).then(function(result) {
+                if (session !== pdfSessionId) return;
+
+                pdfPageCanvases[result.pageNum - 1] = result;
+
+                // Update canvas directly in the live flipbook DOM
+                var canvasEl = document.getElementById('pdf-page-canvas-' + result.pageNum);
+                if (canvasEl) {
+                    canvasEl.width = result.canvas.width;
+                    canvasEl.height = result.canvas.height;
+                    var ctx = canvasEl.getContext('2d');
+                    ctx.drawImage(result.canvas, 0, 0);
+                }
+
+                // Next page with small delay to keep animations 60fps smooth
+                setTimeout(function() {
+                    loadRemainingPages(pdf, from + 1, total, scale, session);
+                }, 60);
+            }).catch(function(err) {
+                console.warn('Erro a renderizar página ' + from + ':', err);
+                setTimeout(function() {
+                    loadRemainingPages(pdf, from + 1, total, scale, session);
+                }, 60);
             });
         }
 
@@ -364,26 +418,49 @@
             bookContainer.className = 'm-auto flex items-center justify-center flex-shrink-0';
             renderArea.appendChild(bookContainer);
 
-            pdfPageCanvases.forEach(function(p) {
+            // Default aspect ratio from first available rendered page or standard A4
+            var firstReady = pdfPageCanvases.find(function(p) { return p !== null; });
+            var pageAspect = firstReady ? firstReady.aspect : (1 / 1.414);
+            var refW = firstReady ? firstReady.canvas.width : 1200;
+            var refH = firstReady ? firstReady.canvas.height : 1697;
+
+            for (var i = 1; i <= pdfTotalPages; i++) {
                 var pageDiv = document.createElement('div');
                 pageDiv.className = 'page-slide bg-white overflow-hidden shadow-2xl rounded-sm';
+                pageDiv.id = 'pdf-page-slide-' + i;
+
                 var c = document.createElement('canvas');
-                c.width = p.canvas.width;
-                c.height = p.canvas.height;
-                c.getContext('2d').drawImage(p.canvas, 0, 0);
+                c.id = 'pdf-page-canvas-' + i;
                 c.style.width = '100%';
                 c.style.height = '100%';
                 c.style.objectFit = 'contain';
+
+                var p = pdfPageCanvases[i - 1];
+                if (p && p.canvas) {
+                    c.width = p.canvas.width;
+                    c.height = p.canvas.height;
+                    c.getContext('2d').drawImage(p.canvas, 0, 0);
+                } else {
+                    c.width = refW;
+                    c.height = refH;
+                    var ctx = c.getContext('2d');
+                    ctx.fillStyle = '#f8f8f8';
+                    ctx.fillRect(0, 0, refW, refH);
+                    ctx.fillStyle = '#999999';
+                    ctx.font = '28px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Página ' + i, refW / 2, refH / 2);
+                }
+
                 pageDiv.appendChild(c);
                 bookContainer.appendChild(pageDiv);
-            });
+            }
 
             if (window.St && window.St.PageFlip) {
                 var stageH = (bodyEl && bodyEl.clientHeight > 200) ? bodyEl.clientHeight : (window.innerHeight * 0.82);
                 var stageW = (bodyEl && bodyEl.clientWidth > 300) ? bodyEl.clientWidth : (window.innerWidth * 0.92);
 
                 var isMobile = window.innerWidth < 768;
-                var pageAspect = (pdfPageCanvases[0] && pdfPageCanvases[0].aspect) ? pdfPageCanvases[0].aspect : (1 / 1.414);
 
                 var maxAvailH = Math.max(400, stageH - 40);
                 var maxAvailW = Math.max(300, stageW - (isMobile ? 20 : 80));
@@ -457,6 +534,8 @@
             var modal = document.getElementById('pdf-modal');
             var renderArea = document.getElementById('pdf-render-area');
 
+            pdfSessionId++; // Invalidate ongoing background page renders
+
             if (!modal) return;
 
             if (document.fullscreenElement && document.exitFullscreen) {
@@ -476,6 +555,7 @@
                 }
             }, 300);
         };
+
 
         document.addEventListener('DOMContentLoaded', function() {
             var modal = document.getElementById('pdf-modal');
