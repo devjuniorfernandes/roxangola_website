@@ -72,4 +72,52 @@ class ContentOverride extends Model
 
         return $images;
     }
+
+    /**
+     * Caminho do ficheiro substituído para um slot e idioma, ou null.
+     * locale pode ser 'pt', 'en' ou '*' (qualquer).
+     */
+    public static function fileFor(string $key, string $locale = '*'): ?string
+    {
+        static $files = null;
+
+        if ($files === null) {
+            try {
+                $files = static::query()
+                    ->where('type', 'file')
+                    ->get(['key', 'locale', 'value'])
+                    ->groupBy('locale')
+                    ->map(fn ($group) => $group->pluck('value', 'key')->all())
+                    ->all();
+            } catch (\Throwable $e) {
+                $files = [];
+            }
+        }
+
+        // Tenta locale específico primeiro, depois fallback para '*'
+        return $files[$locale][$key]
+            ?? $files['*'][$key]
+            ?? null;
+    }
+
+    /** Mapa completo de ficheiros substituídos, resiliente a falhas de BD. */
+    public static function fileMap(): array
+    {
+        static $files = null;
+
+        if ($files === null) {
+            try {
+                $files = static::query()
+                    ->where('type', 'file')
+                    ->get(['key', 'locale', 'value'])
+                    ->groupBy('locale')
+                    ->map(fn ($group) => $group->pluck('value', 'key')->all())
+                    ->all();
+            } catch (\Throwable $e) {
+                $files = [];
+            }
+        }
+
+        return $files;
+    }
 }

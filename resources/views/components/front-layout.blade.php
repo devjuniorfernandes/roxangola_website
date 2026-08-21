@@ -21,6 +21,11 @@
     
     <!-- Scripts & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- PDF.js library for rendering PDFs natively in HTML canvas modal -->
+    <script src="{{ asset('js/pdf.min.js') }}"></script>
+    <script>if(window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ asset('js/pdf.worker.min.js') }}";</script>
+    <!-- StPageFlip library for Heyzine 3D page flipbook magazine experience -->
+    <script src="{{ asset('js/page-flip.browser.js') }}"></script>
 
     <style>
         @font-face { font-family: 'TTNormsPro'; src: url('{{ asset('assets/fonts/TTNormsProRegular.otf') }}') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -154,14 +159,354 @@
         </div>
     </div>
 
+    <!-- Dedicated 3D Flipbook Magazine Pop-up Viewer Modal -->
+    <div id="pdf-modal" class="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md flex flex-col transition-all duration-300 opacity-0 pointer-events-none" style="display: none;" role="dialog" aria-modal="true">
+        <!-- Top Fixed Header Bar (Always Top 0, Full Width, Fixed 56px) -->
+        <header class="w-full h-[56px] min-h-[56px] bg-[#1c1c1c] border-b border-white/10 flex items-center justify-between px-3 sm:px-6 flex-shrink-0 z-50 text-white shadow-xl">
+            <!-- Title & Subtitle -->
+            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+              
+                <div class="min-w-0">
+                    <h3 id="pdf-modal-title" class="text-xs sm:text-sm font-bold text-white tracking-wide truncate max-w-[120px] sm:max-w-none">Catálogo ROX</h3>
+                    <p id="pdf-modal-subtitle" class="text-[11px] text-[#C5A059] font-medium hidden sm:block">Revista Digital 3D Interativa</p>
+                </div>
+            </div>
+
+            <!-- Center Page Controls -->
+            <div id="pdf-nav-controls" class="flex items-center gap-1 sm:gap-2 bg-white/5 border border-white/10 px-2 sm:px-3 py-1 rounded-lg text-xs">
+                <button type="button" onclick="pdfPrevPage()" class="p-1 hover:bg-white/10 rounded text-gray-300 hover:text-white transition-colors" title="Página Anterior">
+                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+                <span class="text-gray-300 font-mono text-[11px] sm:text-xs px-1 sm:px-2 whitespace-nowrap"><span id="pdf-current-page" class="text-white font-bold">1</span> / <span id="pdf-total-pages" class="text-gray-400">0</span></span>
+                <button type="button" onclick="pdfNextPage()" class="p-1 hover:bg-white/10 rounded text-gray-300 hover:text-white transition-colors" title="Próxima Página">
+                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
+            </div>
+
+            <!-- Right Action Buttons -->
+            <div class="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+                <!-- Zoom Buttons -->
+                <div class="flex items-center bg-white/5 border border-white/10 rounded-lg p-0.5 text-xs text-gray-300">
+                    <button type="button" onclick="pdfZoom(-0.25)" class="px-1.5 sm:px-2 py-0.5 hover:bg-white/10 rounded transition-colors font-bold text-xs sm:text-sm" title="Reduzir Tamanho">-</button>
+                    <span id="pdf-zoom-val" class="px-1 sm:px-1.5 font-mono text-[10px] sm:text-[11px] font-bold text-[#C5A059]">100%</span>
+                    <button type="button" onclick="pdfZoom(0.25)" class="px-1.5 sm:px-2 py-0.5 hover:bg-white/10 rounded transition-colors font-bold text-xs sm:text-sm" title="Aumentar Tamanho (Zoom)">+</button>
+                </div>
+
+                <button type="button" onclick="togglePdfFullscreen()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white text-xs transition-colors" title="Ecrã Inteiro">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg>
+                    <span class="hidden lg:inline">Ecrã Inteiro</span>
+                </button>
+
+                <a id="pdf-modal-download" href="#" download class="inline-flex items-center gap-1.5 p-2 sm:px-3.5 sm:py-1.5 rounded-lg bg-[#C5A059] text-[#0c0d0e] text-xs font-bold hover:bg-[#b08e49] transition-all shadow-xs" title="Descarregar PDF">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                    <span class="hidden sm:inline">Descarregar</span>
+                </a>
+
+                <button type="button" onclick="closePdfModal()" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 hover:bg-red-500 hover:text-white text-gray-300 flex items-center justify-center transition-all" title="Fechar (Esc)">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Viewport Body (Takes 100% of remaining height below header) -->
+        <div id="pdf-modal-body" class="relative flex-1 w-full bg-[#0b0b0b] overflow-hidden flex flex-col items-center justify-center select-none">
+            <!-- Loader -->
+            <div id="pdf-modal-loader" class="my-auto flex flex-col items-center gap-3 text-gray-400 py-12">
+                <div class="loader"></div>
+                <p class="text-xs tracking-wider uppercase font-medium text-gray-300">A gerar revista digital 3D interativa...</p>
+            </div>
+
+            <!-- Stage Viewports -->
+            <div id="pdf-stage-viewport" class="w-full h-full flex flex-col relative hidden overflow-hidden">
+                <!-- Navigation Arrow Left -->
+                <button type="button" onclick="pdfPrevPage()" id="pdf-arrow-prev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/70 hover:bg-[#C5A059] text-white hover:text-black flex items-center justify-center transition-all shadow-2xl backdrop-blur-md group" title="Página Anterior">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+
+                <!-- Main 3D Render Area -->
+                <div id="pdf-render-area" class="w-full h-full flex overflow-auto p-2 sm:p-4"></div>
+
+                <!-- Navigation Arrow Right -->
+                <button type="button" onclick="pdfNextPage()" id="pdf-arrow-next" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/70 hover:bg-[#C5A059] text-white hover:text-black flex items-center justify-center transition-all shadow-2xl backdrop-blur-md group" title="Próxima Página">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Frontend logic -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script>
+        let pdfDocInstance = null;
+        let pdfTotalPages = 0;
+        let pdfCurrentPageNum = 1;
+        let pdfZoomScale = 1.0;
+        let pdfPageCanvases = [];
+        let pageFlipInstance = null;
+
+        window.openPdfModal = function(pdfUrl, title) {
+            var modal = document.getElementById('pdf-modal');
+            var downloadLink = document.getElementById('pdf-modal-download');
+            var modalTitle = document.getElementById('pdf-modal-title');
+            var loader = document.getElementById('pdf-modal-loader');
+            var viewport = document.getElementById('pdf-stage-viewport');
+
+            if (!modal) return;
+
+            if (downloadLink) downloadLink.href = pdfUrl;
+            if (title && modalTitle) modalTitle.textContent = title;
+
+            if (viewport) viewport.classList.add('hidden');
+            if (loader) loader.classList.remove('hidden');
+
+            pdfCurrentPageNum = 1;
+            pdfZoomScale = 1.0;
+            updatePdfZoomDisplay();
+
+            modal.style.display = 'flex';
+            setTimeout(function() {
+                modal.classList.remove('pointer-events-none');
+                modal.classList.replace('opacity-0', 'opacity-100');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+
+            loadPdf(pdfUrl);
+        };
+
+        function loadPdf(url) {
+            var loader = document.getElementById('pdf-modal-loader');
+            var viewport = document.getElementById('pdf-stage-viewport');
+            var renderArea = document.getElementById('pdf-render-area');
+
+            var pdfLib = window.pdfjsLib || window['pdfjs-dist/build/pdf'] || window.pdfjs;
+
+            function fallbackIframe() {
+                if (loader) loader.classList.add('hidden');
+                if (viewport) viewport.classList.remove('hidden');
+                if (renderArea) {
+                    renderArea.innerHTML = '<iframe src="' + url + '" class="w-full h-full border-0 bg-white rounded-xl shadow-2xl"></iframe>';
+                }
+            }
+
+            if (!pdfLib) {
+                fallbackIframe();
+                return;
+            }
+
+            pdfLib.getDocument(url).promise.then(function(pdf) {
+                pdfDocInstance = pdf;
+                pdfTotalPages = pdf.numPages;
+
+                var totalEl = document.getElementById('pdf-total-pages');
+                var currEl = document.getElementById('pdf-current-page');
+                if (totalEl) totalEl.textContent = pdfTotalPages;
+                if (currEl) currEl.textContent = pdfCurrentPageNum;
+
+                var promises = [];
+                for (let i = 1; i <= pdfTotalPages; i++) {
+                    promises.push(
+                        pdf.getPage(i).then(function(page) {
+                            var v = page.getViewport({ scale: 3.0 }); // 3.0x ultra-high DPI scale for razor sharp text
+                            var canvas = document.createElement('canvas');
+                            var ctx = canvas.getContext('2d');
+                            canvas.height = v.height;
+                            canvas.width = v.width;
+                            return page.render({ canvasContext: ctx, viewport: v }).promise.then(function() {
+                                return { pageNum: i, canvas: canvas, aspect: v.width / v.height };
+                            });
+                        })
+                    );
+                }
+
+                Promise.all(promises).then(function(results) {
+                    pdfPageCanvases = results;
+                    if (loader) loader.classList.add('hidden');
+                    if (viewport) viewport.classList.remove('hidden');
+                    setTimeout(function() {
+                        render3DFlipbook();
+                    }, 50);
+                }).catch(function(err) {
+                    console.error('Render error, using fallback:', err);
+                    fallbackIframe();
+                });
+            }).catch(function(err) {
+                console.error('PDF Load Error, using fallback:', err);
+                fallbackIframe();
+            });
+        }
+
+        function updatePdfZoomDisplay() {
+            var el = document.getElementById('pdf-zoom-val');
+            if (el) el.textContent = Math.round(pdfZoomScale * 100) + '%';
+        }
+
+        window.pdfZoom = function(delta) {
+            pdfZoomScale = Math.min(3.0, Math.max(0.75, pdfZoomScale + delta));
+            updatePdfZoomDisplay();
+            render3DFlipbook();
+        };
+
+        function render3DFlipbook() {
+            var renderArea = document.getElementById('pdf-render-area');
+            var bodyEl = document.getElementById('pdf-modal-body');
+            if (!renderArea || !pdfPageCanvases.length) return;
+
+            if (pageFlipInstance) {
+                try { pageFlipInstance.destroy(); } catch(e) {}
+                pageFlipInstance = null;
+            }
+
+            renderArea.innerHTML = '';
+
+            var bookContainer = document.createElement('div');
+            bookContainer.id = 'st-flipbook-container';
+            bookContainer.className = 'm-auto flex items-center justify-center flex-shrink-0';
+            renderArea.appendChild(bookContainer);
+
+            pdfPageCanvases.forEach(function(p) {
+                var pageDiv = document.createElement('div');
+                pageDiv.className = 'page-slide bg-white overflow-hidden shadow-2xl rounded-sm';
+                var c = document.createElement('canvas');
+                c.width = p.canvas.width;
+                c.height = p.canvas.height;
+                c.getContext('2d').drawImage(p.canvas, 0, 0);
+                c.style.width = '100%';
+                c.style.height = '100%';
+                c.style.objectFit = 'contain';
+                pageDiv.appendChild(c);
+                bookContainer.appendChild(pageDiv);
+            });
+
+            if (window.St && window.St.PageFlip) {
+                var stageH = (bodyEl && bodyEl.clientHeight > 200) ? bodyEl.clientHeight : (window.innerHeight * 0.82);
+                var stageW = (bodyEl && bodyEl.clientWidth > 300) ? bodyEl.clientWidth : (window.innerWidth * 0.92);
+
+                var isMobile = window.innerWidth < 768;
+                var pageAspect = (pdfPageCanvases[0] && pdfPageCanvases[0].aspect) ? pdfPageCanvases[0].aspect : (1 / 1.414);
+
+                var maxAvailH = Math.max(400, stageH - 40);
+                var maxAvailW = Math.max(300, stageW - (isMobile ? 20 : 80));
+
+                var pw, ph;
+                if (isMobile) {
+                    ph = maxAvailH;
+                    pw = ph * pageAspect;
+                    if (pw > maxAvailW) {
+                        pw = maxAvailW;
+                        ph = pw / pageAspect;
+                    }
+                } else {
+                    // Desktop: 2 pages side-by-side spread
+                    ph = maxAvailH;
+                    pw = ph * pageAspect;
+                    var totalSpreadW = pw * 2;
+                    if (totalSpreadW > maxAvailW) {
+                        pw = maxAvailW / 2;
+                        ph = pw / pageAspect;
+                    }
+                }
+
+                pw = Math.round(pw * pdfZoomScale);
+                ph = Math.round(ph * pdfZoomScale);
+
+                pageFlipInstance = new St.PageFlip(bookContainer, {
+                    width: pw,
+                    height: ph,
+                    size: 'fixed',
+                    minWidth: 200,
+                    maxWidth: 2500,
+                    minHeight: 300,
+                    maxHeight: 3500,
+                    maxShadowOpacity: 0.7,
+                    showCover: true,
+                    mobileScrollSupport: false,
+                    useMouseEvents: true,
+                    swipeDistance: 30
+                });
+
+                pageFlipInstance.loadFromHTML(document.querySelectorAll('#st-flipbook-container .page-slide'));
+                pageFlipInstance.flip(pdfCurrentPageNum - 1);
+
+                pageFlipInstance.on('flip', function(e) {
+                    pdfCurrentPageNum = e.data + 1;
+                    var el = document.getElementById('pdf-current-page');
+                    if (el) el.textContent = pdfCurrentPageNum;
+                });
+            }
+        }
+
+        window.pdfPrevPage = function() {
+            if (pageFlipInstance) pageFlipInstance.flipPrev();
+        };
+
+        window.pdfNextPage = function() {
+            if (pageFlipInstance) pageFlipInstance.flipNext();
+        };
+
+        window.togglePdfFullscreen = function() {
+            var panel = document.getElementById('pdf-modal-panel');
+            if (!document.fullscreenElement) {
+                if (panel.requestFullscreen) panel.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        };
+
+        window.closePdfModal = function() {
+            var modal = document.getElementById('pdf-modal');
+            var renderArea = document.getElementById('pdf-render-area');
+
+            if (!modal) return;
+
+            if (document.fullscreenElement && document.exitFullscreen) {
+                document.exitFullscreen().catch(function() {});
+            }
+
+            modal.classList.replace('opacity-100', 'opacity-0');
+            document.body.style.overflow = '';
+
+            setTimeout(function() {
+                modal.style.display = 'none';
+                modal.classList.add('pointer-events-none');
+                if (renderArea) renderArea.innerHTML = '';
+                if (pageFlipInstance) {
+                    try { pageFlipInstance.destroy(); } catch(e) {}
+                    pageFlipInstance = null;
+                }
+            }, 300);
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('pdf-modal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) closePdfModal();
+                });
+            }
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal && !modal.classList.contains('pointer-events-none')) {
+                    closePdfModal();
+                }
+                if (modal && !modal.classList.contains('pointer-events-none')) {
+                    if (e.key === 'ArrowLeft') pdfPrevPage();
+                    if (e.key === 'ArrowRight') pdfNextPage();
+                }
+            });
+            window.addEventListener('resize', function() {
+                var modal = document.getElementById('pdf-modal');
+                if (modal && modal.style.display !== 'none' && !modal.classList.contains('pointer-events-none')) {
+                    render3DFlipbook();
+                }
+            });
+        });
+
         (function() {
             var loader = document.getElementById('page-loader');
             setTimeout(function() { loader.classList.add('hide'); }, 3000);
             document.querySelectorAll('a[href]').forEach(function(link) {
-                if (link.hostname === window.location.hostname && !link.getAttribute('href').startsWith('#')) {
+                var href = link.getAttribute('href') || '';
+                if (link.hostname === window.location.hostname && !href.startsWith('#') && !href.endsWith('.pdf') && link.target !== '_blank' && !link.hasAttribute('onclick')) {
                     link.addEventListener('click', function() { loader.classList.remove('hide'); });
                 }
             });

@@ -127,14 +127,18 @@ Route::get('/politica-privacidade', function () {
     return view('politica-privacidade');
 })->name('politica-privacidade');
 
+Route::get('/especificacoes/rox-adamas', function () {
+    return view('especificacoes', ['modeloActivo' => 'rox-adamas']);
+})->name('especificacoes.adamas');
+
 Route::get('/especificacoes/{modelo?}', function ($modelo = 'rox-01') {
     return view('especificacoes', ['modeloActivo' => $modelo]);
-})->name('especificacoes');
+})->name('especificacoes.rox01');
 
 Route::get('/especificacoes/{modelo}/pdf', [\App\Http\Controllers\SpecsController::class, 'downloadPdf'])->name('especificacoes.pdf');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('cms.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // -----------------------------------------------------------------------------
@@ -163,6 +167,9 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('painel')->name('cms.')
     Route::get('seo', [\App\Http\Controllers\Cms\SeoController::class, 'index'])->name('seo.index');
     Route::get('seo/{pageSeo}/editar', [\App\Http\Controllers\Cms\SeoController::class, 'edit'])->name('seo.edit');
     Route::put('seo/{pageSeo}', [\App\Http\Controllers\Cms\SeoController::class, 'update'])->name('seo.update');
+
+    // Pesquisa global
+    Route::get('pesquisa', \App\Http\Controllers\Cms\SearchController::class)->name('search');
 });
 
 Route::middleware('auth')->group(function () {

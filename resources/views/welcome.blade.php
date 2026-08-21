@@ -1,5 +1,5 @@
 <x-front-layout>
-    <x-slot name="title">ROX Angola | Criar a experiência de viagem definitiva para os sonhadores apaixonados por viagens</x-slot>
+    <x-slot name="title">{{ __('home.title') }}</x-slot>
 
     @php
         $hero = \App\Models\SiteSection::where('section_name', 'hero')->get()->keyBy('key');
@@ -15,14 +15,15 @@
     <!-- Hero Slider Section -->
     <section class="relative h-[100svh] w-full overflow-hidden" id="hero-slider" data-duration="6000">
         <!-- Slide 1: ROX ADAMAS -->
-        <div class="hero-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/adamas.svg') }}" data-subtitle="{{ __('home.hero.adamas_subtitle') }}" data-link="{{ route('rox-adamas') }}">
-            <video class="h-full w-full object-cover" muted loop playsinline poster="{{ asset('assets/banner-adamas.avif') }}">
+        @php $adamasPoster = cms_image('home.hero.adamas', asset('assets/banner-adamas.avif')); @endphp
+        <div class="hero-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/adamas.svg') }}" data-subtitle="{{ __('home.hero.adamas_subtitle') }}" data-cta="{{ __('home.hero.adamas_cta') }}" data-link="{{ route('rox-adamas') }}">
+            <video class="h-full w-full object-cover" muted loop playsinline poster="{{ $adamasPoster }}">
                 <source src="{{ asset('Dealer Feed Video ADAMAS - Subtitle free version.mp4') }}" type="video/mp4">
-                <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="h-full w-full object-cover">
+                <img src="{{ $adamasPoster }}" alt="ROX ADAMAS" class="h-full w-full object-cover">
             </video>
         </div>
         <!-- Slide 2: ROX 01 -->
-        <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="{{ __('home.hero.rox01_subtitle') }}" data-link="{{ route('rox01') }}">
+        <div class="hero-slide absolute inset-0 z-10 opacity-0 transition-opacity duration-[1400ms] ease-in-out" data-hero-slide data-logo="{{ asset('assets/rox01-global.svg') }}" data-subtitle="{{ __('home.hero.rox01_subtitle') }}" data-cta="{{ __('home.hero.rox01_cta') }}" data-link="{{ route('rox01') }}">
             <img src="{{ cms_image('home.hero.rox01', asset('assets/banner2.jpg')) }}" alt="ROX 01" class="h-full w-full object-cover">
         </div>
 
@@ -34,7 +35,7 @@
             <div class="site-container">
                 <img id="hero-logo" src="{{ asset('assets/adamas.svg') }}" alt="ROX Model" class="h-8 sm:h-10 md:h-12 mb-4 md:mb-5 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">
                 <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg font-light text-gray-200 tracking-wide mb-6 md:mb-8 transition-all duration-700 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">{{ __('home.hero.adamas_subtitle') }}</p>
-                <a id="hero-link" href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.7s forwards;">{{ __('home.more') }}</a>
+                <a id="hero-link" href="{{ route('rox-adamas') }}" class="inline-block px-8 py-3 text-xs md:text-sm font-medium tracking-widest uppercase border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.7s forwards;">{{ __('home.hero.adamas_cta') }}</a>
             </div>
         </div>
 
@@ -53,7 +54,7 @@
     <section class="bg-black text-white py-20 md:py-32 overflow-hidden">
         <!-- Title -->
         <div class="content-container mb-14 md:mb-20 animate-up">
-            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">OCTA Angola</h3>
+            <h3 class="text-sm md:text-base font-semibold tracking-wide mb-6">{{ __('home.octa.brand') }}</h3>
             <h4 class="text-sm md:text-base font-semibold tracking-wide mb-4">{{ __('home.octa.subtitle') }}</h4>
             <p class="text-xl md:text-[2.5rem] font-light leading-relaxed md:leading-[1.4] max-w-5xl">{{ __('home.octa.text') }}</p>
         </div>
@@ -72,7 +73,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div class="text-white">
-                            <h3 class="text-lg md:text-xl font-medium mb-1">ROX ADAMAS</h3>
+                            <h3 class="text-lg md:text-xl font-medium mb-1">{{ __('home.explore.adamas_name') }}</h3>
                             <p class="font-light text-xs md:text-sm text-gray-300">{{ __('home.explore.adamas_desc') }}</p>
                         </div>
                         <a href="{{ route('rox-adamas') }}" class="flex-shrink-0 border border-white/50 text-white text-xs font-medium tracking-widest uppercase px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 text-center">{{ __('home.explore.adamas_cta') }}</a>
@@ -85,7 +86,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-5 md:bottom-6 left-5 md:left-6 right-5 md:right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div class="text-white">
-                            <h3 class="text-lg md:text-xl font-medium mb-1">ROX 01</h3>
+                            <h3 class="text-lg md:text-xl font-medium mb-1">{{ __('home.explore.rox01_name') }}</h3>
                             <p class="font-light text-xs md:text-sm text-gray-300">{{ __('home.explore.rox01_desc') }}</p>
                         </div>
                         <a href="{{ route('rox01') }}" class="flex-shrink-0 border border-white/50 text-white text-xs font-medium tracking-widest uppercase px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 text-center">{{ __('home.explore.rox01_cta') }}</a>
@@ -116,32 +117,32 @@
             @php
                 $showcaseSpecSlides = [
                     [
-                        'img'    => 'sellingpoint.avif',
+                        'img'    => cms_image('home.specs.slide1.img', asset('assets/sellingpoint.avif')),
                         'title'  => __('home.specs.reev_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.reev_text') . '</p>',
                     ],
                     [
-                        'img'    => 'banner1_en.jfif',
+                        'img'    => cms_image('home.specs.slide2.img', asset('assets/banner1_en.jfif')),
                         'title'  => __('home.specs.range_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.range_text') . '</p>',
                     ],
                     [
-                        'img'    => 'rox01_global.jfif',
+                        'img'    => cms_image('home.specs.slide3.img', asset('assets/rox01_global.jfif')),
                         'title'  => __('home.specs.terrain_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.terrain_text') . '</p>',
                     ],
                     [
-                        'img'    => 'Amber Orange.jpg',
+                        'img'    => cms_image('home.specs.slide4.img', asset('assets/rox_1/interior/6-seater/Amber Orange.jpg')),
                         'title'  => __('home.specs.luxury_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.luxury_text') . '</p>',
                     ],
                     [
-                        'img'    => 'banner3_global.jfif',
+                        'img'    => cms_image('home.specs.slide5.img', asset('assets/banner3_global.jfif')),
                         'title'  => __('home.specs.safety_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.safety_text') . '</p>',
                     ],
                     [
-                        'img'    => 'banner6_global.jfif',
+                        'img'    => cms_image('home.specs.slide6.img', asset('assets/banner6_global.jfif')),
                         'title'  => __('home.specs.connect_title'),
                         'bottom' => '<p class="text-lg md:text-xl font-light">' . __('home.specs.connect_text') . '</p>',
                     ],
@@ -152,7 +153,7 @@
             <div class="flex gap-4" id="specs-track">
                 @foreach($allShowcaseSpecSlides as $spec)
                 <div class="specs-card relative flex-shrink-0 h-[500px] md:h-[680px] overflow-hidden">
-                    <img src="{{ asset('assets/' . $spec['img']) }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
+                    <img src="{{ $spec['img'] }}" alt="{{ $spec['title'] }}" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                     <div class="absolute top-6 md:top-8 left-0 right-0 text-center px-6">
@@ -193,9 +194,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Descarregar Catálogo PDF -->
-                <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" download="Catalogo_ROX_PT_baixa.pdf" class="animate-up block group">
+                @php $catalogoPdf = cms_catalog_pdf(); @endphp
+                <a href="{{ $catalogoPdf }}" onclick="openPdfModal('{{ $catalogoPdf }}', '{{ __('home.catalog.download_title') }}'); return false;" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
-                        <img src="{{ asset('assets/adamasslider1.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
+                        <img src="{{ cms_image('home.catalog.download_img', asset('assets/adamasslider1.avif')) }}" alt="{{ __('home.catalog.download_title') }}" class="w-full h-full object-cover">
                     </div>
                     <div class="bg-[#1a1a1a] text-white px-5 sm:px-6 md:px-8 h-[120px] sm:h-[130px] md:h-[140px] flex items-start pt-4 sm:pt-5 md:pt-6 justify-between gap-4">
                         <div>
@@ -207,9 +209,9 @@
                 </a>
 
                 <!-- Visualizar Catálogo -->
-                <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" target="_blank" rel="noopener noreferrer" class="animate-up block group">
+                <a href="{{ $catalogoPdf }}" onclick="openPdfModal('{{ $catalogoPdf }}', '{{ __('home.catalog.view_title') }}'); return false;" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
-                        <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-full object-cover">
+                        <img src="{{ cms_image('home.catalog.view_img', asset('assets/banner2.jpg')) }}" alt="{{ __('home.catalog.view_title') }}" class="w-full h-full object-cover">
                     </div>
                     <div class="bg-[#1a1a1a] text-white px-5 sm:px-6 md:px-8 h-[120px] sm:h-[130px] md:h-[140px] flex items-start pt-4 sm:pt-5 md:pt-6 justify-between gap-4">
                         <div>
@@ -220,6 +222,7 @@
                     </div>
                 </a>
             </div>
+
         </div>
     </section>
 
@@ -241,8 +244,22 @@
                     <div class="h-[200px] sm:h-[260px] md:h-[340px] overflow-hidden mb-4 sm:mb-6">
                         <img src="{{ img_src($item->image) }}" alt="{{ $item->tr('title') }}" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-sm sm:text-base md:text-lg font-normal leading-snug mb-4 sm:mb-6 pr-4">{{ $item->tr('title') }}</h3>
-                    <button type="button" class="destaques-open inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300" data-title="{{ $item->tr('title') }}" data-image="{{ img_src($item->image) }}">{{ __('home.more') }}</button>
+                    <h3 class="text-sm sm:text-base md:text-lg font-normal leading-snug mb-2 sm:mb-3 pr-4">{{ $item->tr('title') }}</h3>
+                    @if($item->tr('excerpt'))
+                        <p class="text-xs sm:text-sm font-light text-gray-500 leading-relaxed mb-4 sm:mb-6 pr-4">{{ $item->tr('excerpt') }}</p>
+                    @else
+                        <div class="mb-4 sm:mb-6"></div>
+                    @endif
+                    <button type="button"
+                        class="destaques-open inline-block px-5 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium tracking-widest uppercase border border-black/80 text-black hover:bg-black hover:text-white transition-all duration-300"
+                        data-title="{{ $item->tr('title') }}"
+                        data-image="{{ img_src($item->image) }}"
+                        data-modal-image="{{ $item->modal_image ? img_src($item->modal_image) : img_src($item->image) }}"
+                        data-excerpt="{{ $item->tr('excerpt') }}"
+                        data-body="{{ $item->tr('body') }}"
+                        data-date="{{ $item->published_at ? $item->published_at->format('d/m/Y') : '' }}"
+                        data-link="{{ $item->link ?? '' }}"
+                    >{{ __('home.more') }}</button>
                 </div>
                 @endforeach
             </div>
@@ -276,11 +293,9 @@
         </header>
         <article class="max-w-[1200px] mx-auto px-6 md:px-0 py-12 md:py-16 pb-24 md:pb-32">
             <h2 id="destaques-modal-title" class="text-3xl md:text-[2.15rem] font-light tracking-wide leading-snug max-w-5xl"></h2>
-            <p class="mt-5 text-sm tracking-[0.08em]" id="destaques-modal-date"></p>
-            <div class="mt-12 md:mt-14 space-y-8 max-w-5xl text-base md:text-lg tracking-[0.06em] font-light leading-relaxed text-[#262626]">
-                <p>{{ __('home.news.modal_intro') }}</p>
-                <p>{{ __('home.news.modal_body') }}</p>
-            </div>
+            <p class="mt-5 text-sm tracking-[0.08em] text-gray-400" id="destaques-modal-date"></p>
+            <p class="mt-4 text-base md:text-lg font-light text-gray-500 leading-relaxed max-w-4xl" id="destaques-modal-excerpt"></p>
+            <div id="destaques-modal-body" class="mt-10 md:mt-12 space-y-6 max-w-5xl text-base md:text-lg tracking-[0.06em] font-light leading-relaxed text-[#262626]"></div>
             <img id="destaques-modal-image" src="" alt="" class="mt-12 md:mt-16 w-full h-auto max-h-[680px] object-cover">
             <div class="mt-20 md:mt-28 flex items-center gap-8 text-sm tracking-[0.08em]">
                 <button type="button" id="destaques-modal-share" class="inline-flex items-center gap-2 hover:opacity-60 transition-opacity">
@@ -374,12 +389,17 @@
             var title = document.getElementById('destaques-modal-title');
             var image = document.getElementById('destaques-modal-image');
             var date = document.getElementById('destaques-modal-date');
+            var excerptEl = document.getElementById('destaques-modal-excerpt');
+            var bodyEl = document.getElementById('destaques-modal-body');
             var share = document.getElementById('destaques-modal-share');
             var copy = document.getElementById('destaques-modal-copy');
             var copyLabel = document.getElementById('destaques-modal-copy-label');
             var lastTrigger = null;
             var activeTitle = '';
             if (!modal || !close || !title || !image || !date) return;
+
+            var fallbackIntro = '{{ __('home.news.modal_intro') }}';
+            var fallbackBody  = '{{ __('home.news.modal_body') }}';
 
             function closeModal() {
                 modal.classList.remove('is-open');
@@ -395,11 +415,48 @@
             document.querySelectorAll('.destaques-open').forEach(function (button) {
                 button.addEventListener('click', function () {
                     lastTrigger = button;
-                    activeTitle = button.dataset.title;
-                    title.textContent = button.dataset.title;
-                    image.src = button.dataset.image;
-                    image.alt = button.dataset.title;
-                    date.textContent = new Intl.DateTimeFormat(document.documentElement.lang || 'pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+                    activeTitle = button.dataset.title || '';
+                    title.textContent = activeTitle;
+
+                    // Use modal-specific image, fall back to card image
+                    var modalImg = button.dataset.modalImage || button.dataset.image || '';
+                    if (modalImg) {
+                        image.src = modalImg;
+                        image.alt = activeTitle;
+                        image.style.display = '';
+                    } else {
+                        image.style.display = 'none';
+                    }
+
+                    // Date: use published_at from DB, or today
+                    var rawDate = button.dataset.date || '';
+                    date.textContent = rawDate || new Intl.DateTimeFormat(document.documentElement.lang || 'pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+
+                    // Excerpt
+                    if (excerptEl) excerptEl.textContent = button.dataset.excerpt || '';
+
+                    // Body: render paragraphs split by newline, or fallback
+                    if (bodyEl) {
+                        bodyEl.innerHTML = '';
+                        var bodyText = button.dataset.body || '';
+                        if (bodyText.trim()) {
+                            bodyText.split(/\n+/).forEach(function (para) {
+                                if (para.trim()) {
+                                    var p = document.createElement('p');
+                                    p.textContent = para.trim();
+                                    bodyEl.appendChild(p);
+                                }
+                            });
+                        } else {
+                            // fallback to generic modal text
+                            [fallbackIntro, fallbackBody].forEach(function (txt) {
+                                var p = document.createElement('p');
+                                p.textContent = txt;
+                                bodyEl.appendChild(p);
+                            });
+                        }
+                    }
+
                     modal.classList.remove('hidden', 'is-closing');
                     document.body.classList.add('overflow-hidden');
                     modal.scrollTop = 0;
@@ -572,6 +629,7 @@
                     logoEl.src = slide.dataset.logo;
                     subtitleEl.textContent = slide.dataset.subtitle;
                     linkEl.href = slide.dataset.link;
+                    if (slide.dataset.cta) { linkEl.textContent = slide.dataset.cta; }
                     els.forEach(function(el) { el.style.opacity = '1'; });
                 }, 200);
             }

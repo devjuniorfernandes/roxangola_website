@@ -2,7 +2,7 @@
     <x-slot name="title">{{ __('catalogo.title') }}</x-slot>
 
     <!-- Hero Slider -->
-    <section class="relative h-[100svh] w-full overflow-hidden" id="catalogo-hero-slider" data-duration="6000">
+    <section class="relative h-[900px] w-full overflow-hidden" id="catalogo-hero-slider" data-duration="6000">
         <!-- Slide 1 -->
         <div class="catalogo-slide absolute inset-0 z-20 opacity-100 transition-opacity duration-[1400ms] ease-in-out" data-catalogo-slide data-title="{{ __('catalogo.hero.title') }}" data-subtitle="{{ __('catalogo.hero.sub1') }}">
             <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="h-full w-full object-cover">
@@ -48,7 +48,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Descarregar Catálogo PDF -->
-                <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" download="Catalogo_ROX_PT_baixa.pdf" class="animate-up block group">
+                @php $catalogoPdf = cms_catalog_pdf(); @endphp
+                <a href="{{ $catalogoPdf }}" onclick="openPdfModal('{{ $catalogoPdf }}', '{{ __('catalogo.cards.download_title') }}'); return false;" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
                         <img src="{{ asset('assets/banner-adamas.avif') }}" alt="ROX ADAMAS" class="w-full h-full object-cover">
                     </div>
@@ -62,7 +63,7 @@
                 </a>
 
                 <!-- Visualizar Catálogo -->
-                <a href="{{ asset('assets/Catalogo_ROX_PT_baixa.pdf') }}" target="_blank" rel="noopener noreferrer" class="animate-up block group">
+                <a href="{{ $catalogoPdf }}" onclick="openPdfModal('{{ $catalogoPdf }}', '{{ __('catalogo.cards.view_title') }}'); return false;" class="animate-up block group">
                     <div class="h-[220px] sm:h-[280px] md:h-[420px] overflow-hidden">
                         <img src="{{ asset('assets/banner2.jpg') }}" alt="ROX 01" class="w-full h-full object-cover">
                     </div>
@@ -77,6 +78,7 @@
             </div>
         </div>
     </section>
+
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {

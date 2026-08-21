@@ -1,13 +1,13 @@
 <x-front-layout>
-    <x-slot name="title">Serviços Disponíveis</x-slot>
+    <x-slot name="title">{{ __('servicos.page_title') }}</x-slot>
 
     <!-- Banner Hero -->
     <section class="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-center justify-center">
-        <img src="{{ asset('assets/servicos.avif') }}" alt="Serviços Disponíveis" class="absolute inset-0 w-full h-full object-cover object-bottom">
+        <img src="{{ cms_image('servicos.hero.bg', asset('assets/servicos.avif')) }}" alt="{{ __('servicos.hero.title') }}" class="absolute inset-0 w-full h-full object-cover object-bottom">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative z-10 text-center text-white px-6">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium mb-4 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">Serviços Disponíveis</h1>
-            <p class="text-base md:text-lg font-light text-gray-200 max-w-2xl mx-auto opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">Serviço premium para guiar as suas aventuras</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium mb-4 opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.3s forwards;">{{ __('servicos.hero.title') }}</h1>
+            <p class="text-base md:text-lg font-light text-gray-200 max-w-2xl mx-auto opacity-0 translate-y-8" style="animation: heroSlideUp 0.8s ease-out 0.5s forwards;">{{ __('servicos.hero.subtitle') }}</p>
         </div>
     </section>
 
@@ -15,8 +15,8 @@
     <section class="relative bg-black py-16 md:py-24">
         <div class="content-container">
             <div class="mb-10 md:mb-14 animate-up">
-                <p class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white/60 mb-4">Serviço & Apoio Técnico</p>
-                <h2 class="text-3xl md:text-4xl font-light text-white max-w-2xl leading-snug">Serviços Disponíveis</h2>
+                <p class="text-xs md:text-sm font-semibold tracking-[3px] uppercase text-white/60 mb-4">{{ __('servicos.section.eyebrow') }}</p>
+                <h2 class="text-3xl md:text-4xl font-light text-white max-w-2xl leading-snug">{{ __('servicos.section.title') }}</h2>
             </div>
 
             @php

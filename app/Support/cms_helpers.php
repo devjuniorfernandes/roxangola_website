@@ -107,3 +107,37 @@ if (! function_exists('translate_auto')) {
         return app(\App\Services\Translation\TranslationService::class)->translate($text, $target, $source);
     }
 }
+
+if (! function_exists('cms_file')) {
+    /**
+     * Devolve o URL de um ficheiro CMS (PDF, etc.) para a chave e idioma dados.
+     * Se não existir override para o idioma específico, cai para '*' ou o default.
+     * $default deve ser um URL já resolvido (ex.: asset('assets/file.pdf')).
+     */
+    function cms_file(string $key, string $default, string $locale = '*'): string
+    {
+        $path = ContentOverride::fileFor($key, $locale);
+
+        return $path ? asset($path) : $default;
+    }
+}
+
+if (! function_exists('cms_catalog_pdf')) {
+    /**
+     * Devolve o URL do catálogo PDF de acordo com o idioma ativo.
+     * - Se o utilizador estiver em 'pt', devolve o PDF em Português.
+     * - Se estiver em 'en', devolve o PDF em Inglês.
+     * - Em ambos os casos, se não existir override no CMS, usa o PDF por omissão (PT).
+     */
+    function cms_catalog_pdf(?string $locale = null): string
+    {
+        $locale = $locale ?? app()->getLocale();
+        $default = asset('assets/Catalogo_ROX_PT_baixa.pdf');
+
+        // Tenta o locale específico, depois '*', depois default
+        $path = ContentOverride::fileFor('catalog.pdf.' . $locale, $locale)
+             ?? ContentOverride::fileFor('catalog.pdf.' . $locale, '*');
+
+        return $path ? asset($path) : $default;
+    }
+}
