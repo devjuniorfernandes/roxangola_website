@@ -11,7 +11,7 @@ class SubmissionController extends Controller
     public static function types(): array
     {
         return [
-            'contactos'    => ['model' => Contact::class,          'label' => 'Contactos',                 'cols' => ['name' => 'Nome', 'email' => 'Email', 'phone' => 'Telefone', 'model_interest' => 'Modelo']],
+            'contactos'    => ['model' => Contact::class,          'label' => 'Contactos',                 'cols' => ['name' => 'Nome', 'email' => 'Email', 'phone' => 'Telefone', 'model_interest' => 'Modelo', 'intention' => 'Intenção']],
             'leads'        => ['model' => Lead::class,             'label' => 'Leads (Test Drive)',        'cols' => ['name' => 'Nome', 'phone' => 'Telefone', 'source' => 'Origem']],
             'visitas'      => ['model' => ShowroomVisit::class,    'label' => 'Visitas ao Showroom',        'cols' => ['name' => 'Nome', 'phone' => 'Telefone', 'preferred_date' => 'Data', 'model_interest' => 'Modelo']],
             'marcacoes'    => ['model' => ServiceBooking::class,   'label' => 'Marcações de Serviço',       'cols' => ['name' => 'Nome', 'model' => 'Modelo', 'service_type' => 'Serviço', 'preferred_date' => 'Data']],

@@ -13,7 +13,7 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
             'model_interest' => 'required|string|in:ROX 01,ROX ADAMAS,Ambos',
-            'intention' => 'required|string|in:Test Drive,Proposta Comercial,Informação Geral',
+            'intention' => 'required|string|in:Quero ser contactado,Proposta comercial,Informação geral',
             'message' => 'required|string',
         ]);
 
