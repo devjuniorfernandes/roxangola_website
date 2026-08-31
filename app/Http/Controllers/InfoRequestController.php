@@ -17,6 +17,6 @@ class InfoRequestController extends Controller
 
         InfoRequest::create($validated);
 
-        return back()->with('success', 'Pedido enviado com sucesso! Entraremos em contacto com mais informações em breve.');
+        return back()->with('success', __('common.forms.success.info'));
     }
 }

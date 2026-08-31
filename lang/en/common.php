@@ -54,6 +54,13 @@ return [
         'phone' => 'Phone',
         'location' => 'Location',
         'message' => 'Message',
+        'success' => [
+            'contact' => 'Message sent successfully! We will be in touch shortly.',
+            'dealer' => 'Application sent successfully! Our team will be in touch shortly.',
+            'info' => 'Request sent successfully! We will get in touch with more information shortly.',
+            'service' => 'Booking sent successfully! Our team will contact you to confirm your service.',
+            'showroom' => 'Booking sent successfully! Our team will contact you to confirm your visit.',
+        ],
     ],
 
     'lead_popup' => [

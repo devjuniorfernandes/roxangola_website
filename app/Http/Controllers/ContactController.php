@@ -19,7 +19,7 @@ class ContactController extends Controller
 
         \App\Models\Contact::create($validated);
 
-        return back()->with('success', 'Mensagem enviada com sucesso! Entraremos em contacto em breve.');
+        return back()->with('success', __('common.forms.success.contact'));
     }
 
     public function index()

@@ -21,6 +21,6 @@ class ShowroomVisitController extends Controller
 
         ShowroomVisit::create($validated);
 
-        return back()->with('success', 'Agendamento enviado com sucesso! A nossa equipa entrará em contacto para confirmar a sua visita.');
+        return back()->with('success', __('common.forms.success.showroom'));
     }
 }

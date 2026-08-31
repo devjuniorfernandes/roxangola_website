@@ -23,6 +23,6 @@ class ServiceBookingController extends Controller
 
         ServiceBooking::create($validated);
 
-        return back()->with('success', 'Agendamento enviado com sucesso! A nossa equipa entrará em contacto para confirmar o seu serviço.');
+        return back()->with('success', __('common.forms.success.service'));
     }
 }

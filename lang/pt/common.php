@@ -54,6 +54,13 @@ return [
         'phone' => 'Telefone',
         'location' => 'Localização',
         'message' => 'Mensagem',
+        'success' => [
+            'contact' => 'Mensagem enviada com sucesso! Entraremos em contacto em breve.',
+            'dealer' => 'Candidatura enviada com sucesso! A nossa equipa entrará em contacto em breve.',
+            'info' => 'Pedido enviado com sucesso! Entraremos em contacto com mais informações em breve.',
+            'service' => 'Agendamento enviado com sucesso! A nossa equipa entrará em contacto para confirmar o seu serviço.',
+            'showroom' => 'Agendamento enviado com sucesso! A nossa equipa entrará em contacto para confirmar a sua visita.',
+        ],
     ],
 
     'lead_popup' => [

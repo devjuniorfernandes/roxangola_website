@@ -20,6 +20,6 @@ class DealerApplicationController extends Controller
 
         DealerApplication::create($validated);
 
-        return back()->with('success', 'Candidatura enviada com sucesso! A nossa equipa entrará em contacto em breve.');
+        return back()->with('success', __('common.forms.success.dealer'));
     }
 }
