@@ -91,7 +91,7 @@
     <section class="relative h-screen w-full overflow-hidden flex items-end">
         <img src="{{ asset('assets/life-style.jpg') }}" alt="{{ __('marca.lifestyle.title') }}" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20"></div>
-        <div class="relative z-10 site-container text-white pb-16 md:pb-24">
+        <div class="relative z-10 w-full site-container text-white text-left pb-16 md:pb-24">
             <h2 class="text-4xl sm:text-6xl font-light uppercase tracking-wide leading-tight max-w-2xl mb-6 animate-up">{{ __('marca.lifestyle.title') }}</h2>
             <div class="max-w-xl space-y-4 text-sm sm:text-base font-light leading-relaxed text-white/85 animate-up">
                 <p>{{ __('marca.lifestyle.p1') }}</p>
