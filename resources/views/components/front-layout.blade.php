@@ -631,9 +631,12 @@
                 triggered = true;
                 showPopup();
             }
-            // Desktop: o rato sai pelo topo da janela (em direção à barra/fechar do navegador).
+            // Desktop: o ponteiro sai pela margem superior da janela (barra/fechar do navegador).
+            document.documentElement.addEventListener('mouseleave', function(event) {
+                if (event.clientY <= 0) triggerExitIntent();
+            });
             document.addEventListener('mouseout', function(event) {
-                if (event.clientY <= 0 && !event.relatedTarget) {
+                if (event.clientY <= 0 && !event.relatedTarget && !event.toElement) {
                     triggerExitIntent();
                 }
             });
