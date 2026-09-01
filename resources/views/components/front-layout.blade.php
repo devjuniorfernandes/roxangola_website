@@ -599,13 +599,6 @@
             var success = document.getElementById('lead-popup-success');
             var error = document.getElementById('lead-popup-error');
             var dismissedKey = 'rox-lead-popup-dismissed';
-            var firstVisitKey = 'rox-lead-popup-first-visit';
-            var firstVisit = Number(sessionStorage.getItem(firstVisitKey));
-
-            if (!firstVisit) {
-                firstVisit = Date.now();
-                sessionStorage.setItem(firstVisitKey, String(firstVisit));
-            }
 
             function hidePopup() {
                 sessionStorage.setItem(dismissedKey, 'true');
@@ -630,7 +623,25 @@
                 });
             }
 
-            window.setTimeout(showPopup, Math.max(0, 10000 - (Date.now() - firstVisit)));
+            // Abre o modal APENAS quando o utilizador tenta sair da página (exit-intent),
+            // e nunca ao carregar a página.
+            var triggered = false;
+            function triggerExitIntent() {
+                if (triggered || sessionStorage.getItem(dismissedKey) === 'true') return;
+                triggered = true;
+                showPopup();
+            }
+            // Desktop: o rato sai pelo topo da janela (em direção à barra/fechar do navegador).
+            document.addEventListener('mouseout', function(event) {
+                if (event.clientY <= 0 && !event.relatedTarget) {
+                    triggerExitIntent();
+                }
+            });
+            // Mobile/tablet (sem rato): o separador fica oculto — troca de app/aba ou botão voltar.
+            document.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'hidden') triggerExitIntent();
+            });
+
             closeButton.addEventListener('click', hidePopup);
             popup.addEventListener('click', function(event) { if (event.target === popup) hidePopup(); });
             document.addEventListener('keydown', function(event) { if (event.key === 'Escape' && !popup.classList.contains('hidden')) hidePopup(); });
