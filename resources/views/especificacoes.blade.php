@@ -4,8 +4,8 @@
     @php
         $isEnglish = app()->getLocale() === 'en';
         $models = [
-            'rox-01' => ['name' => 'ROX 01', 'dimensoes' => '5.295 × 1.980 × 1.869 mm', 'peso' => '2.735 kg', 'potencia' => '350 kW / 740 N·m', 'autonomia_hibrida' => '1.115 km', 'carregamento_ac' => '8.6 h (0-100%)', 'seat_7' => __('especificacoes.models.rox-01.seat_7'), 'seat_7_layout' => '(2-2-3)', 'seat_6' => __('especificacoes.models.rox-01.seat_6'), 'seat_6_layout' => '(2-2-2)'],
-            'rox-adamas' => ['name' => 'ROX ADAMAS', 'dimensoes' => '5.298 × 1.985 × 1.856 mm', 'peso' => '2.745 kg', 'potencia' => '350 kW / 740 N·m', 'autonomia_hibrida' => '1.226 km', 'carregamento_ac' => '8.8 h (0-100%)', 'seat_7' => __('especificacoes.models.rox-adamas.seat_7'), 'seat_7_layout' => '(2-3-2)', 'seat_6' => __('especificacoes.models.rox-adamas.seat_6'), 'seat_6_layout' => '(2-2-2)'],
+            'rox-01' => ['name' => 'ROX 01', 'dimensoes' => '5.295 × 1.980 × 1.869 mm', 'peso' => '2.735 kg', 'potencia' => '460 CV / 740 Nm de Torque', 'autonomia_hibrida' => '1.115 km', 'carregamento_ac' => '8.6 h (0-100%)', 'seat_7' => __('especificacoes.models.rox-01.seat_7'), 'seat_7_layout' => '(2-2-3)', 'seat_6' => __('especificacoes.models.rox-01.seat_6'), 'seat_6_layout' => '(2-2-2)'],
+            'rox-adamas' => ['name' => 'ROX ADAMAS', 'dimensoes' => '5.298 × 1.985 × 1.856 mm', 'peso' => '2.745 kg', 'potencia' => '460 CV / 740 Nm de Torque', 'autonomia_hibrida' => '1.226 km', 'carregamento_ac' => '8.8 h (0-100%)', 'seat_7' => __('especificacoes.models.rox-adamas.seat_7'), 'seat_7_layout' => '(2-3-2)', 'seat_6' => __('especificacoes.models.rox-adamas.seat_6'), 'seat_6_layout' => '(2-2-2)'],
         ];
         $initialModel = $modeloActivo ?? 'rox-01';
 
@@ -133,8 +133,8 @@
                 ['label' => __('especificacoes.labels.battery_capacity'), '7' => '56,01 kWh', '6' => '56,01 kWh', 'model' => 'rox-01'],
                 ['label' => __('especificacoes.labels.battery_type'), '7' => __('especificacoes.labels.battery_type'), '6' => __('especificacoes.labels.battery_type'), 'model' => 'rox-01'],
                 ['label' => __('especificacoes.labels.traction_4wd'), '7' => __('especificacoes.labels.traction_4wd'), '6' => __('especificacoes.labels.traction_4wd'), 'model' => 'rox-adamas'],
-                ['label' => __('especificacoes.labels.max_power'), '7' => '350 kW', '6' => '350 kW', 'model' => 'rox-adamas'],
-                ['label' => __('especificacoes.labels.max_torque'), '7' => '740 N·m', '6' => '740 N·m', 'model' => 'rox-adamas'],
+                ['label' => __('especificacoes.labels.max_power'), '7' => '460 CV', '6' => '460 CV', 'model' => 'rox-adamas'],
+                ['label' => __('especificacoes.labels.max_torque'), '7' => '740 Nm', '6' => '740 Nm', 'model' => 'rox-adamas'],
                 ['label' => __('especificacoes.labels.battery_capacity'), '7' => '56,01 kWh', '6' => '56,01 kWh', 'model' => 'rox-adamas'],
                 ['label' => __('especificacoes.labels.battery_type'), '7' => 'Lítio ternária CATL', '6' => 'Lítio ternária CATL', 'model' => 'rox-adamas'],
                 ['label' => __('especificacoes.labels.wltc_hybrid'), '7' => '1.226 km', '6' => '1.226 km', 'model' => 'rox-adamas'],
