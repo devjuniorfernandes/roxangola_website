@@ -1005,7 +1005,7 @@
                         </div>
                         <div>
                             <p class="text-xs text-gray-400 font-light mb-1">{{ __('rox-adamas.specs.power') }}</p>
-                            <p class="text-lg font-semibold text-black">350 kW / 740 N·m</p>
+                            <p class="text-lg font-semibold text-black">460 CV / 740 Nm de Torque</p>
                         </div>
                         <div>
                             <p class="text-xs text-gray-400 font-light mb-1">{{ __('rox-adamas.specs.wading') }}</p>

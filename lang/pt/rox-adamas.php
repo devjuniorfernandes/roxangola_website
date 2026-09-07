@@ -273,8 +273,8 @@ return [
     'specs' => [
         'range'     => 'Autonomia Total',
         'power'     => 'Potência Total',
-        'wading'    => 'Capacidade de Vadeamento',
-        'clearance' => 'Ground Clearance',
+        'wading'    => 'Capacidade de Travessia',
+        'clearance' => 'Distância ao Solo',
     ],
 
 ];
